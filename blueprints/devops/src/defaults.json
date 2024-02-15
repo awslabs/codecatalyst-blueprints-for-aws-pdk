@@ -1,0 +1,11 @@
+{
+  "beta": {
+    "region": "ap-southeast-2",
+    "stackName": "infra-beta-",
+    "bootstrapCDK": true,
+    "environment": {
+        "name": "Beta",
+        "environmentType": "DEVELOPMENT"
+    }
+  }
+}

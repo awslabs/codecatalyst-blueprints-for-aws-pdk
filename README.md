@@ -1,17 +1,16 @@
-## My Project
+# PDKBlueprints
 
-TODO: Fill this README out!
+# Usage Guide
 
-Be sure to:
+## Prerequisites
 
-* Change the title in this README
-* Edit your repository description on GitHub
+1. Request access to [apj-cope](https://permissions.amazon.com/group.mhtml?group=apj-cope&group_type=posix) posix group if you haven't already.
+1. [Install NVM](https://github.com/nvm-sh/nvm#installing-and-updating) if you haven't already
 
-## Security
+## Installation
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+1. Run `pnpm i`
 
-## License
+## Build
 
-This project is licensed under the Apache-2.0 License.
-
+1. Run `pdk build`

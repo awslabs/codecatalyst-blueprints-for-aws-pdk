@@ -1,0 +1,6 @@
+{
+  "primaryLanguage": "Typescript",
+  "modelLanguage": "Smithy",
+  "namespace": "com.aws",
+  "apiName": "DefaultApi"
+}

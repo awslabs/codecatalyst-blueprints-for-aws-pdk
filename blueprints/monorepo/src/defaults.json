@@ -1,0 +1,7 @@
+{
+  "primaryLanguage": "Typescript",
+  "code": {
+    "packageManager": "PNPM",
+    "sourceRepositoryName": "monorepo"
+  }
+}
