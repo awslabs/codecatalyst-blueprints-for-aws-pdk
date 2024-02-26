@@ -22,7 +22,7 @@ export function getPrerequisiteSteps(): string[] {
   return [
     "npm install -g bun pnpm aws-cdk @aws/pdk projen",
     "sudo yum -y groupinstall 'Development Tools'",
-    "sudo yum install graphviz",
+    "sudo yum -y install graphviz",
   ];
 }
 
