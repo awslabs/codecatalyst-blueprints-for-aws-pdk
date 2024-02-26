@@ -30,7 +30,6 @@ jspm_packages/
 .yarn-integrity
 .cache
 .tmp
-!/.projenrc.js
 !/.prettierignore
 !/.prettierrc.json
 !/.npmrc
@@ -46,3 +45,4 @@ jspm_packages/
 !/.nxignore
 !/.syncpackrc.json
 !/pnpm-workspace.yaml
+!/.projenrc.ts

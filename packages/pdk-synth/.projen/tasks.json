@@ -39,7 +39,8 @@
       "description": "Runs eslint against the codebase",
       "steps": [
         {
-          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test build-tools"
+          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ src test build-tools",
+          "receiveArgs": true
         }
       ]
     },
@@ -69,7 +70,7 @@
           "exec": "mkdir -p dist/js"
         },
         {
-          "exec": "mv $(npm pack) dist/js/"
+          "exec": "mv $(pnpm pack) dist/js/"
         }
       ]
     },
@@ -115,16 +116,13 @@
       },
       "steps": [
         {
-          "exec": "pnpm update npm-check-updates"
-        },
-        {
-          "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/glob,@types/jest,@types/mustache,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest,jest-junit,npm-check-updates,projen,ts-jest,typescript,@amazon-codecatalyst/blueprints,@aws/pdk,glob,mustache"
+          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/glob,@types/jest,@types/mustache,eslint-import-resolver-typescript,eslint-plugin-import,jest,ts-jest,typescript,@amazon-codecatalyst/blueprints,@aws/pdk,glob,mustache,projen"
         },
         {
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @types/glob @types/jest @types/mustache @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit npm-check-updates projen ts-jest typescript @amazon-codecatalyst/blueprints @aws/pdk glob mustache"
+          "exec": "pnpm update @types/glob @types/jest @types/mustache @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit projen ts-jest typescript @amazon-codecatalyst/blueprints @aws/pdk glob mustache"
         },
         {
           "exec": "npx projen"

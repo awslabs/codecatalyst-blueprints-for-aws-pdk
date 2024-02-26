@@ -42,17 +42,12 @@
       "type": "build"
     },
     {
-      "name": "npm-check-updates",
-      "version": "^16",
-      "type": "build"
-    },
-    {
       "name": "prettier",
       "type": "build"
     },
     {
       "name": "projen",
-      "version": "0.76.27",
+      "version": "^0.79.6",
       "type": "build"
     },
     {
@@ -70,7 +65,7 @@
     },
     {
       "name": "projen",
-      "version": "0.76.27",
+      "version": "^0.79.6",
       "type": "override"
     },
     {

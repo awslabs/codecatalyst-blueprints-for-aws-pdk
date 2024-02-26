@@ -55,7 +55,8 @@
       "description": "Runs eslint against the codebase",
       "steps": [
         {
-          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test build-tools"
+          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ src test build-tools",
+          "receiveArgs": true
         }
       ]
     },
@@ -118,16 +119,13 @@
       },
       "steps": [
         {
-          "exec": "pnpm update npm-check-updates"
-        },
-        {
-          "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,constructs,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,eslint,npm-check-updates,prettier,ts-node,typescript,@amazon-codecatalyst/blueprint-util.cli,@amazon-codecatalyst/blueprints,@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth,@aws/pdk,projen"
+          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,prettier,ts-node,typescript,@amazon-codecatalyst/blueprint-util.cli,@amazon-codecatalyst/blueprints,@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth,@aws/pdk,projen"
         },
         {
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint npm-check-updates prettier ts-node typescript @amazon-codecatalyst/blueprint-util.cli @amazon-codecatalyst/blueprints @amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth @aws/pdk projen"
+          "exec": "pnpm update @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint prettier projen ts-node typescript @amazon-codecatalyst/blueprint-util.cli @amazon-codecatalyst/blueprints @amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth @aws/pdk"
         },
         {
           "exec": "npx projen"
