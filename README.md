@@ -1,5 +1,7 @@
 # PDKBlueprints
 
+This repository contains PDK based CodeCatalyst Blueprints
+
 # Usage Guide
 
 ## Prerequisites
