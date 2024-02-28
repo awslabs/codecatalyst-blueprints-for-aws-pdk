@@ -77,6 +77,14 @@
       "type": "runtime"
     },
     {
+      "name": "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth",
+      "type": "runtime"
+    },
+    {
+      "name": "@aws/pdk",
+      "type": "runtime"
+    },
+    {
       "name": "projen",
       "type": "runtime"
     }

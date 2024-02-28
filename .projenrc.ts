@@ -12,7 +12,7 @@ const monorepo = new PDKBlueprintsProject();
 const pdkSynth = new PDKSynth(monorepo);
 
 // Blueprints
-new DevOpsBlueprint(monorepo);
+new DevOpsBlueprint(monorepo, pdkSynth);
 new MonorepoBlueprint(monorepo, pdkSynth);
 new InfraBlueprint(monorepo, pdkSynth);
 new TypeSafeApiBlueprint(monorepo, pdkSynth);

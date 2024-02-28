@@ -11,6 +11,7 @@ import {
   StaticAsset,
 } from "@amazon-codecatalyst/blueprints";
 
+import { PDKSynth } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
 import defaults from "./defaults.json";
 import { Workflow } from "./workflow";
 
@@ -120,5 +121,7 @@ export class Blueprint extends ParentBlueprint {
         },
       ],
     });
+
+    new PDKSynth(this, this.sourceRepository, "devops", this.options);
   }
 }

@@ -47,11 +47,13 @@
   "dependencies": {
     "@amazon-codecatalyst/blueprint-util.cli": "0.3.63",
     "@amazon-codecatalyst/blueprints": "0.3.63",
+    "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth": "^0.0.0",
+    "@aws/pdk": "^0.23.8",
     "projen": "0.80.2"
   },
   "main": "lib/index.js",
   "license": "MIT",
-  "version": "0.0.11",
+  "version": "0.0.13",
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
   "displayName": "PDK - DevOps",

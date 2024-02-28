@@ -34,6 +34,12 @@ import { projenrcMap } from './projen-template';
 const INFRA_OUTDIR = 'packages/infra/main';
 const YARN_VERSION = '4.1.0';
 
+const DEVOPS_PACKAGE = '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-devops';
+const MONOREPO_PACKAGE = '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo';
+const TYPESAFE_API_PACKAGE = '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api';
+const WEBSITE_PACKAGE = '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website';
+const INFRA_PACKAGE = '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra';
+
 interface MonorepoOptions {
   readonly primaryLanguage: 'Typescript' | 'Java' | 'Python';
   readonly code: {
@@ -141,16 +147,16 @@ export class PDKSynth extends Component {
     const blueprint = this.project as Blueprint;
 
     switch (blueprint.context.package.name) {
-      case '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo':
+      case MONOREPO_PACKAGE:
         monorepo = this.blueprintOptions;
         break;
-      case '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra':
+      case INFRA_PACKAGE:
         infra = this.blueprintOptions;
         break;
-      case '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api':
+      case TYPESAFE_API_PACKAGE:
         api = [this.blueprintOptions];
         break;
-      case '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website':
+      case WEBSITE_PACKAGE:
         website = [this.blueprintOptions];
         break;
       default:
@@ -158,10 +164,16 @@ export class PDKSynth extends Component {
     }
 
     const options = {
-      monorepo: monorepo ?? this.findBlueprintInstantiations('@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo').find(s => s)?.options,
-      infra: infra ?? this.findBlueprintInstantiations('@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra').find(s => s)?.options,
-      api: [...this.findBlueprintInstantiations('@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api').filter(bpi => bpi.id !== blueprint.context.project.blueprint.instantiationId).map(bpi => bpi.options), ...api].sort((a, b) => (a as ApiOptions).apiName.localeCompare((b as ApiOptions).apiName)),
-      website: [...this.findBlueprintInstantiations('@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website').filter(bpi => bpi.id !== blueprint.context.project.blueprint.instantiationId).map(bpi => bpi.options), ...website].sort((a, b) => (a as WebsiteOptions).websiteName.localeCompare((b as WebsiteOptions).websiteName)),
+      monorepo: monorepo ?? this.findBlueprintInstantiations(MONOREPO_PACKAGE).find(s => s)?.options,
+      infra: infra ?? this.findBlueprintInstantiations(INFRA_PACKAGE).find(s => s)?.options,
+      api: [...this.findBlueprintInstantiations(TYPESAFE_API_PACKAGE)
+        .filter(bpi => bpi.id !== blueprint.context.project.blueprint.instantiationId)
+        .map(bpi => bpi.options), ...api]
+        .sort((a, b) => (a as ApiOptions).apiName.localeCompare((b as ApiOptions).apiName)),
+      website: [...this.findBlueprintInstantiations(WEBSITE_PACKAGE)
+        .filter(bpi => bpi.id !== blueprint.context.project.blueprint.instantiationId)
+        .map(bpi => bpi.options), ...website]
+        .sort((a, b) => (a as WebsiteOptions).websiteName.localeCompare((b as WebsiteOptions).websiteName)),
     };
 
     options.website?.forEach(w => {
@@ -230,11 +242,15 @@ export class PDKSynth extends Component {
 
     this.synthWithoutPostInstall(monorepo);
 
-    // Generate lockfile
-    execSync(this.renderLockfileCommand()!, {
+    // Generate lockfile only if a DEVOPS blueprint exists to improve initial performance
+    this.hasDevOpsBlueprint() && execSync(this.renderLockfileCommand()!, {
       cwd: this.sourceRepository.path,
       stdio: [0, 1, 1],
     });
+  }
+
+  private hasDevOpsBlueprint() {
+    return this.findBlueprintInstantiations(DEVOPS_PACKAGE).length > 0 || (this.project as Blueprint).context.package.name === DEVOPS_PACKAGE;
   }
 
   private renderLockfileCommand() {
