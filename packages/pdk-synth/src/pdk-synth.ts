@@ -81,7 +81,6 @@ export class PDKSynth extends Component {
     this.sourceRepository = sourceRepository;
     this.blueprintOptions = blueprintOptions;
     this.options = this.getOptions();
-    console.log(JSON.stringify(this.options));
 
     // Copy language specific projenrc
     const projenRcFile = projenrcMap[this.options.monorepo.primaryLanguage.toLowerCase()];
@@ -139,8 +138,9 @@ export class PDKSynth extends Component {
     let infra;
     let api: any[] = [];
     let website: any[] = [];
+    const blueprint = this.project as Blueprint;
 
-    switch ((this.project as Blueprint).context.package.name) {
+    switch (blueprint.context.package.name) {
       case '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo':
         monorepo = this.blueprintOptions;
         break;
@@ -160,8 +160,8 @@ export class PDKSynth extends Component {
     const options = {
       monorepo: monorepo ?? this.findBlueprintInstantiations('@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo').find(s => s)?.options,
       infra: infra ?? this.findBlueprintInstantiations('@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra').find(s => s)?.options,
-      api: [...this.findBlueprintInstantiations('@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api').map(bpi => bpi.options), ...api].sort((a, b) => (a as ApiOptions).apiName.localeCompare((b as ApiOptions).apiName)),
-      website: [...this.findBlueprintInstantiations('@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website').map(bpi => bpi.options), ...website].sort((a, b) => (a as WebsiteOptions).websiteName.localeCompare((b as WebsiteOptions).websiteName)),
+      api: [...this.findBlueprintInstantiations('@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api').filter(bpi => bpi.id !== blueprint.context.project.blueprint.instantiationId).map(bpi => bpi.options), ...api].sort((a, b) => (a as ApiOptions).apiName.localeCompare((b as ApiOptions).apiName)),
+      website: [...this.findBlueprintInstantiations('@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website').filter(bpi => bpi.id !== blueprint.context.project.blueprint.instantiationId).map(bpi => bpi.options), ...website].sort((a, b) => (a as WebsiteOptions).websiteName.localeCompare((b as WebsiteOptions).websiteName)),
     };
 
     options.website?.forEach(w => {
