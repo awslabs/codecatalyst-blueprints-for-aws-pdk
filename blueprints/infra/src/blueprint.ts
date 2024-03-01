@@ -5,7 +5,10 @@ import {
   Options as ParentOptions,
   SourceRepository,
 } from "@amazon-codecatalyst/blueprints";
-import { PDKSynth } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
+import {
+  Initializer,
+  PDKSynth,
+} from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
 
 import defaults from "./defaults.json";
 
@@ -39,6 +42,7 @@ export interface Options extends ParentOptions {
    * Type Safe APIs
    *
    * @displayName Type-Safe APIs
+   * @filter /pdk-type-safe-api$/
    */
   typeSafeApis: MultiSelect<BlueprintInstantiation>;
 
@@ -46,6 +50,7 @@ export interface Options extends ParentOptions {
    * Cloudscape React TS Websites
    *
    * @displayName Cloudscape React TS Websites
+   * @filter /pdk-cloudscape-react-website$/
    */
   cloudscapeReactTsWebsites: MultiSelect<BlueprintInstantiation>;
 }
@@ -59,7 +64,7 @@ export class Blueprint extends ParentBlueprint {
   private readonly sourceRepository: SourceRepository;
   private readonly options: Options;
 
-  constructor(options_: Options) {
+  constructor(options_: Options, initializer?: Initializer) {
     super(options_);
 
     /**
@@ -79,6 +84,9 @@ export class Blueprint extends ParentBlueprint {
       title: this.context.project.src.listRepositoryNames()[0],
     });
 
-    new PDKSynth(this, this.sourceRepository, "infra", this.options);
+    new PDKSynth(this, this.sourceRepository, "infra", {
+      ...this.options,
+      initializer,
+    });
   }
 }

@@ -76,14 +76,21 @@ export interface Options {
   website?: WebsiteOptions[];
 }
 
+export type Initializer = (blueprint: Blueprint) => void;
+
+export interface PDKSynthOptions extends BlueprintOptions {
+  readonly initializer?: (blueprint: Blueprint) => void;
+}
+
 export class PDKSynth extends Component {
   private readonly sourceRepository: SourceRepository;
   private readonly options: Options;
   private readonly blueprintOptions: BlueprintOptions;
 
-  constructor(project: Blueprint, sourceRepository: SourceRepository, projectName: string, blueprintOptions: BlueprintOptions) {
+  constructor(project: Blueprint, sourceRepository: SourceRepository, projectName: string, blueprintOptions: PDKSynthOptions) {
     super(project);
 
+    blueprintOptions.initializer && blueprintOptions.initializer(project);
     this.sourceRepository = sourceRepository;
     this.blueprintOptions = blueprintOptions;
     this.options = this.getOptions();
@@ -178,9 +185,11 @@ export class PDKSynth extends Component {
 
     options.website?.forEach(w => {
       const websiteOptions = w as WebsiteOptions;
-      websiteOptions.typeSafeApis = websiteOptions.typeSafeApis
-        .map(id => this.getBlueprintInstantiationById(id as string)!)
-        .sort((a, b) => (a.options as ApiOptions).apiName.localeCompare((b.options as ApiOptions).apiName));
+      if (typeof websiteOptions.typeSafeApis?.[0] === 'string') {
+        websiteOptions.typeSafeApis = websiteOptions.typeSafeApis
+          .map(id => this.getBlueprintInstantiationById(id as string)!)
+          .sort((a, b) => (a.options as ApiOptions).apiName.localeCompare((b.options as ApiOptions).apiName));
+      }
       return websiteOptions;
     });
     return options;

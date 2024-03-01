@@ -11,7 +11,10 @@ import {
   StaticAsset,
 } from "@amazon-codecatalyst/blueprints";
 
-import { PDKSynth } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
+import {
+  Initializer,
+  PDKSynth,
+} from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
 import defaults from "./defaults.json";
 import { Workflow } from "./workflow";
 
@@ -79,7 +82,7 @@ export class Blueprint extends ParentBlueprint {
   private readonly sourceRepository: SourceRepository;
   private readonly options: Options;
 
-  constructor(options_: Options) {
+  constructor(options_: Options, initializer?: Initializer) {
     super(options_);
     /**
      * This is a typecheck to ensure that the defaults passed in are of the correct type.
@@ -122,6 +125,9 @@ export class Blueprint extends ParentBlueprint {
       ],
     });
 
-    new PDKSynth(this, this.sourceRepository, "devops", this.options);
+    new PDKSynth(this, this.sourceRepository, "devops", {
+      ...this.options,
+      initializer,
+    });
   }
 }

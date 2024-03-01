@@ -6,4 +6,5 @@ packages:
   - blueprints/devops
   - blueprints/infra
   - blueprints/monorepo
+  - blueprints/test-pdk-blueprints
   - blueprints/type-safe-api

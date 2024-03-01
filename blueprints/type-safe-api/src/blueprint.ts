@@ -3,7 +3,10 @@ import {
   Options as ParentOptions,
   SourceRepository,
 } from "@amazon-codecatalyst/blueprints";
-import { PDKSynth } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
+import {
+  Initializer,
+  PDKSynth,
+} from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
 
 import defaults from "./defaults.json";
 
@@ -58,7 +61,7 @@ export class Blueprint extends ParentBlueprint {
   private readonly sourceRepository: SourceRepository;
   private readonly options: Options;
 
-  constructor(options_: Options) {
+  constructor(options_: Options, initializer?: Initializer) {
     super(options_);
 
     /**
@@ -73,12 +76,18 @@ export class Blueprint extends ParentBlueprint {
       modelLanguage: defaults.modelLanguage as Options["modelLanguage"],
     };
     this.options = Object.assign(typeCheck, options_);
+    this.setInstantiation({
+      description: this.options.apiName,
+    });
 
     // Get a reference to the src repository
     this.sourceRepository = new SourceRepository(this, {
       title: this.context.project.src.listRepositoryNames()[0],
     });
 
-    new PDKSynth(this, this.sourceRepository, "type-safe-api", this.options);
+    new PDKSynth(this, this.sourceRepository, "type-safe-api", {
+      ...this.options,
+      initializer,
+    });
   }
 }

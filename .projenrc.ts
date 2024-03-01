@@ -2,6 +2,7 @@ import { CloudscapeReactWebsiteBlueprint } from "./projenrc/blueprints/cloudscap
 import { DevOpsBlueprint } from "./projenrc/blueprints/devops";
 import { InfraBlueprint } from "./projenrc/blueprints/infra";
 import { MonorepoBlueprint } from "./projenrc/blueprints/monorepo";
+import { TestPDKBlueprints } from "./projenrc/blueprints/test-pdk-blueprints";
 import { TypeSafeApiBlueprint } from "./projenrc/blueprints/type-safe-api";
 import { PDKSynth } from "./projenrc/components/pdk-synth";
 import { PDKBlueprintsProject } from "./projenrc/pdk-blueprints";
@@ -17,5 +18,7 @@ new MonorepoBlueprint(monorepo, pdkSynth);
 new InfraBlueprint(monorepo, pdkSynth);
 new TypeSafeApiBlueprint(monorepo, pdkSynth);
 new CloudscapeReactWebsiteBlueprint(monorepo, pdkSynth);
+
+new TestPDKBlueprints(monorepo);
 
 monorepo.synth();
