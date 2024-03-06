@@ -1,0 +1,28 @@
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the main branch
+name: Build
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [assigned, opened, synchronize, reopened]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+env:
+  PROJEN_DISABLE_POST: '1'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+      - run: npm install -g npm@10.5.0
+      - run: pnpm i --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm test
+      - run: pnpm -r blueprints:synth --cache
+      - run: pnpm -r blueprints:resynth --cache
