@@ -1,5 +1,6 @@
 import { MonorepoTsProject } from "@aws/pdk/monorepo";
 import { PDKBlueprint } from "../abstract/pdk-blueprint";
+import { PDKSynth } from "../components/pdk-synth";
 
 const DEVOPS_PACKAGE =
   "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-devops";
@@ -28,9 +29,5 @@ export class TestPDKBlueprints extends PDKBlueprint {
       WEBSITE_PACKAGE,
       INFRA_PACKAGE
     );
-
-    this.package.removeScript("npm:publish");
-    this.package.removeScript("blueprint:release");
-    this.package.removeScript("blueprint:preview");
   }
 }

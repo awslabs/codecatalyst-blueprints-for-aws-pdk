@@ -1,2 +1,6 @@
 {
+    "environment": {
+        "name": "Beta",
+        "environmentType": "DEVELOPMENT"
+    }
 }
