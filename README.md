@@ -10,19 +10,13 @@ This repository contains PDK based CodeCatalyst Blueprints
 1. [Install NVM](https://github.com/nvm-sh/nvm#installing-and-updating) if you haven't already
 
 ```
-npm install npm@10.5.0 -g
-npm install pnpm -g
-npm install -g pdk
+npm install  -g pnpm npm@10.5.0 @aws/pdk
 ```
 
-## Installation
+## Install & Build
 
 1. Run 
 ```
-pnpm i
-pnpm build
+pdk install
+pdk build
 ```
-
-## Build
-
-1. Run `pdk build`
