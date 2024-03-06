@@ -19,9 +19,14 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'pnpm'
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
       - run: npm install -g npm@10.5.0 @aws/pdk
-      - run: pdk install:ci
+      - run: pnpm i --frozen-lockfile
       - run: pdk build
       - run: pdk nx run-many -t blueprint:synth --cache --parallel 1 --output-style=stream --nx-bail
       - run: pdk nx run-many -t blueprint:resynth --cache --parallel 1 --output-style=stream --nx-bail
