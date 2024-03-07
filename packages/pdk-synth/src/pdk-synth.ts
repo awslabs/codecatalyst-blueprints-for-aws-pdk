@@ -317,7 +317,7 @@ export class PDKSynth extends Component {
   }
 
   private renderPythonLockfileCommand(): string {
-    return 'curl -sSL https://install.python-poetry.org | python3 - && npm install -g @aws/pdk && pdk install';
+    return 'npm install yarn --no-save && curl -sSL https://install.python-poetry.org | LD_LIBRARY_PATH="" python3 && PATH=$PATH:$HOME/.local/bin LD_LIBRARY_PATH="" npx projen install';
   }
 
   private getModelLanguage(options: ApiOptions): ModelLanguage {
