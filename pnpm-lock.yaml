@@ -15,32 +15,32 @@ importers:
     dependencies:
       '@aws-cdk/aws-cognito-identitypool-alpha':
         specifier: latest
-        version: 2.130.0-alpha.0(aws-cdk-lib@2.130.0)(constructs@10.3.0)
+        version: 2.131.0-alpha.0(aws-cdk-lib@2.131.0)(constructs@10.3.0)
       aws-cdk-lib:
-        specifier: 2.130.0
-        version: 2.130.0(constructs@10.3.0)
+        specifier: 2.131.0
+        version: 2.131.0(constructs@10.3.0)
       cdk-nag:
-        specifier: 2.28.50
-        version: 2.28.50(aws-cdk-lib@2.130.0)(constructs@10.3.0)
+        specifier: 2.28.55
+        version: 2.28.55(aws-cdk-lib@2.131.0)(constructs@10.3.0)
     devDependencies:
       '@amazon-codecatalyst/blueprint-util.projen-blueprint':
-        specifier: 0.3.65
-        version: 0.3.65(@amazon-codecatalyst/blueprint-util.cli@0.3.65)(projen@0.79.27)
+        specifier: 0.3.66
+        version: 0.3.66(@amazon-codecatalyst/blueprint-util.cli@0.3.66)(projen@0.79.27)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.65
-        version: 0.3.65(projen@0.79.27)
+        specifier: 0.3.66
+        version: 0.3.66(projen@0.79.27)
       '@aws/pdk':
-        specifier: 0.23.8
-        version: 0.23.8(@aws-cdk/aws-cognito-identitypool-alpha@2.130.0-alpha.0)(aws-cdk-lib@2.130.0)(cdk-nag@2.28.50)(constructs@10.3.0)(projen@0.79.27)
+        specifier: ^0.23.11
+        version: 0.23.11(@aws-cdk/aws-cognito-identitypool-alpha@2.131.0-alpha.0)(aws-cdk-lib@2.131.0)(cdk-nag@2.28.55)(constructs@10.3.0)(projen@0.79.27)
       '@types/node':
         specifier: ^18
-        version: 18.19.21
+        version: 18.19.22
       '@typescript-eslint/eslint-plugin':
         specifier: ^6
-        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/parser':
         specifier: ^6
-        version: 6.21.0(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(eslint@8.57.0)(typescript@5.4.2)
       constructs:
         specifier: ^10.0.0
         version: 10.3.0
@@ -73,13 +73,13 @@ importers:
         version: 0.79.27(constructs@10.3.0)
       syncpack:
         specifier: ^12
-        version: 12.3.0(typescript@5.3.3)
+        version: 12.3.0(typescript@5.4.2)
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@18.19.21)(typescript@5.3.3)
+        version: 10.9.2(@types/node@18.19.22)(typescript@5.4.2)
       typescript:
-        specifier: 5.3.3
-        version: 5.3.3
+        specifier: 5.4.2
+        version: 5.4.2
 
   blueprints/cloudscape-react-website:
     dependencies:
@@ -87,27 +87,27 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.65
-        version: 0.3.65(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.21)
+        specifier: 0.3.66
+        version: 0.3.66(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.22)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.65
-        version: 0.3.65(projen@0.80.4)
+        specifier: 0.3.66
+        version: 0.3.66(projen@0.80.6)
       '@aws/pdk':
-        specifier: 0.23.8
-        version: 0.23.8(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.130.0)(cdk-nag@2.28.50)(constructs@10.3.0)(projen@0.80.4)
+        specifier: ^0.23.11
+        version: 0.23.11(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.131.0)(cdk-nag@2.28.55)(constructs@10.3.0)(projen@0.80.6)
       projen:
-        specifier: 0.80.4
-        version: 0.80.4(constructs@10.3.0)
+        specifier: 0.80.6
+        version: 0.80.6(constructs@10.3.0)
     devDependencies:
       '@types/node':
         specifier: ^18
-        version: 18.19.21
+        version: 18.19.22
       '@typescript-eslint/eslint-plugin':
         specifier: ^6
-        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/parser':
         specifier: ^6
-        version: 6.21.0(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(eslint@8.57.0)(typescript@5.4.2)
       constructs:
         specifier: ^10.0.0
         version: 10.3.0
@@ -131,10 +131,10 @@ importers:
         version: 2.8.8
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@18.19.21)(typescript@5.3.3)
+        version: 10.9.2(@types/node@18.19.22)(typescript@5.4.2)
       typescript:
-        specifier: 5.3.3
-        version: 5.3.3
+        specifier: 5.4.2
+        version: 5.4.2
 
   blueprints/devops:
     dependencies:
@@ -142,27 +142,27 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.65
-        version: 0.3.65(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.21)
+        specifier: 0.3.66
+        version: 0.3.66(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.22)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.65
-        version: 0.3.65(projen@0.80.4)
+        specifier: 0.3.66
+        version: 0.3.66(projen@0.80.6)
       '@aws/pdk':
-        specifier: 0.23.8
-        version: 0.23.8(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.130.0)(cdk-nag@2.28.50)(constructs@10.3.0)(projen@0.80.4)
+        specifier: ^0.23.11
+        version: 0.23.11(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.131.0)(cdk-nag@2.28.55)(constructs@10.3.0)(projen@0.80.6)
       projen:
-        specifier: 0.80.4
-        version: 0.80.4(constructs@10.3.0)
+        specifier: 0.80.6
+        version: 0.80.6(constructs@10.3.0)
     devDependencies:
       '@types/node':
         specifier: ^18
-        version: 18.19.21
+        version: 18.19.22
       '@typescript-eslint/eslint-plugin':
         specifier: ^6
-        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/parser':
         specifier: ^6
-        version: 6.21.0(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(eslint@8.57.0)(typescript@5.4.2)
       constructs:
         specifier: ^10.0.0
         version: 10.3.0
@@ -186,10 +186,10 @@ importers:
         version: 2.8.8
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@18.19.21)(typescript@5.3.3)
+        version: 10.9.2(@types/node@18.19.22)(typescript@5.4.2)
       typescript:
-        specifier: 5.3.3
-        version: 5.3.3
+        specifier: 5.4.2
+        version: 5.4.2
 
   blueprints/infra:
     dependencies:
@@ -197,27 +197,27 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.65
-        version: 0.3.65(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.21)
+        specifier: 0.3.66
+        version: 0.3.66(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.22)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.65
-        version: 0.3.65(projen@0.80.4)
+        specifier: 0.3.66
+        version: 0.3.66(projen@0.80.6)
       '@aws/pdk':
-        specifier: 0.23.8
-        version: 0.23.8(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.130.0)(cdk-nag@2.28.50)(constructs@10.3.0)(projen@0.80.4)
+        specifier: ^0.23.11
+        version: 0.23.11(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.131.0)(cdk-nag@2.28.55)(constructs@10.3.0)(projen@0.80.6)
       projen:
-        specifier: 0.80.4
-        version: 0.80.4(constructs@10.3.0)
+        specifier: 0.80.6
+        version: 0.80.6(constructs@10.3.0)
     devDependencies:
       '@types/node':
         specifier: ^18
-        version: 18.19.21
+        version: 18.19.22
       '@typescript-eslint/eslint-plugin':
         specifier: ^6
-        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/parser':
         specifier: ^6
-        version: 6.21.0(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(eslint@8.57.0)(typescript@5.4.2)
       constructs:
         specifier: ^10.0.0
         version: 10.3.0
@@ -241,10 +241,10 @@ importers:
         version: 2.8.8
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@18.19.21)(typescript@5.3.3)
+        version: 10.9.2(@types/node@18.19.22)(typescript@5.4.2)
       typescript:
-        specifier: 5.3.3
-        version: 5.3.3
+        specifier: 5.4.2
+        version: 5.4.2
 
   blueprints/monorepo:
     dependencies:
@@ -252,27 +252,27 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.65
-        version: 0.3.65(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.21)
+        specifier: 0.3.66
+        version: 0.3.66(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.22)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.65
-        version: 0.3.65(projen@0.80.4)
+        specifier: 0.3.66
+        version: 0.3.66(projen@0.80.6)
       '@aws/pdk':
-        specifier: 0.23.8
-        version: 0.23.8(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.130.0)(cdk-nag@2.28.50)(constructs@10.3.0)(projen@0.80.4)
+        specifier: ^0.23.11
+        version: 0.23.11(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.131.0)(cdk-nag@2.28.55)(constructs@10.3.0)(projen@0.80.6)
       projen:
-        specifier: 0.80.4
-        version: 0.80.4(constructs@10.3.0)
+        specifier: 0.80.6
+        version: 0.80.6(constructs@10.3.0)
     devDependencies:
       '@types/node':
         specifier: ^18
-        version: 18.19.21
+        version: 18.19.22
       '@typescript-eslint/eslint-plugin':
         specifier: ^6
-        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/parser':
         specifier: ^6
-        version: 6.21.0(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(eslint@8.57.0)(typescript@5.4.2)
       constructs:
         specifier: ^10.0.0
         version: 10.3.0
@@ -296,22 +296,19 @@ importers:
         version: 2.8.8
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@18.19.21)(typescript@5.3.3)
+        version: 10.9.2(@types/node@18.19.22)(typescript@5.4.2)
       typescript:
-        specifier: 5.3.3
-        version: 5.3.3
+        specifier: 5.4.2
+        version: 5.4.2
 
   blueprints/test-pdk-blueprints:
     dependencies:
-      '@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth':
-        specifier: '*'
-        version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.65
-        version: 0.3.65(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.21)
+        specifier: 0.3.66
+        version: 0.3.66(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.22)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.65
-        version: 0.3.65(projen@0.80.4)
+        specifier: 0.3.66
+        version: 0.3.66(projen@0.80.6)
       '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website':
         specifier: '*'
         version: link:../cloudscape-react-website
@@ -327,22 +324,19 @@ importers:
       '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api':
         specifier: '*'
         version: link:../type-safe-api
-      '@aws/pdk':
-        specifier: '*'
-        version: 0.23.8(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.130.0)(cdk-nag@2.28.50)(constructs@10.3.0)(projen@0.80.4)
       projen:
-        specifier: 0.80.4
-        version: 0.80.4(constructs@10.3.0)
+        specifier: 0.80.6
+        version: 0.80.6(constructs@10.3.0)
     devDependencies:
       '@types/node':
         specifier: ^18
-        version: 18.19.21
+        version: 18.19.22
       '@typescript-eslint/eslint-plugin':
         specifier: ^6
-        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/parser':
         specifier: ^6
-        version: 6.21.0(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(eslint@8.57.0)(typescript@5.4.2)
       constructs:
         specifier: ^10.0.0
         version: 10.3.0
@@ -366,10 +360,10 @@ importers:
         version: 2.8.8
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@18.19.21)(typescript@5.3.3)
+        version: 10.9.2(@types/node@18.19.22)(typescript@5.4.2)
       typescript:
-        specifier: 5.3.3
-        version: 5.3.3
+        specifier: 5.4.2
+        version: 5.4.2
 
   blueprints/type-safe-api:
     dependencies:
@@ -377,27 +371,27 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.65
-        version: 0.3.65(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.21)
+        specifier: 0.3.66
+        version: 0.3.66(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.22)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.65
-        version: 0.3.65(projen@0.80.4)
+        specifier: 0.3.66
+        version: 0.3.66(projen@0.80.6)
       '@aws/pdk':
-        specifier: 0.23.8
-        version: 0.23.8(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.130.0)(cdk-nag@2.28.50)(constructs@10.3.0)(projen@0.80.4)
+        specifier: ^0.23.11
+        version: 0.23.11(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.131.0)(cdk-nag@2.28.55)(constructs@10.3.0)(projen@0.80.6)
       projen:
-        specifier: 0.80.4
-        version: 0.80.4(constructs@10.3.0)
+        specifier: 0.80.6
+        version: 0.80.6(constructs@10.3.0)
     devDependencies:
       '@types/node':
         specifier: ^18
-        version: 18.19.21
+        version: 18.19.22
       '@typescript-eslint/eslint-plugin':
         specifier: ^6
-        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/parser':
         specifier: ^6
-        version: 6.21.0(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(eslint@8.57.0)(typescript@5.4.2)
       constructs:
         specifier: ^10.0.0
         version: 10.3.0
@@ -421,19 +415,19 @@ importers:
         version: 2.8.8
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@18.19.21)(typescript@5.3.3)
+        version: 10.9.2(@types/node@18.19.22)(typescript@5.4.2)
       typescript:
-        specifier: 5.3.3
-        version: 5.3.3
+        specifier: 5.4.2
+        version: 5.4.2
 
   packages/pdk-synth:
     dependencies:
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.65
-        version: 0.3.65(projen@0.80.4)
+        specifier: 0.3.66
+        version: 0.3.66(projen@0.80.6)
       '@aws/pdk':
-        specifier: 0.23.8
-        version: 0.23.8(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.130.0)(cdk-nag@2.28.50)(constructs@10.3.0)(projen@0.80.4)
+        specifier: ^0.23.11
+        version: 0.23.11(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.131.0)(cdk-nag@2.28.55)(constructs@10.3.0)(projen@0.80.6)
       glob:
         specifier: 10.3.10
         version: 10.3.10
@@ -441,8 +435,8 @@ importers:
         specifier: 4.2.0
         version: 4.2.0
       projen:
-        specifier: 0.80.4
-        version: 0.80.4(constructs@10.3.0)
+        specifier: 0.80.6
+        version: 0.80.6(constructs@10.3.0)
     devDependencies:
       '@types/glob':
         specifier: 8.1.0
@@ -455,13 +449,13 @@ importers:
         version: 4.2.5
       '@types/node':
         specifier: ^18
-        version: 18.19.21
+        version: 18.19.22
       '@typescript-eslint/eslint-plugin':
         specifier: ^6
-        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/parser':
         specifier: ^6
-        version: 6.21.0(eslint@8.57.0)(typescript@5.3.3)
+        version: 6.21.0(eslint@8.57.0)(typescript@5.4.2)
       constructs:
         specifier: ^10.0.0
         version: 10.3.0
@@ -476,16 +470,16 @@ importers:
         version: 2.29.1(@typescript-eslint/parser@6.21.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@18.19.21)(ts-node@10.9.2)
+        version: 29.7.0(@types/node@18.19.22)(ts-node@10.9.2)
       jest-junit:
         specifier: ^15
         version: 15.0.0
       ts-jest:
         specifier: 29.1.2
-        version: 29.1.2(@babel/core@7.24.0)(jest@29.7.0)(typescript@5.3.3)
+        version: 29.1.2(@babel/core@7.24.0)(jest@29.7.0)(typescript@5.4.2)
       typescript:
-        specifier: 5.3.3
-        version: 5.3.3
+        specifier: 5.4.2
+        version: 5.4.2
 
 packages:
 
@@ -494,59 +488,59 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /@amazon-codecatalyst/blueprint-component.dev-environments@0.3.65(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.65)(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.79.27):
-    resolution: {integrity: sha512-ZP8gQnxfKSUcDpziInWEepTBEvZgO72FqDCHJcsrWdO3TdMOIEknOiXtui0UKjDGpfLuaNlkKGR+a7qutfDN9Q==}
+  /@amazon-codecatalyst/blueprint-component.dev-environments@0.3.66(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.66)(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.79.27):
+    resolution: {integrity: sha512-S0064pcWwxwc3dU22lNjfNN5J/TUMYMMgIG1DW2htnbMIedg0qtn6ilByjG9zPeql+1hj24wiXO9uZEtTjNKeg==}
     peerDependencies:
       '@amazon-codecatalyst/blueprint-component.source-repositories': '*'
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.79.27)
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.65(projen@0.79.27)
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.79.27)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.66(projen@0.79.27)
       projen: 0.79.27(constructs@10.3.0)
-      yaml: 2.4.0
+      yaml: 2.4.1
     dev: true
 
-  /@amazon-codecatalyst/blueprint-component.dev-environments@0.3.65(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.65)(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.80.4):
-    resolution: {integrity: sha512-ZP8gQnxfKSUcDpziInWEepTBEvZgO72FqDCHJcsrWdO3TdMOIEknOiXtui0UKjDGpfLuaNlkKGR+a7qutfDN9Q==}
+  /@amazon-codecatalyst/blueprint-component.dev-environments@0.3.66(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.66)(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.80.6):
+    resolution: {integrity: sha512-S0064pcWwxwc3dU22lNjfNN5J/TUMYMMgIG1DW2htnbMIedg0qtn6ilByjG9zPeql+1hj24wiXO9uZEtTjNKeg==}
     peerDependencies:
       '@amazon-codecatalyst/blueprint-component.source-repositories': '*'
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.80.4)
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.65(projen@0.80.4)
-      projen: 0.80.4(constructs@10.3.0)
-      yaml: 2.4.0
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.80.6)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.66(projen@0.80.6)
+      projen: 0.80.6(constructs@10.3.0)
+      yaml: 2.4.1
     dev: false
 
-  /@amazon-codecatalyst/blueprint-component.environments@0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.79.27):
-    resolution: {integrity: sha512-PtotAK+JsIo1Ym16QQrgF0sYtsYMS8RLy4tRMdy1fowGFhInOYanYFyCV7fUqofPv8Oi2Ku8MKyV6BJ6sCYryA==}
+  /@amazon-codecatalyst/blueprint-component.environments@0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.79.27):
+    resolution: {integrity: sha512-JOPL6X+wQftypAeNBo76eN/1SZPFPn9JUHynOPzNJAKPePTPiba/2wPaHFC7hxaHbBBYULBM3N7gxycj3PNfFA==}
     peerDependencies:
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.65(projen@0.79.27)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.66(projen@0.79.27)
       projen: 0.79.27(constructs@10.3.0)
     dev: true
 
-  /@amazon-codecatalyst/blueprint-component.environments@0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.80.4):
-    resolution: {integrity: sha512-PtotAK+JsIo1Ym16QQrgF0sYtsYMS8RLy4tRMdy1fowGFhInOYanYFyCV7fUqofPv8Oi2Ku8MKyV6BJ6sCYryA==}
+  /@amazon-codecatalyst/blueprint-component.environments@0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.80.6):
+    resolution: {integrity: sha512-JOPL6X+wQftypAeNBo76eN/1SZPFPn9JUHynOPzNJAKPePTPiba/2wPaHFC7hxaHbBBYULBM3N7gxycj3PNfFA==}
     peerDependencies:
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.65(projen@0.80.4)
-      projen: 0.80.4(constructs@10.3.0)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.66(projen@0.80.6)
+      projen: 0.80.6(constructs@10.3.0)
     dev: false
 
-  /@amazon-codecatalyst/blueprint-component.issues@0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.79.27):
-    resolution: {integrity: sha512-DvvzB5Jd9azNLUihTQ+qRhU3zORFmHheRiUoXqc5eAZ7POrYSxBz+7KHCeYdHvPBiYH/i64g6GQ/hEErCnCFBw==}
+  /@amazon-codecatalyst/blueprint-component.issues@0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.79.27):
+    resolution: {integrity: sha512-V3s8RiQarMKFD0Lk5MNaf2zg0Dg8GOnpF5gIlg6LvLg8ExhhMB3+c4CNS8vUvS6trRMyFt98O7gUh5qpyK6ohA==}
     peerDependencies:
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.65(projen@0.79.27)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.66(projen@0.79.27)
       camelcase: 5.3.1
       decamelize: 5.0.1
       glob: 10.3.10
@@ -555,46 +549,46 @@ packages:
       projen: 0.79.27(constructs@10.3.0)
     dev: true
 
-  /@amazon-codecatalyst/blueprint-component.issues@0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.80.4):
-    resolution: {integrity: sha512-DvvzB5Jd9azNLUihTQ+qRhU3zORFmHheRiUoXqc5eAZ7POrYSxBz+7KHCeYdHvPBiYH/i64g6GQ/hEErCnCFBw==}
+  /@amazon-codecatalyst/blueprint-component.issues@0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.80.6):
+    resolution: {integrity: sha512-V3s8RiQarMKFD0Lk5MNaf2zg0Dg8GOnpF5gIlg6LvLg8ExhhMB3+c4CNS8vUvS6trRMyFt98O7gUh5qpyK6ohA==}
     peerDependencies:
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.65(projen@0.80.4)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.66(projen@0.80.6)
       camelcase: 5.3.1
       decamelize: 5.0.1
       glob: 10.3.10
       minimatch: 9.0.3
       mustache: 4.2.0
-      projen: 0.80.4(constructs@10.3.0)
+      projen: 0.80.6(constructs@10.3.0)
     dev: false
 
-  /@amazon-codecatalyst/blueprint-component.secrets@0.3.65(projen@0.79.27):
-    resolution: {integrity: sha512-R/tQr172EvYA6pZGqegPX6aGgwoBooizTKAn3JKg7XDoeFQOt3OKA9sdyMdrvKSZKWTGhezXv2XIFeJT5Q/z5Q==}
+  /@amazon-codecatalyst/blueprint-component.secrets@0.3.66(projen@0.79.27):
+    resolution: {integrity: sha512-C5GQ54UiZCvS/Syzf5ckarUThJFqaUXNxc9Bg1bwBKfcBPif2tHwuXJeurIExIMcWB9xZ+L4+ROXVypo6ElaoQ==}
     peerDependencies:
       projen: ^0.71.112
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.65(projen@0.79.27)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.66(projen@0.79.27)
       projen: 0.79.27(constructs@10.3.0)
     dev: true
 
-  /@amazon-codecatalyst/blueprint-component.secrets@0.3.65(projen@0.80.4):
-    resolution: {integrity: sha512-R/tQr172EvYA6pZGqegPX6aGgwoBooizTKAn3JKg7XDoeFQOt3OKA9sdyMdrvKSZKWTGhezXv2XIFeJT5Q/z5Q==}
+  /@amazon-codecatalyst/blueprint-component.secrets@0.3.66(projen@0.80.6):
+    resolution: {integrity: sha512-C5GQ54UiZCvS/Syzf5ckarUThJFqaUXNxc9Bg1bwBKfcBPif2tHwuXJeurIExIMcWB9xZ+L4+ROXVypo6ElaoQ==}
     peerDependencies:
       projen: ^0.71.112
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.65(projen@0.80.4)
-      projen: 0.80.4(constructs@10.3.0)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.66(projen@0.80.6)
+      projen: 0.80.6(constructs@10.3.0)
     dev: false
 
-  /@amazon-codecatalyst/blueprint-component.source-repositories@0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.79.27):
-    resolution: {integrity: sha512-uCArQats/HEjCqCnWDU/K4BgRBYmpb8lX2c+E18RTdh/OLqUsSWdCxEhn8wmGbgvulnYDHid4BLMdZbPF5Pokw==}
+  /@amazon-codecatalyst/blueprint-component.source-repositories@0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.79.27):
+    resolution: {integrity: sha512-tHAa2NgikznwiOHJ6PlCC7gFvp0h+W8iOC6ZGTj+C2cJU1M4uQbhlf7NSlnkYaP2W9t2LXGRjDTz+KATvYGO4w==}
     peerDependencies:
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.65(projen@0.79.27)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.66(projen@0.79.27)
       camelcase: 5.3.1
       decamelize: 5.0.1
       glob: 10.3.10
@@ -603,55 +597,55 @@ packages:
       projen: 0.79.27(constructs@10.3.0)
     dev: true
 
-  /@amazon-codecatalyst/blueprint-component.source-repositories@0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.80.4):
-    resolution: {integrity: sha512-uCArQats/HEjCqCnWDU/K4BgRBYmpb8lX2c+E18RTdh/OLqUsSWdCxEhn8wmGbgvulnYDHid4BLMdZbPF5Pokw==}
+  /@amazon-codecatalyst/blueprint-component.source-repositories@0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.80.6):
+    resolution: {integrity: sha512-tHAa2NgikznwiOHJ6PlCC7gFvp0h+W8iOC6ZGTj+C2cJU1M4uQbhlf7NSlnkYaP2W9t2LXGRjDTz+KATvYGO4w==}
     peerDependencies:
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.65(projen@0.80.4)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.66(projen@0.80.6)
       camelcase: 5.3.1
       decamelize: 5.0.1
       glob: 10.3.10
       minimatch: 9.0.3
       mustache: 4.2.0
-      projen: 0.80.4(constructs@10.3.0)
+      projen: 0.80.6(constructs@10.3.0)
     dev: false
 
-  /@amazon-codecatalyst/blueprint-component.workflows@0.3.65(@amazon-codecatalyst/blueprint-component.environments@0.3.65)(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.65)(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.79.27):
-    resolution: {integrity: sha512-aKgL0GuxL8h0BdBNaJovsMQQKtaN9THVFwAVKO7de0mlVt0E11yPhJuFndvAKpnOgGuRx0pNo6XEgGxbxdSK6w==}
+  /@amazon-codecatalyst/blueprint-component.workflows@0.3.66(@amazon-codecatalyst/blueprint-component.environments@0.3.66)(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.66)(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.79.27):
+    resolution: {integrity: sha512-r7marl3dRVaTFUUl90xP5wKcMhvuzkbjcyYJGMq9LGgvJeVxZauourkvGyGhLNH8jfwFHfl0uQyjsf4Wm7h20w==}
     peerDependencies:
       '@amazon-codecatalyst/blueprint-component.environments': '*'
       '@amazon-codecatalyst/blueprint-component.source-repositories': '*'
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.environments': 0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.79.27)
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.79.27)
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.65(projen@0.79.27)
+      '@amazon-codecatalyst/blueprint-component.environments': 0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.79.27)
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.79.27)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.66(projen@0.79.27)
       '@aws/codecatalyst-workflows-sdk': 0.1.5-preview.6(projen@0.79.27)
       projen: 0.79.27(constructs@10.3.0)
-      yaml: 2.4.0
+      yaml: 2.4.1
     dev: true
 
-  /@amazon-codecatalyst/blueprint-component.workflows@0.3.65(@amazon-codecatalyst/blueprint-component.environments@0.3.65)(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.65)(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.80.4):
-    resolution: {integrity: sha512-aKgL0GuxL8h0BdBNaJovsMQQKtaN9THVFwAVKO7de0mlVt0E11yPhJuFndvAKpnOgGuRx0pNo6XEgGxbxdSK6w==}
+  /@amazon-codecatalyst/blueprint-component.workflows@0.3.66(@amazon-codecatalyst/blueprint-component.environments@0.3.66)(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.66)(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.80.6):
+    resolution: {integrity: sha512-r7marl3dRVaTFUUl90xP5wKcMhvuzkbjcyYJGMq9LGgvJeVxZauourkvGyGhLNH8jfwFHfl0uQyjsf4Wm7h20w==}
     peerDependencies:
       '@amazon-codecatalyst/blueprint-component.environments': '*'
       '@amazon-codecatalyst/blueprint-component.source-repositories': '*'
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.environments': 0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.80.4)
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.80.4)
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.65(projen@0.80.4)
-      '@aws/codecatalyst-workflows-sdk': 0.1.5-preview.6(projen@0.80.4)
-      projen: 0.80.4(constructs@10.3.0)
-      yaml: 2.4.0
+      '@amazon-codecatalyst/blueprint-component.environments': 0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.80.6)
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.80.6)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.66(projen@0.80.6)
+      '@aws/codecatalyst-workflows-sdk': 0.1.5-preview.6(projen@0.80.6)
+      projen: 0.80.6(constructs@10.3.0)
+      yaml: 2.4.1
     dev: false
 
-  /@amazon-codecatalyst/blueprint-util.cli@0.3.65(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.21):
-    resolution: {integrity: sha512-G72x/yEHlk76XmJRCaVV/SC+PsiYvxZfng+4RKTnskzyQ8FVt0vUvcFbKOkqEglGOXnP6GZhu1D+t06fSKmYFQ==}
+  /@amazon-codecatalyst/blueprint-util.cli@0.3.66(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.22):
+    resolution: {integrity: sha512-MudPAn/KrK5ad1oBSbZ44J74maMUNcN0pLUYohScf/weDB3LERda8WjIfapVnFadOYGHOuXfsuaIB721kncmFg==}
     hasBin: true
     dependencies:
       '@aws-sdk/client-cloudfront': 3.525.0
@@ -666,7 +660,7 @@ packages:
       pino: 6.14.0
       pino-pretty: 4.8.0
       projen: 0.71.112
-      ts-node: 10.9.2(@types/node@18.19.21)(typescript@4.9.5)
+      ts-node: 10.9.2(@types/node@18.19.22)(typescript@4.9.5)
       typescript: 4.9.5
       yargs: 17.7.2
     transitivePeerDependencies:
@@ -677,74 +671,74 @@ packages:
       - aws-crt
       - debug
 
-  /@amazon-codecatalyst/blueprint-util.projen-blueprint@0.3.65(@amazon-codecatalyst/blueprint-util.cli@0.3.65)(projen@0.79.27):
-    resolution: {integrity: sha512-Q9i4VgKhvrMyp+TX5cvUWfPobEKcV/j1HHqECBLzjnWT92/ZyEeebWdBgiScIPn2tVUWiCwNqoC5ZL9XeASYLw==}
+  /@amazon-codecatalyst/blueprint-util.projen-blueprint@0.3.66(@amazon-codecatalyst/blueprint-util.cli@0.3.66)(projen@0.79.27):
+    resolution: {integrity: sha512-FLQetztauPsVupSGArzVeyfvM5hM03h/SPmER4RFwjOIWA/7YOr4PKefQwnMewk59Vl3Y9jrpkzghYW5RaY2Iw==}
     peerDependencies:
       '@amazon-codecatalyst/blueprint-util.cli': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprint-util.cli': 0.3.65(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.21)
+      '@amazon-codecatalyst/blueprint-util.cli': 0.3.66(@aws-sdk/credential-provider-node@3.525.0)(@types/node@18.19.22)
       projen: 0.79.27(constructs@10.3.0)
     dev: true
 
-  /@amazon-codecatalyst/blueprints.blueprint@0.3.65(projen@0.79.27):
-    resolution: {integrity: sha512-TMjFciAGAupwuYWaMl/GPA4BrbOg6xedG8vq/9bnLQMkG6FrgiLRlryIWAT0LqVCqkr6mO6eMOKx0wB9Sgejew==}
+  /@amazon-codecatalyst/blueprints.blueprint@0.3.66(projen@0.79.27):
+    resolution: {integrity: sha512-fyvHb/XbP/YlMTDjov651NDt/RxGsjIRa7fEz3286/ap58E/pJZ3jQA3+r6/jZS7XtO1EwvVSIRRIIWDGJaKcA==}
     peerDependencies:
       projen: '*'
     dependencies:
       diff-match-patch: 1.0.5
       globule: 1.3.4
       projen: 0.79.27(constructs@10.3.0)
-      yaml: 2.4.0
+      yaml: 2.4.1
     dev: true
 
-  /@amazon-codecatalyst/blueprints.blueprint@0.3.65(projen@0.80.4):
-    resolution: {integrity: sha512-TMjFciAGAupwuYWaMl/GPA4BrbOg6xedG8vq/9bnLQMkG6FrgiLRlryIWAT0LqVCqkr6mO6eMOKx0wB9Sgejew==}
+  /@amazon-codecatalyst/blueprints.blueprint@0.3.66(projen@0.80.6):
+    resolution: {integrity: sha512-fyvHb/XbP/YlMTDjov651NDt/RxGsjIRa7fEz3286/ap58E/pJZ3jQA3+r6/jZS7XtO1EwvVSIRRIIWDGJaKcA==}
     peerDependencies:
       projen: '*'
     dependencies:
       diff-match-patch: 1.0.5
       globule: 1.3.4
-      projen: 0.80.4(constructs@10.3.0)
-      yaml: 2.4.0
+      projen: 0.80.6(constructs@10.3.0)
+      yaml: 2.4.1
     dev: false
 
-  /@amazon-codecatalyst/blueprints@0.3.65(projen@0.79.27):
-    resolution: {integrity: sha512-6rdVY/VZhKg3bt8etMTjVX2ulavMXYBLzcFEtw3COCummpx91oYePADklhJYojvMyW77k/25D0dCgaJD3lh+0w==}
+  /@amazon-codecatalyst/blueprints@0.3.66(projen@0.79.27):
+    resolution: {integrity: sha512-jedVe5eZswDHjxeER544WtXRFbeOgxOgLJRsDac0ifARxbAPLmvmBsc5ZIulpnT83UE5CMrmG4tG2XqpfGEBYA==}
     peerDependencies:
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.dev-environments': 0.3.65(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.65)(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.79.27)
-      '@amazon-codecatalyst/blueprint-component.environments': 0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.79.27)
-      '@amazon-codecatalyst/blueprint-component.issues': 0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.79.27)
-      '@amazon-codecatalyst/blueprint-component.secrets': 0.3.65(projen@0.79.27)
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.79.27)
-      '@amazon-codecatalyst/blueprint-component.workflows': 0.3.65(@amazon-codecatalyst/blueprint-component.environments@0.3.65)(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.65)(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.79.27)
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.65(projen@0.79.27)
+      '@amazon-codecatalyst/blueprint-component.dev-environments': 0.3.66(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.66)(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.79.27)
+      '@amazon-codecatalyst/blueprint-component.environments': 0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.79.27)
+      '@amazon-codecatalyst/blueprint-component.issues': 0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.79.27)
+      '@amazon-codecatalyst/blueprint-component.secrets': 0.3.66(projen@0.79.27)
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.79.27)
+      '@amazon-codecatalyst/blueprint-component.workflows': 0.3.66(@amazon-codecatalyst/blueprint-component.environments@0.3.66)(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.66)(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.79.27)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.66(projen@0.79.27)
       projen: 0.79.27(constructs@10.3.0)
     dev: true
 
-  /@amazon-codecatalyst/blueprints@0.3.65(projen@0.80.4):
-    resolution: {integrity: sha512-6rdVY/VZhKg3bt8etMTjVX2ulavMXYBLzcFEtw3COCummpx91oYePADklhJYojvMyW77k/25D0dCgaJD3lh+0w==}
+  /@amazon-codecatalyst/blueprints@0.3.66(projen@0.80.6):
+    resolution: {integrity: sha512-jedVe5eZswDHjxeER544WtXRFbeOgxOgLJRsDac0ifARxbAPLmvmBsc5ZIulpnT83UE5CMrmG4tG2XqpfGEBYA==}
     peerDependencies:
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.dev-environments': 0.3.65(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.65)(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.80.4)
-      '@amazon-codecatalyst/blueprint-component.environments': 0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.80.4)
-      '@amazon-codecatalyst/blueprint-component.issues': 0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.80.4)
-      '@amazon-codecatalyst/blueprint-component.secrets': 0.3.65(projen@0.80.4)
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.65(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.80.4)
-      '@amazon-codecatalyst/blueprint-component.workflows': 0.3.65(@amazon-codecatalyst/blueprint-component.environments@0.3.65)(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.65)(@amazon-codecatalyst/blueprints.blueprint@0.3.65)(projen@0.80.4)
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.65(projen@0.80.4)
-      projen: 0.80.4(constructs@10.3.0)
+      '@amazon-codecatalyst/blueprint-component.dev-environments': 0.3.66(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.66)(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.80.6)
+      '@amazon-codecatalyst/blueprint-component.environments': 0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.80.6)
+      '@amazon-codecatalyst/blueprint-component.issues': 0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.80.6)
+      '@amazon-codecatalyst/blueprint-component.secrets': 0.3.66(projen@0.80.6)
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.66(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.80.6)
+      '@amazon-codecatalyst/blueprint-component.workflows': 0.3.66(@amazon-codecatalyst/blueprint-component.environments@0.3.66)(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.66)(@amazon-codecatalyst/blueprints.blueprint@0.3.66)(projen@0.80.6)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.66(projen@0.80.6)
+      projen: 0.80.6(constructs@10.3.0)
     dev: false
 
-  /@ampproject/remapping@2.2.1:
-    resolution: {integrity: sha512-lFMjJTrFL3j7L9yBxwYfCq2k6qqwHyzuUl/XBnif78PWTJYyL/dfowQHWE3sp6U6ZzqWiiIZnpTMO96zhkjwtg==}
+  /@ampproject/remapping@2.3.0:
+    resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
     dependencies:
-      '@jridgewell/gen-mapping': 0.3.4
-      '@jridgewell/trace-mapping': 0.3.23
+      '@jridgewell/gen-mapping': 0.3.5
+      '@jridgewell/trace-mapping': 0.3.25
     dev: true
 
   /@aws-cdk/asset-awscli-v1@2.2.202:
@@ -756,25 +750,25 @@ packages:
   /@aws-cdk/asset-node-proxy-agent-v6@2.0.1:
     resolution: {integrity: sha512-DDt4SLdLOwWCjGtltH4VCST7hpOI5DzieuhGZsBpZ+AgJdSI2GCjklCXm0GCTwJG/SolkL5dtQXyUKgg9luBDg==}
 
-  /@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0(aws-cdk-lib@2.130.0)(constructs@10.3.0):
+  /@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0(aws-cdk-lib@2.131.0)(constructs@10.3.0):
     resolution: {integrity: sha512-a1SdwZE1vdzkWjmULD9kt16nUHgg6Iz2WtHD8XZYw8nW4IKweIX0IgvO+Ie8JvGOfKrdZjTBpcwWgNTkA1aG9Q==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
       aws-cdk-lib: ^2.104.0
       constructs: ^10.0.0
     dependencies:
-      aws-cdk-lib: 2.130.0(constructs@10.3.0)
+      aws-cdk-lib: 2.131.0(constructs@10.3.0)
       constructs: 10.3.0
     dev: false
 
-  /@aws-cdk/aws-cognito-identitypool-alpha@2.130.0-alpha.0(aws-cdk-lib@2.130.0)(constructs@10.3.0):
-    resolution: {integrity: sha512-xqsoJC2AAWQe/v5S4SCit5cU5ZlDy+OkNgEtHhckIoV3m6otosWCdxihIvajNMnr81lGe8Qo3BidK0/HFfpQ8A==}
+  /@aws-cdk/aws-cognito-identitypool-alpha@2.131.0-alpha.0(aws-cdk-lib@2.131.0)(constructs@10.3.0):
+    resolution: {integrity: sha512-8dXyElW94uuSDbP2ERp90BkQ9qDuXW38p+ArjSEg/zzQo8PGFq6UMeAigBfgygPoP2N72CRZhaM8nGdtI9bv/A==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
-      aws-cdk-lib: ^2.130.0
+      aws-cdk-lib: ^2.131.0
       constructs: ^10.0.0
     dependencies:
-      aws-cdk-lib: 2.130.0(constructs@10.3.0)
+      aws-cdk-lib: 2.131.0(constructs@10.3.0)
       constructs: 10.3.0
 
   /@aws-crypto/crc32@3.0.0:
@@ -877,7 +871,7 @@ packages:
       '@smithy/util-body-length-browser': 2.1.1
       '@smithy/util-body-length-node': 2.2.1
       '@smithy/util-defaults-mode-browser': 2.1.4
-      '@smithy/util-defaults-mode-node': 2.2.3
+      '@smithy/util-defaults-mode-node': 2.2.4
       '@smithy/util-endpoints': 1.1.4
       '@smithy/util-middleware': 2.1.3
       '@smithy/util-retry': 2.1.3
@@ -924,7 +918,7 @@ packages:
       '@smithy/util-body-length-browser': 2.1.1
       '@smithy/util-body-length-node': 2.2.1
       '@smithy/util-defaults-mode-browser': 2.1.4
-      '@smithy/util-defaults-mode-node': 2.2.3
+      '@smithy/util-defaults-mode-node': 2.2.4
       '@smithy/util-retry': 2.1.3
       '@smithy/util-utf8': 2.1.1
       tslib: 2.6.2
@@ -985,7 +979,7 @@ packages:
       '@smithy/util-body-length-browser': 2.1.1
       '@smithy/util-body-length-node': 2.2.1
       '@smithy/util-defaults-mode-browser': 2.1.4
-      '@smithy/util-defaults-mode-node': 2.2.3
+      '@smithy/util-defaults-mode-node': 2.2.4
       '@smithy/util-endpoints': 1.1.4
       '@smithy/util-retry': 2.1.3
       '@smithy/util-stream': 2.1.3
@@ -1036,7 +1030,7 @@ packages:
       '@smithy/util-body-length-browser': 2.1.1
       '@smithy/util-body-length-node': 2.2.1
       '@smithy/util-defaults-mode-browser': 2.1.4
-      '@smithy/util-defaults-mode-node': 2.2.3
+      '@smithy/util-defaults-mode-node': 2.2.4
       '@smithy/util-endpoints': 1.1.4
       '@smithy/util-middleware': 2.1.3
       '@smithy/util-retry': 2.1.3
@@ -1081,7 +1075,7 @@ packages:
       '@smithy/util-body-length-browser': 2.1.1
       '@smithy/util-body-length-node': 2.2.1
       '@smithy/util-defaults-mode-browser': 2.1.4
-      '@smithy/util-defaults-mode-node': 2.2.3
+      '@smithy/util-defaults-mode-node': 2.2.4
       '@smithy/util-endpoints': 1.1.4
       '@smithy/util-middleware': 2.1.3
       '@smithy/util-retry': 2.1.3
@@ -1129,7 +1123,7 @@ packages:
       '@smithy/util-body-length-browser': 2.1.1
       '@smithy/util-body-length-node': 2.2.1
       '@smithy/util-defaults-mode-browser': 2.1.4
-      '@smithy/util-defaults-mode-node': 2.2.3
+      '@smithy/util-defaults-mode-node': 2.2.4
       '@smithy/util-endpoints': 1.1.4
       '@smithy/util-middleware': 2.1.3
       '@smithy/util-retry': 2.1.3
@@ -1183,7 +1177,7 @@ packages:
       '@aws-sdk/credential-provider-sso': 3.525.0(@aws-sdk/credential-provider-node@3.525.0)
       '@aws-sdk/credential-provider-web-identity': 3.525.0(@aws-sdk/credential-provider-node@3.525.0)
       '@aws-sdk/types': 3.523.0
-      '@smithy/credential-provider-imds': 2.2.4
+      '@smithy/credential-provider-imds': 2.2.5
       '@smithy/property-provider': 2.1.3
       '@smithy/shared-ini-file-loader': 2.3.4
       '@smithy/types': 2.10.1
@@ -1203,7 +1197,7 @@ packages:
       '@aws-sdk/credential-provider-sso': 3.525.0(@aws-sdk/credential-provider-node@3.525.0)
       '@aws-sdk/credential-provider-web-identity': 3.525.0(@aws-sdk/credential-provider-node@3.525.0)
       '@aws-sdk/types': 3.523.0
-      '@smithy/credential-provider-imds': 2.2.4
+      '@smithy/credential-provider-imds': 2.2.5
       '@smithy/property-provider': 2.1.3
       '@smithy/shared-ini-file-loader': 2.3.4
       '@smithy/types': 2.10.1
@@ -1478,7 +1472,7 @@ packages:
       '@smithy/util-body-length-browser': 2.1.1
       '@smithy/util-body-length-node': 2.2.1
       '@smithy/util-defaults-mode-browser': 2.1.4
-      '@smithy/util-defaults-mode-node': 2.2.3
+      '@smithy/util-defaults-mode-node': 2.2.4
       '@smithy/util-retry': 2.1.3
       '@smithy/util-utf8': 2.1.1
       tslib: 2.6.2
@@ -1608,7 +1602,7 @@ packages:
       projen: 0.79.27(constructs@10.3.0)
     dev: true
 
-  /@aws/codecatalyst-workflows-sdk@0.1.5-preview.6(projen@0.80.4):
+  /@aws/codecatalyst-workflows-sdk@0.1.5-preview.6(projen@0.80.6):
     resolution: {integrity: sha512-4XehEWD0oVRxalrv7RmEwTqc0cZJ9lOFGCmloDlSIcbunh3LZTC4JewHKZEJmP0qWuTDrhM+iKgM+PTK7GBDJA==}
     peerDependencies:
       projen: ^0.71.112
@@ -1616,11 +1610,11 @@ packages:
       globule: 1.3.4
       js-yaml: 4.1.0
       jsonschema: 1.4.1
-      projen: 0.80.4(constructs@10.3.0)
+      projen: 0.80.6(constructs@10.3.0)
     dev: false
 
-  /@aws/pdk@0.23.8(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.130.0)(cdk-nag@2.28.50)(constructs@10.3.0)(projen@0.80.4):
-    resolution: {integrity: sha512-8JlClCkcxsM2DV5qbajsb8G/97oiXZ1xrWxDxztctr4Cu+pmpTOzuLkgbT9WaRR6e6Z5oBI8PrJsa2mNgaTSXw==}
+  /@aws/pdk@0.23.11(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.131.0)(cdk-nag@2.28.55)(constructs@10.3.0)(projen@0.80.6):
+    resolution: {integrity: sha512-x3quiyTAMzWiqafvGHM5MrWjKX0dN9+LsBi/aVF0C5mYR6a6XttsuOwOeSuaHiio8bGiDxFjILws+gjRB2ibyw==}
     hasBin: true
     peerDependencies:
       '@aws-cdk/aws-cognito-identitypool-alpha': ^2.104.0-alpha.0
@@ -1629,11 +1623,11 @@ packages:
       constructs: ^10.3.0
       projen: ^0.79.24
     dependencies:
-      '@aws-cdk/aws-cognito-identitypool-alpha': 2.104.0-alpha.0(aws-cdk-lib@2.130.0)(constructs@10.3.0)
-      aws-cdk-lib: 2.130.0(constructs@10.3.0)
-      cdk-nag: 2.28.50(aws-cdk-lib@2.130.0)(constructs@10.3.0)
+      '@aws-cdk/aws-cognito-identitypool-alpha': 2.104.0-alpha.0(aws-cdk-lib@2.131.0)(constructs@10.3.0)
+      aws-cdk-lib: 2.131.0(constructs@10.3.0)
+      cdk-nag: 2.28.55(aws-cdk-lib@2.131.0)(constructs@10.3.0)
       constructs: 10.3.0
-      projen: 0.80.4(constructs@10.3.0)
+      projen: 0.80.6(constructs@10.3.0)
     dev: false
     bundledDependencies:
       - '@pnpm/reviewing.dependencies-hierarchy'
@@ -1666,8 +1660,8 @@ packages:
       - ts-node
       - word-wrap
 
-  /@aws/pdk@0.23.8(@aws-cdk/aws-cognito-identitypool-alpha@2.130.0-alpha.0)(aws-cdk-lib@2.130.0)(cdk-nag@2.28.50)(constructs@10.3.0)(projen@0.79.27):
-    resolution: {integrity: sha512-8JlClCkcxsM2DV5qbajsb8G/97oiXZ1xrWxDxztctr4Cu+pmpTOzuLkgbT9WaRR6e6Z5oBI8PrJsa2mNgaTSXw==}
+  /@aws/pdk@0.23.11(@aws-cdk/aws-cognito-identitypool-alpha@2.131.0-alpha.0)(aws-cdk-lib@2.131.0)(cdk-nag@2.28.55)(constructs@10.3.0)(projen@0.79.27):
+    resolution: {integrity: sha512-x3quiyTAMzWiqafvGHM5MrWjKX0dN9+LsBi/aVF0C5mYR6a6XttsuOwOeSuaHiio8bGiDxFjILws+gjRB2ibyw==}
     hasBin: true
     peerDependencies:
       '@aws-cdk/aws-cognito-identitypool-alpha': ^2.104.0-alpha.0
@@ -1676,9 +1670,9 @@ packages:
       constructs: ^10.3.0
       projen: ^0.79.24
     dependencies:
-      '@aws-cdk/aws-cognito-identitypool-alpha': 2.130.0-alpha.0(aws-cdk-lib@2.130.0)(constructs@10.3.0)
-      aws-cdk-lib: 2.130.0(constructs@10.3.0)
-      cdk-nag: 2.28.50(aws-cdk-lib@2.130.0)(constructs@10.3.0)
+      '@aws-cdk/aws-cognito-identitypool-alpha': 2.131.0-alpha.0(aws-cdk-lib@2.131.0)(constructs@10.3.0)
+      aws-cdk-lib: 2.131.0(constructs@10.3.0)
+      cdk-nag: 2.28.55(aws-cdk-lib@2.131.0)(constructs@10.3.0)
       constructs: 10.3.0
       projen: 0.79.27(constructs@10.3.0)
     dev: true
@@ -1730,7 +1724,7 @@ packages:
     resolution: {integrity: sha512-fQfkg0Gjkza3nf0c7/w6Xf34BW4YvzNfACRLmmb7XRLa6XHdR+K9AlJlxneFfWYf6uhOzuzZVTjF/8KfndZANw==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@ampproject/remapping': 2.2.1
+      '@ampproject/remapping': 2.3.0
       '@babel/code-frame': 7.23.5
       '@babel/generator': 7.23.6
       '@babel/helper-compilation-targets': 7.23.6
@@ -1754,8 +1748,8 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/types': 7.24.0
-      '@jridgewell/gen-mapping': 0.3.4
-      '@jridgewell/trace-mapping': 0.3.23
+      '@jridgewell/gen-mapping': 0.3.5
+      '@jridgewell/trace-mapping': 0.3.25
       jsesc: 2.5.2
     dev: true
 
@@ -2337,7 +2331,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       chalk: 4.1.2
       jest-message-util: 29.7.0
       jest-util: 29.7.0
@@ -2358,14 +2352,14 @@ packages:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       ci-info: 3.9.0
       exit: 0.1.2
       graceful-fs: 4.2.11
       jest-changed-files: 29.7.0
-      jest-config: 29.7.0(@types/node@18.19.21)(ts-node@10.9.2)
+      jest-config: 29.7.0(@types/node@18.19.22)(ts-node@10.9.2)
       jest-haste-map: 29.7.0
       jest-message-util: 29.7.0
       jest-regex-util: 29.6.3
@@ -2393,7 +2387,7 @@ packages:
     dependencies:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       jest-mock: 29.7.0
     dev: true
 
@@ -2420,7 +2414,7 @@ packages:
     dependencies:
       '@jest/types': 29.6.3
       '@sinonjs/fake-timers': 10.3.0
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       jest-message-util: 29.7.0
       jest-mock: 29.7.0
       jest-util: 29.7.0
@@ -2452,8 +2446,8 @@ packages:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@jridgewell/trace-mapping': 0.3.23
-      '@types/node': 18.19.21
+      '@jridgewell/trace-mapping': 0.3.25
+      '@types/node': 18.19.22
       chalk: 4.1.2
       collect-v8-coverage: 1.0.2
       exit: 0.1.2
@@ -2486,7 +2480,7 @@ packages:
     resolution: {integrity: sha512-MHjT95QuipcPrpLM+8JMSzFx6eHp5Bm+4XeFDJlwsvVBjmKNiIAvasGK2fxz2WbGRlnvqehFbh07MMa7n3YJnw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
-      '@jridgewell/trace-mapping': 0.3.23
+      '@jridgewell/trace-mapping': 0.3.25
       callsites: 3.1.0
       graceful-fs: 4.2.11
     dev: true
@@ -2517,7 +2511,7 @@ packages:
     dependencies:
       '@babel/core': 7.24.0
       '@jest/types': 29.6.3
-      '@jridgewell/trace-mapping': 0.3.23
+      '@jridgewell/trace-mapping': 0.3.25
       babel-plugin-istanbul: 6.1.1
       chalk: 4.1.2
       convert-source-map: 2.0.0
@@ -2541,18 +2535,18 @@ packages:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       '@types/yargs': 17.0.32
       chalk: 4.1.2
     dev: true
 
-  /@jridgewell/gen-mapping@0.3.4:
-    resolution: {integrity: sha512-Oud2QPM5dHviZNn4y/WhhYKSXksv+1xLEIsNrAbGcFzUN3ubqWRFT5gwPchNc5NuzILOU4tPBDTZ4VwhL8Y7cw==}
+  /@jridgewell/gen-mapping@0.3.5:
+    resolution: {integrity: sha512-IzL8ZoEDIBRWEzlCcRhOaCupYyN5gdIK+Q6fbFdPDg6HqX6jpkItn7DFIpW9LQzXG6Df9sA7+OKnq0qlz/GaQg==}
     engines: {node: '>=6.0.0'}
     dependencies:
       '@jridgewell/set-array': 1.2.1
       '@jridgewell/sourcemap-codec': 1.4.15
-      '@jridgewell/trace-mapping': 0.3.23
+      '@jridgewell/trace-mapping': 0.3.25
     dev: true
 
   /@jridgewell/resolve-uri@3.1.2:
@@ -2567,8 +2561,8 @@ packages:
   /@jridgewell/sourcemap-codec@1.4.15:
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
 
-  /@jridgewell/trace-mapping@0.3.23:
-    resolution: {integrity: sha512-9/4foRoUKp8s96tSkh8DlAAc5A0Ty8vLXld+l9gjKKY6ckwI8G15f0hskGmuLZu78ZlGa1vtsfOa+lnB4vG6Jg==}
+  /@jridgewell/trace-mapping@0.3.25:
+    resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
@@ -2899,8 +2893,8 @@ packages:
       '@smithy/util-middleware': 2.1.3
       tslib: 2.6.2
 
-  /@smithy/credential-provider-imds@2.2.4:
-    resolution: {integrity: sha512-DdatjmBZQnhGe1FhI8gO98f7NmvQFSDiZTwC3WMvLTCKQUY+Y1SVkhJqIuLu50Eb7pTheoXQmK+hKYUgpUWsNA==}
+  /@smithy/credential-provider-imds@2.2.5:
+    resolution: {integrity: sha512-OxgD7jX6bjDJNYsjKCZN+PBVy3ZNiXGhysOtfaV1+WGSmbJJWkw613BQaY0iDAxVxUNTt30Lt3NyhimAAsZ3TA==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@smithy/node-config-provider': 2.2.4
@@ -3188,12 +3182,12 @@ packages:
       bowser: 2.11.0
       tslib: 2.6.2
 
-  /@smithy/util-defaults-mode-node@2.2.3:
-    resolution: {integrity: sha512-ttUISrv1uVOjTlDa3nznX33f0pthoUlP+4grhTvOzcLhzArx8qHB94/untGACOG3nlf8vU20nI2iWImfzoLkYA==}
+  /@smithy/util-defaults-mode-node@2.2.4:
+    resolution: {integrity: sha512-dvBhPpjpIdGKyJZZ0STFCcvak79Q6brgyZhsebfiAX/zB5paYuqmkG6hMUW7QqZFQ7kCldtOUzwV75MuXaiuhA==}
     engines: {node: '>= 10.0.0'}
     dependencies:
       '@smithy/config-resolver': 2.1.4
-      '@smithy/credential-provider-imds': 2.2.4
+      '@smithy/credential-provider-imds': 2.2.5
       '@smithy/node-config-provider': 2.2.4
       '@smithy/property-provider': 2.1.3
       '@smithy/smithy-client': 2.4.2
@@ -3333,13 +3327,13 @@ packages:
     resolution: {integrity: sha512-IO+MJPVhoqz+28h1qLAcBEH2+xHMK6MTyHJc7MTnnYb6wsoLR29POVGJ7LycmVXIqyy/4/2ShP5sUwTXuOwb/w==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
     dev: true
 
   /@types/graceful-fs@4.1.9:
     resolution: {integrity: sha512-olP3sd1qOEe5dXTSaFvQG+02VdRXcdytWLAZsAq1PecU8uqQAhkrnbli7DagjtXKW/Bl7YJbUsa8MPcuc8LHEQ==}
     dependencies:
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
     dev: true
 
   /@types/http-cache-semantics@4.0.4:
@@ -3385,8 +3379,8 @@ packages:
     resolution: {integrity: sha512-PLwiVvTBg59tGFL/8VpcGvqOu3L4OuveNvPi0EYbWchRdEVP++yRUXJPFl+CApKEq13017/4Nf7aQ5lTtHUNsA==}
     dev: true
 
-  /@types/node@18.19.21:
-    resolution: {integrity: sha512-2Q2NeB6BmiTFQi4DHBzncSoq/cJMLDdhPaAoJFnFCyD9a8VPZRf7a1GAwp1Edb7ROaZc5Jz/tnZyL6EsWMRaqw==}
+  /@types/node@18.19.22:
+    resolution: {integrity: sha512-p3pDIfuMg/aXBmhkyanPshdfJuX5c5+bQjYLIikPLXAUycEogij/c50n/C+8XOA5L93cU4ZRXtn+dNQGi0IZqQ==}
     dependencies:
       undici-types: 5.26.5
 
@@ -3408,7 +3402,7 @@ packages:
       '@types/yargs-parser': 21.0.3
     dev: true
 
-  /@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.3.3):
+  /@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.4.2):
     resolution: {integrity: sha512-oy9+hTPCUFpngkEZUSzbf9MxI65wbKFoQYsgPdILTfbUldp5ovUuphZVe4i30emU9M/kP+T64Di0mxl7dSw3MA==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -3420,10 +3414,10 @@ packages:
         optional: true
     dependencies:
       '@eslint-community/regexpp': 4.10.0
-      '@typescript-eslint/parser': 6.21.0(eslint@8.57.0)(typescript@5.3.3)
+      '@typescript-eslint/parser': 6.21.0(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/scope-manager': 6.21.0
-      '@typescript-eslint/type-utils': 6.21.0(eslint@8.57.0)(typescript@5.3.3)
-      '@typescript-eslint/utils': 6.21.0(eslint@8.57.0)(typescript@5.3.3)
+      '@typescript-eslint/type-utils': 6.21.0(eslint@8.57.0)(typescript@5.4.2)
+      '@typescript-eslint/utils': 6.21.0(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/visitor-keys': 6.21.0
       debug: 4.3.4
       eslint: 8.57.0
@@ -3431,13 +3425,13 @@ packages:
       ignore: 5.3.1
       natural-compare: 1.4.0
       semver: 7.6.0
-      ts-api-utils: 1.2.1(typescript@5.3.3)
-      typescript: 5.3.3
+      ts-api-utils: 1.2.1(typescript@5.4.2)
+      typescript: 5.4.2
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.3.3):
+  /@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.2):
     resolution: {integrity: sha512-tbsV1jPne5CkFQCgPBcDOt30ItF7aJoZL997JSF7MhGQqOeT3svWRYxiqlfA5RUdlHN6Fi+EI9bxqbdyAUZjYQ==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -3449,11 +3443,11 @@ packages:
     dependencies:
       '@typescript-eslint/scope-manager': 6.21.0
       '@typescript-eslint/types': 6.21.0
-      '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.3.3)
+      '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.4.2)
       '@typescript-eslint/visitor-keys': 6.21.0
       debug: 4.3.4
       eslint: 8.57.0
-      typescript: 5.3.3
+      typescript: 5.4.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3466,7 +3460,7 @@ packages:
       '@typescript-eslint/visitor-keys': 6.21.0
     dev: true
 
-  /@typescript-eslint/type-utils@6.21.0(eslint@8.57.0)(typescript@5.3.3):
+  /@typescript-eslint/type-utils@6.21.0(eslint@8.57.0)(typescript@5.4.2):
     resolution: {integrity: sha512-rZQI7wHfao8qMX3Rd3xqeYSMCL3SoiSQLBATSiVKARdFGCYSRvmViieZjqc58jKgs8Y8i9YvVVhRbHSTA4VBag==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -3476,12 +3470,12 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.3.3)
-      '@typescript-eslint/utils': 6.21.0(eslint@8.57.0)(typescript@5.3.3)
+      '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.4.2)
+      '@typescript-eslint/utils': 6.21.0(eslint@8.57.0)(typescript@5.4.2)
       debug: 4.3.4
       eslint: 8.57.0
-      ts-api-utils: 1.2.1(typescript@5.3.3)
-      typescript: 5.3.3
+      ts-api-utils: 1.2.1(typescript@5.4.2)
+      typescript: 5.4.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3491,7 +3485,7 @@ packages:
     engines: {node: ^16.0.0 || >=18.0.0}
     dev: true
 
-  /@typescript-eslint/typescript-estree@6.21.0(typescript@5.3.3):
+  /@typescript-eslint/typescript-estree@6.21.0(typescript@5.4.2):
     resolution: {integrity: sha512-6npJTkZcO+y2/kr+z0hc4HwNfrrP4kNYh57ek7yCNlrBjWQ1Y0OS7jiZTkgumrvkX5HkEKXFZkkdFNkaW2wmUQ==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -3507,13 +3501,13 @@ packages:
       is-glob: 4.0.3
       minimatch: 9.0.3
       semver: 7.6.0
-      ts-api-utils: 1.2.1(typescript@5.3.3)
-      typescript: 5.3.3
+      ts-api-utils: 1.2.1(typescript@5.4.2)
+      typescript: 5.4.2
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@typescript-eslint/utils@6.21.0(eslint@8.57.0)(typescript@5.3.3):
+  /@typescript-eslint/utils@6.21.0(eslint@8.57.0)(typescript@5.4.2):
     resolution: {integrity: sha512-NfWVaC8HP9T8cbKQxHcsJBY5YE1O33+jpMwN45qzWWaPDZgLIbo12toGMWnmhvCpd3sIxkpDw3Wv1B3dYrbDQQ==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -3524,7 +3518,7 @@ packages:
       '@types/semver': 7.5.8
       '@typescript-eslint/scope-manager': 6.21.0
       '@typescript-eslint/types': 6.21.0
-      '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.3.3)
+      '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.4.2)
       eslint: 8.57.0
       semver: 7.6.0
     transitivePeerDependencies:
@@ -3797,8 +3791,8 @@ packages:
       possible-typed-array-names: 1.0.0
     dev: true
 
-  /aws-cdk-lib@2.130.0(constructs@10.3.0):
-    resolution: {integrity: sha512-yK7ibePipdjlI4AFM94fwwtsCkmpWJ0JFZTMPahahC/3Pxe/BA/nnI/4Namvl5QPxW5QlU0xQYU7cywioq3RQg==}
+  /aws-cdk-lib@2.131.0(constructs@10.3.0):
+    resolution: {integrity: sha512-9XLgiTgY+q0S3K93VPeJO0chIN8BZwZ3aSrILvF868Dz+0NTNrD2m5M0xGK5Rw0uoJS+N+DvGaz/2hLAiVqcBw==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
       constructs: ^10.0.0
@@ -3964,8 +3958,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001591
-      electron-to-chromium: 1.4.689
+      caniuse-lite: 1.0.30001594
+      electron-to-chromium: 1.4.694
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.23.0)
     dev: true
@@ -3997,7 +3991,7 @@ packages:
   /builtins@5.0.1:
     resolution: {integrity: sha512-qwVpFEHNfhYJIzNRBvd2C1kyo6jz3ZSMPyyuR47OPdiKWlbYnZNyDWuyR175qDnAJLiCo5fBBqPb3RiXgWlkOQ==}
     dependencies:
-      semver: 7.6.0
+      semver: 7.5.4
     dev: true
 
   /cacache@16.1.3:
@@ -4096,17 +4090,17 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /caniuse-lite@1.0.30001591:
-    resolution: {integrity: sha512-PCzRMei/vXjJyL5mJtzNiUCKP59dm8Apqc3PH8gJkMnMXZGox93RbE76jHsmLwmIo6/3nsYIpJtx0O7u5PqFuQ==}
+  /caniuse-lite@1.0.30001594:
+    resolution: {integrity: sha512-VblSX6nYqyJVs8DKFMldE2IVCJjZ225LW00ydtUWwh5hk9IfkTOffO6r8gJNsH0qqqeAF8KrbMYA2VEwTlGW5g==}
     dev: true
 
-  /cdk-nag@2.28.50(aws-cdk-lib@2.130.0)(constructs@10.3.0):
-    resolution: {integrity: sha512-zBqwWFF6Ku8xGRf5X5BOcdGNSzRGwNPSnFVFWBoefwvWEqkVcXPlMHIACVCdqY3N3aTY77FzwpXeAaIWZmA5Vg==}
+  /cdk-nag@2.28.55(aws-cdk-lib@2.131.0)(constructs@10.3.0):
+    resolution: {integrity: sha512-ETdEB6zFQqxVrWXMZSI3c3EoMNOp919pdYsb11zlZyyfS99mgKf9wdXHpBWYu2gY+efxXktWj7HLoPU6g1sxrQ==}
     peerDependencies:
       aws-cdk-lib: ^2.116.0
       constructs: ^10.0.5
     dependencies:
-      aws-cdk-lib: 2.130.0(constructs@10.3.0)
+      aws-cdk-lib: 2.131.0(constructs@10.3.0)
       constructs: 10.3.0
 
   /chalk@2.4.2:
@@ -4286,7 +4280,7 @@ packages:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
     dev: true
 
-  /cosmiconfig@9.0.0(typescript@5.3.3):
+  /cosmiconfig@9.0.0(typescript@5.4.2):
     resolution: {integrity: sha512-itvL5h8RETACmOTFc4UfIyB2RfEHi71Ax6E/PivVxq9NseKbOWpeyHEOIbmAw1rs8Ak0VursQNww7lf7YtUwzg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -4299,10 +4293,10 @@ packages:
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
-      typescript: 5.3.3
+      typescript: 5.4.2
     dev: true
 
-  /create-jest@29.7.0(@types/node@18.19.21)(ts-node@10.9.2):
+  /create-jest@29.7.0(@types/node@18.19.22)(ts-node@10.9.2):
     resolution: {integrity: sha512-Adz2bdH0Vq3F53KEMJOoftQFutWCukm6J24wbPWRO4k1kMY7gS7ds/uoJkNuV8wDCtWWnuwGcJwpWcih+zEW1Q==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -4311,7 +4305,7 @@ packages:
       chalk: 4.1.2
       exit: 0.1.2
       graceful-fs: 4.2.11
-      jest-config: 29.7.0(@types/node@18.19.21)(ts-node@10.9.2)
+      jest-config: 29.7.0(@types/node@18.19.22)(ts-node@10.9.2)
       jest-util: 29.7.0
       prompts: 2.4.2
     transitivePeerDependencies:
@@ -4502,8 +4496,8 @@ packages:
     resolution: {integrity: sha512-fJhLzf5oouL4WZP314ZJgZz5Bel7OHTY+YFxO06sW1mSvqJz0s28y7jDHr5zhtTNM1YRvzbeLYUYfNaJYKqx1A==}
     dev: true
 
-  /electron-to-chromium@1.4.689:
-    resolution: {integrity: sha512-GatzRKnGPS1go29ep25reM94xxd1Wj8ritU0yRhCJ/tr1Bg8gKnm6R9O/yPOhGQBoLMZ9ezfrpghNaTw97C/PQ==}
+  /electron-to-chromium@1.4.694:
+    resolution: {integrity: sha512-kM3SwvGTYpBFJSc8jm4IYVMIOzDmAGd/Ry96O9elRiM6iEwHKNKhtXyFGzpfMMIGZD84W4/hyaULlMmNVvLQlQ==}
     dev: true
 
   /emittery@0.13.1:
@@ -4770,7 +4764,7 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 6.21.0(eslint@8.57.0)(typescript@5.3.3)
+      '@typescript-eslint/parser': 6.21.0(eslint@8.57.0)(typescript@5.4.2)
       debug: 3.2.7
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
@@ -4789,7 +4783,7 @@ packages:
       '@typescript-eslint/parser':
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 6.21.0(eslint@8.57.0)(typescript@5.3.3)
+      '@typescript-eslint/parser': 6.21.0(eslint@8.57.0)(typescript@5.4.2)
       array-includes: 3.1.7
       array.prototype.findlastindex: 1.2.4
       array.prototype.flat: 1.3.2
@@ -5288,7 +5282,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.1.2
+      minimatch: 3.0.5
       once: 1.4.0
       path-is-absolute: 1.0.1
     dev: true
@@ -5605,8 +5599,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /ini@4.1.1:
-    resolution: {integrity: sha512-QQnnxNyfvmHFIsj7gkPcYymR8Jdw/o7mp5ZFihxn6h8Ci6fh3Dx4E1gPjpQEpIuPo9XVNY/ZUwh4BPMjGyL01g==}
+  /ini@4.1.2:
+    resolution: {integrity: sha512-AMB1mvwR1pyBFY/nSevUX6y8nJWS63/SzUKD3JyQn97s4xgIdgQPT75IRouIiBAN4yLQBUShNYVW0+UG25daCw==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dev: true
 
@@ -5913,7 +5907,7 @@ packages:
       '@jest/expect': 29.7.0
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       chalk: 4.1.2
       co: 4.6.0
       dedent: 1.5.1
@@ -5934,7 +5928,7 @@ packages:
       - supports-color
     dev: true
 
-  /jest-cli@29.7.0(@types/node@18.19.21)(ts-node@10.9.2):
+  /jest-cli@29.7.0(@types/node@18.19.22)(ts-node@10.9.2):
     resolution: {integrity: sha512-OVVobw2IubN/GSYsxETi+gOe7Ka59EFMR/twOU3Jb2GnKKeMGJB5SGUUrEz3SFVmJASUdZUzy83sLNNQ2gZslg==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -5948,10 +5942,10 @@ packages:
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
       chalk: 4.1.2
-      create-jest: 29.7.0(@types/node@18.19.21)(ts-node@10.9.2)
+      create-jest: 29.7.0(@types/node@18.19.22)(ts-node@10.9.2)
       exit: 0.1.2
       import-local: 3.1.0
-      jest-config: 29.7.0(@types/node@18.19.21)(ts-node@10.9.2)
+      jest-config: 29.7.0(@types/node@18.19.22)(ts-node@10.9.2)
       jest-util: 29.7.0
       jest-validate: 29.7.0
       yargs: 17.7.2
@@ -5962,7 +5956,7 @@ packages:
       - ts-node
     dev: true
 
-  /jest-config@29.7.0(@types/node@18.19.21)(ts-node@10.9.2):
+  /jest-config@29.7.0(@types/node@18.19.22)(ts-node@10.9.2):
     resolution: {integrity: sha512-uXbpfeQ7R6TZBqI3/TxCU4q4ttk3u0PJeC+E0zbfSoSjq6bJ7buBPxzQPL0ifrkY4DNu4JUdk0ImlBUYi840eQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     peerDependencies:
@@ -5977,7 +5971,7 @@ packages:
       '@babel/core': 7.24.0
       '@jest/test-sequencer': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       babel-jest: 29.7.0(@babel/core@7.24.0)
       chalk: 4.1.2
       ci-info: 3.9.0
@@ -5997,7 +5991,7 @@ packages:
       pretty-format: 29.7.0
       slash: 3.0.0
       strip-json-comments: 3.1.1
-      ts-node: 10.9.2(@types/node@18.19.21)(typescript@5.3.3)
+      ts-node: 10.9.2(@types/node@18.19.22)(typescript@5.4.2)
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
@@ -6038,7 +6032,7 @@ packages:
       '@jest/environment': 29.7.0
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       jest-mock: 29.7.0
       jest-util: 29.7.0
     dev: true
@@ -6054,7 +6048,7 @@ packages:
     dependencies:
       '@jest/types': 29.6.3
       '@types/graceful-fs': 4.1.9
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       anymatch: 3.1.3
       fb-watchman: 2.0.2
       graceful-fs: 4.2.11
@@ -6115,7 +6109,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       jest-util: 29.7.0
     dev: true
 
@@ -6170,7 +6164,7 @@ packages:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       chalk: 4.1.2
       emittery: 0.13.1
       graceful-fs: 4.2.11
@@ -6201,7 +6195,7 @@ packages:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       chalk: 4.1.2
       cjs-module-lexer: 1.2.3
       collect-v8-coverage: 1.0.2
@@ -6253,7 +6247,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       chalk: 4.1.2
       ci-info: 3.9.0
       graceful-fs: 4.2.11
@@ -6278,7 +6272,7 @@ packages:
     dependencies:
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       emittery: 0.13.1
@@ -6290,13 +6284,13 @@ packages:
     resolution: {integrity: sha512-eIz2msL/EzL9UFTFFx7jBTkeZfku0yUAyZZZmJ93H2TYEiroIx2PQjEXcwYtYl8zXCxb+PAmA2hLIt/6ZEkPHw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: true
 
-  /jest@29.7.0(@types/node@18.19.21)(ts-node@10.9.2):
+  /jest@29.7.0(@types/node@18.19.22)(ts-node@10.9.2):
     resolution: {integrity: sha512-NIy3oAFp9shda19hy4HK0HRTWKtPJmGdnvywu01nOqNC2vZg+Z+fvJDxpMQA88eb2I9EcafcdjYgsDthnYTvGw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -6309,7 +6303,7 @@ packages:
       '@jest/core': 29.7.0(ts-node@10.9.2)
       '@jest/types': 29.6.3
       import-local: 3.1.0
-      jest-cli: 29.7.0(@types/node@18.19.21)(ts-node@10.9.2)
+      jest-cli: 29.7.0(@types/node@18.19.22)(ts-node@10.9.2)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -6874,7 +6868,7 @@ packages:
       get-stdin: 8.0.0
       globby: 11.1.0
       hosted-git-info: 5.2.1
-      ini: 4.1.1
+      ini: 4.1.2
       js-yaml: 4.1.0
       json-parse-helpfulerror: 1.0.3
       jsonlines: 0.1.1
@@ -6930,7 +6924,7 @@ packages:
     dependencies:
       hosted-git-info: 7.0.1
       proc-log: 3.0.0
-      semver: 7.6.0
+      semver: 7.5.4
       validate-npm-package-name: 5.0.0
     dev: true
 
@@ -7415,8 +7409,8 @@ packages:
       - yaml
       - yargs
 
-  /projen@0.80.4(constructs@10.3.0):
-    resolution: {integrity: sha512-I7+0tkOwSJMRaTb+zeEzD3VXbx4qiDKhz9/VfcoPIfcpI+xNizSX3AAjZ+U1K1t38npX2WD2Pph77ZrPkGp65A==}
+  /projen@0.80.6(constructs@10.3.0):
+    resolution: {integrity: sha512-UI/Wz6Pxuc/gNeVihWc0r5fHYx3LVQQKj4YNyO/Nazkhrzj1VOSym0zABaSAGM/DgkHGz2AYQQXdbR8eiSokDw==}
     engines: {node: '>= 16.0.0'}
     hasBin: true
     peerDependencies:
@@ -8086,7 +8080,7 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /syncpack@12.3.0(typescript@5.3.3):
+  /syncpack@12.3.0(typescript@5.4.2):
     resolution: {integrity: sha512-Gz2uGn96OmGfVVlKztvFac1EJYjP+WptQ2ohA6Uf48C6qLkhSayhkdujKQ6q7bGOTy8HSGI0iDfwfCJu6wvRig==}
     engines: {node: '>=16'}
     hasBin: true
@@ -8094,7 +8088,7 @@ packages:
       '@effect/schema': 0.56.1(effect@2.0.0-next.62)(fast-check@3.15.0)
       chalk: 4.1.2
       commander: 11.1.0
-      cosmiconfig: 9.0.0(typescript@5.3.3)
+      cosmiconfig: 9.0.0(typescript@5.4.2)
       effect: 2.0.0-next.62
       enquirer: 2.4.1
       fast-check: 3.15.0
@@ -8182,16 +8176,16 @@ packages:
       is-number: 7.0.0
     dev: true
 
-  /ts-api-utils@1.2.1(typescript@5.3.3):
+  /ts-api-utils@1.2.1(typescript@5.4.2):
     resolution: {integrity: sha512-RIYA36cJn2WiH9Hy77hdF9r7oEwxAtB/TS9/S4Qd90Ap4z5FSiin5zEiTL44OII1Y3IIlEvxwxFUVgrHSZ/UpA==}
     engines: {node: '>=16'}
     peerDependencies:
       typescript: '>=4.2.0'
     dependencies:
-      typescript: 5.3.3
+      typescript: 5.4.2
     dev: true
 
-  /ts-jest@29.1.2(@babel/core@7.24.0)(jest@29.7.0)(typescript@5.3.3):
+  /ts-jest@29.1.2(@babel/core@7.24.0)(jest@29.7.0)(typescript@5.4.2):
     resolution: {integrity: sha512-br6GJoH/WUX4pu7FbZXuWGKGNDuU7b8Uj77g/Sp7puZV6EXzuByl6JrECvm0MzVzSTkSHWTihsXt+5XYER5b+g==}
     engines: {node: ^16.10.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -8215,17 +8209,17 @@ packages:
       '@babel/core': 7.24.0
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
-      jest: 29.7.0(@types/node@18.19.21)(ts-node@10.9.2)
+      jest: 29.7.0(@types/node@18.19.22)(ts-node@10.9.2)
       jest-util: 29.7.0
       json5: 2.2.3
       lodash.memoize: 4.1.2
       make-error: 1.3.6
       semver: 7.6.0
-      typescript: 5.3.3
+      typescript: 5.4.2
       yargs-parser: 21.1.1
     dev: true
 
-  /ts-node@10.9.2(@types/node@18.19.21)(typescript@4.9.5):
+  /ts-node@10.9.2(@types/node@18.19.22)(typescript@4.9.5):
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
@@ -8244,7 +8238,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       acorn: 8.11.3
       acorn-walk: 8.3.2
       arg: 4.1.3
@@ -8255,7 +8249,7 @@ packages:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
 
-  /ts-node@10.9.2(@types/node@18.19.21)(typescript@5.3.3):
+  /ts-node@10.9.2(@types/node@18.19.22)(typescript@5.4.2):
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
@@ -8274,14 +8268,14 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 18.19.21
+      '@types/node': 18.19.22
       acorn: 8.11.3
       acorn-walk: 8.3.2
       arg: 4.1.3
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 5.3.3
+      typescript: 5.4.2
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     dev: true
@@ -8412,8 +8406,8 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
 
-  /typescript@5.3.3:
-    resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
+  /typescript@5.4.2:
+    resolution: {integrity: sha512-+2/g0Fds1ERlP6JsakQQDXjZdZMM+rqpamFZJEKh4kwTIn3iDkgKtby0CeNd5ATNZ4Ry1ax15TMx0W2V+miizQ==}
     engines: {node: '>=14.17'}
     hasBin: true
     dev: true
@@ -8529,7 +8523,7 @@ packages:
     resolution: {integrity: sha512-/EH/sDgxU2eGxajKdwLCDmQ4FWq+kpi3uCmBGpw1xJtnAxEjlD8j8PEiGWpCIMIs3ciNAgH0d3TTJiUkYzyZjA==}
     engines: {node: '>=10.12.0'}
     dependencies:
-      '@jridgewell/trace-mapping': 0.3.23
+      '@jridgewell/trace-mapping': 0.3.25
       '@types/istanbul-lib-coverage': 2.0.6
       convert-source-map: 2.0.0
     dev: true
@@ -8658,8 +8652,8 @@ packages:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
     dev: true
 
-  /yaml@2.4.0:
-    resolution: {integrity: sha512-j9iR8g+/t0lArF4V6NE/QCfT+CO7iLqrXAHZbJdo+LfjqP1vR8Fg5bSiaq6Q2lOD1AUEVrEVIgABvBFYojJVYQ==}
+  /yaml@2.4.1:
+    resolution: {integrity: sha512-pIXzoImaqmfOrL7teGUBt/T7ZDnyeGBWyXQBvOVhLkWLN37GXv8NMLK406UY6dS51JfcQHsmcW5cJ441bHg6Lg==}
     engines: {node: '>= 14'}
     hasBin: true
 

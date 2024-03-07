@@ -29,14 +29,14 @@
     "jest-junit": "^15",
     "projen": "^0.79.24",
     "ts-jest": "29.1.2",
-    "typescript": "5.3.3"
+    "typescript": "5.4.2"
   },
   "dependencies": {
-    "@amazon-codecatalyst/blueprints": "0.3.65",
-    "@aws/pdk": "0.23.8",
+    "@amazon-codecatalyst/blueprints": "0.3.66",
+    "@aws/pdk": "^0.23.11",
     "glob": "10.3.10",
     "mustache": "4.2.0",
-    "projen": "0.80.4"
+    "projen": "0.80.6"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",

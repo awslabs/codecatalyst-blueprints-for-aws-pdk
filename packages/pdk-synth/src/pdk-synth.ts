@@ -252,7 +252,7 @@ export class PDKSynth extends Component {
     this.synthWithoutPostInstall(monorepo);
 
     // Generate lockfile only if a DEVOPS blueprint exists to improve initial performance
-    this.hasDevOpsBlueprint() && execSync(this.renderLockfileCommand()!, {
+    this.hasDevOpsBlueprint() && execSync(this.renderTypescriptLockfileCommand()!, {
       cwd: this.sourceRepository.path,
       stdio: [0, 1, 1],
     });
@@ -262,7 +262,7 @@ export class PDKSynth extends Component {
     return this.findBlueprintInstantiations(DEVOPS_PACKAGE).length > 0 || (this.project as Blueprint).context.package.name === DEVOPS_PACKAGE;
   }
 
-  private renderLockfileCommand() {
+  private renderTypescriptLockfileCommand() {
     switch (this.getPackageManager()) {
       case NodePackageManager.YARN_BERRY:
         return 'YARN_IGNORE_NODE=1 YARN_ENABLE_SCRIPTS=false npx -y yarn install --mode update-lockfile';
@@ -308,9 +308,16 @@ export class PDKSynth extends Component {
     this.synthWithoutPostInstall(monorepo);
 
     // Generate lockfile
-    // execSync('poetry lock', {
-    //   cwd: this.sourceRepository.path,
-    // });
+    if (this.hasDevOpsBlueprint()) {
+      execSync(this.renderPythonLockfileCommand(), {
+        cwd: this.sourceRepository.path,
+        stdio: [0, 1, 1],
+      });
+    }
+  }
+
+  private renderPythonLockfileCommand(): string {
+    return 'curl -sSL https://install.python-poetry.org | python3 - && npm install -g @aws/pdk && pdk install';
   }
 
   private getModelLanguage(options: ApiOptions): ModelLanguage {

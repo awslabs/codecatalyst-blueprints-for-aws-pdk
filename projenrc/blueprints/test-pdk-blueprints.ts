@@ -1,6 +1,5 @@
 import { MonorepoTsProject } from "@aws/pdk/monorepo";
 import { PDKBlueprint } from "../abstract/pdk-blueprint";
-import { PDKSynth } from "../components/pdk-synth";
 
 const DEVOPS_PACKAGE =
   "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-devops";

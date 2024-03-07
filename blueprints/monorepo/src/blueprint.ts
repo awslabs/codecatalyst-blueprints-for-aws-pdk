@@ -87,7 +87,7 @@ export class Blueprint extends ParentBlueprint {
           id: "install-pdk-deps",
           exec: {
             commandLine:
-              "source /usr/local/.mde-user/.nvm/nvm.sh && nvm use 20 && npm install -g @aws/pdk bun --force && sudo yum -y install graphviz",
+              "source /usr/local/.mde-user/.nvm/nvm.sh && nvm use 20 && npm install -g @aws/pdk bun --force && sudo yum -y install graphviz && curl -sSL https://install.python-poetry.org | python3 -",
             component: "aws-runtime",
           },
         },

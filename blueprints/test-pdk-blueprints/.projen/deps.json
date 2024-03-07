@@ -93,15 +93,7 @@
       "type": "runtime"
     },
     {
-      "name": "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth",
-      "type": "runtime"
-    },
-    {
       "name": "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api",
-      "type": "runtime"
-    },
-    {
-      "name": "@aws/pdk",
       "type": "runtime"
     },
     {
