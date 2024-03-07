@@ -317,7 +317,10 @@ export class PDKSynth extends Component {
   }
 
   private renderPythonLockfileCommand(): string {
-    return 'curl -sSL https://install.python-poetry.org | python3 - && npm install -g @aws/pdk && pdk install';
+    return [
+      'curl -sSL https://install.python-poetry.org | LD_LIBRARY_PATH="" python3',
+      'find . -type f -name "pyproject.toml" -exec bash -c \'cd "$(dirname {})" && PATH=$PATH:$HOME/.local/bin LD_LIBRARY_PATH="" poetry lock\' \;',
+    ].join(' && ');
   }
 
   private getModelLanguage(options: ApiOptions): ModelLanguage {
