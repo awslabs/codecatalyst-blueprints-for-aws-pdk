@@ -318,8 +318,10 @@ export class PDKSynth extends Component {
 
   private renderPythonLockfileCommand(): string {
     return [
-      'curl -sSL https://install.python-poetry.org | LD_LIBRARY_PATH="" python3',
-      'find . -type f -name "pyproject.toml" -exec bash -c \'cd "$(dirname {})" && PATH=$PATH:$HOME/.local/bin LD_LIBRARY_PATH="" poetry lock\' \;',
+      'curl -sSL https://install.python-poetry.org | LD_LIBRARY_PATH="" python3.11',
+      // find is not installable so have to implement our own :(
+      // list all directories containing a pyproject.toml and call poetry lock
+      'for _DIR in `ls -R . | awk \'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }\' | grep pyproject.toml | awk \'{sub(/pyproject.toml/,""); print}\'`; do bash -c "cd $_DIR && PATH=$PATH:$HOME/.local/bin LD_LIBRARY_PATH="" poetry lock"; done;',
     ].join(' && ');
   }
 
