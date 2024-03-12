@@ -3,6 +3,11 @@
 This repository contains PDK based CodeCatalyst Blueprints.
 
 The blueprints can be found under `blueprints/*`
+- Blueprint A
+- Blueprint B
+- Blueprint C
+- Blueprint D
+- Blueprint E
 
 # Usage Guide
 
