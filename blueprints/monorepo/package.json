@@ -53,7 +53,7 @@
   },
   "main": "lib/index.js",
   "license": "MIT",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
   "displayName": "PDK - Monorepo",
