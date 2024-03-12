@@ -53,7 +53,7 @@
   },
   "main": "lib/index.js",
   "license": "MIT",
-  "version": "0.0.19",
+  "version": "0.0.21",
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
   "displayName": "PDK - DevOps",
