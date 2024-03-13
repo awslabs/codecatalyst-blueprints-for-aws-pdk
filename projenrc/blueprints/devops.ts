@@ -9,6 +9,7 @@ export class DevOpsBlueprint extends PDKBlueprint {
       displayName: "PDK - DevOps",
       description:
         "This blueprint creates DevOps workflows compatible with constructs found in the AWS Project Development Kit (AWS PDK).",
+      keywords: ["pdk", "devops", "release"],
     });
 
     this.addDeps("@aws/pdk", synth.package.packageName);

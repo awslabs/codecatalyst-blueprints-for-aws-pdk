@@ -9,6 +9,7 @@ export class TypeSafeApiBlueprint extends PDKBlueprint {
       displayName: "PDK - Type Safe API",
       description:
         "This blueprint creates a type safe api using constructs found in the AWS Project Development Kit (AWS PDK).",
+      keywords: ["pdk", "python", "typescript", "standard-api"],
     });
 
     this.addDeps("@aws/pdk", synth.package.packageName);

@@ -26,7 +26,7 @@
     "blueprint:resynth": "blueprint drive-resynth --blueprint ./ --outdir ./synth --default-options ./src/defaults.json --additional-options ./src/wizard-configurations $*"
   },
   "author": {
-    "name": "Centre-of-Prototyping-Excellence",
+    "name": "AWS Project Development Kit",
     "organization": true
   },
   "devDependencies": {
@@ -47,11 +47,11 @@
   "dependencies": {
     "@amazon-codecatalyst/blueprint-util.cli": "0.3.66",
     "@amazon-codecatalyst/blueprints": "0.3.66",
-    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website": "*",
-    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-devops": "*",
-    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra": "*",
-    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo": "*",
-    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api": "*",
+    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website": "^0.0.22",
+    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-devops": "^0.0.33",
+    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra": "^0.0.17",
+    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo": "^0.0.18",
+    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api": "^0.0.17",
     "projen": "0.80.6"
   },
   "main": "lib/index.js",

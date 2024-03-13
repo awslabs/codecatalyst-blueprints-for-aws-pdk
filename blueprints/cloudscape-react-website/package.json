@@ -26,7 +26,7 @@
     "blueprint:resynth": "blueprint drive-resynth --blueprint ./ --outdir ./synth --default-options ./src/defaults.json --additional-options ./src/wizard-configurations $*"
   },
   "author": {
-    "name": "Centre-of-Prototyping-Excellence",
+    "name": "AWS Project Development Kit",
     "organization": true
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-prettier": "4.2.1",
     "prettier": "2.8.8",
-    "projen": "0.80.6",
+    "projen": "^0.79.24",
     "ts-node": "10.9.2",
     "typescript": "5.4.2"
   },
@@ -51,6 +51,14 @@
     "@aws/pdk": "^0.23.11",
     "projen": "0.80.6"
   },
+  "keywords": [
+    "cloudscape",
+    "frontend",
+    "pdk",
+    "react",
+    "spa",
+    "typescript"
+  ],
   "main": "lib/index.js",
   "license": "MIT",
   "version": "0.0.22",
