@@ -310,19 +310,19 @@ importers:
         specifier: 0.3.66
         version: 0.3.66(projen@0.80.6)
       '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website':
-        specifier: '*'
+        specifier: ^0.0.22
         version: link:../cloudscape-react-website
       '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-devops':
-        specifier: '*'
+        specifier: ^0.0.33
         version: link:../devops
       '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra':
-        specifier: '*'
+        specifier: ^0.0.17
         version: link:../infra
       '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo':
-        specifier: '*'
+        specifier: ^0.0.18
         version: link:../monorepo
       '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api':
-        specifier: '*'
+        specifier: ^0.0.17
         version: link:../type-safe-api
       projen:
         specifier: 0.80.6

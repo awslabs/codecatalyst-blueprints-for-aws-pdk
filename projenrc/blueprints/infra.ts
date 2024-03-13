@@ -9,6 +9,7 @@ export class InfraBlueprint extends PDKBlueprint {
       displayName: "PDK - Infra",
       description:
         "This blueprint creates a CDK infrastructure package using constructs found in the AWS Project Development Kit (AWS PDK).",
+      keywords: ["pdk", "devops", "cdk"],
     });
 
     this.addDeps("@aws/pdk", synth.package.packageName);

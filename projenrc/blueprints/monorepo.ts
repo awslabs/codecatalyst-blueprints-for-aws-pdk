@@ -9,6 +9,7 @@ export class MonorepoBlueprint extends PDKBlueprint {
       displayName: "PDK - Monorepo",
       description:
         "This blueprint sets up a monorepo using constructs found in the AWS Project Development Kit (AWS PDK).",
+      keywords: ["pdk", "monorepo", "base"],
     });
 
     this.addDeps("@aws/pdk", synth.package.packageName);

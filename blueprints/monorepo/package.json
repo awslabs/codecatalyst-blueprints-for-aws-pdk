@@ -26,7 +26,7 @@
     "blueprint:resynth": "blueprint drive-resynth --blueprint ./ --outdir ./synth --default-options ./src/defaults.json --additional-options ./src/wizard-configurations $*"
   },
   "author": {
-    "name": "Centre-of-Prototyping-Excellence",
+    "name": "AWS Project Development Kit",
     "organization": true
   },
   "devDependencies": {
@@ -51,6 +51,11 @@
     "@aws/pdk": "^0.23.11",
     "projen": "0.80.6"
   },
+  "keywords": [
+    "base",
+    "monorepo",
+    "pdk"
+  ],
   "main": "lib/index.js",
   "license": "MIT",
   "version": "0.0.18",
