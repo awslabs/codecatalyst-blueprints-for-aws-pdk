@@ -8,6 +8,7 @@ The blueprints can be found under `blueprints/*`
 - Blueprint infra
 - Blueprint monorepo
 - Blueprint type-safe-api
+Public documentation on the pdk can be found (here)[].
 
 # Usage Guide
 
