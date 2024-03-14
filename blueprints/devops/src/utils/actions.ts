@@ -23,7 +23,6 @@ export function getPrerequisiteSteps(): string[] {
     "npm install -g bun pnpm yarn aws-cdk @aws/pdk projen",
     "pyenv install 3.11 && pyenv global 3.11", // TODO: get rid of this as it is too slow
     'curl -sSL https://install.python-poetry.org | LD_LIBRARY_PATH="" python3.11 && export PATH="/root/.local/bin:$PATH"',
-    "find . -name \"poetry.lock\" -exec bash -c 'cd `dirname {}` && poetry env use python3.11' \\;",
     "sudo yum -y groupinstall 'Development Tools'",
     "sudo yum -y install graphviz",
   ];

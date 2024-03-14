@@ -56,7 +56,11 @@
   },
   "main": "lib/index.js",
   "license": "MIT",
+<<<<<<< HEAD
   "version": "0.0.22",
+=======
+  "version": "0.0.21",
+>>>>>>> c695d2c (fix: tweak prerequisite steps)
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
   "displayName": "PDK - Test Blueprints",
