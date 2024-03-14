@@ -33,8 +33,15 @@ export interface Options extends ParentOptions {
   }>;
 }
 export class Blueprint extends ParentBlueprint {
+  private readonly options: Options;
+
   constructor(options: Options) {
     super(options);
+    this.options = options;
+  }
+
+  synth(): void {
+    process.env.PROJEN_DISABLE_POST = "true";
 
     const monorepoBlueprint = new TestMonorepoBlueprint(this);
     monorepoBlueprint.synth();
@@ -70,9 +77,11 @@ export class Blueprint extends ParentBlueprint {
         infraBlueprint
       ),
       {
-        deploymentTarget: options.environment,
+        deploymentTarget: this.options.environment,
       }
     );
     devOpsBlueprint.synth();
+
+    process.env.PROJEN_DISABLE_POST = "false";
   }
 }
