@@ -30,26 +30,26 @@
     "organization": true
   },
   "devDependencies": {
-    "@types/node": "^18",
-    "@typescript-eslint/eslint-plugin": "^6",
-    "@typescript-eslint/parser": "^6",
-    "constructs": "^10.0.0",
-    "eslint": "^8",
+    "@types/node": "18",
+    "@typescript-eslint/eslint-plugin": "6",
+    "@typescript-eslint/parser": "6",
+    "constructs": "10.3.0",
+    "eslint": "8",
     "eslint-config-prettier": "8.10.0",
     "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-prettier": "4.2.1",
     "prettier": "2.8.8",
-    "projen": "^0.79.24",
+    "projen": "0.80.10",
     "ts-node": "10.9.2",
     "typescript": "5.4.2"
   },
   "dependencies": {
-    "@amazon-codecatalyst/blueprint-util.cli": "0.3.66",
-    "@amazon-codecatalyst/blueprints": "0.3.66",
+    "@amazon-codecatalyst/blueprint-util.cli": "0.3.75",
+    "@amazon-codecatalyst/blueprints": "0.3.75",
     "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth": "0.0.0",
-    "@aws/pdk": "^0.23.11",
-    "projen": "0.80.6"
+    "@aws/pdk": "0.23.14",
+    "projen": "0.80.10"
   },
   "keywords": [
     "base",
@@ -58,7 +58,7 @@
   ],
   "main": "lib/index.js",
   "license": "MIT",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
   "displayName": "PDK - Monorepo",
