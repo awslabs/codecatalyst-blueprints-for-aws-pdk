@@ -213,6 +213,13 @@ export class PDKSynth extends Component {
       default:
         new Error('Not implemented!');
     }
+
+    // Generate lockfile only if a DEVOPS blueprint exists to improve initial performance
+    this.hasDevOpsBlueprint() && execSync(this.renderLockfileCommand()!, {
+      cwd: this.sourceRepository.path,
+      stdio: [0, 1, 1],
+    });
+
     super.synthesize();
   }
 
@@ -250,16 +257,23 @@ export class PDKSynth extends Component {
     }
 
     this.synthWithoutPostInstall(monorepo);
-
-    // Generate lockfile only if a DEVOPS blueprint exists to improve initial performance
-    this.hasDevOpsBlueprint() && execSync(this.renderTypescriptLockfileCommand()!, {
-      cwd: this.sourceRepository.path,
-      stdio: [0, 1, 1],
-    });
   }
 
   private hasDevOpsBlueprint() {
     return this.findBlueprintInstantiations(DEVOPS_PACKAGE).length > 0 || (this.project as Blueprint).context.package.name === DEVOPS_PACKAGE;
+  }
+
+  private renderLockfileCommand(): string {
+    return `${this.renderTypescriptLockfileCommand()} && ${this.renderPythonLockfileCommand()}`;
+  }
+
+  private renderPythonLockfileCommand(): string {
+    return [
+      'curl -sSL https://install.python-poetry.org | LD_LIBRARY_PATH="" python3.11',
+      // find is not installable so have to implement our own :(
+      // list all directories containing a pyproject.toml and call poetry lock
+      'for _DIR in `ls -R . | awk \'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }\' | grep pyproject.toml | awk \'{sub(/pyproject.toml/,""); print}\'`; do bash -c "cd $_DIR && PATH=$PATH:$HOME/.local/bin LD_LIBRARY_PATH="" poetry lock"; done;',
+    ].join(' && ');
   }
 
   private renderTypescriptLockfileCommand() {
@@ -306,23 +320,6 @@ export class PDKSynth extends Component {
     this.createInfrastructureProject(monorepo, { websites, apis });
 
     this.synthWithoutPostInstall(monorepo);
-
-    // Generate lockfile
-    if (this.hasDevOpsBlueprint()) {
-      execSync(this.renderPythonLockfileCommand(), {
-        cwd: this.sourceRepository.path,
-        stdio: [0, 1, 1],
-      });
-    }
-  }
-
-  private renderPythonLockfileCommand(): string {
-    return [
-      'curl -sSL https://install.python-poetry.org | LD_LIBRARY_PATH="" python3.11',
-      // find is not installable so have to implement our own :(
-      // list all directories containing a pyproject.toml and call poetry lock
-      'for _DIR in `ls -R . | awk \'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }\' | grep pyproject.toml | awk \'{sub(/pyproject.toml/,""); print}\'`; do bash -c "cd $_DIR && PATH=$PATH:$HOME/.local/bin LD_LIBRARY_PATH="" poetry lock"; done;',
-    ].join(' && ');
   }
 
   private getModelLanguage(options: ApiOptions): ModelLanguage {
