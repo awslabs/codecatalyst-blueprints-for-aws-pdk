@@ -140,8 +140,10 @@ export function addLicenseCheckerAction(wfDefinition: WorkflowDefinition) {
     Configuration: {
       ...PDK_IMAGE,
       Steps: [
-        "pdk projen install:ci",
-        "license_finder --decisions_file approved-licenses.yaml --debug",
+        "pip3.11 install --upgrade pip && ln -s /usr/bin/pip3.11 /usr/bin/pip2",
+        "CWD=`pwd` PROJECT_DIRS=`find . -type f \\( -name pyproject.toml -o -name pom.xml \\) -exec bash -c 'echo $(dirname $0)' {} \\; | sort | uniq`",
+        "find . -name pyproject.toml -exec bash -c 'cd $(dirname $0) && poetry export --without-hashes --with dev -f requirements.txt | grep -v \"file:\" > requirements.txt' {} \\;",
+        'for DIR in $PROJECT_DIRS; do cd $CWD/$DIR && echo -e "\n`pwd`" && license_finder --decisions_file $CWD/approved-licenses.yaml --debug -p; done;',
       ].map((step) => {
         return { Run: step };
       }),
