@@ -59,7 +59,7 @@
   ],
   "main": "lib/index.js",
   "license": "MIT",
-  "version": "0.0.22",
+  "version": "0.0.24",
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
   "displayName": "PDK - Type Safe API",
