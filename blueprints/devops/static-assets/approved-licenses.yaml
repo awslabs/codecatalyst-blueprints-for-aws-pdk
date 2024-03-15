@@ -124,6 +124,8 @@
 - - :permit
   - Python-2.0
 - - :permit
+  - Python Software Foundation License
+- - :permit
   - APACHEv2
 - - :permit
   - 0BSD
@@ -233,3 +235,7 @@
   - "sntp"
 - - :approve
   - "tunnel-agent"
+- - :approve
+  - "aenum"
+- - :approve
+  - "wrapt"
