@@ -7,6 +7,13 @@ import {
   WorkflowDefinition,
 } from "@amazon-codecatalyst/blueprints";
 
+const PDK_IMAGE = {
+  Container: {
+    Registry: "ECR",
+    Image: "public.ecr.aws/p9i6h6j0/aws-pdk:latest",
+  },
+};
+
 const CACHING = {
   Caching: {
     FileCaching: {
@@ -16,17 +23,6 @@ const CACHING = {
     },
   },
 };
-
-// TODO: Add all prereqs
-export function getPrerequisiteSteps(): string[] {
-  return [
-    "npm install -g bun pnpm yarn aws-cdk @aws/pdk projen",
-    "pyenv install 3.11 && pyenv global 3.11", // TODO: get rid of this as it is too slow
-    'curl -sSL https://install.python-poetry.org | LD_LIBRARY_PATH="" python3.11 && export PATH="/root/.local/bin:$PATH"',
-    "sudo yum -y groupinstall 'Development Tools'",
-    "sudo yum -y install graphviz",
-  ];
-}
 
 export function makeEmptyWorkflow(): WorkflowDefinition {
   return {
@@ -86,13 +82,12 @@ export function addBuildAction(workflowDefinition: WorkflowDefinition) {
       },
     },
     Configuration: {
-      Steps: [...getPrerequisiteSteps(), "pdk install:ci", "pdk build"].map(
-        (step) => {
-          return {
-            Run: step,
-          };
-        }
-      ),
+      ...PDK_IMAGE,
+      Steps: ["pdk projen install:ci", "pdk build"].map((step) => {
+        return {
+          Run: step,
+        };
+      }),
     },
     ...CACHING,
   });
@@ -143,11 +138,9 @@ export function addLicenseCheckerAction(wfDefinition: WorkflowDefinition) {
       Sources: ["WorkflowSource"],
     },
     Configuration: {
+      ...PDK_IMAGE,
       Steps: [
-        ...getPrerequisiteSteps(),
-        "sudo yum -y install rubygems && sudo amazon-linux-extras install ruby3.0",
-        "gem install license_finder",
-        "pdk install:ci",
+        "pdk projen install:ci",
         "license_finder --decisions_file approved-licenses.yaml --debug",
       ].map((step) => {
         return { Run: step };
