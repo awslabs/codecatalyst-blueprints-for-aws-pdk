@@ -1,3 +1,4 @@
+import path from "path";
 import {
   Blueprint as ParentBlueprint,
   Options as ParentOptions,
@@ -101,11 +102,13 @@ export class Blueprint extends ParentBlueprint {
     });
 
     // Copy all common assets
-    StaticAsset.findAll("*").forEach((staticCode) => {
+    StaticAsset.findAll("*", {
+      cwd: path.resolve(path.join(__dirname, "..", "static-assets")),
+    }).forEach((staticCode) => {
       new SourceFile(
         this.sourceRepository,
         staticCode.path(),
-        new StaticAsset(staticCode.path()).content().toString()
+        staticCode.content().toString()
       );
     });
 
