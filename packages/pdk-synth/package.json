@@ -32,11 +32,11 @@
     "typescript": "5.4.2"
   },
   "dependencies": {
-    "@amazon-codecatalyst/blueprints": "0.3.78",
-    "@aws/pdk": "0.23.14",
+    "@amazon-codecatalyst/blueprints": "0.3.80",
+    "@aws/pdk": "0.23.16",
     "glob": "10.3.10",
     "mustache": "4.2.0",
-    "projen": "0.80.10"
+    "projen": "0.80.11"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
