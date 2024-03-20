@@ -32,6 +32,20 @@
 - - :permit
   - MIT-CMU
 - - :permit
+  - MIT-0
+- - :permit
+  - Eclipse Public License - v 2.0
+- - :permit
+  - EPL 2.0
+- - :permit
+  - GPL2 w/ CPE
+- - :permit
+  - CDDL License
+- - :permit
+  - CDDL + GPLv2 with classpath exception
+- - :permit
+  - Eclipse Public License v2.0
+- - :permit
   - CPOL-1.02
 - - :permit
   - CC-BY-2.0

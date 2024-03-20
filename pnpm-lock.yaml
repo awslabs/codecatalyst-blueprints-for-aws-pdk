@@ -20,18 +20,18 @@ importers:
         specifier: 2.133.0
         version: 2.133.0(constructs@10.3.0)
       cdk-nag:
-        specifier: 2.28.66
-        version: 2.28.66(aws-cdk-lib@2.133.0)(constructs@10.3.0)
+        specifier: 2.28.68
+        version: 2.28.68(aws-cdk-lib@2.133.0)(constructs@10.3.0)
     devDependencies:
       '@amazon-codecatalyst/blueprint-util.projen-blueprint':
-        specifier: 0.3.78
-        version: 0.3.78(@amazon-codecatalyst/blueprint-util.cli@0.3.78)(projen@0.79.27)
+        specifier: 0.3.80
+        version: 0.3.80(@amazon-codecatalyst/blueprint-util.cli@0.3.80)(projen@0.79.27)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.78
-        version: 0.3.78(projen@0.79.27)
+        specifier: 0.3.80
+        version: 0.3.80(projen@0.79.27)
       '@aws/pdk':
-        specifier: 0.23.14
-        version: 0.23.14(@aws-cdk/aws-cognito-identitypool-alpha@2.133.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.66)(constructs@10.3.0)(projen@0.79.27)(typescript@5.4.2)
+        specifier: 0.23.16
+        version: 0.23.16(@aws-cdk/aws-cognito-identitypool-alpha@2.133.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.68)(constructs@10.3.0)(projen@0.79.27)(typescript@5.4.2)
       '@types/node':
         specifier: ^18
         version: 18.19.24
@@ -87,17 +87,17 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.78
-        version: 0.3.78(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
+        specifier: 0.3.80
+        version: 0.3.80(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.78
-        version: 0.3.78(projen@0.80.10)
+        specifier: 0.3.80
+        version: 0.3.80(projen@0.80.11)
       '@aws/pdk':
-        specifier: 0.23.14
-        version: 0.23.14(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.66)(constructs@10.3.0)(projen@0.80.10)(typescript@5.4.2)
+        specifier: 0.23.16
+        version: 0.23.16(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.68)(constructs@10.3.0)(projen@0.80.11)(typescript@5.4.2)
       projen:
-        specifier: 0.80.10
-        version: 0.80.10(constructs@10.3.0)
+        specifier: 0.80.11
+        version: 0.80.11(constructs@10.3.0)
     devDependencies:
       '@types/node':
         specifier: ^18
@@ -142,17 +142,17 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.78
-        version: 0.3.78(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
+        specifier: 0.3.80
+        version: 0.3.80(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.78
-        version: 0.3.78(projen@0.80.10)
+        specifier: 0.3.80
+        version: 0.3.80(projen@0.80.11)
       '@aws/pdk':
-        specifier: 0.23.14
-        version: 0.23.14(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.66)(constructs@10.3.0)(projen@0.80.10)(typescript@5.4.2)
+        specifier: 0.23.16
+        version: 0.23.16(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.68)(constructs@10.3.0)(projen@0.80.11)(typescript@5.4.2)
       projen:
-        specifier: 0.80.10
-        version: 0.80.10(constructs@10.3.0)
+        specifier: 0.80.11
+        version: 0.80.11(constructs@10.3.0)
     devDependencies:
       '@types/node':
         specifier: ^18
@@ -197,17 +197,17 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.78
-        version: 0.3.78(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
+        specifier: 0.3.80
+        version: 0.3.80(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.78
-        version: 0.3.78(projen@0.80.10)
+        specifier: 0.3.80
+        version: 0.3.80(projen@0.80.11)
       '@aws/pdk':
-        specifier: 0.23.14
-        version: 0.23.14(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.66)(constructs@10.3.0)(projen@0.80.10)(typescript@5.4.2)
+        specifier: 0.23.16
+        version: 0.23.16(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.68)(constructs@10.3.0)(projen@0.80.11)(typescript@5.4.2)
       projen:
-        specifier: 0.80.10
-        version: 0.80.10(constructs@10.3.0)
+        specifier: 0.80.11
+        version: 0.80.11(constructs@10.3.0)
     devDependencies:
       '@types/node':
         specifier: ^18
@@ -252,17 +252,17 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.78
-        version: 0.3.78(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
+        specifier: 0.3.80
+        version: 0.3.80(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.78
-        version: 0.3.78(projen@0.80.10)
+        specifier: 0.3.80
+        version: 0.3.80(projen@0.80.11)
       '@aws/pdk':
-        specifier: 0.23.14
-        version: 0.23.14(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.66)(constructs@10.3.0)(projen@0.80.10)(typescript@5.4.2)
+        specifier: 0.23.16
+        version: 0.23.16(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.68)(constructs@10.3.0)(projen@0.80.11)(typescript@5.4.2)
       projen:
-        specifier: 0.80.10
-        version: 0.80.10(constructs@10.3.0)
+        specifier: 0.80.11
+        version: 0.80.11(constructs@10.3.0)
     devDependencies:
       '@types/node':
         specifier: ^18
@@ -304,29 +304,29 @@ importers:
   blueprints/test-pdk-blueprints:
     dependencies:
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.78
-        version: 0.3.78(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
+        specifier: 0.3.80
+        version: 0.3.80(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.78
-        version: 0.3.78(projen@0.80.10)
+        specifier: 0.3.80
+        version: 0.3.80(projen@0.80.11)
       '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website':
-        specifier: '*'
+        specifier: 0.0.31
         version: link:../cloudscape-react-website
       '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-devops':
-        specifier: '*'
+        specifier: 0.0.47
         version: link:../devops
       '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra':
-        specifier: '*'
+        specifier: 0.0.25
         version: link:../infra
       '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo':
-        specifier: '*'
+        specifier: 0.0.27
         version: link:../monorepo
       '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api':
-        specifier: '*'
+        specifier: 0.0.25
         version: link:../type-safe-api
       projen:
-        specifier: 0.80.10
-        version: 0.80.10(constructs@10.3.0)
+        specifier: 0.80.11
+        version: 0.80.11(constructs@10.3.0)
     devDependencies:
       '@types/node':
         specifier: ^18
@@ -371,17 +371,17 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.78
-        version: 0.3.78(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
+        specifier: 0.3.80
+        version: 0.3.80(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.78
-        version: 0.3.78(projen@0.80.10)
+        specifier: 0.3.80
+        version: 0.3.80(projen@0.80.11)
       '@aws/pdk':
-        specifier: 0.23.14
-        version: 0.23.14(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.66)(constructs@10.3.0)(projen@0.80.10)(typescript@5.4.2)
+        specifier: 0.23.16
+        version: 0.23.16(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.68)(constructs@10.3.0)(projen@0.80.11)(typescript@5.4.2)
       projen:
-        specifier: 0.80.10
-        version: 0.80.10(constructs@10.3.0)
+        specifier: 0.80.11
+        version: 0.80.11(constructs@10.3.0)
     devDependencies:
       '@types/node':
         specifier: ^18
@@ -423,11 +423,11 @@ importers:
   packages/pdk-synth:
     dependencies:
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.78
-        version: 0.3.78(projen@0.80.10)
+        specifier: 0.3.80
+        version: 0.3.80(projen@0.80.11)
       '@aws/pdk':
-        specifier: 0.23.14
-        version: 0.23.14(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.66)(constructs@10.3.0)(projen@0.80.10)(typescript@5.4.2)
+        specifier: 0.23.16
+        version: 0.23.16(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.68)(constructs@10.3.0)(projen@0.80.11)(typescript@5.4.2)
       glob:
         specifier: 10.3.10
         version: 10.3.10
@@ -435,8 +435,8 @@ importers:
         specifier: 4.2.0
         version: 4.2.0
       projen:
-        specifier: 0.80.10
-        version: 0.80.10(constructs@10.3.0)
+        specifier: 0.80.11
+        version: 0.80.11(constructs@10.3.0)
     devDependencies:
       '@types/glob':
         specifier: 8.1.0
@@ -501,16 +501,16 @@ packages:
       yaml: 2.4.1
     dev: true
 
-  /@amazon-codecatalyst/blueprint-component.dev-environments@0.3.78(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78)(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.10):
+  /@amazon-codecatalyst/blueprint-component.dev-environments@0.3.78(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78)(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.11):
     resolution: {integrity: sha512-miVtCRz2xj8pWfxEM1AdZLxCZ5VukEBP48eU2+p9+iVeoFkLRkbMfpCWysPI0iIhQXDuFvOk/8yn7syAaFceKQ==}
     peerDependencies:
       '@amazon-codecatalyst/blueprint-component.source-repositories': '*'
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.10)
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.80.10)
-      projen: 0.80.10(constructs@10.3.0)
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.11)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.80.11)
+      projen: 0.80.11(constructs@10.3.0)
       yaml: 2.4.1
     dev: false
 
@@ -524,14 +524,14 @@ packages:
       projen: 0.79.27(constructs@10.3.0)
     dev: true
 
-  /@amazon-codecatalyst/blueprint-component.environments@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.10):
+  /@amazon-codecatalyst/blueprint-component.environments@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.11):
     resolution: {integrity: sha512-bXOUT+BBCbtRY42xtCZ36ZZkEBd2qAncy+QIfI8gkbZ7FK9QzopmwnYaRjqykrWOGNZiZlL/Pz4igPTXvJVP5Q==}
     peerDependencies:
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.80.10)
-      projen: 0.80.10(constructs@10.3.0)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.80.11)
+      projen: 0.80.11(constructs@10.3.0)
     dev: false
 
   /@amazon-codecatalyst/blueprint-component.issues@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.79.27):
@@ -549,19 +549,19 @@ packages:
       projen: 0.79.27(constructs@10.3.0)
     dev: true
 
-  /@amazon-codecatalyst/blueprint-component.issues@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.10):
+  /@amazon-codecatalyst/blueprint-component.issues@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.11):
     resolution: {integrity: sha512-i0AYOvbxFX9IrHFBfPpd22NSMcMfBh78seUwWxHGRhlUSGYuH2xvI2fnc69v8miXEIxcy75ScxqWLb3NjitLSw==}
     peerDependencies:
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.80.10)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.80.11)
       camelcase: 5.3.1
       decamelize: 5.0.1
       glob: 10.3.10
       minimatch: 9.0.3
       mustache: 4.2.0
-      projen: 0.80.10(constructs@10.3.0)
+      projen: 0.80.11(constructs@10.3.0)
     dev: false
 
   /@amazon-codecatalyst/blueprint-component.secrets@0.3.78(projen@0.79.27):
@@ -573,13 +573,13 @@ packages:
       projen: 0.79.27(constructs@10.3.0)
     dev: true
 
-  /@amazon-codecatalyst/blueprint-component.secrets@0.3.78(projen@0.80.10):
+  /@amazon-codecatalyst/blueprint-component.secrets@0.3.78(projen@0.80.11):
     resolution: {integrity: sha512-286Von4qgNdQgrAdEG0v+x8+686ef1LYw0j+zuQkSbeYeLth9DkvjIC/wpqyw2CUcUruX5HbJAG896G05oRljA==}
     peerDependencies:
       projen: ^0.71.112
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.80.10)
-      projen: 0.80.10(constructs@10.3.0)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.80.11)
+      projen: 0.80.11(constructs@10.3.0)
     dev: false
 
   /@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.79.27):
@@ -597,19 +597,19 @@ packages:
       projen: 0.79.27(constructs@10.3.0)
     dev: true
 
-  /@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.10):
+  /@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.11):
     resolution: {integrity: sha512-qr2cyK87ygH5R3wnROR+h4u15T6C7XCgWjkdUuhZCfXpF8rUe0rPlEYwtoxCiilB9L7TT+HXsbJRqXUS68eRCg==}
     peerDependencies:
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.80.10)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.80.11)
       camelcase: 5.3.1
       decamelize: 5.0.1
       glob: 10.3.10
       minimatch: 9.0.3
       mustache: 4.2.0
-      projen: 0.80.10(constructs@10.3.0)
+      projen: 0.80.11(constructs@10.3.0)
     dev: false
 
   /@amazon-codecatalyst/blueprint-component.workflows@0.3.78(@amazon-codecatalyst/blueprint-component.environments@0.3.78)(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78)(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.79.27):
@@ -628,7 +628,7 @@ packages:
       yaml: 2.4.1
     dev: true
 
-  /@amazon-codecatalyst/blueprint-component.workflows@0.3.78(@amazon-codecatalyst/blueprint-component.environments@0.3.78)(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78)(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.10):
+  /@amazon-codecatalyst/blueprint-component.workflows@0.3.78(@amazon-codecatalyst/blueprint-component.environments@0.3.78)(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78)(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.11):
     resolution: {integrity: sha512-34hhgTEyEeIpJ/S5n7/m3nDuBbERrCYexjuZ8GZBaJ+USeoFYXIx79IUlR3yb4YBDqHLhygBpY3koH35Uq8FCw==}
     peerDependencies:
       '@amazon-codecatalyst/blueprint-component.environments': '*'
@@ -636,16 +636,16 @@ packages:
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.environments': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.10)
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.10)
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.80.10)
-      '@aws/codecatalyst-workflows-sdk': 0.1.5-preview.6(projen@0.80.10)
-      projen: 0.80.10(constructs@10.3.0)
+      '@amazon-codecatalyst/blueprint-component.environments': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.11)
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.11)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.80.11)
+      '@aws/codecatalyst-workflows-sdk': 0.1.5-preview.6(projen@0.80.11)
+      projen: 0.80.11(constructs@10.3.0)
       yaml: 2.4.1
     dev: false
 
-  /@amazon-codecatalyst/blueprint-util.cli@0.3.78(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24):
-    resolution: {integrity: sha512-FZ0Fg3mSNVH6bu4D+ETtD68UZ4sOhx6+Yo6many3XSlP3fD38OEtxXuipPRYAUKR/UAuL+S58IjcldqRLEDjqA==}
+  /@amazon-codecatalyst/blueprint-util.cli@0.3.80(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24):
+    resolution: {integrity: sha512-jI2oJ5EIcV2hdUyKVQb3MYBcMPiz/CVF7xurLVoR00PmLdVgUyn/ZbpukmzZg2oUZkXnS+VOdjJVLqrGEliUvA==}
     hasBin: true
     dependencies:
       '@aws-sdk/client-cloudfront': 3.535.0
@@ -671,13 +671,13 @@ packages:
       - aws-crt
       - debug
 
-  /@amazon-codecatalyst/blueprint-util.projen-blueprint@0.3.78(@amazon-codecatalyst/blueprint-util.cli@0.3.78)(projen@0.79.27):
-    resolution: {integrity: sha512-FhpZtySV4OMajJ5Fw+BPvaVN2uuBKcZ4u5zAc56ZS+Dslg2aQQzc2lsm7CZ7paJaTy8/+ATatMCAtgDaotF0Lg==}
+  /@amazon-codecatalyst/blueprint-util.projen-blueprint@0.3.80(@amazon-codecatalyst/blueprint-util.cli@0.3.80)(projen@0.79.27):
+    resolution: {integrity: sha512-u5XXjYIM4oe2Xu65ZQW7bOI5V3EIm10JvWGgHaCpP0ZaFZ//uZOdyIIbo2Lzl9mqa/Lw6LShK0sik2YAdsYO/A==}
     peerDependencies:
       '@amazon-codecatalyst/blueprint-util.cli': '*'
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprint-util.cli': 0.3.78(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
+      '@amazon-codecatalyst/blueprint-util.cli': 0.3.80(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
       projen: 0.79.27(constructs@10.3.0)
     dev: true
 
@@ -692,19 +692,19 @@ packages:
       yaml: 2.4.1
     dev: true
 
-  /@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.80.10):
+  /@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.80.11):
     resolution: {integrity: sha512-bH8SZWBPIhCIqJushEey16ynKcEJfXL66MlhWk8WKJK8TDY3Otz0P6FVFpxapohNRoDL59QEoGAnD4RPONkgHQ==}
     peerDependencies:
       projen: '*'
     dependencies:
       diff-match-patch: 1.0.5
       globule: 1.3.4
-      projen: 0.80.10(constructs@10.3.0)
+      projen: 0.80.11(constructs@10.3.0)
       yaml: 2.4.1
     dev: false
 
-  /@amazon-codecatalyst/blueprints@0.3.78(projen@0.79.27):
-    resolution: {integrity: sha512-f0cqLal8WjZs3kFOCR4yQOQ2iByVrlNf6D3BOYLNW8XHix5Lf9CH0igayyNZW8Bze7wqn/Q5YlWsYfTNv8HTrg==}
+  /@amazon-codecatalyst/blueprints@0.3.80(projen@0.79.27):
+    resolution: {integrity: sha512-G+NRyN1ej0+V0a6aLlyn9Jq+GfLkOX19fnv9gcoiVFM5858xGYwRHnoxUDltfSz8ePihgDQ0GJLKy4u0+hwdDQ==}
     peerDependencies:
       projen: '*'
     dependencies:
@@ -718,19 +718,19 @@ packages:
       projen: 0.79.27(constructs@10.3.0)
     dev: true
 
-  /@amazon-codecatalyst/blueprints@0.3.78(projen@0.80.10):
-    resolution: {integrity: sha512-f0cqLal8WjZs3kFOCR4yQOQ2iByVrlNf6D3BOYLNW8XHix5Lf9CH0igayyNZW8Bze7wqn/Q5YlWsYfTNv8HTrg==}
+  /@amazon-codecatalyst/blueprints@0.3.80(projen@0.80.11):
+    resolution: {integrity: sha512-G+NRyN1ej0+V0a6aLlyn9Jq+GfLkOX19fnv9gcoiVFM5858xGYwRHnoxUDltfSz8ePihgDQ0GJLKy4u0+hwdDQ==}
     peerDependencies:
       projen: '*'
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.dev-environments': 0.3.78(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78)(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.10)
-      '@amazon-codecatalyst/blueprint-component.environments': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.10)
-      '@amazon-codecatalyst/blueprint-component.issues': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.10)
-      '@amazon-codecatalyst/blueprint-component.secrets': 0.3.78(projen@0.80.10)
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.10)
-      '@amazon-codecatalyst/blueprint-component.workflows': 0.3.78(@amazon-codecatalyst/blueprint-component.environments@0.3.78)(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78)(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.10)
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.80.10)
-      projen: 0.80.10(constructs@10.3.0)
+      '@amazon-codecatalyst/blueprint-component.dev-environments': 0.3.78(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78)(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.11)
+      '@amazon-codecatalyst/blueprint-component.environments': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.11)
+      '@amazon-codecatalyst/blueprint-component.issues': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.11)
+      '@amazon-codecatalyst/blueprint-component.secrets': 0.3.78(projen@0.80.11)
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.11)
+      '@amazon-codecatalyst/blueprint-component.workflows': 0.3.78(@amazon-codecatalyst/blueprint-component.environments@0.3.78)(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78)(@amazon-codecatalyst/blueprints.blueprint@0.3.78)(projen@0.80.11)
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.80.11)
+      projen: 0.80.11(constructs@10.3.0)
     dev: false
 
   /@ampproject/remapping@2.3.0:
@@ -1600,7 +1600,7 @@ packages:
       projen: 0.79.27(constructs@10.3.0)
     dev: true
 
-  /@aws/codecatalyst-workflows-sdk@0.1.5-preview.6(projen@0.80.10):
+  /@aws/codecatalyst-workflows-sdk@0.1.5-preview.6(projen@0.80.11):
     resolution: {integrity: sha512-4XehEWD0oVRxalrv7RmEwTqc0cZJ9lOFGCmloDlSIcbunh3LZTC4JewHKZEJmP0qWuTDrhM+iKgM+PTK7GBDJA==}
     peerDependencies:
       projen: ^0.71.112
@@ -1608,11 +1608,11 @@ packages:
       globule: 1.3.4
       js-yaml: 4.1.0
       jsonschema: 1.4.1
-      projen: 0.80.10(constructs@10.3.0)
+      projen: 0.80.11(constructs@10.3.0)
     dev: false
 
-  /@aws/pdk@0.23.14(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.66)(constructs@10.3.0)(projen@0.80.10)(typescript@5.4.2):
-    resolution: {integrity: sha512-EmDCve+UQ7quzUryVNJW7S3iQ3z77UwQIJM9EgoHsV1gDYofQL1s6HoVchJNDikfBlMUpLnQkXTXlmlIBput6g==}
+  /@aws/pdk@0.23.16(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.68)(constructs@10.3.0)(projen@0.80.11)(typescript@5.4.2):
+    resolution: {integrity: sha512-KDpPmaNTGHA7BOsgw98ruyHHuZBfq1gPbJPwP7momvUyv+d0Xvwz1nvY/+ZJlQRNzhaSPHOsVd/SRdsk+enh8A==}
     hasBin: true
     peerDependencies:
       '@aws-cdk/aws-cognito-identitypool-alpha': ^2.104.0-alpha.0
@@ -1624,7 +1624,7 @@ packages:
       '@aws-cdk/aws-cognito-identitypool-alpha': 2.104.0-alpha.0(aws-cdk-lib@2.133.0)(constructs@10.3.0)
       '@pnpm/reviewing.dependencies-hierarchy': 2.1.11(@pnpm/logger@5.0.0)
       aws-cdk-lib: 2.133.0(constructs@10.3.0)
-      cdk-nag: 2.28.66(aws-cdk-lib@2.133.0)(constructs@10.3.0)
+      cdk-nag: 2.28.68(aws-cdk-lib@2.133.0)(constructs@10.3.0)
       chalk: 4.1.2
       constructs: 10.3.0
       execa: 5.1.1
@@ -1645,7 +1645,7 @@ packages:
       log4js: 6.9.1
       mustache: 4.2.0
       openapi-types: 12.1.3
-      projen: 0.80.10(constructs@10.3.0)
+      projen: 0.80.11(constructs@10.3.0)
       read-pkg-up: 7.0.1
       semver: 7.6.0
       shorthash2: 1.0.3
@@ -1694,8 +1694,8 @@ packages:
       - ts-node
       - word-wrap
 
-  /@aws/pdk@0.23.14(@aws-cdk/aws-cognito-identitypool-alpha@2.133.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.66)(constructs@10.3.0)(projen@0.79.27)(typescript@5.4.2):
-    resolution: {integrity: sha512-EmDCve+UQ7quzUryVNJW7S3iQ3z77UwQIJM9EgoHsV1gDYofQL1s6HoVchJNDikfBlMUpLnQkXTXlmlIBput6g==}
+  /@aws/pdk@0.23.16(@aws-cdk/aws-cognito-identitypool-alpha@2.133.0-alpha.0)(@pnpm/logger@5.0.0)(@types/node@18.19.24)(aws-cdk-lib@2.133.0)(cdk-nag@2.28.68)(constructs@10.3.0)(projen@0.79.27)(typescript@5.4.2):
+    resolution: {integrity: sha512-KDpPmaNTGHA7BOsgw98ruyHHuZBfq1gPbJPwP7momvUyv+d0Xvwz1nvY/+ZJlQRNzhaSPHOsVd/SRdsk+enh8A==}
     hasBin: true
     peerDependencies:
       '@aws-cdk/aws-cognito-identitypool-alpha': ^2.104.0-alpha.0
@@ -1707,7 +1707,7 @@ packages:
       '@aws-cdk/aws-cognito-identitypool-alpha': 2.133.0-alpha.0(aws-cdk-lib@2.133.0)(constructs@10.3.0)
       '@pnpm/reviewing.dependencies-hierarchy': 2.1.11(@pnpm/logger@5.0.0)
       aws-cdk-lib: 2.133.0(constructs@10.3.0)
-      cdk-nag: 2.28.66(aws-cdk-lib@2.133.0)(constructs@10.3.0)
+      cdk-nag: 2.28.68(aws-cdk-lib@2.133.0)(constructs@10.3.0)
       chalk: 4.1.2
       constructs: 10.3.0
       execa: 5.1.1
@@ -4296,7 +4296,7 @@ packages:
   /builtins@5.0.1:
     resolution: {integrity: sha512-qwVpFEHNfhYJIzNRBvd2C1kyo6jz3ZSMPyyuR47OPdiKWlbYnZNyDWuyR175qDnAJLiCo5fBBqPb3RiXgWlkOQ==}
     dependencies:
-      semver: 7.5.4
+      semver: 7.6.0
 
   /cacache@16.1.3:
     resolution: {integrity: sha512-/+Emcj9DAXxX4cwlLmRI9c166RuL3w30zp4R7Joiv2cQTtTtA+jeuCAjH3ZlGnYS3tKENSrKhAzVVP9GVyzeYQ==}
@@ -4402,8 +4402,8 @@ packages:
     resolution: {integrity: sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==}
     engines: {node: '>= 0.8.0'}
 
-  /cdk-nag@2.28.66(aws-cdk-lib@2.133.0)(constructs@10.3.0):
-    resolution: {integrity: sha512-c++HQ0N04NPcf5TXR5LtZtVa0eyZRx1VGNpkiqjBBtghmFEx9TECYVpocvTtg/ufqwxBvXifBEu2rV9Q208+cA==}
+  /cdk-nag@2.28.68(aws-cdk-lib@2.133.0)(constructs@10.3.0):
+    resolution: {integrity: sha512-9SWRDQHFnsIz/syiITgH68d9+B4SOn2Ws0E5XHAHKuqc+1vX2zJpv/37wXHmL36kL1LQRob9kzXGQUu2uzCD1g==}
     peerDependencies:
       aws-cdk-lib: ^2.116.0
       constructs: ^10.0.5
@@ -5651,7 +5651,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.5
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
     dev: true
@@ -5662,7 +5662,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.8
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
 
@@ -7394,7 +7394,7 @@ packages:
     dependencies:
       hosted-git-info: 7.0.1
       proc-log: 3.0.0
-      semver: 7.5.4
+      semver: 7.6.0
       validate-npm-package-name: 5.0.0
     dev: true
 
@@ -7881,20 +7881,7 @@ packages:
     peerDependencies:
       constructs: ^10.0.0
     dependencies:
-      '@iarna/toml': 2.2.5
-      case: 1.6.3
-      chalk: 4.1.2
-      comment-json: 4.2.2
       constructs: 10.3.0
-      conventional-changelog-config-spec: 2.1.0
-      fast-json-patch: 3.1.1
-      glob: 8.1.0
-      ini: 2.0.0
-      semver: 7.6.0
-      shx: 0.3.4
-      xmlbuilder2: 3.1.1
-      yaml: 2.4.1
-      yargs: 17.7.2
     dev: true
     bundledDependencies:
       - '@iarna/toml'
@@ -7911,8 +7898,8 @@ packages:
       - yaml
       - yargs
 
-  /projen@0.80.10(constructs@10.3.0):
-    resolution: {integrity: sha512-dwXYGZS0xfTXC2ZKS8AbrGOs3x2s+p1NwAK+iID0l7/eM171RL4z90Tr6xZqSzQuVDEiG7W2uoL8XjYdXVkkpw==}
+  /projen@0.80.11(constructs@10.3.0):
+    resolution: {integrity: sha512-ss5sN6RTCOGwaXbrAcxXqpxi0gjjSOXk4SArUGLy1Weux9mRFuPhw0GLRtPxRUlbEoa3orx6iQAQBHSHQd9H1A==}
     engines: {node: '>= 16.0.0'}
     hasBin: true
     peerDependencies:
@@ -8315,6 +8302,7 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: true
 
   /semver@7.6.0:
     resolution: {integrity: sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==}

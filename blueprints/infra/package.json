@@ -45,11 +45,11 @@
     "typescript": "5.4.2"
   },
   "dependencies": {
-    "@amazon-codecatalyst/blueprint-util.cli": "0.3.78",
-    "@amazon-codecatalyst/blueprints": "0.3.78",
+    "@amazon-codecatalyst/blueprint-util.cli": "0.3.80",
+    "@amazon-codecatalyst/blueprints": "0.3.80",
     "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth": "0.0.0",
-    "@aws/pdk": "0.23.14",
-    "projen": "0.80.10"
+    "@aws/pdk": "0.23.16",
+    "projen": "0.80.11"
   },
   "keywords": [
     "cdk",
