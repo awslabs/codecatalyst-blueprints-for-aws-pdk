@@ -15,11 +15,24 @@ This blueprint generates runtime projects from your API definition in your desir
 
     The code is generated at build time, so when you change your API model, you will need to rebuild to see your changes reflected in the generated code.
 
+## Configure the blueprint
+
+1. From the Projects page, select **PDK - Monorepo**. The monorepo project summary page displays.
+2. On the page, from the left, select **Blueprints**.
+3. On the Blueprints page, click **Apply blueprint**. The Apply blueprint page displays.
+4. From the CodeCatalyst blueprints page, select **PDK - Type Safe API** and click **Next**.
+5. Complete the following:
+    - Select the target version for your blueprint. You can select a specific version from the dropdown.
+    - Select the primary language you want to develop your project code in. You can select from Typescript, Java, or Python.
+    - Select the model language for your API model. You can select from Smithy or OpenAPI.
+    - Enter a namespace for your API.
+    - Enter a name for your API
+    <img src="assets/images/type-safe-api-blueprint.png"/>
+6. Click **Apply blueprint** to apply the Type Safe API blueprint to your monorepo project.
+
 ## Project resources
 
 This blueprint creates the following key files as part of your project.
-
-_TODO: Check this for PDK blueprints across languages_
 
 ```
 .projen/

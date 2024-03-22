@@ -53,4 +53,4 @@ tsconfig.json     --_TODO: Describe_
 
 ## Additional resources
 
-For additional information about using type-safe API, refer to the [PDK Developer Guide](https://aws.github.io/aws-pdk/developer_guides/type-safe-api/index.html).
+For additional information about using the website, refer to the [PDK Developer Guide](https://aws.github.io/aws-pdk/developer_guides/type-safe-api/index.html).

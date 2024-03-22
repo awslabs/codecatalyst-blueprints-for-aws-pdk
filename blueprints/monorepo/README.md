@@ -3,7 +3,7 @@
 This blueprint sets up a monorepo using the constructs from the AWS Project Development Kit ([AWS PDK](https://aws.github.io/aws-pdk/)), which provides building blocks for common patterns together with development tools to manage and build your projects.
 
 !!!note
-    This blueprint only generates the building blocks of the project. To use the blueprint, you will need to apply other PDK blueprints such as Type Safe API, Website, Infra or DevOps to create a working application.
+    This blueprint only generates the building blocks of the project. To create a workable website using the blueprint, you will need to apply other PDK blueprints such as Type Safe API, Website, Infra or DevOps to create a working application.
 
 You can define your projects programatically using one of these three type safe languages: Typescript, Python or Java.
 
@@ -18,6 +18,16 @@ After you have generated a PDK monorepo project, and applied all relevant bluepr
 ## How does it work?
 
 The blueprint sets up a root project as a monorepo using [NX](https://nx.dev/getting-started/intro), and manages all of the NX configuration for you by default. Depending on the language you decide to bootstrap your project with, a `projenrc` file in your preferred language allows you to add new sub-packages (using blueprints) to your project to be managed by NX.
+
+## Configure the blueprint
+
+1. From the CodeCatalyst blueprints page, select **PDK - Monorepo** and click **Next**. The **Create Project** page displays.
+2. On the page, complete the following:
+    - **Project name**: Enter a name for your project.
+    - **Primary language**: Select the language you want to develop your project code in. You can select from Typescript, Java, or Python.
+    - Under Code Configuration, select the Package Manager and source repository for your project.
+    <img src="assets/images/monorepo-blueprint.png"/>
+3. Click **Create Project** to create your monorepo project.
 
 ## Project resources
 
