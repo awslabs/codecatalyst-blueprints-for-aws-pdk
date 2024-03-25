@@ -35,16 +35,16 @@ public class projenrc {
                                 .build())
                         .build())
                 .infrastructure(InfrastructureConfiguration.builder()
-                        .language({{{apiLanguage}}})
+                        .language({{{apiCdkLanguage}}})
                         .build())
                 .documentation(DocumentationConfiguration.builder()
-                        .formats(Arrays.asList(DocumentationFormat.HTML_REDOC))
+                        .formats(Arrays.asList({{{apiDocumentationFormats}}}))
                         .build())
                 .library(LibraryConfiguration.builder()
                         .libraries(Arrays.asList(Library.TYPESCRIPT_REACT_QUERY_HOOKS))
                         .build())
                 .handlers(HandlersConfiguration.builder()
-                        .languages(Arrays.asList({{{apiLanguage}}}))
+                        .languages(Arrays.asList({{{apiHandlerLanguages}}}))
                         .build())
                 .build());
 
@@ -82,8 +82,8 @@ public class projenrc {
 {{/hasInfra}}import { MonorepoTsProject } from "@aws/pdk/monorepo";
 {{#typeSafeApis.0}}
 import {
-    DocumentationFormat,
-    Language,
+    {{{#hasApiDocumentation}}}DocumentationFormat,
+    {{{/hasApiDocumentation}}}Language,
     Library,
     ModelLanguage,
     TypeSafeApiProject,
@@ -103,7 +103,7 @@ const {{{apiNameLowercase}}} = new TypeSafeApiProject({
     outdir: "packages/apis/{{{apiNameLowercase}}}",
     name: "{{{apiNameLowercase}}}",
     infrastructure: {
-        language: {{{apiLanguage}}},
+        language: {{{apiCdkLanguage}}},
     },
     model: {
         language: {{{apiModelLanguage}}},
@@ -119,13 +119,13 @@ const {{{apiNameLowercase}}} = new TypeSafeApiProject({
         },
     },
     documentation: {
-        formats: [DocumentationFormat.HTML_REDOC],
+        formats: [{{{apiDocumentationFormats}}}],
     },
     library: {
         libraries: [Library.TYPESCRIPT_REACT_QUERY_HOOKS],
     },
     handlers: {
-        languages: [{{{apiLanguage}}}],
+        languages: [{{{apiHandlerLanguages}}}],
     },
 });
 
@@ -183,13 +183,13 @@ monorepo = MonorepoPythonProject(
         )
     ),
     infrastructure=InfrastructureConfiguration(
-        language={{{apiLanguage}}}
+        language={{{apiCdkLanguage}}}
     ),
     documentation=DocumentationConfiguration(
-        formats=[DocumentationFormat.HTML_REDOC]
+        formats=[{{{apiDocumentationFormats}}}]
     ),
     handlers=HandlersConfiguration(
-        languages=[{{{apiLanguage}}}]
+        languages=[{{{apiHandlerLanguages}}}]
     ),
     library=LibraryConfiguration(
         libraries=[Library.TYPESCRIPT_REACT_QUERY_HOOKS]

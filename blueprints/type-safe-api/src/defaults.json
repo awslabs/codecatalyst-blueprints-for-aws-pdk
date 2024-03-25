@@ -1,5 +1,7 @@
 {
-  "primaryLanguage": "Typescript",
+  "cdkLanguage": "Typescript",
+  "handlerLanguages": ["Typescript"],
+  "documentationFormats": ["HTML_REDOC"],
   "modelLanguage": "Smithy",
   "namespace": "com.aws",
   "apiName": "DefaultApi"

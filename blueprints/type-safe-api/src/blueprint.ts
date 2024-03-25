@@ -1,4 +1,5 @@
 import {
+  MultiSelect,
   Blueprint as ParentBlueprint,
   Options as ParentOptions,
   SourceRepository,
@@ -19,13 +20,6 @@ import defaults from "./defaults.json";
  * @requires '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo'
  */
 export interface Options extends ParentOptions {
-  /**
-   * Select the language you wish to primarily develop with.
-   *
-   * @displayName Primary Language
-   */
-  primaryLanguage: "Typescript" | "Java" | "Python";
-
   /**
    * The language the API model is defined in.
    *
@@ -50,6 +44,29 @@ export interface Options extends ParentOptions {
    * @validationMessage API Names must conform to PascalCase and can only contain alphanumerical characters (with the exception of underscores).
    */
   apiName: string;
+
+  /**
+   * Select your preferred CDK Language for which all generated code will be written in.
+   *
+   * @displayName CDK Language
+   */
+  cdkLanguage: "Typescript" | "Java" | "Python";
+
+  /**
+   * Select languages you wish to support for generated lambda handlers.
+   *
+   * @displayName Handler Language(s)
+   */
+  handlerLanguages: MultiSelect<"Typescript" | "Java" | "Python">;
+
+  /**
+   * Select formats you prefer for generating API documentation.
+   *
+   * @displayName Documentation Format(s)
+   */
+  documentationFormats: MultiSelect<
+    "HTML_REDOC" | "HTML2" | "MARKDOWN" | "PLANTUML"
+  >;
 }
 
 /**
@@ -72,8 +89,12 @@ export class Blueprint extends ParentBlueprint {
     const typeCheck: Options = {
       outdir: this.outdir,
       ...defaults,
-      primaryLanguage: defaults.primaryLanguage as Options["primaryLanguage"],
+      cdkLanguage: defaults.cdkLanguage as Options["cdkLanguage"],
       modelLanguage: defaults.modelLanguage as Options["modelLanguage"],
+      handlerLanguages:
+        defaults.handlerLanguages as Options["handlerLanguages"],
+      documentationFormats:
+        defaults.documentationFormats as Options["documentationFormats"],
     };
     this.options = Object.assign(typeCheck, options_);
     this.setInstantiation({
