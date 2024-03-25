@@ -1,7 +1,6 @@
 import {
   Blueprint as ParentBlueprint,
   Options as ParentOptions,
-  SampleWorkspaces,
   Selector,
   SourceRepository,
   Workspace,
@@ -79,22 +78,38 @@ export class Blueprint extends ParentBlueprint {
       title: this.options.code.sourceRepositoryName,
     });
 
-    // Create a devfile with all pdk deps pre-installed
+    // Create a devfile with the aws-pdk image
     new Workspace(this, this.sourceRepository, {
-      ...SampleWorkspaces.default,
-      commands: [
+      schemaVersion: "2.0.0",
+      metadata: {
+        name: "aws-pdk",
+        version: "1.0.1",
+        displayName: "AWS PDK",
+        description: "Stack with AWS PDK Tooling",
+        tags: ["aws-pdk"],
+        projectType: "aws",
+      },
+      components: [
         {
-          id: "install-pdk-deps",
-          exec: {
-            commandLine:
-              "source /usr/local/.mde-user/.nvm/nvm.sh && nvm use 20 && npm install -g @aws/pdk bun --force && sudo yum -y install graphviz && curl -sSL https://install.python-poetry.org | python3 -",
-            component: "aws-runtime",
+          name: "aws-pdk",
+          container: {
+            image: "public.ecr.aws/p9i6h6j0/aws-pdk:latest",
+            mountSources: true,
+            volumeMounts: [
+              {
+                name: "docker-store",
+                path: "/var/lib/docker",
+              },
+            ],
+          },
+        },
+        {
+          name: "docker-store",
+          volume: {
+            size: "16Gi",
           },
         },
       ],
-      events: {
-        postStart: ["install-pdk-deps"],
-      },
     });
 
     new PDKSynth(this, this.sourceRepository, "monorepo", {

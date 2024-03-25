@@ -145,11 +145,12 @@ export function addLicenseCheckerAction(wfDefinition: WorkflowDefinition) {
         "find . -name pyproject.toml -exec bash -c 'cd $(dirname $0) && poetry export --without-hashes --with dev -f requirements.txt | grep -v \"file:\" > requirements.txt' {} \\;",
         "pdk install:ci",
         "pdk build",
-        "for DIR in $PROJECT_DIRS; do cd $CWD/$DIR license_finder --decisions_file $CWD/approved-licenses.yaml -p || tee fail & done wait < <(jobs -p) test -f fail && exit 1",
+        "for DIR in $PROJECT_DIRS;\ndo\n  cd $CWD/$DIR\n  license_finder --decisions_file $CWD/approved-licenses.yaml -p || tee fail &\ndone\nwait < <(jobs -p)\ntest -f fail && exit 1 || exit 0",
       ].map((step) => {
         return { Run: step };
       }),
     },
+    ...CACHING,
   });
 }
 
@@ -193,7 +194,7 @@ export function addCdkDeployAction(
   }>,
   region: string,
   stackName: string,
-  cdkRootPath: string,
+  cloudAssemblyRootPath: string,
   context: { [key: string]: any },
   dependsOn: string[]
 ): string {
@@ -216,7 +217,7 @@ export function addCdkDeployAction(
     Configuration: {
       Region: region,
       Context: JSON.stringify(context),
-      CdkRootPath: cdkRootPath,
+      CloudAssemblyRootPath: cloudAssemblyRootPath,
       CdkCliVersion: "latest",
       StackName: stackName,
     },

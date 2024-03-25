@@ -19,7 +19,7 @@ import {
 import defaults from "./defaults.json";
 import { Workflow } from "./workflow";
 
-const INFRA_OUTDIR = "packages/infra/main";
+const INFRA_OUTDIR = "packages/infra/main/cdk.out";
 
 /**
  * This is the 'Options' interface. The 'Options' interface is interpreted by the wizard to dynamically generate a selection UI.
@@ -123,7 +123,7 @@ export class Blueprint extends ParentBlueprint {
           region: this.options.beta.region.toString(),
           environment: this.options.beta.environment,
           stackName: this.options.beta.stackName,
-          cdkRootPath: INFRA_OUTDIR,
+          cloudAssemblyRootPath: INFRA_OUTDIR,
         },
       ],
     });
