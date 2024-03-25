@@ -14,16 +14,6 @@ const PDK_IMAGE = {
   },
 };
 
-const CACHING = {
-  Caching: {
-    FileCaching: {
-      nxcache: {
-        Path: "node_modules/.cache/nx",
-      },
-    },
-  },
-};
-
 export function makeEmptyWorkflow(): WorkflowDefinition {
   return {
     Name: "build",
@@ -89,7 +79,13 @@ export function addBuildAction(workflowDefinition: WorkflowDefinition) {
         };
       }),
     },
-    ...CACHING,
+    Caching: {
+      FileCaching: {
+        buildNxcache: {
+          Path: "node_modules/.cache/nx",
+        },
+      },
+    },
   });
 }
 
@@ -145,12 +141,18 @@ export function addLicenseCheckerAction(wfDefinition: WorkflowDefinition) {
         "find . -name pyproject.toml -exec bash -c 'cd $(dirname $0) && poetry export --without-hashes --with dev -f requirements.txt | grep -v \"file:\" > requirements.txt' {} \\;",
         "pdk install:ci",
         "pdk build",
-        "for DIR in $PROJECT_DIRS;\ndo\n  cd $CWD/$DIR\n  license_finder --decisions_file $CWD/approved-licenses.yaml -p || tee fail &\ndone\nwait < <(jobs -p)\ntest -f fail && exit 1 || exit 0",
+        "for DIR in $PROJECT_DIRS;\ndo\n  cd $CWD/$DIR\n  license_finder --decisions_file $CWD/approved-licenses.yaml -p\ndone",
       ].map((step) => {
         return { Run: step };
       }),
     },
-    ...CACHING,
+    Caching: {
+      FileCaching: {
+        licenseCheckerNxcache: {
+          Path: "node_modules/.cache/nx",
+        },
+      },
+    },
   });
 }
 

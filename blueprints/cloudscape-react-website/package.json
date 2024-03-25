@@ -48,7 +48,7 @@
     "@amazon-codecatalyst/blueprint-util.cli": "0.3.86",
     "@amazon-codecatalyst/blueprints": "0.3.86",
     "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth": "0.0.0",
-    "@aws/pdk": "0.23.20",
+    "@aws/pdk": "0.23.22",
     "projen": "0.80.12"
   },
   "keywords": [
@@ -61,7 +61,7 @@
   ],
   "main": "lib/index.js",
   "license": "MIT",
-  "version": "0.0.41",
+  "version": "0.0.44",
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
   "displayName": "PDK - Cloudscape React Website",
