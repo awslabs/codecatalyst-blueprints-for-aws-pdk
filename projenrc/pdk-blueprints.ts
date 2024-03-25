@@ -16,5 +16,8 @@ export class PDKBlueprintsProject extends MonorepoTsProject {
     });
 
     this.nx.nxIgnore.addPatterns("**/synth/**");
+    this.nx.setTargetDefault("blueprint:release", {
+      dependsOn: ["^blueprint:release"],
+    });
   }
 }

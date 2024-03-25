@@ -29,6 +29,11 @@
       "dependsOn": [
         "^build"
       ]
+    },
+    "blueprint:release": {
+      "dependsOn": [
+        "^blueprint:release"
+      ]
     }
   },
   "tasksRunnerOptions": {

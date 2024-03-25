@@ -42,14 +42,14 @@
     "prettier": "2.8.8",
     "projen": "^0.79.24",
     "ts-node": "10.9.2",
-    "typescript": "5.4.2"
+    "typescript": "5.4.3"
   },
   "dependencies": {
-    "@amazon-codecatalyst/blueprint-util.cli": "0.3.80",
-    "@amazon-codecatalyst/blueprints": "0.3.80",
+    "@amazon-codecatalyst/blueprint-util.cli": "0.3.86",
+    "@amazon-codecatalyst/blueprints": "0.3.86",
     "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth": "0.0.0",
-    "@aws/pdk": "0.23.16",
-    "projen": "0.80.11"
+    "@aws/pdk": "0.23.20",
+    "projen": "0.80.12"
   },
   "keywords": [
     "pdk",
@@ -59,7 +59,7 @@
   ],
   "main": "lib/index.js",
   "license": "MIT",
-  "version": "0.0.28",
+  "version": "0.0.32",
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
   "displayName": "PDK - Type Safe API",

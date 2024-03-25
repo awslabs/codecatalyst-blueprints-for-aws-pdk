@@ -30,7 +30,7 @@ export interface DeploymentStage {
 
   readonly stackName: string;
 
-  readonly cdkRootPath: string;
+  readonly cloudAssemblyRootPath: string;
 
   readonly environment: EnvironmentDefinition<{
     /**
@@ -125,7 +125,7 @@ export class Workflow extends Component {
         stage.environment,
         stage.region,
         stage.stackName,
-        stage.cdkRootPath,
+        stage.cloudAssemblyRootPath,
         {
           environmentName: `${stage.environment.name}-${stage.region}`,
         },
