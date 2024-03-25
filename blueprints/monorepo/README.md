@@ -19,7 +19,7 @@ After you have generated a PDK monorepo project, and applied all relevant bluepr
 
 The blueprint sets up a root project as a monorepo using [NX](https://nx.dev/getting-started/intro), and manages all of the NX configuration for you by default. Depending on the language you decide to bootstrap your project with, a `projenrc` file in your preferred language allows you to add new sub-packages (using blueprints) to your project to be managed by NX.
 
-## Configure the blueprint
+## Set up the blueprint
 
 1. From the CodeCatalyst blueprints page, select **PDK - Monorepo** and click **Next**. The **Create Project** page displays.
 2. On the page, complete the following:

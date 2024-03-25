@@ -9,18 +9,19 @@ Using Smithy or OpenAPI V3 allows you to use features such as generated client a
 
 ## How does it work?
 
-This blueprint generates runtime projects from your API definition in your desired languages, which include clients for interacting with your API, and server-side code for implementing your API. The project also generates a type-safe CDK construct which ensures an integration is provided for every API operation.
+This blueprint generates runtime projects from your API definition, which include clients for interacting with your API, and server-side code for implementing your API. The project also generates a type-safe CDK construct with an integration for every API operation.
 
 !!! note
 
     The code is generated at build time, so when you change your API model, you will need to rebuild to see your changes reflected in the generated code.
 
-## Configure the blueprint
+## Set up the blueprint
 
 1. From the Projects page, select **PDK - Monorepo**. The monorepo project summary page displays.
 2. On the page, from the left, select **Blueprints**.
 3. On the Blueprints page, click **Apply blueprint**. The Apply blueprint page displays.
 4. From the CodeCatalyst blueprints page, select **PDK - Type Safe API** and click **Next**.
+<img src="assets/images/select-typesafeapi.png"/>
 5. Complete the following:
     - Select the target version for your blueprint. You can select a specific version from the dropdown.
     - Select the primary language you want to develop your project code in. You can select from Typescript, Java, or Python.
@@ -28,7 +29,7 @@ This blueprint generates runtime projects from your API definition in your desir
     - Enter a namespace for your API.
     - Enter a name for your API
     <img src="assets/images/type-safe-api-blueprint.png"/>
-6. Click **Apply blueprint** to apply the Type Safe API blueprint to your monorepo project.
+6. Click **Apply blueprint** to apply the Type Safe API blueprint to your monorepo project. A new `packages/api` folder is created within your monorepo project which contains all of the API related source code for your configured Type-Safe API.
 
 ## Project resources
 

@@ -6,6 +6,19 @@ This blueprint creates a Cloudscape/React Single Page Application (SPA) with pre
 
 This blueprint generates a website for the PDK monorepo so that you can make authenticated API calls. You can associate an optional parameter (Type-Safe APIs blueprint) to automatically configure your website to set up an API Explorer which will allow you to make `sigv4` signed requests for your configured Type Safe API(s).
 
+## Apply and configure the blueprint
+
+1. From the Projects page, select **PDK - Monorepo**. The monorepo project summary page displays.
+2. On the page, from the left, select **Blueprints**.
+3. On the Blueprints page, click **Apply blueprint**. The Apply blueprint page displays.
+4. From the CodeCatalyst blueprints page, select **PDK - Cloudscape React Website** and click **Next**.
+5. Complete the following:
+    - Select the target version for your blueprint. You can select a specific version from the dropdown.
+    - Enter a name for your website.
+    - From the Type-Safe APIs dropdown, select the API blueprint you want to integrate within the website. For example, PDK - Type Safe API.
+    <img src="assets/images/website-blueprint.png"/>
+6. Click **Apply blueprint** to apply the Cloudscape React Website blueprint to your monorepo project. A new `packages/website` folder is added which contains all the source code for your new website.
+
 ## Project resources
 
 This blueprint creates the following key files and folders as part of your project.
@@ -33,22 +46,7 @@ This blueprint creates the following key files and folders as part of your proje
     config.json
     index.tsx
     react-app-env.d.ts
-    setupTests.ts   
-.eslintrc.json    --_TODO: Describe_
-.gitattributes    --_TODO: Describe_
-.gitignore        --_TODO: Describe_
-.npmignore        --_TODO: Describe_
-.nxignore         --_TODO: Describe_
-.prettierignore   --_TODO: Describe_
-.prettierrc.json  --_TODO: Describe_
-.projenrc.ts      -- where your packages are defined
-.syncpackrc.json  --_TODO: Describe_
-LICENCE           --_TODO: Describe_
-README.md         --_TODO: Describe_
-package.json      -- dependency declarations (managed by projen)
-project.json
-tsconfig.dev.json --_TODO: Describe_
-tsconfig.json     --_TODO: Describe_
+    setupTests.ts
 ```
 
 ## Additional resources
