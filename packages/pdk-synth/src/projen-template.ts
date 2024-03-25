@@ -3,12 +3,12 @@ export const projenrcMap: {[lang: string]: {path: string; content: string}} = {
     path: 'src/test/java/projenrc.java',
     content: `import software.aws.pdk.monorepo.MonorepoJavaProject;
 import software.aws.pdk.monorepo.MonorepoJavaOptions;
-{{#hasWebsite}}import software.aws.pdk.cloudscape_react_ts_website.CloudscapeReactTsWebsiteProject;
+{{#cloudscapeReactTsWebsites.0}}import software.aws.pdk.cloudscape_react_ts_website.CloudscapeReactTsWebsiteProject;
 import software.aws.pdk.cloudscape_react_ts_website.CloudscapeReactTsWebsiteProjectOptions;
-{{/hasWebsite}}{{#hasInfra}}import software.aws.pdk.infrastructure.InfrastructureJavaProject;
-import software.aws.pdk.infrastructure.InfrastructureJavaProjectOptions;{{/hasInfra}}{{#hasApi}}
+{{/cloudscapeReactTsWebsites.0}}{{#hasInfra}}import software.aws.pdk.infrastructure.InfrastructureJavaProject;
+import software.aws.pdk.infrastructure.InfrastructureJavaProjectOptions;{{/hasInfra}}{{#typeSafeApis.0}}
 import software.aws.pdk.type_safe_api.*;
-{{/hasApi}}import java.util.Arrays;
+{{/typeSafeApis.0}}import java.util.Arrays;
 
 public class projenrc {
     public static void main(String[] args) {
@@ -16,11 +16,11 @@ public class projenrc {
                 .name("monorepo")
                 .build());
 
-{{#hasApi}}
-        TypeSafeApiProject api = new TypeSafeApiProject(TypeSafeApiProjectOptions.builder()
-                .name("api")
+{{#typeSafeApis}}
+        TypeSafeApiProject {{{apiNameLowercase}}} = new TypeSafeApiProject(TypeSafeApiProjectOptions.builder()
+                .name("{{{apiNameLowercase}}}")
                 .parent(monorepo)
-                .outdir("packages/api")
+                .outdir("packages/apis/{{{apiNameLowercase}}}")
                 .model(ModelConfiguration.builder()
                         .language({{{apiModelLanguage}}})
                         .options(ModelOptions.builder()
@@ -48,25 +48,26 @@ public class projenrc {
                         .build())
                 .build());
 
-{{/hasApi}}                
-{{#hasWebsite}}
-        CloudscapeReactTsWebsiteProject website = new CloudscapeReactTsWebsiteProject(
+{{/typeSafeApis}}                
+{{#cloudscapeReactTsWebsites}}
+        CloudscapeReactTsWebsiteProject {{{websiteNameLowercase}}} = new CloudscapeReactTsWebsiteProject(
             CloudscapeReactTsWebsiteProjectOptions.builder()
                 .parent(monorepo)
-                .outdir("packages/website"){{#hasApi}}
-                .typeSafeApi(api){{/hasApi}}
-                .name("website")
+                .outdir("packages/websites/{{{websiteNameLowercase}}}")
+                .typeSafeApis(Arrays.asList({{{typeSafeApiNames}}}))
+                .name("{{{websiteNameLowercase}}}")
+                .applicationName("{{{websiteName}}}")
                 .build());
 
-{{/hasWebsite}}
+{{/cloudscapeReactTsWebsites}}
 {{#hasInfra}}
         new InfrastructureJavaProject(
             InfrastructureJavaProjectOptions.builder()
                 .parent(monorepo)
                 .outdir("packages/infra/main")
-                .name("infra"){{#hasApi}}
-                .typeSafeApi(api){{/hasApi}}{{#hasWebsite}}
-                .cloudscapeReactTsWebsite(website){{/hasWebsite}}
+                .name("infra")
+                .typeSafeApis(Arrays.asList({{{typeSafeApiNames}}}))
+                .cloudscapeReactTsWebsites(Arrays.asList({{{cloudscapeReactTsWebsiteNames}}}))
                 .build());
 
 {{/hasInfra}}
@@ -154,20 +155,20 @@ monorepo.synth();`,
   python: {
     path: '.projenrc.py',
     content: `from aws_pdk.monorepo import MonorepoPythonProject
-{{#hasWebsite}}from aws_pdk.cloudscape_react_ts_website import CloudscapeReactTsWebsiteProject
-{{/hasWebsite}}{{#hasInfra}}from aws_pdk.infrastructure import InfrastructurePyProject{{/hasInfra}}{{#hasApi}}
-from aws_pdk.type_safe_api import *{{/hasApi}}
+{{#cloudscapeReactTsWebsites.0}}from aws_pdk.cloudscape_react_ts_website import CloudscapeReactTsWebsiteProject
+{{/cloudscapeReactTsWebsites.0}}{{#hasInfra}}from aws_pdk.infrastructure import InfrastructurePyProject{{/hasInfra}}{{#typeSafeApis.0}}
+from aws_pdk.type_safe_api import *{{/typeSafeApis.0}}
 
 monorepo = MonorepoPythonProject(
     module_name="monorepo",
     name="monorepo",
 )
 
-{{#hasApi}}
-api = TypeSafeApiProject(
-    name="api",
+{{#typeSafeApis}}
+{{{apiNameLowercase}}} = TypeSafeApiProject(
+    name="{{{apiNameLowercase}}}",
     parent=monorepo,
-    outdir="packages/api",
+    outdir="packages/apis/{{{apiNameLowercase}}}",
     model=ModelConfiguration(
         language={{{apiModelLanguage}}},
         options=ModelOptions(
@@ -195,23 +196,24 @@ api = TypeSafeApiProject(
     )
 )
 
-{{/hasApi}}
-{{#hasWebsite}}
-website = CloudscapeReactTsWebsiteProject(
+{{/typeSafeApis}}
+{{#cloudscapeReactTsWebsites}}
+{{{websiteNameLowercase}}} = CloudscapeReactTsWebsiteProject(
     parent=monorepo,
-    outdir="packages/website",
-    type_safe_api=api,
-    name="website",
+    outdir="packages/websites/{{{websiteNameLowercase}}}",
+    type_safe_apis=[{{{typeSafeApiNames}}}],
+    name="{{{websiteNameLowercase}}}",
+    application_name="{{{websiteName}}}",
 )
 
-{{/hasWebsite}}
+{{/cloudscapeReactTsWebsites}}
 {{#hasInfra}}
 InfrastructurePyProject(
     parent=monorepo,
     outdir="packages/infra/main",
-    name="infra",{{#hasApi}}
-    type_safe_api=api,{{/hasApi}}{{#hasWebsite}}
-    cloudscape_react_ts_website=website{{/hasWebsite}}
+    name="infra",
+    cloudscape_react_ts_websites=[{{{cloudscapeReactTsWebsiteNames}}}],
+    type_safe_apis=[{{{typeSafeApiNames}}}]
 )
 
 {{/hasInfra}}

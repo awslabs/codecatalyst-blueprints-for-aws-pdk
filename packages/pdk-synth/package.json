@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@amazon-codecatalyst/blueprints": "0.3.86",
-    "@aws/pdk": "0.23.20",
+    "@aws/pdk": "0.23.22",
     "glob": "10.3.10",
     "mustache": "4.2.0",
     "projen": "0.80.12"
