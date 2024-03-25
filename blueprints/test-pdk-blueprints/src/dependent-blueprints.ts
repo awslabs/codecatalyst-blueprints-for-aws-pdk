@@ -81,8 +81,12 @@ export class TestTypeSafeApiBlueprint extends TypeSafeApiBlueprint {
     const options = {
       outdir: bp.outdir,
       ...TypeSafeApiDefaults,
-      primaryLanguage:
-        TypeSafeApiDefaults.primaryLanguage as TypeSafeApiOptions["primaryLanguage"],
+      cdkLanguage:
+        TypeSafeApiDefaults.cdkLanguage as TypeSafeApiOptions["cdkLanguage"],
+      handlerLanguages:
+        TypeSafeApiDefaults.handlerLanguages as TypeSafeApiOptions["handlerLanguages"],
+      documentationFormats:
+        TypeSafeApiDefaults.documentationFormats as TypeSafeApiOptions["documentationFormats"],
       modelLanguage:
         TypeSafeApiDefaults.modelLanguage as TypeSafeApiOptions["modelLanguage"],
     };

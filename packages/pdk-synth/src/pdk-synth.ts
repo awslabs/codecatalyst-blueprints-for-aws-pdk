@@ -40,6 +40,9 @@ const TYPESAFE_API_PACKAGE = '@amazon-codecatalyst/centre-of-prototyping-excelle
 const WEBSITE_PACKAGE = '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website';
 const INFRA_PACKAGE = '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra';
 
+export type DocumentationFormats = 'HTML_REDOC' | 'HTML2' | 'MARKDOWN' | 'PLANTUML';
+export type LanguageOptions = 'Typescript' | 'Java' | 'Python';
+
 interface MonorepoOptions {
   readonly primaryLanguage: 'Typescript' | 'Java' | 'Python';
   readonly code: {
@@ -48,7 +51,9 @@ interface MonorepoOptions {
 }
 
 interface ApiOptions {
-  primaryLanguage: 'Typescript' | 'Java' | 'Python';
+  cdkLanguage: LanguageOptions;
+  handlerLanguages: MultiSelect<LanguageOptions>;
+  documentationFormats: MultiSelect<DocumentationFormats>;
   modelLanguage: 'Smithy' | 'Open API';
   namespace: string;
   apiName: string;
@@ -116,7 +121,10 @@ export class PDKSynth extends Component {
           apiName: api.apiName,
           apiNameLowercase: this.sanitizeName(api.apiName),
           apiModelLanguage: `ModelLanguage.${this.getModelLanguage(api)}`,
-          apiLanguage: `Language.${this.getApiLanguage(api).toUpperCase()}`,
+          apiCdkLanguage: `Language.${this.getApiCdkLanguage(api).toUpperCase()}`,
+          apiHandlerLanguages: this.getApiHandlerLanguages(api).map(e => `Language.${e.toUpperCase()}`).join(','),
+          apiDocumentationFormats: this.getDocumentationFormats(api).map(e => `DocumentationFormat.${e.toUpperCase()}`).join(','),
+          hasApiDocumentation: this.getDocumentationFormats(api).length > 0,
         })),
         cloudscapeReactTsWebsiteNames: this.options.website
           ?.map(c => this.sanitizeName(c.websiteName))
@@ -327,8 +335,34 @@ export class PDKSynth extends Component {
       ? ModelLanguage.SMITHY
       : ModelLanguage.OPENAPI;
   }
-  private getApiLanguage(options: ApiOptions): Language {
-    switch (options.primaryLanguage) {
+
+  private getDocumentationFormats(options: ApiOptions): DocumentationFormat[] {
+    return options.documentationFormats.map(d => {
+      switch (d) {
+        case 'HTML_REDOC':
+          return DocumentationFormat.HTML_REDOC;
+        case 'HTML2':
+          return DocumentationFormat.HTML2;
+        case 'MARKDOWN':
+          return DocumentationFormat.MARKDOWN;
+        case 'PLANTUML':
+          return DocumentationFormat.PLANTUML;
+        default:
+          throw Error(`Unknown documentation format: ${d}`);
+      }
+    });
+  }
+
+  private getApiCdkLanguage(options: ApiOptions): Language {
+    return this.getLanguage(options.cdkLanguage);
+  }
+
+  private getApiHandlerLanguages(options: ApiOptions): Language[] {
+    return options.handlerLanguages.map(e => this.getLanguage(e as string));
+  }
+
+  private getLanguage(lang: string): Language {
+    switch (lang) {
       case 'Typescript':
         return Language.TYPESCRIPT;
       case 'Java':
@@ -336,7 +370,7 @@ export class PDKSynth extends Component {
       case 'Python':
         return Language.PYTHON;
       default:
-        throw Error(`Unknown language: ${options.primaryLanguage}`);
+        throw Error(`Unknown language: ${lang}`);
     }
   }
 
@@ -421,7 +455,7 @@ export class PDKSynth extends Component {
           outdir: `packages/apis/${lowercasePackageName}`,
           name: `${lowercasePackageName}`,
           infrastructure: {
-            language: this.getApiLanguage(options),
+            language: this.getApiCdkLanguage(options),
           },
           model: {
             language: this.getModelLanguage(options),
@@ -431,13 +465,13 @@ export class PDKSynth extends Component {
             },
           },
           documentation: {
-            formats: [DocumentationFormat.HTML_REDOC],
+            formats: this.getDocumentationFormats(options),
           },
           library: {
             libraries: [Library.TYPESCRIPT_REACT_QUERY_HOOKS],
           },
           handlers: {
-            languages: [this.getApiLanguage(options)],
+            languages: this.getApiHandlerLanguages(options),
           },
         });
       });
