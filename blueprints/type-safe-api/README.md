@@ -9,11 +9,13 @@ Using Smithy or OpenAPI V3 allows you to use features such as generated client a
 
 ## How does it work?
 
-This blueprint generates runtime projects from your API definition, which include clients for interacting with your API, and server-side code for implementing your API. The project also generates a type-safe CDK construct with an integration for every API operation.
+This blueprint generates runtime projects from your API definition, which include clients for interacting with your API, and server-side code for implementing your API. The blueprint also generates a type-safe CDK construct with an integration for every API operation.
 
-!!! note
+You can apply (or stack on) this blueprint to an existing PDK Monorepo project for extending the API capabilities to a project.
 
-    The code is generated at build time, so when you change your API model, you will need to rebuild to see your changes reflected in the generated code.
+## Prerequisites
+
+Ensure that you have set up a PDK monorepo project.
 
 ## Set up the blueprint
 
@@ -23,24 +25,24 @@ This blueprint generates runtime projects from your API definition, which includ
 4. From the CodeCatalyst blueprints page, select **PDK - Type Safe API** and click **Next**.
 <img src="assets/images/select-typesafeapi.png"/>
 5. Complete the following:
-    - Select the target version for your blueprint. You can select a specific version from the dropdown.
-    - Select the primary language you want to develop your project code in. You can select from Typescript, Java, or Python.
-    - Select the model language for your API model. You can select from Smithy or OpenAPI.
-    - Enter a namespace for your API.
-    - Enter a name for your API
+    - Select the **target version** for your blueprint. You can select a specific version from the dropdown.
+    - Select the **primary language** you want to develop your project code in. You can select from Typescript, Java, or Python.
+    - Select the **model language** for your API model. You can select from Smithy or OpenAPI.
+    - Enter a **namespace** for your API. A namespace is a way to group services for an application.
+    - Enter a **name** for your API.
     <img src="assets/images/type-safe-api-blueprint.png"/>
-6. Click **Apply blueprint** to apply the Type Safe API blueprint to your monorepo project. A new `packages/api` folder is created within your monorepo project which contains all of the API related source code for your configured Type-Safe API.
+6. Click **Apply blueprint** to apply the Type Safe API blueprint to your monorepo project. A new `packages/api` folder is created within your monorepo project which contains all of the API related source code for your configured Type Safe API.
 
 ## Project resources
 
 This blueprint creates the following key files as part of your project.
 
-```
+```text
 .projen/
-    files.json --_TODO: Describe_
-    tasks.json --_TODO: Describe_
+    files.json
+    tasks.json
 generated/
-    documentation/ - generated documentation in the formats you specified
+    documentation/ - generated documentation in formats you specified
         html2
         html_redoc
         plantuml
@@ -49,7 +51,8 @@ generated/
         typescript
         python
         java 
-    libraries/ - generated libraries if specified       typescript-react-query-hooks
+    libraries/ - generated libraries if specified             
+        typescript-react-query-hooks
     runtime/ - generated types, client, and server code in the languages you specified
         typescript
         python
@@ -61,8 +64,8 @@ handlers/
 model/
     src/
         main/
-            smithy - your API definition if you chose ModelLanguage.SMITHY
-            openapi - your API definition if you chose ModelLanguage.OPENAPI
+            smithy - API definition if you chose ModelLanguage.SMITHY
+            openapi - API definition if you chose ModelLanguage.OPENAPI
 ```
 
 ## Additional resources
