@@ -122,8 +122,8 @@ export class PDKSynth extends Component {
           apiNameLowercase: this.sanitizeName(api.apiName),
           apiModelLanguage: `ModelLanguage.${this.getModelLanguage(api)}`,
           apiCdkLanguage: `Language.${this.getApiCdkLanguage(api).toUpperCase()}`,
-          apiHandlerLanguages: this.getApiHandlerLanguages(api).map(e => `Language.${e.toUpperCase()}`).join(','),
-          apiDocumentationFormats: this.getDocumentationFormats(api).map(e => `DocumentationFormat.${e.toUpperCase()}`).join(','),
+          apiHandlerLanguages: this.getApiHandlerLanguages(api).map(e => `Language.${e.toUpperCase()}`).join(', '),
+          apiDocumentationFormats: this.getDocumentationFormats(api).map(e => `DocumentationFormat.${e.toUpperCase()}`).join(', '),
           hasApiDocumentation: this.getDocumentationFormats(api).length > 0,
         })),
         cloudscapeReactTsWebsiteNames: this.options.website
