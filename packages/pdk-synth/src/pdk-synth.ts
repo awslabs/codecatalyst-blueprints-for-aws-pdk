@@ -27,7 +27,7 @@ import {
 } from '@aws/pdk/type-safe-api';
 import * as Mustache from 'mustache';
 
-import { Component, Project } from 'projen';
+import { Component, Project, SampleReadme } from 'projen';
 import { NodePackageManager, YarnNodeLinker } from 'projen/lib/javascript';
 import { projenrcMap } from './projen-template';
 
@@ -144,7 +144,7 @@ export class PDKSynth extends Component {
     );
 
     this.sourceRepository.setResynthStrategies([{
-      globs: ['.projen/*', '**/.projen/*', '**/.git*', '.git*', '.projenrc*', '**/projenrc*', 'package.json', '**/package.json', 'project.json', '**/project.json', 'pnpm-workspace.yaml', 'pnpm-lock.yaml', 'yarn.lock', 'package-lock.json', 'bun.lockb', 'poetry.lock', '**/poetry.lock'],
+      globs: ['README.md', '**/README.md', '.projen/*', '**/.projen/*', '**/.git*', '.git*', '.projenrc*', '**/projenrc*', 'package.json', '**/package.json', 'project.json', '**/project.json', 'pnpm-workspace.yaml', 'pnpm-lock.yaml', 'yarn.lock', 'package-lock.json', 'bun.lockb', 'poetry.lock', '**/poetry.lock'],
       identifier: projectName,
       strategy: MergeStrategies.alwaysUpdate,
     }]);
@@ -231,8 +231,14 @@ export class PDKSynth extends Component {
     super.synthesize();
   }
 
+  private deleteDefaultMonorepoReadme(project: Project) {
+    const readmeConstructId = project.components.find(c => c instanceof SampleReadme)?.node.id;
+    readmeConstructId && project.node.tryRemoveChild(readmeConstructId);
+  }
+
   private synthWithoutPostInstall(project: Project) {
     process.env.PROJEN_DISABLE_POST = 'true';
+    this.deleteDefaultMonorepoReadme(project);
     project.synth();
     process.env.PROJEN_DISABLE_POST = 'false';
   }

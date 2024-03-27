@@ -1,8 +1,11 @@
+import path from "path";
 import {
   Blueprint as ParentBlueprint,
   Options as ParentOptions,
   Selector,
+  SourceFile,
   SourceRepository,
+  StaticAsset,
   Workspace,
 } from "@amazon-codecatalyst/blueprints";
 import {
@@ -110,6 +113,17 @@ export class Blueprint extends ParentBlueprint {
           },
         },
       ],
+    });
+
+    // Copy all common assets
+    StaticAsset.findAll("*", {
+      cwd: path.resolve(path.join(__dirname, "..", "static-assets")),
+    }).forEach((staticCode) => {
+      new SourceFile(
+        this.sourceRepository,
+        staticCode.path(),
+        staticCode.content().toString()
+      );
     });
 
     new PDKSynth(this, this.sourceRepository, "monorepo", {
