@@ -2,7 +2,7 @@
 
 This blueprint creates a type-safe API using constructs from the AWS Project Development Kit ([AWS PDK](https://aws.github.io/aws-pdk/)), and provides:
 
-- a projen project type which allows you to define an API using either Smithy or OpenAPI v3, and
+- a mechanism which allows you to define an API using either Smithy or OpenAPI v3, and
 - a construct which manages deploying this API in an API Gateway.
 
 Using Smithy or OpenAPI V3 allows you to use features such as generated client and server types, infrastructure, documentation, and automatic input validation.
@@ -15,7 +15,7 @@ You can apply (or stack on) this blueprint to an existing PDK Monorepo project f
 
 ## Prerequisites
 
-Ensure that you have set up a PDK monorepo project.
+Ensure that you have set up a PDK Monorepo project.
 
 ## Set up the blueprint
 

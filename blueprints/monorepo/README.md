@@ -4,11 +4,13 @@ This blueprint sets up a monorepo project using the constructs from the AWS Proj
 
 You can define your projects programatically using one of these three type safe languages: Typescript, Python or Java.
 
-## Architecture overview
+## PDK Blueprint ecosystem
 
-After you have generated a monorepo project, and applied all relevant blueprints (API, Website, Infra, and DevOps) to the project, the generated project will include the following architectural components.
-
-<img src="assets/images/generated_diagram.png" width="800" />
+After you have generated a Monorepo project, you can these additional PDK blueprints to the project:
+- [Type Safe API](/blueprints/type-safe-api/README.md): Add API capabilities to your Monorepo project.
+- [Cloudscape React Website](/blueprints/cloudscape-react-website/README.md): Generate a website for the Monorepo so that you can make authenticated API calls.
+- [Infra](/blueprints/infra/README.md): Pre-configured CDK code to deploy your website and API
+- [DevOps](/blueprints/devops/README.md): Generate the required DevOps workflows for pull requests, releases and deployment of your project
 
 ## How does it work?
 
