@@ -18,7 +18,7 @@ From the PDK monorepo project overview page, you can:
 
 ## Applying PDK blueprints
 
-After you have set up the PDK monorepo project in CodeCatalyst, you can apply other PDK blueprints to the project to include additional functional components, resources, and governance. Your project supports various elements that are managed independently in separate blueprints.
+After you have set up the PDK monorepo project in CodeCatalyst, you can apply other PDK blueprints to the project to include additional functional components, resources, and governance. Your project supports various elements that are managed independently in separate blueprints. 
 
 Note: With PDK monorepo projects, we recommend applying PDK blueprints in the following order, as these blueprints have dependencies on each other:
 
