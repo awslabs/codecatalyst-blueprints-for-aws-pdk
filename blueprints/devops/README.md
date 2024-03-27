@@ -25,7 +25,7 @@ Ensure that you have set up a PDK monorepo project, and applied the Type Safe AP
     - From the role dropdown, select the **IAM role** to be used for deploying your project application.
     - Select the **Region** where you want to deploy your monorepo project.
     <img src="assets/images/devops-blueprint.png"/>
-6. Click **Apply blueprint** to apply the Infra blueprint to your monorepo project. A new `codecatalyst/workflows` folder is created within your monorepo project.
+6. Click **Apply blueprint** to apply the Devops blueprint to your monorepo project. A new `codecatalyst/workflows` folder is created within your monorepo project.
 
 ## Project resources
 

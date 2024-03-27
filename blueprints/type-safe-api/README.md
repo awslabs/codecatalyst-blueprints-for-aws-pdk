@@ -11,7 +11,7 @@ Using Smithy or OpenAPI V3 allows you to use features such as generated client a
 
 This blueprint generates runtime projects from your API definition, which include clients for interacting with your API, and server-side code for implementing your API. The blueprint also generates a type-safe CDK construct with an integration for every API operation.
 
-You can apply (or stack on) this blueprint to an existing PDK Monorepo project for extending the API capabilities to a project.
+You can apply (or stack on) this blueprint to an existing PDK Monorepo project for extending the API capabilities of a project.
 
 ## Prerequisites
 
