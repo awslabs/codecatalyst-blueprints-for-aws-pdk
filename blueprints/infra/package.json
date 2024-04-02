@@ -45,11 +45,11 @@
     "typescript": "5.4.3"
   },
   "dependencies": {
-    "@amazon-codecatalyst/blueprint-util.cli": "0.3.86",
-    "@amazon-codecatalyst/blueprints": "0.3.86",
+    "@amazon-codecatalyst/blueprint-util.cli": "0.3.89",
+    "@amazon-codecatalyst/blueprints": "0.3.89",
     "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth": "0.0.0",
-    "@aws/pdk": "0.23.22",
-    "projen": "0.80.12"
+    "@aws/pdk": "0.23.27",
+    "projen": "0.80.15"
   },
   "keywords": [
     "cdk",
@@ -58,7 +58,7 @@
   ],
   "main": "lib/index.js",
   "license": "MIT",
-  "version": "0.0.48",
+  "version": "0.0.52",
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
   "displayName": "PDK - Infra",

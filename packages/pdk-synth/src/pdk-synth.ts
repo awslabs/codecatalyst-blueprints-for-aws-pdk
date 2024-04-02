@@ -149,8 +149,8 @@ export class PDKSynth extends Component {
       strategy: MergeStrategies.alwaysUpdate,
     }, {
       globs: ['README.md', '**/README.md'],
-      identifier: `${projectName}-neverUpdate`,
-      strategy: MergeStrategies.neverUpdate,
+      identifier: `${projectName}-onlyAdd`,
+      strategy: MergeStrategies.onlyAdd,
     }]);
   }
 

@@ -45,18 +45,18 @@
     "typescript": "5.4.3"
   },
   "dependencies": {
-    "@amazon-codecatalyst/blueprint-util.cli": "0.3.86",
-    "@amazon-codecatalyst/blueprints": "0.3.86",
+    "@amazon-codecatalyst/blueprint-util.cli": "0.3.89",
+    "@amazon-codecatalyst/blueprints": "0.3.89",
     "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website": "*",
     "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-devops": "*",
     "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra": "*",
     "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo": "*",
     "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api": "*",
-    "projen": "0.80.12"
+    "projen": "0.80.15"
   },
   "main": "lib/index.js",
   "license": "MIT",
-  "version": "0.0.42",
+  "version": "0.0.44",
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
   "displayName": "PDK - Test Blueprints",

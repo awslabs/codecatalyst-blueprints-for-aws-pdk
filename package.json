@@ -21,9 +21,9 @@
     "synth-workspace": "pnpm exec projen"
   },
   "devDependencies": {
-    "@amazon-codecatalyst/blueprint-util.projen-blueprint": "0.3.86",
-    "@amazon-codecatalyst/blueprints": "0.3.86",
-    "@aws/pdk": "0.23.22",
+    "@amazon-codecatalyst/blueprint-util.projen-blueprint": "0.3.89",
+    "@amazon-codecatalyst/blueprints": "0.3.89",
+    "@aws/pdk": "0.23.27",
     "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^6",
     "@typescript-eslint/parser": "^6",
@@ -33,7 +33,7 @@
     "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-prettier": "4.2.1",
-    "npm-check-updates": "16.14.17",
+    "npm-check-updates": "16.14.18",
     "nx": "16.0.0",
     "prettier": "2.8.8",
     "projen": "^0.79.24",
@@ -46,8 +46,8 @@
   },
   "dependencies": {
     "@aws-cdk/aws-cognito-identitypool-alpha": "latest",
-    "aws-cdk-lib": "2.133.0",
-    "cdk-nag": "2.28.72"
+    "aws-cdk-lib": "2.135.0",
+    "cdk-nag": "2.28.80"
   },
   "pnpm": {
     "overrides": {
