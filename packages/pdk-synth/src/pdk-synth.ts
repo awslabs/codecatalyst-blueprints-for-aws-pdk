@@ -34,11 +34,22 @@ import { projenrcMap } from './projen-template';
 const INFRA_OUTDIR = 'packages/infra/main';
 const YARN_VERSION = '4.1.0';
 
-const DEVOPS_PACKAGE = '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-devops';
-const MONOREPO_PACKAGE = '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo';
-const TYPESAFE_API_PACKAGE = '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api';
-const WEBSITE_PACKAGE = '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website';
-const INFRA_PACKAGE = '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra';
+const PACKAGE_PREFIX = '@amazon-codecatalyst/centre-of-prototyping-excellence.';
+
+const DEVOPS_PACKAGE = 'pdk-devops';
+const DEVOPS_PACKAGE_PRIVATE = `${PACKAGE_PREFIX}${DEVOPS_PACKAGE}`;
+
+const MONOREPO_PACKAGE = 'pdk-monorepo';
+const MONOREPO_PACKAGE_PRIVATE = `${PACKAGE_PREFIX}${MONOREPO_PACKAGE}`;
+
+const TYPESAFE_API_PACKAGE = 'pdk-type-safe-api';
+const TYPESAFE_API_PACKAGE_PRIVATE = `${PACKAGE_PREFIX}${TYPESAFE_API_PACKAGE}`;
+
+const WEBSITE_PACKAGE = 'pdk-cloudscape-react-website';
+const WEBSITE_PACKAGE_PRIVATE = `${PACKAGE_PREFIX}${WEBSITE_PACKAGE}`;
+
+const INFRA_PACKAGE = 'pdk-infra';
+const INFRA_PACKAGE_PRIVATE = `${PACKAGE_PREFIX}${INFRA_PACKAGE}`;
 
 export type DocumentationFormats = 'HTML_REDOC' | 'HTML2' | 'MARKDOWN' | 'PLANTUML';
 export type LanguageOptions = 'Typescript' | 'Java' | 'Python';
@@ -167,15 +178,19 @@ export class PDKSynth extends Component {
 
     switch (blueprint.context.package.name) {
       case MONOREPO_PACKAGE:
+      case MONOREPO_PACKAGE_PRIVATE:
         monorepo = this.blueprintOptions;
         break;
       case INFRA_PACKAGE:
+      case INFRA_PACKAGE_PRIVATE:
         infra = this.blueprintOptions;
         break;
       case TYPESAFE_API_PACKAGE:
+      case TYPESAFE_API_PACKAGE_PRIVATE:
         api = [this.blueprintOptions];
         break;
       case WEBSITE_PACKAGE:
+      case WEBSITE_PACKAGE_PRIVATE:
         website = [this.blueprintOptions];
         break;
       default:
@@ -183,13 +198,13 @@ export class PDKSynth extends Component {
     }
 
     const options = {
-      monorepo: monorepo ?? this.findBlueprintInstantiations(MONOREPO_PACKAGE).find(s => s)?.options,
-      infra: infra ?? this.findBlueprintInstantiations(INFRA_PACKAGE).find(s => s)?.options,
-      api: [...this.findBlueprintInstantiations(TYPESAFE_API_PACKAGE)
+      monorepo: monorepo ?? this.findBlueprintInstantiations(MONOREPO_PACKAGE, MONOREPO_PACKAGE_PRIVATE).find(s => s)?.options,
+      infra: infra ?? this.findBlueprintInstantiations(INFRA_PACKAGE, INFRA_PACKAGE_PRIVATE).find(s => s)?.options,
+      api: [...this.findBlueprintInstantiations(TYPESAFE_API_PACKAGE, TYPESAFE_API_PACKAGE_PRIVATE)
         .filter(bpi => bpi.id !== blueprint.context.project.blueprint.instantiationId)
         .map(bpi => bpi.options), ...api]
         .sort((a, b) => (a as ApiOptions).apiName.localeCompare((b as ApiOptions).apiName)),
-      website: [...this.findBlueprintInstantiations(WEBSITE_PACKAGE)
+      website: [...this.findBlueprintInstantiations(WEBSITE_PACKAGE, WEBSITE_PACKAGE_PRIVATE)
         .filter(bpi => bpi.id !== blueprint.context.project.blueprint.instantiationId)
         .map(bpi => bpi.options), ...website]
         .sort((a, b) => (a as WebsiteOptions).websiteName.localeCompare((b as WebsiteOptions).websiteName)),
@@ -207,8 +222,8 @@ export class PDKSynth extends Component {
     return options;
   }
 
-  private findBlueprintInstantiations(packageName: string): BlueprintInstantiation[] {
-    return (this.project as Blueprint).context.project.blueprint.instantiations.filter(p => p.packageName === packageName);
+  private findBlueprintInstantiations(...packageNames: string[]): BlueprintInstantiation[] {
+    return (this.project as Blueprint).context.project.blueprint.instantiations.filter(p => packageNames.includes(p.packageName));
   }
 
   synthesize(): void {
@@ -278,7 +293,9 @@ export class PDKSynth extends Component {
   }
 
   private hasDevOpsBlueprint() {
-    return this.findBlueprintInstantiations(DEVOPS_PACKAGE).length > 0 || (this.project as Blueprint).context.package.name === DEVOPS_PACKAGE;
+    const packageName = (this.project as Blueprint).context.package.name;
+    return this.findBlueprintInstantiations(DEVOPS_PACKAGE, DEVOPS_PACKAGE_PRIVATE).length > 0
+      || (packageName ? [DEVOPS_PACKAGE, DEVOPS_PACKAGE_PRIVATE].includes(packageName) : false);
   }
 
   private renderLockfileCommand(): string {
