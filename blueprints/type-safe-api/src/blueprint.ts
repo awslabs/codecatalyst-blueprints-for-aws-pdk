@@ -2,6 +2,7 @@ import {
   MultiSelect,
   Blueprint as ParentBlueprint,
   Options as ParentOptions,
+  SourceFile,
   SourceRepository,
 } from "@amazon-codecatalyst/blueprints";
 import {
@@ -10,6 +11,7 @@ import {
 } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
 
 import defaults from "./defaults.json";
+import { assets } from "./static-assets";
 
 /**
  * This is the 'Options' interface. The 'Options' interface is interpreted by the wizard to dynamically generate a selection UI.
@@ -105,6 +107,12 @@ export class Blueprint extends ParentBlueprint {
     this.sourceRepository = new SourceRepository(this, {
       title: this.context.project.src.listRepositoryNames()[0],
     });
+
+    // Copy all assets
+    Object.entries(assets).forEach(
+      ([filePath, content]) =>
+        new SourceFile(this.sourceRepository, filePath, content)
+    );
 
     new PDKSynth(this, this.sourceRepository, "type-safe-api", {
       ...this.options,

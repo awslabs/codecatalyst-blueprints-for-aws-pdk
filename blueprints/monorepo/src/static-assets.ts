@@ -1,4 +1,5 @@
-# PDK Blueprints
+export const assets: { [filepath: string]: string } = {
+  "README.md": `# PDK Blueprints
 
 ## Getting started with the PDK Monorepo
 
@@ -26,4 +27,5 @@ Note: With PDK monorepo projects, we recommend applying PDK blueprints in the fo
 
 ## Next steps
 
-Refer to the tutorial on how to create a project using PDK blueprints.
+Refer to the tutorial on how to create a project using PDK blueprints.`,
+};

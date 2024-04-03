@@ -1,4 +1,3 @@
-import path from "path";
 import {
   Blueprint as ParentBlueprint,
   Options as ParentOptions,
@@ -9,7 +8,6 @@ import {
   Role,
   SourceRepository,
   SourceFile,
-  StaticAsset,
 } from "@amazon-codecatalyst/blueprints";
 
 import {
@@ -17,8 +15,8 @@ import {
   PDKSynth,
 } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
 import defaults from "./defaults.json";
+import { assets } from "./static-assets";
 import { Workflow } from "./workflow";
-
 const INFRA_OUTDIR = "packages/infra/main/cdk.out";
 
 /**
@@ -101,16 +99,11 @@ export class Blueprint extends ParentBlueprint {
       title: this.context.project.src.listRepositoryNames()[0],
     });
 
-    // Copy all common assets
-    StaticAsset.findAll("*", {
-      cwd: path.resolve(path.join(__dirname, "..", "static-assets")),
-    }).forEach((staticCode) => {
-      new SourceFile(
-        this.sourceRepository,
-        staticCode.path(),
-        staticCode.content().toString()
-      );
-    });
+    // Copy all assets
+    Object.entries(assets).forEach(
+      ([filePath, content]) =>
+        new SourceFile(this.sourceRepository, filePath, content)
+    );
 
     // Create environments
     new Environment(this, this.options.beta.environment);

@@ -1,19 +1,17 @@
-import path from "path";
 import {
   Blueprint as ParentBlueprint,
   Options as ParentOptions,
   Selector,
   SourceFile,
   SourceRepository,
-  StaticAsset,
   Workspace,
 } from "@amazon-codecatalyst/blueprints";
 import {
   Initializer,
   PDKSynth,
 } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
-
 import defaults from "./defaults.json";
+import { assets } from "./static-assets";
 
 /**
  * This is the 'Options' interface. The 'Options' interface is interpreted by the wizard to dynamically generate a selection UI.
@@ -115,16 +113,11 @@ export class Blueprint extends ParentBlueprint {
       ],
     });
 
-    // Copy all common assets
-    StaticAsset.findAll("*", {
-      cwd: path.resolve(path.join(__dirname, "..", "static-assets")),
-    }).forEach((staticCode) => {
-      new SourceFile(
-        this.sourceRepository,
-        staticCode.path(),
-        staticCode.content().toString()
-      );
-    });
+    // Copy all assets
+    Object.entries(assets).forEach(
+      ([filePath, content]) =>
+        new SourceFile(this.sourceRepository, filePath, content)
+    );
 
     new PDKSynth(this, this.sourceRepository, "monorepo", {
       ...this.options,
