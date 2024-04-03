@@ -6,6 +6,8 @@ TODO`,
   - - :permit
     - LicenseRef-.amazon.com.-AmznSL-1.0
   - - :permit
+    - Amazon Software License
+  - - :permit
     - AFL-2.0
   - - :permit
     - AFL-3.0
