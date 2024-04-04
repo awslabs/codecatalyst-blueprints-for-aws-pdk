@@ -1,4 +1,3 @@
-// import { execSync } from 'child_process';
 import { execSync } from 'child_process';
 import {
   Blueprint,
@@ -93,6 +92,18 @@ export interface Options {
 }
 
 export type Initializer = (blueprint: Blueprint) => void;
+
+export function validateMonorepoExists(bp: Blueprint) {
+  !findBlueprintInstantiations(bp, MONOREPO_PACKAGE, MONOREPO_PACKAGE_PRIVATE).find(s => s)
+      && bp.throwSynthesisError(new BlueprintSynthesisError({
+        message: 'Cannot apply blueprint without first adding a PDK - Monorepo',
+        type: BlueprintSynthesisErrorTypes.ValidationError,
+      }));
+}
+
+export function findBlueprintInstantiations(bp: Blueprint, ...packageNames: string[]): BlueprintInstantiation[] {
+  return bp.context.project.blueprint.instantiations.filter(p => packageNames.includes(p.packageName));
+}
 
 export interface PDKSynthOptions extends BlueprintOptions {
   readonly initializer?: (blueprint: Blueprint) => void;
@@ -223,7 +234,7 @@ export class PDKSynth extends Component {
   }
 
   private findBlueprintInstantiations(...packageNames: string[]): BlueprintInstantiation[] {
-    return (this.project as Blueprint).context.project.blueprint.instantiations.filter(p => packageNames.includes(p.packageName));
+    return findBlueprintInstantiations((this.project as Blueprint), ...packageNames);
   }
 
   synthesize(): void {

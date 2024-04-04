@@ -1,7 +1,4 @@
 export const assets: { [filepath: string]: string } = {
-  "README.md": `# PDK - Dev Ops
-
-TODO`,
   "approved-licenses.yaml": `---
   - - :permit
     - LicenseRef-.amazon.com.-AmznSL-1.0

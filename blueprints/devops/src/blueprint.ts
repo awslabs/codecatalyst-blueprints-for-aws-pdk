@@ -13,6 +13,7 @@ import {
 import {
   Initializer,
   PDKSynth,
+  validateMonorepoExists,
 } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
 import defaults from "./defaults.json";
 import { assets } from "./static-assets";
@@ -83,6 +84,9 @@ export class Blueprint extends ParentBlueprint {
 
   constructor(options_: Options, initializer?: Initializer) {
     super(options_);
+
+    validateMonorepoExists(this);
+
     /**
      * This is a typecheck to ensure that the defaults passed in are of the correct type.
      * There are some cases where the typecheck will fail, but the defaults will still be valid, such when using enums.
