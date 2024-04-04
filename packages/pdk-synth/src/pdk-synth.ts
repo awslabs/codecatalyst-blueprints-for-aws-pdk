@@ -166,7 +166,7 @@ export class PDKSynth extends Component {
     );
 
     this.sourceRepository.setResynthStrategies([{
-      globs: ['.projen/*', '**/.projen/*', '**/.git*', '.git*', '.projenrc*', '**/projenrc*', 'package.json', '**/package.json', 'project.json', '**/project.json', 'pnpm-workspace.yaml', 'pnpm-lock.yaml', 'yarn.lock', 'package-lock.json', 'bun.lockb', 'poetry.lock', '**/poetry.lock'],
+      globs: ['.projen/*', '**/.projen/*', 'pnpm-lock.yaml', 'yarn.lock', 'package-lock.json', 'bun.lockb', 'poetry.lock', '**/poetry.lock'],
       identifier: `${projectName}-alwaysUpdate`,
       strategy: MergeStrategies.alwaysUpdate,
     }, {
