@@ -3,7 +3,7 @@
 This blueprint creates a project that sets up all CDK-related infrastructure needed to deploy your application, using the constructs in the AWS Project Development Kit ([AWS PDK](https://aws.github.io/aws-pdk/)). It also comes preconfigured to generate a diagram based on your CDK code every time you build.
 
 For example, this is the infrastructure generated in CodeCatalyst using PDK blueprints.
-<img src="assets/images/generated_diagram.png"/>
+<img src="https://github.com/awslabs/codecatalyst-blueprints-for-aws-pdk/blob/main/blueprints/infra/assets/infra-generated-diagram.png"/>
 
 ## How does it work?
 
@@ -11,21 +11,20 @@ The blueprint sets up a package containing all of your pre-configured CDK code t
 
 ## Prerequisites
 
-Ensure that you have an existing PDK Monorepo project.
+Ensure that you have an existing PDK Monorepo project and PDK infrastructure code built for the project.
 
 ## Set up the blueprint
 
 1. Navigate to the PDK Monorepo project, and from the left, select **Blueprints**.
 2. On the Blueprints page, click **Apply blueprint**. The Apply blueprint page displays.
 3. From the CodeCatalyst blueprints page, select **PDK - Infrastructure** and click **Next**.
-<img src="assets/images/select-infra.png"/>
+<img src="https://github.com/awslabs/codecatalyst-blueprints-for-aws-pdk/blob/main/blueprints/infra/assets/apply-infra-blueprint.png?raw=true"/>
 4. Complete the following:
-    - Select the **target version** for your blueprint. You can select a specific version from the dropdown.
-    - Select the **primary language** you want to develop your project code in. You can select from Typescript, Java, or Python.
+    - Select the **target version** for your blueprint. You can select a specific version from the dropdown. While this is optional, we recommend using the latest version.
+    - Select the **CDK language** you want to develop your infrastructure with. You can select from TypeScript, Java, or Python.
     - Enter a **name** for your AWS CloudFormation stack.
-    - From the Type-Safe APIs dropdown, select the **API blueprint** you want to integrate within the website. For example, PDK - Type Safe API.
+    - From the Type Safe APIs dropdown, select the **API** you want to associate and generate CDK code for. For example, PDK - Type Safe API.
     - From the Cloudscape React TS websites dropdown, select the **website** blueprint you want to deploy with your infrastructure. For example, PDK - Cloudscape React Website.
-    <img src="assets/images/infra-blueprint.png"/>
 5. Click **Apply blueprint** to apply the Infra blueprint to your monorepo project. CodeCatalyst will automatically create a pull request.
 6. Merge the pending pull request to apply the blueprint. A new `packages/infra` folder is created within your monorepo project which contains the infrastructure that will deploy your project into the AWS cloud.
 

@@ -20,15 +20,17 @@ The blueprint sets up a root project as a monorepo using [NX](https://nx.dev/get
 ## Set up the blueprint
 
 1. From the CodeCatalyst blueprints page, search for, and select **PDK - Monorepo** and choose **Next**. The **Create Project** page displays.
-<img src="assets/images/monorepo-blueprint.png"/>
+<img src="https://github.com/awslabs/codecatalyst-blueprints-for-aws-pdk/blob/main/blueprints/monorepo/assets/create-pdk-monorepo.png?raw=true"/>
 2. On the page, complete the following:
     - **Project name**: Enter a name for your project.
-    - **Primary language**: Select the language you want to develop your project code in. You can select from Typescript, Java, or Python.
-    - Under Code Configuration, select the Package Manager and source repository for your project. You can select an existing repository, or enter a name to create a new repository.
-2. Click **Create project** to create your monorepo project. This will create the root level project that manages interdependencies between projects within the monorepo, provides build caching and dependency visualization.
+    - **Primary programming language**: Select the language you want to develop your project code in. You can select from TypeScript, Java, or Python.
+    - Under **Code Configuration**,
+        - Select an existing repository, or enter a name to create a new repository
+        - Select a **Package Manager** (for TypeScript code only). You can choose from BUN, PNPM, YARN_BERRY, or NPM.
+3. Click **Create project** to create your monorepo project. This will create the root level project that manages interdependencies between projects within the monorepo, provides build caching and dependency visualization.
 
-    !!!note
-        This blueprint only generates the building blocks of the project. To create a workable website using the blueprint, you will need to add other PDK blueprints such as Type Safe API, Website, Infra or DevOps to create a working application.
+    !!! note
+        This blueprint only generates the foundations of the project. To create a workable website using the blueprint, you will need to add other PDK blueprints such as Type Safe API, Website, Infrastructure or DevOps to create a working application.
 
 ## Project resources
 
