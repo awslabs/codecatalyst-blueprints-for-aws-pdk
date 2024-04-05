@@ -42,6 +42,7 @@ export interface Options extends ParentOptions {
     /**
      * The name of the AWS CloudFormation stack to deploy. Should match the stack name configured in PDK - Infrastructure.
      * @displayName Stack name
+     * @placeholder Enter a stack name contained in your CDK application.
      * @validationRegex /^[a-zA-Z][a-zA-Z0-9-]{0,99}$/
      * @validationMessage Stack names must start with a letter, then contain alphanumeric characters and dashes(-) up to a total length of 128 characters
      */
