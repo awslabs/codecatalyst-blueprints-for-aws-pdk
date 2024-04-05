@@ -26,7 +26,7 @@ const INFRA_OUTDIR = "packages/infra/main/cdk.out";
  * 2. This is how you control the fields that show up on a wizard selection panel. Keeping this small leads to a better user experience.
  * 3. All required members of 'Options' must be defined in 'defaults.json' to synth your blueprint locally. They will become the defaults for the wizard.
  *
- * @requires '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo'
+ * @requires '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra'
  */
 export interface Options extends ParentOptions {
   /**
@@ -40,11 +40,10 @@ export interface Options extends ParentOptions {
     bootstrapCDK: boolean;
 
     /**
-     * The name of the AWS CloudFormation stack generated for the blueprint. It must be unique for the AWS account it's being deployed to.
+     * The name of the AWS CloudFormation stack to deploy. Should match the stack name configured in PDK - Infrastructure.
      * @displayName Stack name
      * @validationRegex /^[a-zA-Z][a-zA-Z0-9-]{0,99}$/
      * @validationMessage Stack names must start with a letter, then contain alphanumeric characters and dashes(-) up to a total length of 128 characters
-     * @defaultEntropy 5
      */
     stackName: string;
 
