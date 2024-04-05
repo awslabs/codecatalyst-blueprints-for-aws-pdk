@@ -1,6 +1,6 @@
 {
-  "cdkLanguage": "Typescript",
-  "handlerLanguages": ["Typescript"],
+  "cdkLanguage": "TypeScript",
+  "handlerLanguages": ["TypeScript"],
   "documentationFormats": ["HTML_REDOC"],
   "modelLanguage": "Smithy",
   "namespace": "com.aws",

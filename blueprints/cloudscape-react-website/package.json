@@ -1,6 +1,6 @@
 {
   "name": "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website",
-  "description": "This blueprint creates a Cloudscape/React Single Page Application (SPA) with pre-configured integration (optional) to a Type-Safe API using constructs found in the AWS Project Development Kit (AWS PDK).",
+  "description": "This blueprint creates a React Single Page Application (SPA) using the Cloudscape design system with preconfigured integration to a Type-Safe API (optional) using constructs found in the AWS Project Development Kit (AWS PDK).",
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",

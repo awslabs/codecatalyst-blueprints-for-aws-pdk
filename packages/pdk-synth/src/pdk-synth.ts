@@ -51,10 +51,10 @@ const INFRA_PACKAGE = 'pdk-infra';
 const INFRA_PACKAGE_PRIVATE = `${PACKAGE_PREFIX}${INFRA_PACKAGE}`;
 
 export type DocumentationFormats = 'HTML_REDOC' | 'HTML2' | 'MARKDOWN' | 'PLANTUML';
-export type LanguageOptions = 'Typescript' | 'Java' | 'Python';
+export type LanguageOptions = 'TypeScript' | 'Java' | 'Python';
 
 interface MonorepoOptions {
-  readonly primaryLanguage: 'Typescript' | 'Java' | 'Python';
+  readonly primaryLanguage: 'TypeScript' | 'Java' | 'Python';
   readonly code: {
     readonly packageManager: 'BUN' | 'PNPM' | 'YARN_BERRY' | 'NPM';
   };
@@ -64,7 +64,7 @@ interface ApiOptions {
   cdkLanguage: LanguageOptions;
   handlerLanguages: MultiSelect<LanguageOptions>;
   documentationFormats: MultiSelect<DocumentationFormats>;
-  modelLanguage: 'Smithy' | 'Open API';
+  modelLanguage: 'Smithy' | 'OpenAPI';
   namespace: string;
   apiName: string;
 }
@@ -75,7 +75,7 @@ interface WebsiteOptions {
 }
 
 interface InfraOptions {
-  language: 'Typescript' | 'Java' | 'Python';
+  language: 'TypeScript' | 'Java' | 'Python';
   stackName: string;
   typeSafeApis: MultiSelect<BlueprintInstantiation>;
   cloudscapeReactTsWebsites: MultiSelect<BlueprintInstantiation>;
@@ -238,7 +238,7 @@ export class PDKSynth extends Component {
 
   synthesize(): void {
     switch (this.options.monorepo.primaryLanguage) {
-      case 'Typescript':
+      case 'TypeScript':
         this.synthTypescriptBlueprint();
         break;
       case 'Java':
@@ -400,7 +400,7 @@ export class PDKSynth extends Component {
 
   private getLanguage(lang: string): Language {
     switch (lang) {
-      case 'Typescript':
+      case 'TypeScript':
         return Language.TYPESCRIPT;
       case 'Java':
         return Language.JAVA;
@@ -446,7 +446,7 @@ export class PDKSynth extends Component {
 
   private createInfrastructureProject(parent: Project, props: { websites?: CloudscapeReactTsWebsiteProject[]; apis?: TypeSafeApiProject[] }): void {
     switch (this.options.infra?.language) {
-      case 'Typescript':
+      case 'TypeScript':
         new InfrastructureTsProject({
           parent,
           outdir: INFRA_OUTDIR,

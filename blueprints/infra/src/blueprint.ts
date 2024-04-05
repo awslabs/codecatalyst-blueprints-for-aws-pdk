@@ -23,11 +23,11 @@ import defaults from "./defaults.json";
  */
 export interface Options extends ParentOptions {
   /**
-   * Select the language you wish to develop your infrastructure with.
+   * Select the language you want to develop your infrastructure with.
    *
-   * @displayName CDK Language
+   * @displayName CDK language
    */
-  language: "Typescript" | "Java" | "Python";
+  language: "TypeScript" | "Java" | "Python";
 
   /**
    * The name of the AWS CloudFormation stack generated for the blueprint. It must be unique for the AWS account it's being deployed to.
@@ -40,15 +40,15 @@ export interface Options extends ParentOptions {
   stackName: string;
 
   /**
-   * Type Safe APIs
+   * Select api(s) to associate and automatically generate CDK code for.
    *
-   * @displayName Type-Safe APIs
+   * @displayName Type Safe APIs
    * @filter /pdk-type-safe-api$/
    */
   typeSafeApis: MultiSelect<BlueprintInstantiation>;
 
   /**
-   * Cloudscape React TS Websites
+   * Select website(s) to associate and automatically generate CDK code for.
    *
    * @displayName Cloudscape React TS Websites
    * @filter /pdk-cloudscape-react-website$/

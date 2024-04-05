@@ -21,11 +21,11 @@ import { assets } from "./static-assets";
  */
 export interface Options extends ParentOptions {
   /**
-   * Select the language you wish to primarily develop with.
+   * Select the language you want to primarily develop with.
    *
-   * @displayName Primary Language
+   * @displayName Primary programming language
    */
-  primaryLanguage: "Typescript" | "Java" | "Python";
+  primaryLanguage: "TypeScript" | "Java" | "Python";
 
   /**
    * @displayName Code Configuration
@@ -33,16 +33,18 @@ export interface Options extends ParentOptions {
    */
   code: {
     /**
-     * @displayName Package Manager (Typescript only)
-     */
-    packageManager: "BUN" | "PNPM" | "YARN_BERRY" | "NPM";
-
-    /**
+     * Enter a name for a new repository or search for an existing repository.
      * @displayName Source Repository
      * @validationRegex /(?!.*\.git$)^[a-zA-Z0-9_.-]{3,100}$/
      * @validationMessage Must contain only alphanumeric characters, periods (.), underscores (_), dashes (-) and be between 3 and 100 characters in length. Cannot end in .git or contain spaces
      */
     sourceRepositoryName: Selector<SourceRepository | string>;
+
+    /**
+     * Select your preferred package manager (TypeScript only).
+     * @displayName Package Manager
+     */
+    packageManager: "BUN" | "PNPM" | "YARN_BERRY" | "NPM";
   };
 }
 

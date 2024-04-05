@@ -8,7 +8,7 @@ export class CloudscapeReactWebsiteBlueprint extends PDKBlueprint {
       packageName: "cloudscape-react-website",
       displayName: "PDK - Cloudscape React Website",
       description:
-        "This blueprint creates a Cloudscape/React Single Page Application (SPA) with pre-configured integration (optional) to a Type-Safe API using constructs found in the AWS Project Development Kit (AWS PDK).",
+        "This blueprint creates a React Single Page Application (SPA) using the Cloudscape design system with preconfigured integration to a Type-Safe API (optional) using constructs found in the AWS Project Development Kit (AWS PDK).",
       keywords: ["pdk", "cloudscape", "frontend", "spa", "react", "typescript"],
     });
 

@@ -26,10 +26,10 @@ export interface Options extends ParentOptions {
    *
    * @displayName Model Language
    */
-  modelLanguage: "Smithy" | "Open API";
+  modelLanguage: "Smithy" | "OpenAPI";
 
   /**
-   * Namespace for your API.
+   * Enter a namespace for your API.
    *
    * @displayName Namespace
    * @validationRegex /^[a-z]+(?:\.[a-z]+)+$/
@@ -38,7 +38,7 @@ export interface Options extends ParentOptions {
   namespace: string;
 
   /**
-   * Name of your API
+   * Enter a name for your API.
    *
    * @displayName API name
    * @validationRegex /^[A-Z]\w{0,99}$/
@@ -47,23 +47,23 @@ export interface Options extends ParentOptions {
   apiName: string;
 
   /**
-   * Select your preferred CDK Language for which all generated code will be written in.
+   * Select the CDK language you want the generated code to be written in.
    *
-   * @displayName CDK Language
+   * @displayName CDK language
    */
-  cdkLanguage: "Typescript" | "Java" | "Python";
+  cdkLanguage: "TypeScript" | "Java" | "Python";
 
   /**
-   * Select languages you wish to support for generated lambda handlers.
+   * Select languages you want to support for generated lambda handlers.
    *
-   * @displayName Handler Language(s)
+   * @displayName Handler language(s)
    */
-  handlerLanguages: MultiSelect<"Typescript" | "Java" | "Python">;
+  handlerLanguages: MultiSelect<"TypeScript" | "Java" | "Python">;
 
   /**
    * Select formats you prefer for generating API documentation.
    *
-   * @displayName Documentation Format(s)
+   * @displayName Documentation format(s)
    */
   documentationFormats: MultiSelect<
     "HTML_REDOC" | "HTML2" | "MARKDOWN" | "PLANTUML"

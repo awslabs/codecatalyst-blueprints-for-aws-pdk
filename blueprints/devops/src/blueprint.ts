@@ -34,7 +34,7 @@ export interface Options extends ParentOptions {
    */
   beta: {
     /**
-     * Whether CDK is bootstrapped in this environment.
+     * Select to bootstrap CDK in the AWS environment.
      * @displayName Bootstrap CDK
      */
     bootstrapCDK: boolean;
@@ -53,20 +53,20 @@ export interface Options extends ParentOptions {
      */
     environment: EnvironmentDefinition<{
       /**
-       * Account connection to use for the environment
+       * An AWS account connection is required by the project workflow to deploy to AWS.
        * @displayName AWS account connection
        */
       accountConnection: AccountConnection<{
         /**
          * IAM role for deploying your application.
-         * @displayName The role to use for deploying your application.
+         * @displayName The role to use for deploying your application
          */
         deployRole: Role<["CDK Deploy"]>;
       }>;
     }>;
 
     /**
-     * region
+     * Select the Region where you want to deploy the application.
      * @displayName Region
      */
     region: Region<["*"]>;

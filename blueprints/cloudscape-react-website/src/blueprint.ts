@@ -23,7 +23,7 @@ import defaults from "./defaults.json";
  */
 export interface Options extends ParentOptions {
   /**
-   * Name of your website
+   * Enter a name for your website.
    *
    * @displayName Website name
    * @validationRegex /^.{0,100}$/
@@ -32,9 +32,9 @@ export interface Options extends ParentOptions {
   websiteName: string;
 
   /**
-   * Type Safe APIs
+   * Select any existing API(s) to integrate into the website.
    *
-   * @displayName Type-Safe APIs
+   * @displayName Type Safe APIs
    * @filter /pdk-type-safe-api$/
    */
   typeSafeApis: MultiSelect<BlueprintInstantiation>;
