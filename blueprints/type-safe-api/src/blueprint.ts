@@ -47,14 +47,14 @@ export interface Options extends ParentOptions {
   apiName: string;
 
   /**
-   * Select the CDK language you want the generated code to be written in.
+   * Select the language you want to write CDK infrastructure to deploy the API in.
    *
    * @displayName CDK language
    */
   cdkLanguage: "TypeScript" | "Java" | "Python";
 
   /**
-   * Select languages you want to support for generated lambda handlers.
+   * Select the language(s) you want to implement handlers for API operations in.
    *
    * @displayName Handler language(s)
    */
