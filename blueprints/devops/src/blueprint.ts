@@ -85,6 +85,7 @@ export class Blueprint extends ParentBlueprint {
   constructor(options_: Options, initializer?: Initializer) {
     super(options_);
 
+    initializer && initializer(this);
     validateMonorepoExists(this);
 
     /**
@@ -127,7 +128,6 @@ export class Blueprint extends ParentBlueprint {
 
     new PDKSynth(this, this.sourceRepository, "devops", {
       ...this.options,
-      initializer,
     });
   }
 }

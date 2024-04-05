@@ -114,10 +114,9 @@ export class PDKSynth extends Component {
   private readonly options: Options;
   private readonly blueprintOptions: BlueprintOptions;
 
-  constructor(project: Blueprint, sourceRepository: SourceRepository, projectName: string, blueprintOptions: PDKSynthOptions) {
+  constructor(project: Blueprint, sourceRepository: SourceRepository, projectName: string, blueprintOptions: BlueprintOptions) {
     super(project);
 
-    blueprintOptions.initializer && blueprintOptions.initializer(project);
     this.sourceRepository = sourceRepository;
     this.blueprintOptions = blueprintOptions;
     this.options = this.getOptions();
