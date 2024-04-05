@@ -56,7 +56,7 @@
   },
   "main": "lib/index.js",
   "license": "MIT",
-  "version": "0.0.72",
+  "version": "0.0.74",
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
   "displayName": "PDK - Test Blueprints",
