@@ -7,6 +7,7 @@
     "default": "pnpm exec projen default",
     "eject": "pnpm exec projen eject",
     "eslint": "pnpm exec projen eslint",
+    "generate:attribution": "pnpm exec projen generate:attribution",
     "graph": "pnpm exec projen graph",
     "package": "pnpm exec projen package",
     "post-compile": "pnpm exec projen post-compile",

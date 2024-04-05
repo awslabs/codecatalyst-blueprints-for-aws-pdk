@@ -1,4 +1,4 @@
-# PDKBlueprints
+# CodeCatalyst Blueprints for AWS-PDK
 
 This repository contains PDK based CodeCatalyst Blueprints.
 
@@ -8,23 +8,33 @@ The blueprints can be found under `blueprints/*`
 - Blueprint infra
 - Blueprint monorepo
 - Blueprint type-safe-api
-Public documentation on the pdk can be found (here)[].
+
+Public documentation on the pdk can be found [here](https://aws.github.io/aws-pdk/).
 
 # Usage Guide
 
 ## Prerequisites
 
-1. Request access to [apj-cope](https://permissions.amazon.com/group.mhtml?group=apj-cope&group_type=posix) posix group if you haven't already.
 1. [Install NVM](https://github.com/nvm-sh/nvm#installing-and-updating) if you haven't already
 
+2. Run the following command:
 ```
-npm install  -g pnpm npm@10.5.0 @aws/pdk
+npm install -g pnpm npm@10.5.0 @aws/pdk
 ```
 
 ## Install & Build
 
-1. Run 
+Run the following:
+
 ```
 pdk install
-pdk build
+pdk build --parallel [number of cores]
 ```
+
+# License
+
+Refer to [License](./LICENSE)
+
+# Contributing
+
+Refer to [Contributing](CONTRIBUTING.md)

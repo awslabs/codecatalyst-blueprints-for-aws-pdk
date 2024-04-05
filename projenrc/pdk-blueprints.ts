@@ -19,5 +19,9 @@ export class PDKBlueprintsProject extends MonorepoTsProject {
     this.nx.setTargetDefault("blueprint:release", {
       dependsOn: ["^blueprint:release"],
     });
+
+    this.tasks.addTask("generate:attribution", {
+      exec: "npx -y @quantco/pnpm-licenses generate-disclaimer --prod -o LICENSE_THIRD_PARTY",
+    });
   }
 }

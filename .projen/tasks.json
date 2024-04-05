@@ -83,6 +83,14 @@
         }
       ]
     },
+    "generate:attribution": {
+      "name": "generate:attribution",
+      "steps": [
+        {
+          "exec": "npx -y @quantco/pnpm-licenses generate-disclaimer --prod -o LICENSE_THIRD_PARTY"
+        }
+      ]
+    },
     "graph": {
       "name": "graph",
       "description": "Generate dependency graph for monorepo",
