@@ -1,30 +1,31 @@
 # About this blueprint
 
-This blueprint sets up a monorepo project using the constructs from the AWS Project Development Kit ([AWS PDK](https://aws.github.io/aws-pdk/)), which provides building blocks for common patterns together with development tools to manage and build your projects.
+This blueprint creates a root-level project that manages interdependencies between projects within the monorepo, using the constructs from the AWS Project Development Kit ([AWS PDK](https://aws.github.io/aws-pdk/)).
 
-You can define your projects programatically using one of these three type safe languages: Typescript, Python or Java.
+The monorepo submodule provides several `projen` project types in either Typescript, Python or Java that can configure a NX monorepo to manage all your packages. When used, these project types enable polyglot builds, declarative dependency management, build caching, dependency visualization, and other features. The [AWS PDK](https://aws.github.io/aws-pdk/) itself uses the monorepo submodule and is a good reference for seeing how to set up a complex, polyglot monorepo.
 
 ## PDK Blueprint ecosystem
 
-After you have generated a Monorepo project, you can these additional PDK blueprints to the project:
+After you have generated a Monorepo project, you can apply these additional PDK blueprints to the project:
+
 - [Type Safe API](/blueprints/type-safe-api/README.md): Add API capabilities to your Monorepo project.
 - [Cloudscape React Website](/blueprints/cloudscape-react-website/README.md): Generate a website for the Monorepo so that you can make authenticated API calls.
-- [Infrastructure](/blueprints/infra/README.md): Pre-configured CDK code to deploy your website and API
-- [DevOps](/blueprints/devops/README.md): Generate the required DevOps workflows for pull requests, releases and deployment of your project
+- [Infrastructure](/blueprints/infra/README.md): Pre-configured CDK code to deploy your website and API.
+- [DevOps](/blueprints/devops/README.md): Generate the required DevOps workflows for pull requests, releases, and deployment of your project.
 
 ## How does it work?
 
-The blueprint sets up a root project as a monorepo using [NX](https://nx.dev/getting-started/intro), and manages all of the NX configuration for you by default. Depending on the language you bootstrap your project with, a `projenrc` file (in your preferred language) allows you to add new sub-package, using blueprints to your project.
+The blueprint sets up a root project as a monorepo using [NX](https://nx.dev/getting-started/intro), and manages all of the NX configuration for you by default. Depending on the language you bootstrap your project with, a `projenrc` file (in your preferred language) allows you to add new sub-packages, by applying blueprints to your project.
 
 ## Set up the blueprint
 
-1. From the CodeCatalyst blueprints page, select **PDK - Monorepo** and click **Next**. The **Create Project** page displays.
+1. From the CodeCatalyst blueprints page, search for, and select **PDK - Monorepo** and choose **Next**. The **Create Project** page displays.
 <img src="assets/images/monorepo-blueprint.png"/>
 2. On the page, complete the following:
     - **Project name**: Enter a name for your project.
     - **Primary language**: Select the language you want to develop your project code in. You can select from Typescript, Java, or Python.
-    - Under Code Configuration, select the Package Manager and source repository for your project.
-3. Click **Create project** to create your monorepo project. This will create the root level project that manages interdependencies between projects within the monorepo, provides build caching and dependency visualization.
+    - Under Code Configuration, select the Package Manager and source repository for your project. You can select an existing repository, or enter a name to create a new repository.
+2. Click **Create project** to create your monorepo project. This will create the root level project that manages interdependencies between projects within the monorepo, provides build caching and dependency visualization.
 
     !!!note
         This blueprint only generates the building blocks of the project. To create a workable website using the blueprint, you will need to add other PDK blueprints such as Type Safe API, Website, Infra or DevOps to create a working application.

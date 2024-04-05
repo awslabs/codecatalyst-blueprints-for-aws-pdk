@@ -1,6 +1,6 @@
 # About this blueprint
 
-This blueprint creates a type-safe API using constructs from the AWS Project Development Kit ([AWS PDK](https://aws.github.io/aws-pdk/)), and provides:
+This blueprint creates a type safe API using constructs from the AWS Project Development Kit ([AWS PDK](https://aws.github.io/aws-pdk/)), and provides:
 
 - a mechanism which allows you to define an API using either Smithy or OpenAPI v3, and
 - a construct which manages deploying this API in an API Gateway.
@@ -31,7 +31,10 @@ Ensure that you have set up a PDK Monorepo project.
     - Enter a **namespace** for your API. A namespace is a way to group services for an application.
     - Enter a **name** for your API.
     <img src="assets/images/type-safe-api-blueprint.png"/>
-6. Click **Apply blueprint** to apply the Type Safe API blueprint to your monorepo project. A new `packages/api` folder is created within your monorepo project which contains all of the API related source code for your configured Type Safe API.
+    - Select the language you want to support for the generated Lambda handlers. You can select from Typescript, Java, or Python. The Lambda handler is the method in your code that processes operations. You can select multiple languages.
+    - Select the format for your API documentation. You can choose from HTML_REDOC, HTML2, MARKDOWN or PLANTUML. You can select multiple formats.
+6. Click **Apply blueprint** to apply the Type Safe API blueprint to your monorepo project. CodeCatalyst will automatically create a pull request.
+7. Merge the pending pull request to apply the blueprint. A new `packages/api` folder is created within your monorepo project which contains all of the API related source code for your configured Type Safe API.
 
 ## Project resources
 

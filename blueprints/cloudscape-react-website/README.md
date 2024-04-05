@@ -1,13 +1,13 @@
 # About this blueprint
 
-This blueprint creates a Cloudscape/React Single Page Application (SPA) with pre-configured integration (optional) with a Type Safe API using constructs found in the AWS Project Development Kit ([AWS PDK](https://aws.github.io/aws-pdk/)).
+This blueprint creates a React-based website built using [Cloudscape](https://cloudscape.design/) that comes pre-integrated with Cognito Auth optionally configured Type Safe APIs, using constructs found in the AWS Project Development Kit ([AWS PDK](https://aws.github.io/aws-pdk/)). This provides you with the ability to call your API securely.
 
 For example, this is a website generated in CodeCatalyst using PDK blueprints.
 <img src="assets/images/project-website.png"/>
 
 ## How does it work?
 
-This blueprint generates a website for the PDK monorepo so that you can associate an optional parameter (Type Safe APIs blueprint) to automatically configure your website to set up an API Explorer which will allow you to make `sigv4` signed requests for your configured Type Safe API(s).
+This blueprint generates a website for the PDK monorepo so that you can associate an optional parameter (Type Safe APIs blueprint) to automatically configure your website to set up an API Explorer which will allow you to make `sigv4` signed requests for your configured Type Safe APIs.
 
 ## Prerequisites
 

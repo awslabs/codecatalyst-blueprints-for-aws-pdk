@@ -1,6 +1,8 @@
 # About this blueprint
 
-This blueprint create a CDK infrastructure package from constructs in the AWS Project Development Kit ([AWS PDK](https://aws.github.io/aws-pdk/)). For example, this is the infrastructure generated in CodeCatalyst using PDK blueprints.
+This blueprint creates a project that sets up all CDK-related infrastructure needed to deploy your application, using the constructs in the AWS Project Development Kit ([AWS PDK](https://aws.github.io/aws-pdk/)). It also comes preconfigured to generate a diagram based on your CDK code every time you build.
+
+For example, this is the infrastructure generated in CodeCatalyst using PDK blueprints.
 <img src="assets/images/generated_diagram.png"/>
 
 ## How does it work?
@@ -15,7 +17,7 @@ Ensure that you have an existing PDK Monorepo project.
 
 1. Navigate to the PDK Monorepo project, and from the left, select **Blueprints**.
 2. On the Blueprints page, click **Apply blueprint**. The Apply blueprint page displays.
-3. From the CodeCatalyst blueprints page, select **PDK - Infra** and click **Next**.
+3. From the CodeCatalyst blueprints page, select **PDK - Infrastructure** and click **Next**.
 <img src="assets/images/select-infra.png"/>
 4. Complete the following:
     - Select the **target version** for your blueprint. You can select a specific version from the dropdown.
