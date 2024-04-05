@@ -1,15 +1,22 @@
 # About this blueprint
 
-This blueprint creates a type safe API using constructs from the AWS Project Development Kit ([AWS PDK](https://aws.github.io/aws-pdk/)), and provides:
+This blueprint creates a type-safe API using constructs from the AWS Project Development Kit ([AWS PDK](https://aws.github.io/aws-pdk/)), and provides:
 
-- a mechanism which allows you to define an API using either Smithy or OpenAPI v3, and
+- a mechanism which allows you to define an API using either Smithy or OpenAPI v3
+- build-time code generation to allow you to implement and interact with your API in a type-safe manner
 - a construct which manages deploying this API in an API Gateway.
 
-Using Smithy or OpenAPI V3 allows you to use features such as generated client and server types, infrastructure, documentation, and automatic input validation.
+Supports TypeScript, Java and Python, and any combination of these languages for CDK infrastructure, server-side implementation or client-side interaction.
 
 ## How does it work?
 
-This blueprint generates runtime projects from your API definition, which include clients for interacting with your API, and server-side code for implementing your API. The blueprint also generates a type-safe CDK construct with an integration for every API operation.
+Given your API definition, this blueprint generates the following at build-time:
+
+- clients for interacting with your API in multiple languages
+- server-side code for implementing your API in multiple languages
+- a type-safe CDK construct to deploy your API and configure automatic input validation
+- React hooks for interacting with your API from a React website
+- documentation in multiple formats
 
 You can apply (or stack on) this blueprint to an existing PDK Monorepo project for extending the API capabilities of a project.
 
@@ -34,7 +41,7 @@ Ensure that you have set up a PDK Monorepo project.
     - Select the language you want to support for the generated Lambda handlers. You can select from Typescript, Java, or Python. The Lambda handler is the method in your code that processes operations. You can select multiple languages.
     - Select the format for your API documentation. You can choose from HTML_REDOC, HTML2, MARKDOWN or PLANTUML. You can select multiple formats.
 6. Click **Apply blueprint** to apply the Type Safe API blueprint to your monorepo project. CodeCatalyst will automatically create a pull request.
-7. Merge the pending pull request to apply the blueprint. A new `packages/api` folder is created within your monorepo project which contains all of the API related source code for your configured Type Safe API.
+7. Merge the pending pull request to apply the blueprint. A new `packages/apis/<API-NAME>` folder is created within your monorepo project which contains all of the API related source code for your configured Type Safe API.
 
 ## Project resources
 
@@ -53,8 +60,8 @@ generated/
     infrastructure/ - generated infrastructure (you'll find only one directory in here based on your chosen infrastructure language)
         typescript
         python
-        java 
-    libraries/ - generated libraries if specified             
+        java
+    libraries/ - generated libraries if specified
         typescript-react-query-hooks
     runtime/ - generated types, client, and server code in the languages you specified
         typescript

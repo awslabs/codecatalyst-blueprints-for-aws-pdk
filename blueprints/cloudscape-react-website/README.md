@@ -7,7 +7,7 @@ For example, this is a website generated in CodeCatalyst using PDK blueprints.
 
 ## How does it work?
 
-This blueprint generates a website for the PDK monorepo so that you can associate an optional parameter (Type Safe APIs blueprint) to automatically configure your website to set up an API Explorer which will allow you to make `sigv4` signed requests for your configured Type Safe APIs.
+This blueprint generates a website for the PDK monorepo so that you can associate an optional parameter (Type Safe APIs blueprint) to automatically configure your website to set up an API Explorer which will allow you to make `sigv4` signed requests for your configured Type Safe APIs. In addition, it configures generated type-safe React hooks to interact with your API programmatically.
 
 ## Prerequisites
 
@@ -31,11 +31,11 @@ Ensure that you have an existing PDK Monorepo project.
 This blueprint creates the following key files and folders as part of your project.
 
 ```text
-.projen/   
+.projen/
     deps.json     -- installed dependencies
     files.json
     tasks.json
-.public/   
+.public/
     index.html    -- installed dependencies
     robots.txt
 .src/
