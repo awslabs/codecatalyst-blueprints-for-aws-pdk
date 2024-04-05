@@ -172,6 +172,10 @@ export class PDKSynth extends Component {
       globs: ['README.md', '**/README.md'],
       identifier: `${projectName}-onlyAdd`,
       strategy: MergeStrategies.onlyAdd,
+    }, {
+      globs: ['**/.git*', '.git*', '.projenrc*', '**/projenrc*', 'package.json', '**/package.json', 'project.json', '**/project.json', 'pnpm-workspace.yaml'],
+      identifier: `${projectName}-preferProposed`,
+      strategy: MergeStrategies.preferProposed,
     }]);
   }
 
