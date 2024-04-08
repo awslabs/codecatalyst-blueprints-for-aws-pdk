@@ -24,7 +24,7 @@ Ensure that you have set up a PDK Monorepo project, and have set up an Infrastru
     - From the role dropdown, select the **IAM role** to be used for deploying your project application.
     - Select the **Region** where you want to deploy your monorepo project.
 6. Click **Apply blueprint** to apply the Devops blueprint to your monorepo project. CodeCatalyst will automatically create a pull request.
-6. Merge the pending pull request to apply the blueprint. A new `codecatalyst/workflows` folder is created within your monorepo project.
+7. Merge the pending pull request to apply the blueprint. A new `codecatalyst/workflows` folder is created within your monorepo project.
 
 ## Project resources
 

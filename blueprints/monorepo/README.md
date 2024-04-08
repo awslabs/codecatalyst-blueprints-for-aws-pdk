@@ -29,7 +29,7 @@ The blueprint sets up a root project as a monorepo using [NX](https://nx.dev/get
         - Select a **Package Manager** (for TypeScript code only). You can choose from BUN, PNPM, YARN_BERRY, or NPM.
 3. Click **Create project** to create your monorepo project. This will create the root level project that manages interdependencies between projects within the monorepo, provides build caching and dependency visualization.
 
-**Note**: This blueprint only generates the foundations of the project. To create a workable website using the blueprint, you will need to add other PDK blueprints such as [Type Safe API](/blueprints/type-safe-api/README.md), [Website](/blueprints/cloudscape-react-website/README.md), [Infrastructure](/blueprints/infra/README.md) or [DevOps](/blueprints/devops/README.md) to create a full-stack application.
+**Note**: This blueprint only generates the foundations of the project. To create a workable website using the blueprint, you will need to add other PDK blueprints such as Type Safe API, Website, Infrastructure, or DevOps to create a full-stack application.
 
 ## Project resources
 
