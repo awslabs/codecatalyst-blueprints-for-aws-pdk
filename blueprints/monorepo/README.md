@@ -8,10 +8,10 @@ The monorepo submodule provides several `projen` project types in either Typescr
 
 After you have generated a Monorepo project, you can apply these additional PDK blueprints to the project:
 
-- [Type Safe API](/blueprints/type-safe-api/README.md): Add API capabilities to your Monorepo project.
-- [Cloudscape React Website](/blueprints/cloudscape-react-website/README.md): Generate a website for the Monorepo so that you can make authenticated API calls.
-- [Infrastructure](/blueprints/infra/README.md): Pre-configured CDK code to deploy your website and API.
-- [DevOps](/blueprints/devops/README.md): Generate the required DevOps workflows for pull requests, releases, and deployment of your project.
+- **Type Safe API**: Add API capabilities to your Monorepo project.
+- **Cloudscape React Website**: Generate a website for the Monorepo so that you can make authenticated API calls.
+- **Infrastructure**: Pre-configured CDK code to deploy your website and API.
+- **DevOps**: Generate the required DevOps workflows for pull requests, releases, and deployment of your project.
 
 ## How does it work?
 
@@ -20,16 +20,18 @@ The blueprint sets up a root project as a monorepo using [NX](https://nx.dev/get
 ## Set up the blueprint
 
 1. From the CodeCatalyst blueprints page, search for, and select **PDK - Monorepo** and choose **Next**. The **Create Project** page displays.
-<img src="https://github.com/awslabs/codecatalyst-blueprints-for-aws-pdk/blob/main/blueprints/monorepo/assets/create-pdk-monorepo.png?raw=true"/>
+![](https://github.com/awslabs/codecatalyst-blueprints-for-aws-pdk/blob/main/blueprints/monorepo/assets/select-monorepo.png?raw=true)
 2. On the page, complete the following:
     - **Project name**: Enter a name for your project.
     - **Primary programming language**: Select the language you want to develop your project code in. You can select from TypeScript, Java, or Python.
     - Under **Code Configuration**,
         - Select an existing repository, or enter a name to create a new repository.
         - Select a **Package Manager** (for TypeScript code only). You can choose from BUN, PNPM, YARN_BERRY, or NPM.
+
+    ![](https://github.com/awslabs/codecatalyst-blueprints-for-aws-pdk/blob/main/blueprints/monorepo/assets/create-pdk-monorepo.png?raw=true)
 3. Click **Create project** to create your monorepo project. This will create the root level project that manages interdependencies between projects within the monorepo, provides build caching and dependency visualization.
 
-**Note**: This blueprint only generates the foundations of the project. To create a workable website using the blueprint, you will need to add other PDK blueprints such as Type Safe API, Website, Infrastructure, or DevOps to create a full-stack application.
+>**Note**: This blueprint only generates the foundations of the project. To create a workable website using the blueprint, you will need to add other PDK blueprints such as Type Safe API, Website, Infrastructure, or DevOps to create a full-stack application.
 
 ## Project resources
 

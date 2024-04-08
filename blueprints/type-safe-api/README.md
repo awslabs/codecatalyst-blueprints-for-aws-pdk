@@ -30,7 +30,7 @@ Ensure that you have set up a PDK Monorepo project.
 2. On the page, from the left, select **Blueprints**.
 3. On the Blueprints page, click **Apply blueprint**. The Apply blueprint page displays.
 4. From the CodeCatalyst blueprints page, select **PDK - Type Safe API** and click **Next**.
-<img src="https://github.com/awslabs/codecatalyst-blueprints-for-aws-pdk/blob/main/blueprints/type-safe-api/assets/select-typesafeapi.png?raw=true"/>
+![](https://github.com/awslabs/codecatalyst-blueprints-for-aws-pdk/blob/main/blueprints/type-safe-api/assets/select-typesafeapi.png?raw=true)
 1. Complete the following:
     - Select the **target version** for your blueprint. You can select a specific version from the dropdown. While this is optional, we recommend using the latest version.
     - Select the **model language** for your API model. You can select from Smithy or OpenAPI.
@@ -38,6 +38,7 @@ Ensure that you have set up a PDK Monorepo project.
     - Enter a **name** for your API.
     - Select the language you want to support for the generated Lambda handlers. You can select from Typescript, Java, or Python. The Lambda handler is the method in your code that processes operations. You can select multiple languages.
     - Select the format for your API documentation. You can choose from HTML_REDOC, HTML2, MARKDOWN or PLANTUML. You can select multiple formats.
+    ![](https://github.com/awslabs/codecatalyst-blueprints-for-aws-pdk/blob/main/blueprints/type-safe-api/assets/apply-typesafeapi.png?raw=true)
 2. Click **Apply blueprint** to apply the Type Safe API blueprint to your monorepo project. CodeCatalyst will automatically create a pull request.
 3. Merge the pending pull request to apply the blueprint. A new `packages/apis/<API-NAME>` folder is created within your monorepo project which contains all of the API related source code for your configured Type Safe API.
 
