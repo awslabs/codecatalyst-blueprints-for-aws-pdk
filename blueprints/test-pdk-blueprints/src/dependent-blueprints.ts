@@ -127,6 +127,7 @@ export class TestInfraBlueprint extends InfraBlueprint {
       outdir: bp.outdir,
       ...InfraDefaults,
       language: InfraDefaults.language as InfraOptions["language"],
+      stackName: "infra-canary",
       typeSafeApis: instantiations
         .filter((bpi) => bpi.packageName === TYPESAFE_API_PACKAGE)
         .map((bpi) => bpi.id),
@@ -158,6 +159,7 @@ export class TestDevOpsBlueprint extends DevOpsBlueprint {
       ...DevOpsDefaults,
       beta: {
         ...DevOpsDefaults.beta,
+        stackName: "infra-canary",
         environment: deploymentOptions.deploymentTarget,
       },
     };
