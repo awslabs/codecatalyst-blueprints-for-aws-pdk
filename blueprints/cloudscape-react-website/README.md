@@ -22,8 +22,7 @@ Ensure that you have an existing PDK Monorepo project.
 4. Complete the following:
     - Select the **target version** for your blueprint. While this is optional, we recommend using the latest version.
     - Enter a **name** for your website.
-    - From the Type Safe APIs dropdown, select the **API** you want to integrate within the website. For example, PDK - Type Safe API, if it exists.
-    <img src="assets/images/website-blueprint.png"/>
+    - From the Type Safe APIs dropdown, select the API(s) you want to integrate within the website.
 5. Click **Apply blueprint** to apply the Cloudscape React Website blueprint to your monorepo project. CodeCatalyst will automatically create a pull request.
 6. Merge the pending pull request to apply the blueprint. A new `packages/website` folder is added which contains all the source code for your new website.
 
