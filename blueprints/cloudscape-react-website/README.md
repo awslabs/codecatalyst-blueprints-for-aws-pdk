@@ -7,7 +7,7 @@ For example, this is a website generated in CodeCatalyst using PDK blueprints.
 
 ## How does it work?
 
-This blueprint generates a website for the PDK monorepo so that you can associate an optional parameter (Type Safe APIs blueprint) to automatically configure your website to set up an API Explorer which will allow you to make `sigv4` signed requests for your configured Type Safe APIs. In addition, it configures generated type-safe React hooks to interact with your API programmatically.
+This blueprint generates a website for the PDK monorepo where you can associate an optional parameter (Type Safe APIs blueprint) to automatically configure your website to set up an API Explorer. This will allow you to make `sigv4` signed requests for your configured Type Safe APIs. In addition, it configures generated type-safe React hooks to interact with your API programmatically.
 
 ## Prerequisites
 
@@ -18,11 +18,11 @@ Ensure that you have an existing PDK Monorepo project.
 1. Navigate to the PDK Monorepo project, and from the left, select **Blueprints**.
 2. On the Blueprints page, click **Apply blueprint**. The Apply blueprint page displays.
 3. From the CodeCatalyst blueprints page, select **PDK - Cloudscape React Website** and click **Next**.
+<img src="https://github.com/awslabs/codecatalyst-blueprints-for-aws-pdk/blob/main/blueprints/cloudscape-react-website/assets/select-react-website-blueprint.png?raw=true"/>
 4. Complete the following:
     - Select the **target version** for your blueprint. While this is optional, we recommend using the latest version.
     - Enter a **name** for your website.
-    - From the Type-Safe APIs dropdown, select the **API blueprint** you want to integrate within the website. For example, PDK - Type Safe API, if it exists.
-    <img src="assets/images/website-blueprint.png"/>
+    - From the Type Safe APIs dropdown, select the API(s) you want to integrate within the website.
 5. Click **Apply blueprint** to apply the Cloudscape React Website blueprint to your monorepo project. CodeCatalyst will automatically create a pull request.
 6. Merge the pending pull request to apply the blueprint. A new `packages/website` folder is added which contains all the source code for your new website.
 
