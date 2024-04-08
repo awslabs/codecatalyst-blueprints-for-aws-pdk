@@ -1,9 +1,12 @@
+/*! Copyright [Amazon.com](http://amazon.com/), Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: Apache-2.0 */
 import {
   ProjenBlueprint,
   ProjenBlueprintOptions,
 } from "@amazon-codecatalyst/blueprint-util.projen-blueprint";
 import { MonorepoTsProject } from "@aws/pdk/monorepo";
 import { NodePackageManager } from "projen/lib/javascript";
+import { HEADER_RULE } from "../pdk-blueprints";
 
 export const PUBLISHING_ORG = "Centre-of-Prototyping-Excellence";
 export const PACKAGE_PREFIX = `@amazon-codecatalyst/${PUBLISHING_ORG}.pdk-`;
@@ -43,7 +46,7 @@ export abstract class PDKBlueprint extends ProjenBlueprint {
       name: props.packageName,
       defaultReleaseBranch: "main",
       displayName: props.displayName,
-      license: "MIT",
+      license: "Apache-2.0",
       projenrcTs: true,
       sampleCode: false,
       github: false,
@@ -64,6 +67,9 @@ export abstract class PDKBlueprint extends ProjenBlueprint {
       publishingSpace: PUBLISHING_ORG,
       description: props.description,
     });
+
+    this.eslint?.addPlugins("header");
+    this.eslint?.addRules(HEADER_RULE);
 
     this.packageTask.reset("mkdir -p dist/js");
     this.packageTask.exec("mv $(pnpm pack) dist/js/");

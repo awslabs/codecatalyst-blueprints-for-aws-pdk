@@ -7,7 +7,8 @@
   "root": true,
   "plugins": [
     "@typescript-eslint",
-    "import"
+    "import",
+    "header"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -121,6 +122,14 @@
           "method"
         ]
       }
+    ],
+    "header/header": [
+      2,
+      "block",
+      [
+        "! Copyright [Amazon.com](http://amazon.com/), Inc. or its affiliates. All Rights Reserved.",
+        "SPDX-License-Identifier: Apache-2.0 "
+      ]
     ]
   },
   "overrides": []

@@ -60,8 +60,8 @@
     "typescript"
   ],
   "main": "lib/index.js",
-  "license": "MIT",
-  "version": "0.0.102",
+  "license": "Apache-2.0",
+  "version": "0.0.100",
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
   "displayName": "PDK - Cloudscape React Website",
