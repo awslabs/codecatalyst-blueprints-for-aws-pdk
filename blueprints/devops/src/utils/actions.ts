@@ -73,7 +73,7 @@ export function addBuildAction(workflowDefinition: WorkflowDefinition) {
     },
     Configuration: {
       ...PDK_IMAGE,
-      Steps: ["pdk projen install:ci", "pdk build"].map((step) => {
+      Steps: ["npx projen install:ci", "npx projen build"].map((step) => {
         return {
           Run: step,
         };
@@ -139,8 +139,8 @@ export function addLicenseCheckerAction(wfDefinition: WorkflowDefinition) {
         "pip3.11 install --upgrade pip && ln -s /usr/bin/pip3.11 /usr/bin/pip2",
         "CWD=`pwd` PROJECT_DIRS=`find . -type f \\( -name pnpm-lock.yaml -o -name pyproject.toml -o -name pom.xml \\) -exec bash -c 'echo $(dirname $0)' {} \\; | sort | uniq`",
         "find . -name pyproject.toml -exec bash -c 'cd $(dirname $0) && poetry export --without-hashes --with dev -f requirements.txt | grep -v \"file:\" > requirements.txt' {} \\;",
-        "pdk install:ci",
-        "pdk build",
+        "npx projen install:ci",
+        "npx projen build",
         "for DIR in $PROJECT_DIRS;\ndo\n  cd $CWD/$DIR\n  license_finder --decisions_file $CWD/approved-licenses.yaml -p\ndone",
       ].map((step) => {
         return { Run: step };

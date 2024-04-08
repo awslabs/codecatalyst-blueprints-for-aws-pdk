@@ -1,6 +1,6 @@
 {
   "name": "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api",
-  "description": "This blueprint creates a Type Safe API baed on Smithy or OpenAPI using constructs found in the AWS Project Development Kit (AWS PDK).",
+  "description": "This blueprint creates a Type Safe API based on Smithy or OpenAPI using constructs found in the AWS Project Development Kit (AWS PDK).",
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",
@@ -59,7 +59,7 @@
   ],
   "main": "lib/index.js",
   "license": "MIT",
-  "version": "0.0.86",
+  "version": "0.0.92",
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
   "displayName": "PDK - Type Safe API",
