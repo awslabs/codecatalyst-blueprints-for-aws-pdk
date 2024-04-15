@@ -72,9 +72,12 @@ export class Workflow extends Component {
   }
 
   private addCommonWorkflowSteps(workflowDefinition: WorkflowDefinition) {
-    addBuildAction(workflowDefinition);
-    addTrivyAction(workflowDefinition);
-    addLicenseCheckerAction(workflowDefinition);
+    addBuildAction(workflowDefinition, this.blueprint.context.environmentId);
+    addTrivyAction(workflowDefinition, this.blueprint.context.environmentId);
+    addLicenseCheckerAction(
+      workflowDefinition,
+      this.blueprint.context.environmentId
+    );
   }
 
   /**
@@ -118,7 +121,8 @@ export class Workflow extends Component {
             stage.region,
             lastDeployAction
               ? [lastDeployAction]
-              : ["Build", "Trivy", "LicenseChecker"]
+              : ["Build", "Trivy", "LicenseChecker"],
+            this.blueprint.context.environmentId
           )
         : undefined;
 
@@ -131,7 +135,8 @@ export class Workflow extends Component {
         {
           environmentName: `${stage.environment.name}-${stage.region}`,
         },
-        bootstrap ? [bootstrap] : lastDeployAction ? [lastDeployAction] : []
+        bootstrap ? [bootstrap] : lastDeployAction ? [lastDeployAction] : [],
+        this.blueprint.context.environmentId
       );
     });
 

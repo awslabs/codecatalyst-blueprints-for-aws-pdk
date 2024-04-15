@@ -7,6 +7,7 @@ import {
   EnvironmentDefinition,
   Role,
   WorkflowDefinition,
+  getDefaultActionIdentifier,
 } from "@amazon-codecatalyst/blueprints";
 
 const PDK_IMAGE = {
@@ -41,9 +42,12 @@ export function addGenericAction(
   return wfDefnition;
 }
 
-export function addBuildAction(workflowDefinition: WorkflowDefinition) {
+export function addBuildAction(
+  workflowDefinition: WorkflowDefinition,
+  environmentId: string | undefined
+) {
   addGenericAction(workflowDefinition, "Build", {
-    Identifier: "aws/build@v1",
+    Identifier: getDefaultActionIdentifier("aws/build@v1", environmentId),
     Inputs: {
       Sources: ["WorkflowSource"],
     },
@@ -91,9 +95,15 @@ export function addBuildAction(workflowDefinition: WorkflowDefinition) {
   });
 }
 
-export function addTrivyAction(wfDefinition: WorkflowDefinition) {
+export function addTrivyAction(
+  wfDefinition: WorkflowDefinition,
+  environmentId: string | undefined
+) {
   addGenericAction(wfDefinition, "Trivy", {
-    Identifier: "aws/github-actions-runner@v1",
+    Identifier: getDefaultActionIdentifier(
+      "aws/github-actions-runner@v1",
+      environmentId
+    ),
     Inputs: {
       Sources: ["WorkflowSource"],
     },
@@ -129,9 +139,15 @@ export function addTrivyAction(wfDefinition: WorkflowDefinition) {
   });
 }
 
-export function addLicenseCheckerAction(wfDefinition: WorkflowDefinition) {
+export function addLicenseCheckerAction(
+  wfDefinition: WorkflowDefinition,
+  environmentId: string | undefined
+) {
   addGenericAction(wfDefinition, "LicenseChecker", {
-    Identifier: "aws/managed-test@v1",
+    Identifier: getDefaultActionIdentifier(
+      "aws/managed-test@v1",
+      environmentId
+    ),
     Inputs: {
       Sources: ["WorkflowSource"],
     },
@@ -164,11 +180,15 @@ export function addCdkBootstrapAction(
     accountConnection: AccountConnection<{ deployRole: Role<["CDK Deploy"]> }>;
   }>,
   region: string,
-  dependsOn: string[]
+  dependsOn: string[],
+  environmentId: string | undefined
 ): string {
   const actionName = `Bootstrap-${environment.name}-${region}`;
   addGenericAction(wfDefinition, actionName, {
-    Identifier: "aws/cdk-bootstrap@v1",
+    Identifier: getDefaultActionIdentifier(
+      "aws/cdk-bootstrap@v1",
+      environmentId
+    ),
     DependsOn: dependsOn,
     Inputs: {
       Artifacts: ["Built"],
@@ -200,11 +220,12 @@ export function addCdkDeployAction(
   stackName: string,
   cloudAssemblyRootPath: string,
   context: { [key: string]: any },
-  dependsOn: string[]
+  dependsOn: string[],
+  environmentId: string | undefined
 ): string {
   const actionName = `Deploy-${environment.name}-${region}`;
   addGenericAction(workflow, actionName, {
-    Identifier: "aws/cdk-deploy@v1",
+    Identifier: getDefaultActionIdentifier("aws/cdk-deploy@v1", environmentId),
     DependsOn: dependsOn,
     Inputs: {
       Artifacts: ["Built"],
