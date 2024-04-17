@@ -24,11 +24,11 @@ importers:
         version: 2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0)
     devDependencies:
       '@amazon-codecatalyst/blueprint-util.projen-blueprint':
-        specifier: 0.3.104
-        version: 0.3.104(@amazon-codecatalyst/blueprint-util.cli@0.3.104(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24))(projen@0.79.27(constructs@10.3.0))
+        specifier: 0.3.105
+        version: 0.3.105(@amazon-codecatalyst/blueprint-util.cli@0.3.105(@aws-sdk/credential-provider-node@3.554.0)(@types/node@18.19.24))(projen@0.79.27(constructs@10.3.0))
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.104
-        version: 0.3.104(projen@0.79.27(constructs@10.3.0))
+        specifier: 0.3.105
+        version: 0.3.105(projen@0.79.27(constructs@10.3.0))
       '@aws/pdk':
         specifier: 0.23.33
         version: 0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.133.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.79.27(constructs@10.3.0))
@@ -90,11 +90,11 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.104
-        version: 0.3.104(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
+        specifier: 0.3.105
+        version: 0.3.105(@aws-sdk/credential-provider-node@3.554.0)(@types/node@18.19.24)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.104
-        version: 0.3.104(projen@0.81.0(constructs@10.3.0))
+        specifier: 0.3.105
+        version: 0.3.105(projen@0.81.0(constructs@10.3.0))
       '@aws/pdk':
         specifier: 0.23.33
         version: 0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
@@ -111,9 +111,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^6
         version: 6.21.0(eslint@8.57.0)(typescript@5.4.5)
-      constructs:
-        specifier: ^10.0.0
-        version: 10.3.0
       eslint:
         specifier: ^8
         version: 8.57.0
@@ -145,11 +142,11 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.104
-        version: 0.3.104(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
+        specifier: 0.3.105
+        version: 0.3.105(@aws-sdk/credential-provider-node@3.554.0)(@types/node@18.19.24)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.104
-        version: 0.3.104(projen@0.81.0(constructs@10.3.0))
+        specifier: 0.3.105
+        version: 0.3.105(projen@0.81.0(constructs@10.3.0))
       '@aws/pdk':
         specifier: 0.23.33
         version: 0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
@@ -166,9 +163,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^6
         version: 6.21.0(eslint@8.57.0)(typescript@5.4.5)
-      constructs:
-        specifier: ^10.0.0
-        version: 10.3.0
       eslint:
         specifier: ^8
         version: 8.57.0
@@ -200,11 +194,11 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.104
-        version: 0.3.104(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
+        specifier: 0.3.105
+        version: 0.3.105(@aws-sdk/credential-provider-node@3.554.0)(@types/node@18.19.24)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.104
-        version: 0.3.104(projen@0.81.0(constructs@10.3.0))
+        specifier: 0.3.105
+        version: 0.3.105(projen@0.81.0(constructs@10.3.0))
       '@aws/pdk':
         specifier: 0.23.33
         version: 0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
@@ -221,9 +215,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^6
         version: 6.21.0(eslint@8.57.0)(typescript@5.4.5)
-      constructs:
-        specifier: ^10.0.0
-        version: 10.3.0
       eslint:
         specifier: ^8
         version: 8.57.0
@@ -255,11 +246,11 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.104
-        version: 0.3.104(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
+        specifier: 0.3.105
+        version: 0.3.105(@aws-sdk/credential-provider-node@3.554.0)(@types/node@18.19.24)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.104
-        version: 0.3.104(projen@0.81.0(constructs@10.3.0))
+        specifier: 0.3.105
+        version: 0.3.105(projen@0.81.0(constructs@10.3.0))
       '@aws/pdk':
         specifier: 0.23.33
         version: 0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
@@ -276,9 +267,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^6
         version: 6.21.0(eslint@8.57.0)(typescript@5.4.5)
-      constructs:
-        specifier: ^10.0.0
-        version: 10.3.0
       eslint:
         specifier: ^8
         version: 8.57.0
@@ -307,11 +295,11 @@ importers:
   blueprints/test-pdk-blueprints:
     dependencies:
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.104
-        version: 0.3.104(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
+        specifier: 0.3.105
+        version: 0.3.105(@aws-sdk/credential-provider-node@3.554.0)(@types/node@18.19.24)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.104
-        version: 0.3.104(projen@0.81.0(constructs@10.3.0))
+        specifier: 0.3.105
+        version: 0.3.105(projen@0.81.0(constructs@10.3.0))
       '@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website':
         specifier: '*'
         version: link:../cloudscape-react-website
@@ -340,9 +328,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^6
         version: 6.21.0(eslint@8.57.0)(typescript@5.4.5)
-      constructs:
-        specifier: ^10.0.0
-        version: 10.3.0
       eslint:
         specifier: ^8
         version: 8.57.0
@@ -374,11 +359,11 @@ importers:
         specifier: 0.0.0
         version: link:../../packages/pdk-synth
       '@amazon-codecatalyst/blueprint-util.cli':
-        specifier: 0.3.104
-        version: 0.3.104(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
+        specifier: 0.3.105
+        version: 0.3.105(@aws-sdk/credential-provider-node@3.554.0)(@types/node@18.19.24)
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.104
-        version: 0.3.104(projen@0.81.0(constructs@10.3.0))
+        specifier: 0.3.105
+        version: 0.3.105(projen@0.81.0(constructs@10.3.0))
       '@aws/pdk':
         specifier: 0.23.33
         version: 0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
@@ -395,9 +380,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^6
         version: 6.21.0(eslint@8.57.0)(typescript@5.4.5)
-      constructs:
-        specifier: ^10.0.0
-        version: 10.3.0
       eslint:
         specifier: ^8
         version: 8.57.0
@@ -426,8 +408,8 @@ importers:
   packages/pdk-synth:
     dependencies:
       '@amazon-codecatalyst/blueprints':
-        specifier: 0.3.104
-        version: 0.3.104(projen@0.81.0(constructs@10.3.0))
+        specifier: 0.3.105
+        version: 0.3.105(projen@0.81.0(constructs@10.3.0))
       '@aws/pdk':
         specifier: 0.23.33
         version: 0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
@@ -459,9 +441,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^6
         version: 6.21.0(eslint@8.57.0)(typescript@5.4.5)
-      constructs:
-        specifier: ^10.0.0
-        version: 10.3.0
       eslint:
         specifier: ^8
         version: 8.57.0
@@ -490,61 +469,61 @@ packages:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
 
-  '@amazon-codecatalyst/blueprint-component.dev-environments@0.3.78':
-    resolution: {integrity: sha512-miVtCRz2xj8pWfxEM1AdZLxCZ5VukEBP48eU2+p9+iVeoFkLRkbMfpCWysPI0iIhQXDuFvOk/8yn7syAaFceKQ==}
+  '@amazon-codecatalyst/blueprint-component.dev-environments@0.3.98':
+    resolution: {integrity: sha512-5BPTS4FaaALTVJguwChTQit+NsnxzdZ+2ewx9BdUQpWUYiMoc+PERkuwroOFwTgW4RM1x/njNgK+au/WmGcv1A==}
     peerDependencies:
       '@amazon-codecatalyst/blueprint-component.source-repositories': '*'
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
 
-  '@amazon-codecatalyst/blueprint-component.environments@0.3.78':
-    resolution: {integrity: sha512-bXOUT+BBCbtRY42xtCZ36ZZkEBd2qAncy+QIfI8gkbZ7FK9QzopmwnYaRjqykrWOGNZiZlL/Pz4igPTXvJVP5Q==}
+  '@amazon-codecatalyst/blueprint-component.environments@0.3.98':
+    resolution: {integrity: sha512-Hwmuq4w00tHRMF2xdLnYCJZWwDBwECHbl8YoGkRrSbEsxzNY7MTcP2wiIzqe3jp2+x2u0TzLmcX3tWTngWQDtA==}
     peerDependencies:
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
 
-  '@amazon-codecatalyst/blueprint-component.issues@0.3.78':
-    resolution: {integrity: sha512-i0AYOvbxFX9IrHFBfPpd22NSMcMfBh78seUwWxHGRhlUSGYuH2xvI2fnc69v8miXEIxcy75ScxqWLb3NjitLSw==}
+  '@amazon-codecatalyst/blueprint-component.issues@0.3.98':
+    resolution: {integrity: sha512-u7fABKgs/HPlyvgVfL5Q6y+9V9W+q5lPLhu8s5n9D4ZRuGa0xg15mCSciNQwYYLjq6yYYu3+BnYnixrpqv+ZTQ==}
     peerDependencies:
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
 
-  '@amazon-codecatalyst/blueprint-component.secrets@0.3.78':
-    resolution: {integrity: sha512-286Von4qgNdQgrAdEG0v+x8+686ef1LYw0j+zuQkSbeYeLth9DkvjIC/wpqyw2CUcUruX5HbJAG896G05oRljA==}
+  '@amazon-codecatalyst/blueprint-component.secrets@0.3.98':
+    resolution: {integrity: sha512-Apb5X6sD7+Wk3MuCi1BKX4huOwz38hvZ79lsMJTzGJtl3iY1wRNKpBtr49T5sjLXGRlG/zVoWwTx3K7NGvkqYg==}
     peerDependencies:
       projen: ^0.71.112
 
-  '@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78':
-    resolution: {integrity: sha512-qr2cyK87ygH5R3wnROR+h4u15T6C7XCgWjkdUuhZCfXpF8rUe0rPlEYwtoxCiilB9L7TT+HXsbJRqXUS68eRCg==}
+  '@amazon-codecatalyst/blueprint-component.source-repositories@0.3.98':
+    resolution: {integrity: sha512-/T7ZWKhsZqMScrL7WFD12jN/cHBRXpA8jf9um/rHEweFWLt0t0RIiEkYX1siXKtPsGDLJQpzL+HVt7stENJO4Q==}
     peerDependencies:
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
 
-  '@amazon-codecatalyst/blueprint-component.workflows@0.3.78':
-    resolution: {integrity: sha512-34hhgTEyEeIpJ/S5n7/m3nDuBbERrCYexjuZ8GZBaJ+USeoFYXIx79IUlR3yb4YBDqHLhygBpY3koH35Uq8FCw==}
+  '@amazon-codecatalyst/blueprint-component.workflows@0.3.98':
+    resolution: {integrity: sha512-WvVN5SDFAJaSbpvAob1WYPBbw/mSkf2bY236/tBO27eLPJvltFFTPLjMlGSQVGyIXM8CsXrqNQ6MU3jVCTr1xg==}
     peerDependencies:
       '@amazon-codecatalyst/blueprint-component.environments': '*'
       '@amazon-codecatalyst/blueprint-component.source-repositories': '*'
       '@amazon-codecatalyst/blueprints.blueprint': '*'
       projen: '*'
 
-  '@amazon-codecatalyst/blueprint-util.cli@0.3.104':
-    resolution: {integrity: sha512-CL6QqdLaTHUA1XCD/c/KOZYzkv0uIRah54GiRIUkF02a8HRKZoKvKjef3Gn9OJbp6B9Wz0hSEJMuJ9blh3nZQw==}
+  '@amazon-codecatalyst/blueprint-util.cli@0.3.105':
+    resolution: {integrity: sha512-HSc32auzj4o09zaXhR0H5d72ClWJN1OK42YBpt0urhqif/JuRWlJ8rjOwA2qeEicscmNbBPzLH7McP8kW9hXzA==}
     hasBin: true
 
-  '@amazon-codecatalyst/blueprint-util.projen-blueprint@0.3.104':
-    resolution: {integrity: sha512-kVHkpVZKayuhkpYTatt+ysx/AbVjVt49mRzY5oRBrvrtoSsWg8+9a72sDS+VVQws3nVkQq7dbIH2/U8WIun3lg==}
+  '@amazon-codecatalyst/blueprint-util.projen-blueprint@0.3.105':
+    resolution: {integrity: sha512-Z2XbMZx+VYU7MkUSq7McqjkZOll92Hug8aTzMOIb6ghZ3SS3+vkeE6B1NWz9Siag/D9Jfq9lhJWXJQaVl6/B4Q==}
     peerDependencies:
       '@amazon-codecatalyst/blueprint-util.cli': '*'
       projen: '*'
 
-  '@amazon-codecatalyst/blueprints.blueprint@0.3.78':
-    resolution: {integrity: sha512-bH8SZWBPIhCIqJushEey16ynKcEJfXL66MlhWk8WKJK8TDY3Otz0P6FVFpxapohNRoDL59QEoGAnD4RPONkgHQ==}
+  '@amazon-codecatalyst/blueprints.blueprint@0.3.98':
+    resolution: {integrity: sha512-z++YJuiqc06lZqqwahOn5x/gxhSa5unue/3JpVwFMA58uXJqIci6L0ynyBHoHa5yrtDmGgV95jtc9P71HN4jbw==}
     peerDependencies:
       projen: '*'
 
-  '@amazon-codecatalyst/blueprints@0.3.104':
-    resolution: {integrity: sha512-qNKyMkAWr2bPOqUkboDOJDjEJdSsO4IlG542b7IeXcSNpnb+24rxTQkv5jIE2l5kqRLPZlLdS4HsyKS09ykxYg==}
+  '@amazon-codecatalyst/blueprints@0.3.105':
+    resolution: {integrity: sha512-9R8iWupiRBg1/Er3Xe+wZN2LDoISJ74S3853TGIDwPNE84Y/RMZi8jAyK/LpK/cTTjjy20KVraWNNuokEkZyFQ==}
     peerDependencies:
       projen: '*'
 
@@ -599,64 +578,64 @@ packages:
   '@aws-crypto/util@3.0.0':
     resolution: {integrity: sha512-2OJlpeJpCR48CC8r+uKVChzs9Iungj9wkZrl8Z041DWEWvyIHILYKCPNzJghKsivj+S3mLo6BVc7mBNzdxA46w==}
 
-  '@aws-sdk/client-cloudfront@3.535.0':
-    resolution: {integrity: sha512-BKHhOB9J8H6YIjTn58Ke6PoagG7JUb6bbEAXn4XqBzX1El+BAG84HyyhRkqC6NgHshIriQcCtx7NIrTy7Cs5ow==}
+  '@aws-sdk/client-cloudfront@3.554.0':
+    resolution: {integrity: sha512-cFKqFew8xuQWVFH1ZAI2a/Gs66bI8+OlHj/5ED1ZKoBGiBQRC+EUT/0bhbzAYJLB9jeSRPGRL/jOgcL6Sw4Hcg==}
     engines: {node: '>=14.0.0'}
 
   '@aws-sdk/client-codecatalyst@3.414.0':
     resolution: {integrity: sha512-HR8zST8rnqRlvoWFc9YoeAAL72NXqo1OIRaG149BZ8qEKWy+EFi6yLHIAc5BFiX/nDJFpfpdUD3QQ9g+EC3I0A==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/client-s3@3.535.0':
-    resolution: {integrity: sha512-qcFCP9a695ZvAbm+hRMyfE2PjqnSkq0Bl57X7z8gHUg4TIjKJHTP7mtND21A4YaWigegQL6OA5kMXMZbCcugLA==}
+  '@aws-sdk/client-s3@3.554.0':
+    resolution: {integrity: sha512-d5TKKtGWhN0vl9QovUFrf3UsM7jgFQkowDPx1O+E/yeQUj1FBDOoRfDCcQOKW/9ghloI6k7f0bBpNxdd+x0oKA==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/client-sso-oidc@3.535.0':
-    resolution: {integrity: sha512-M2cG4EQXDpAJQyq33ORIr6abmdX9p9zX0ssVy8XwFNB7lrgoIKxuVoGL+fX+XMgecl24x7ELz6b4QlILOevbCw==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      '@aws-sdk/credential-provider-node': ^3.535.0
-
-  '@aws-sdk/client-sso@3.535.0':
-    resolution: {integrity: sha512-h9eQRdFnjDRVBnPJIKXuX7D+isSAioIfZPC4PQwsL5BscTRlk4c90DX0R0uk64YUtp7LZu8TNtrosFZ/1HtTrQ==}
-    engines: {node: '>=14.0.0'}
-
-  '@aws-sdk/client-sts@3.535.0':
-    resolution: {integrity: sha512-ii9OOm3TJwP3JmO1IVJXKWIShVKPl0VtdlgROc/SkDglO/kuAw9eDdlROgc+qbFl+gm6bBTguOVTUXt3tS3flw==}
+  '@aws-sdk/client-sso-oidc@3.554.0':
+    resolution: {integrity: sha512-M86rkiRqbZBF5VyfTQ/vttry9VSoQkZ1oCqYF+SAGlXmD0Of8587yRSj2M4rYe0Uj7nRQIfSnhDYp1UzsZeRfQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      '@aws-sdk/credential-provider-node': ^3.535.0
+      '@aws-sdk/credential-provider-node': ^3.554.0
 
-  '@aws-sdk/core@3.535.0':
-    resolution: {integrity: sha512-+Yusa9HziuaEDta1UaLEtMAtmgvxdxhPn7jgfRY6PplqAqgsfa5FR83sxy5qr2q7xjQTwHtV4MjQVuOjG9JsLw==}
+  '@aws-sdk/client-sso@3.554.0':
+    resolution: {integrity: sha512-yj6CgIxCT3UwMumEO481KH4QvwArkAPzD7Xvwe1QKgJATc9bKNEo/FxV8LfnWIJ7nOtMDxbNxYLMXH/Fs1qGaQ==}
+    engines: {node: '>=14.0.0'}
+
+  '@aws-sdk/client-sts@3.554.0':
+    resolution: {integrity: sha512-EhaA6T0M0DNg5M8TCF1a7XJI5D/ZxAF3dgVIchyF98iNzjYgl/7U8K6hJay2A11aFvVu70g46xYMpz3Meky4wQ==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      '@aws-sdk/credential-provider-node': ^3.554.0
+
+  '@aws-sdk/core@3.554.0':
+    resolution: {integrity: sha512-JrG7ToTLeNf+/S3IiCUPVw9jEDB0DXl5ho8n/HwOa946mv+QyCepCuV2U/8f/1KAX0mD8Ufm/E4/cbCbFHgbSg==}
     engines: {node: '>=14.0.0'}
 
   '@aws-sdk/credential-provider-env@3.535.0':
     resolution: {integrity: sha512-XppwO8c0GCGSAvdzyJOhbtktSEaShg14VJKg8mpMa1XcgqzmcqqHQjtDWbx5rZheY1VdpXZhpEzJkB6LpQejpA==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/credential-provider-http@3.535.0':
-    resolution: {integrity: sha512-kdj1wCmOMZ29jSlUskRqN04S6fJ4dvt0Nq9Z32SA6wO7UG8ht6Ot9h/au/eTWJM3E1somZ7D771oK7dQt9b8yw==}
+  '@aws-sdk/credential-provider-http@3.552.0':
+    resolution: {integrity: sha512-vsmu7Cz1i45pFEqzVb4JcFmAmVnWFNLsGheZc8SCptlqCO5voETrZZILHYIl4cjKkSDk3pblBOf0PhyjqWW6WQ==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/credential-provider-ini@3.535.0':
-    resolution: {integrity: sha512-bm3XOYlyCjtAb8eeHXLrxqRxYVRw2Iqv9IufdJb4gM13TbNSYniUT1WKaHxGIZ5p+FuNlXVhvk1OpHFM13+gXA==}
+  '@aws-sdk/credential-provider-ini@3.554.0':
+    resolution: {integrity: sha512-BQenhg43S6TMJHxrdjDVdVF+HH5tA1op9ZYLyJrvV5nn7CCO4kyAkkOuSAv1NkL+RZsIkW0/vHTXwQOQw3cUsg==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/credential-provider-node@3.535.0':
-    resolution: {integrity: sha512-6JXp/EuL6euUkH5k4d+lQFF6gBwukrcCOWfNHCmq14mNJf/cqT3HAX1VMtWFRSK20am0IxfYQGccb0/nZykdKg==}
+  '@aws-sdk/credential-provider-node@3.554.0':
+    resolution: {integrity: sha512-poX/+2OE3oxqp4f5MiaJh251p8l+bzcFwgcDBwz0e2rcpvMSYl9jw4AvGnCiG2bmf9yhNJdftBiS1A+KjxV0qA==}
     engines: {node: '>=14.0.0'}
 
   '@aws-sdk/credential-provider-process@3.535.0':
     resolution: {integrity: sha512-9O1OaprGCnlb/kYl8RwmH7Mlg8JREZctB8r9sa1KhSsWFq/SWO0AuJTyowxD7zL5PkeS4eTvzFFHWCa3OO5epA==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/credential-provider-sso@3.535.0':
-    resolution: {integrity: sha512-2Dw0YIr8ETdFpq65CC4zK8ZIEbX78rXoNRZXUGNQW3oSKfL0tj8O8ErY6kg1IdEnYbGnEQ35q6luZ5GGNKLgDg==}
+  '@aws-sdk/credential-provider-sso@3.554.0':
+    resolution: {integrity: sha512-8QPpwBA31i/fZ7lDZJC4FA9EdxLg5SJ8sPB2qLSjp5UTGTYL2HRl0Eznkb7DXyp/wImsR/HFR1NxuFCCVotLCg==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/credential-provider-web-identity@3.535.0':
-    resolution: {integrity: sha512-t2/JWrKY0H66A7JW7CqX06/DG2YkJddikt5ymdQvx/Q7dRMJ3d+o/vgjoKr7RvEx/pNruCeyM1599HCvwrVMrg==}
+  '@aws-sdk/credential-provider-web-identity@3.554.0':
+    resolution: {integrity: sha512-HN54DzLjepw5ZWSF9ycGevhFTyg6pjLuLKy5Y8t/f1jFDComzYdGEDe0cdV9YO653W3+PQwZZGz09YVygGYBLg==}
     engines: {node: '>=14.0.0'}
 
   '@aws-sdk/middleware-bucket-endpoint@3.535.0':
@@ -699,16 +678,16 @@ packages:
     resolution: {integrity: sha512-am2qgGs+gwqmR4wHLWpzlZ8PWhm4ktj5bYSgDrsOfjhdBlWNxvPoID9/pDAz5RWL48+oH7I6SQzMqxXsFDikrw==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/middleware-sdk-s3@3.535.0':
-    resolution: {integrity: sha512-/dLG/E3af6ohxkQ5GBHT8tZfuPIg6eItKxCXuulvYj0Tqgf3Mb+xTsvSkxQsJF06RS4sH7Qsg/PnB8ZfrJrXpg==}
+  '@aws-sdk/middleware-sdk-s3@3.552.0':
+    resolution: {integrity: sha512-9KzOqsbwJJuQcpmrpkkIftjPahB1bsrcWalYzcVqKCgHCylhkSHW2tX+uGHRnvAl9iobQD5D7LUrS+cv0NeQ/Q==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/middleware-signing@3.535.0':
-    resolution: {integrity: sha512-Rb4sfus1Gc5paRl9JJgymJGsb/i3gJKK/rTuFZICdd1PBBE5osIOHP5CpzWYBtc5LlyZE1a2QoxPMCyG+QUGPw==}
+  '@aws-sdk/middleware-signing@3.552.0':
+    resolution: {integrity: sha512-ZjOrlEmwjhbmkINa4Zx9LJh+xb/kgEiUrcfud2kq/r8ath1Nv1/4zalI9jHnou1J+R+yS+FQlXLXHSZ7vqyFbA==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/middleware-ssec@3.535.0':
-    resolution: {integrity: sha512-QAQ++9my7VZzusUPOFcUMdhTnjpGRyy/OvPC+jg9usdfcaSZeQbfzbdaVBalcm2Wt+1qxh3LZSTS+LxKikm02Q==}
+  '@aws-sdk/middleware-ssec@3.537.0':
+    resolution: {integrity: sha512-2QWMrbwd5eBy5KCYn9a15JEWBgrK2qFEKQN2lqb/6z0bhtevIOxIRfC99tzvRuPt6nixFQ+ynKuBjcfT4ZFrdQ==}
     engines: {node: '>=14.0.0'}
 
   '@aws-sdk/middleware-token@3.413.0':
@@ -719,8 +698,8 @@ packages:
     resolution: {integrity: sha512-eVMJyeWxNBqerhfD+sE9sTjDtwQiECrfU6wpUQP5fGPhJD2cVVZPxuTuJGDZCu/4k/V61dF85IYlsPUNLdVQ6w==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/middleware-user-agent@3.535.0':
-    resolution: {integrity: sha512-Uvb2WJ+zdHdCOtsWVPI/M0BcfNrjOYsicDZWtaljucRJKLclY5gNWwD+RwIC+8b5TvfnVOlH+N5jhvpi5Impog==}
+  '@aws-sdk/middleware-user-agent@3.540.0':
+    resolution: {integrity: sha512-8Rd6wPeXDnOYzWj1XCmOKcx/Q87L0K1/EHqOBocGjLVbN3gmRxBvpmR1pRTjf7IsWfnnzN5btqtcAkfDPYQUMQ==}
     engines: {node: '>=14.0.0'}
 
   '@aws-sdk/region-config-resolver@3.413.0':
@@ -731,16 +710,16 @@ packages:
     resolution: {integrity: sha512-IXOznDiaItBjsQy4Fil0kzX/J3HxIOknEphqHbOfUf+LpA5ugcsxuQQONrbEQusCBnfJyymrldBvBhFmtlU9Wg==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/signature-v4-multi-region@3.535.0':
-    resolution: {integrity: sha512-tqCsEsEj8icW0SAh3NvyhRUq54Gz2pu4NM2tOSrFp7SO55heUUaRLSzYteNZCTOupH//AAaZvbN/UUTO/DrOog==}
+  '@aws-sdk/signature-v4-multi-region@3.552.0':
+    resolution: {integrity: sha512-cC11/5ahp+LaBCq7cR+51AM2ftf6m9diRd2oWkbEpjSiEKQzZRAltUPZAJM6NXGypmDODQDJphLGt45tvS+8kg==}
     engines: {node: '>=14.0.0'}
 
   '@aws-sdk/token-providers@3.413.0':
     resolution: {integrity: sha512-NfP1Ib9LAWVLMTOa/1aJwt4TRrlRrNyukCpVZGfNaMnNNEoP5Rakdbcs8KFVHe/MJzU+GdKVzxQ4TgRkLOGTrA==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/token-providers@3.535.0':
-    resolution: {integrity: sha512-4g+l/B9h1H/SiDtFRosW3pMwc+3PTXljZit+5NUBcET2XqcdUyHmgj3lBdu+CJ9CHdIMggRalYMAFXnRFe3Psg==}
+  '@aws-sdk/token-providers@3.554.0':
+    resolution: {integrity: sha512-KMMQ5Cw0FUPL9H8g69Lp08xtzRo7r/MK+lBV6LznWBbCP/NwtZ8awVHaPy2P31z00cWtu9MYkUTviWPqJTaBvg==}
     engines: {node: '>=14.0.0'}
 
   '@aws-sdk/types@3.413.0':
@@ -759,8 +738,8 @@ packages:
     resolution: {integrity: sha512-VAwr7cITNb1L6/2XUPIbCOuhKGm0VtKCRblurrfUF2bxqG/wtuw/2Fm4ahYJPyxklOSXAMSq+RHdFWcir0YB/g==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/util-endpoints@3.535.0':
-    resolution: {integrity: sha512-c8TlaQsiPchOOmTTR6qvHCO2O7L7NJwlKWAoQJ2GqWDZuC5es/fyuF2rp1h+ZRrUVraUomS0YdGkAmaDC7hJQg==}
+  '@aws-sdk/util-endpoints@3.540.0':
+    resolution: {integrity: sha512-1kMyQFAWx6f8alaI6UT65/5YW/7pDWAKAdNwL6vuJLea03KrZRX3PMoONOSJpAS5m3Ot7HlWZvf3wZDNTLELZw==}
     engines: {node: '>=14.0.0'}
 
   '@aws-sdk/util-locate-window@3.535.0':
@@ -1457,8 +1436,8 @@ packages:
     resolution: {integrity: sha512-fsiMgd8toyUba6n1WRmr+qACzXltpdDkPTAaDqc8QqPBUzO+/JKwL6bUBseHVi8tu9l+3JOK+tSf7cay+4B3LA==}
     engines: {node: '>=14.0.0'}
 
-  '@smithy/core@1.4.0':
-    resolution: {integrity: sha512-uu9ZDI95Uij4qk+L6kyFjdk11zqBkcJ3Lv0sc6jZrqHvLyr0+oeekD3CnqMafBn/5PRI6uv6ulW3kNLRBUHeVw==}
+  '@smithy/core@1.4.2':
+    resolution: {integrity: sha512-2fek3I0KZHWJlRLvRTqxTEri+qV0GRHrJIoLFuBMZB4EMg4WgeBGfF0X6abnrNYpq55KJ6R4D6x4f0vLnhzinA==}
     engines: {node: '>=14.0.0'}
 
   '@smithy/credential-provider-imds@2.3.0':
@@ -1512,12 +1491,12 @@ packages:
     resolution: {integrity: sha512-5bl2LG1Ah/7E5cMSC+q+h3IpVHMeOkG0yLRyQT1p2aMJkSrZG7RlXHPuAgb7EyaFeidKEnnd/fNaLLaKlHGzDQ==}
     engines: {node: '>=14.0.0'}
 
-  '@smithy/middleware-endpoint@2.5.0':
-    resolution: {integrity: sha512-OBhI9ZEAG8Xen0xsFJwwNOt44WE2CWkfYIxTognC8x42Lfsdf0VN/wCMqpdkySMDio/vts10BiovAxQp0T0faA==}
+  '@smithy/middleware-endpoint@2.5.1':
+    resolution: {integrity: sha512-1/8kFp6Fl4OsSIVTWHnNjLnTL8IqpIb/D3sTSczrKFnrE9VMNWxnrRKNvpUHOJ6zpGD5f62TPm7+17ilTJpiCQ==}
     engines: {node: '>=14.0.0'}
 
-  '@smithy/middleware-retry@2.2.0':
-    resolution: {integrity: sha512-PsjDOLpbevgn37yJbawmfVoanru40qVA8UEf2+YA1lvOefmhuhL6ZbKtGsLAWDRnE1OlAmedsbA/htH6iSZjNA==}
+  '@smithy/middleware-retry@2.3.1':
+    resolution: {integrity: sha512-P2bGufFpFdYcWvqpyqqmalRtwFUNUA8vHjJR5iGqbfR6mp65qKOLcUd6lTr4S9Gn/enynSrSf3p3FVgVAf6bXA==}
     engines: {node: '>=14.0.0'}
 
   '@smithy/middleware-serde@2.3.0':
@@ -1560,12 +1539,12 @@ packages:
     resolution: {integrity: sha512-WyujUJL8e1B6Z4PBfAqC/aGY1+C7T0w20Gih3yrvJSk97gpiVfB+y7c46T4Nunk+ZngLq0rOIdeVeIklk0R3OA==}
     engines: {node: '>=14.0.0'}
 
-  '@smithy/signature-v4@2.2.0':
-    resolution: {integrity: sha512-+B5TNzj/fRZzVW3z8UUJOkNx15+4E0CLuvJmJUA1JUIZFp3rdJ/M2H5r2SqltaVPXL0oIxv/6YK92T9TsFGbFg==}
+  '@smithy/signature-v4@2.3.0':
+    resolution: {integrity: sha512-ui/NlpILU+6HAQBfJX8BBsDXuKSNrjTSuOYArRblcrErwKFutjrCNb/OExfVRyj9+26F9J+ZmfWT+fKWuDrH3Q==}
     engines: {node: '>=14.0.0'}
 
-  '@smithy/smithy-client@2.5.0':
-    resolution: {integrity: sha512-DDXWHWdimtS3y/Kw1Jo46KQ0ZYsDKcldFynQERUGBPDpkW1lXOTHy491ALHjwfiBQvzsVKVxl5+ocXNIgJuX4g==}
+  '@smithy/smithy-client@2.5.1':
+    resolution: {integrity: sha512-jrbSQrYCho0yDaaf92qWgd+7nAeap5LtHTI51KXqmpIFCceKU3K9+vIVTUH72bOJngBMqa4kyu1VJhRcSrk/CQ==}
     engines: {node: '>=14.0.0'}
 
   '@smithy/types@2.12.0':
@@ -1594,12 +1573,12 @@ packages:
     resolution: {integrity: sha512-HZkzrRcuFN1k70RLqlNK4FnPXKOpkik1+4JaBoHNJn+RnJGYqaa3c5/+XtLOXhlKzlRgNvyaLieHTW2VwGN0VQ==}
     engines: {node: '>=14.0.0'}
 
-  '@smithy/util-defaults-mode-browser@2.2.0':
-    resolution: {integrity: sha512-2okTdZaCBvOJszAPU/KSvlimMe35zLOKbQpHhamFJmR7t95HSe0K3C92jQPjKY3PmDBD+7iMkOnuW05F5OlF4g==}
+  '@smithy/util-defaults-mode-browser@2.2.1':
+    resolution: {integrity: sha512-RtKW+8j8skk17SYowucwRUjeh4mCtnm5odCL0Lm2NtHQBsYKrNW0od9Rhopu9wF1gHMfHeWF7i90NwBz/U22Kw==}
     engines: {node: '>= 10.0.0'}
 
-  '@smithy/util-defaults-mode-node@2.3.0':
-    resolution: {integrity: sha512-hfKXnNLmsW9cmLb/JXKIvtuO6Cf4SuqN5PN1C2Ru/TBIws+m1wSgb+A53vo0r66xzB6E82inKG2J7qtwdi+Kkw==}
+  '@smithy/util-defaults-mode-node@2.3.1':
+    resolution: {integrity: sha512-vkMXHQ0BcLFysBMWgSBLSk3+leMpFSyyFj8zQtv5ZyUBx8/owVh1/pPEkzmW/DR/Gy/5c8vjLDD9gZjXNKbrpA==}
     engines: {node: '>= 10.0.0'}
 
   '@smithy/util-endpoints@1.2.0':
@@ -3428,6 +3407,10 @@ packages:
     resolution: {integrity: sha512-RHiac9mvaRw0x3AYRgDC1CxAP7HTcNrrECeA8YYJeWnpo+2Q5CegtZjaotWTWxDG3UeGA1coE05iH1mPjT/2mg==}
     engines: {node: '>=16 || 14 >=14.17'}
 
+  minimatch@9.0.4:
+    resolution: {integrity: sha512-KqWh+VchfxcMNRAJjj2tnsSJdNbHsVgnkBhTNrW7AjVo6OvLtxw8zfT9oLw1JSohlFzJ8jCoTgaoXvJ+kHt6fw==}
+    engines: {node: '>=16 || 14 >=14.17'}
+
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
 
@@ -4421,6 +4404,10 @@ packages:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
 
+  uuid@9.0.1:
+    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
+    hasBin: true
+
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
 
@@ -4524,104 +4511,104 @@ snapshots:
 
   '@aashutoshrathi/word-wrap@1.2.6': {}
 
-  '@amazon-codecatalyst/blueprint-component.dev-environments@0.3.78(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprint-component.dev-environments@0.3.98(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.98(projen@0.79.27(constructs@10.3.0))
       projen: 0.79.27(constructs@10.3.0)
       yaml: 2.4.1
 
-  '@amazon-codecatalyst/blueprint-component.dev-environments@0.3.78(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprint-component.dev-environments@0.3.98(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.98(projen@0.81.0(constructs@10.3.0))
       projen: 0.81.0(constructs@10.3.0)
       yaml: 2.4.1
 
-  '@amazon-codecatalyst/blueprint-component.environments@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprint-component.environments@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.98(projen@0.79.27(constructs@10.3.0))
       projen: 0.79.27(constructs@10.3.0)
 
-  '@amazon-codecatalyst/blueprint-component.environments@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprint-component.environments@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.98(projen@0.81.0(constructs@10.3.0))
       projen: 0.81.0(constructs@10.3.0)
 
-  '@amazon-codecatalyst/blueprint-component.issues@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprint-component.issues@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.98(projen@0.79.27(constructs@10.3.0))
       camelcase: 5.3.1
       decamelize: 5.0.1
       glob: 10.3.12
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       mustache: 4.2.0
       projen: 0.79.27(constructs@10.3.0)
 
-  '@amazon-codecatalyst/blueprint-component.issues@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprint-component.issues@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.98(projen@0.81.0(constructs@10.3.0))
       camelcase: 5.3.1
       decamelize: 5.0.1
       glob: 10.3.12
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       mustache: 4.2.0
       projen: 0.81.0(constructs@10.3.0)
 
-  '@amazon-codecatalyst/blueprint-component.secrets@0.3.78(projen@0.79.27(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprint-component.secrets@0.3.98(projen@0.79.27(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.98(projen@0.79.27(constructs@10.3.0))
       projen: 0.79.27(constructs@10.3.0)
 
-  '@amazon-codecatalyst/blueprint-component.secrets@0.3.78(projen@0.81.0(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprint-component.secrets@0.3.98(projen@0.81.0(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.98(projen@0.81.0(constructs@10.3.0))
       projen: 0.81.0(constructs@10.3.0)
 
-  '@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprint-component.source-repositories@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.98(projen@0.79.27(constructs@10.3.0))
       camelcase: 5.3.1
       decamelize: 5.0.1
       glob: 10.3.12
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       mustache: 4.2.0
       projen: 0.79.27(constructs@10.3.0)
 
-  '@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprint-component.source-repositories@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.98(projen@0.81.0(constructs@10.3.0))
       camelcase: 5.3.1
       decamelize: 5.0.1
       glob: 10.3.12
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       mustache: 4.2.0
       projen: 0.81.0(constructs@10.3.0)
 
-  '@amazon-codecatalyst/blueprint-component.workflows@0.3.78(@amazon-codecatalyst/blueprint-component.environments@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0)))(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprint-component.workflows@0.3.98(@amazon-codecatalyst/blueprint-component.environments@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0)))(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.environments': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.environments': 0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.98(projen@0.79.27(constructs@10.3.0))
       '@aws/codecatalyst-workflows-sdk': 0.1.5-preview.6(projen@0.79.27(constructs@10.3.0))
       projen: 0.79.27(constructs@10.3.0)
       yaml: 2.4.1
 
-  '@amazon-codecatalyst/blueprint-component.workflows@0.3.78(@amazon-codecatalyst/blueprint-component.environments@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0)))(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprint-component.workflows@0.3.98(@amazon-codecatalyst/blueprint-component.environments@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0)))(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.environments': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.environments': 0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.98(projen@0.81.0(constructs@10.3.0))
       '@aws/codecatalyst-workflows-sdk': 0.1.5-preview.6(projen@0.81.0(constructs@10.3.0))
       projen: 0.81.0(constructs@10.3.0)
       yaml: 2.4.1
 
-  '@amazon-codecatalyst/blueprint-util.cli@0.3.104(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)':
+  '@amazon-codecatalyst/blueprint-util.cli@0.3.105(@aws-sdk/credential-provider-node@3.554.0)(@types/node@18.19.24)':
     dependencies:
-      '@aws-sdk/client-cloudfront': 3.535.0
+      '@aws-sdk/client-cloudfront': 3.554.0
       '@aws-sdk/client-codecatalyst': 3.414.0
-      '@aws-sdk/client-s3': 3.535.0
-      '@aws-sdk/client-sts': 3.535.0(@aws-sdk/credential-provider-node@3.535.0)
+      '@aws-sdk/client-s3': 3.554.0
+      '@aws-sdk/client-sts': 3.554.0(@aws-sdk/credential-provider-node@3.554.0)
       ajv: 8.12.0
       axios: 0.25.0
       deepmerge: 4.3.1
@@ -4641,45 +4628,45 @@ snapshots:
       - aws-crt
       - debug
 
-  '@amazon-codecatalyst/blueprint-util.projen-blueprint@0.3.104(@amazon-codecatalyst/blueprint-util.cli@0.3.104(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24))(projen@0.79.27(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprint-util.projen-blueprint@0.3.105(@amazon-codecatalyst/blueprint-util.cli@0.3.105(@aws-sdk/credential-provider-node@3.554.0)(@types/node@18.19.24))(projen@0.79.27(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprint-util.cli': 0.3.104(@aws-sdk/credential-provider-node@3.535.0)(@types/node@18.19.24)
+      '@amazon-codecatalyst/blueprint-util.cli': 0.3.105(@aws-sdk/credential-provider-node@3.554.0)(@types/node@18.19.24)
       projen: 0.79.27(constructs@10.3.0)
 
-  '@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0))':
     dependencies:
       diff-match-patch: 1.0.5
       globule: 1.3.4
       projen: 0.79.27(constructs@10.3.0)
       yaml: 2.4.1
 
-  '@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0))':
     dependencies:
       diff-match-patch: 1.0.5
       globule: 1.3.4
       projen: 0.81.0(constructs@10.3.0)
       yaml: 2.4.1
 
-  '@amazon-codecatalyst/blueprints@0.3.104(projen@0.79.27(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprints@0.3.105(projen@0.79.27(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.dev-environments': 0.3.78(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprint-component.environments': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprint-component.issues': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprint-component.secrets': 0.3.78(projen@0.79.27(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprint-component.workflows': 0.3.78(@amazon-codecatalyst/blueprint-component.environments@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0)))(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.dev-environments': 0.3.98(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.environments': 0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.issues': 0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.secrets': 0.3.98(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.workflows': 0.3.98(@amazon-codecatalyst/blueprint-component.environments@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0)))(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.79.27(constructs@10.3.0)))(projen@0.79.27(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.98(projen@0.79.27(constructs@10.3.0))
       projen: 0.79.27(constructs@10.3.0)
 
-  '@amazon-codecatalyst/blueprints@0.3.104(projen@0.81.0(constructs@10.3.0))':
+  '@amazon-codecatalyst/blueprints@0.3.105(projen@0.81.0(constructs@10.3.0))':
     dependencies:
-      '@amazon-codecatalyst/blueprint-component.dev-environments': 0.3.78(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprint-component.environments': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprint-component.issues': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprint-component.secrets': 0.3.78(projen@0.81.0(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprint-component.workflows': 0.3.78(@amazon-codecatalyst/blueprint-component.environments@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0)))(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.78(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.78(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
-      '@amazon-codecatalyst/blueprints.blueprint': 0.3.78(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.dev-environments': 0.3.98(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.environments': 0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.issues': 0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.secrets': 0.3.98(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.source-repositories': 0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprint-component.workflows': 0.3.98(@amazon-codecatalyst/blueprint-component.environments@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0)))(@amazon-codecatalyst/blueprint-component.source-repositories@0.3.98(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0)))(@amazon-codecatalyst/blueprints.blueprint@0.3.98(projen@0.81.0(constructs@10.3.0)))(projen@0.81.0(constructs@10.3.0))
+      '@amazon-codecatalyst/blueprints.blueprint': 0.3.98(projen@0.81.0(constructs@10.3.0))
       projen: 0.81.0(constructs@10.3.0)
 
   '@ampproject/remapping@2.3.0':
@@ -4756,44 +4743,44 @@ snapshots:
       '@aws-sdk/util-utf8-browser': 3.259.0
       tslib: 1.14.1
 
-  '@aws-sdk/client-cloudfront@3.535.0':
+  '@aws-sdk/client-cloudfront@3.554.0':
     dependencies:
       '@aws-crypto/sha256-browser': 3.0.0
       '@aws-crypto/sha256-js': 3.0.0
-      '@aws-sdk/client-sts': 3.535.0(@aws-sdk/credential-provider-node@3.535.0)
-      '@aws-sdk/core': 3.535.0
-      '@aws-sdk/credential-provider-node': 3.535.0
+      '@aws-sdk/client-sts': 3.554.0(@aws-sdk/credential-provider-node@3.554.0)
+      '@aws-sdk/core': 3.554.0
+      '@aws-sdk/credential-provider-node': 3.554.0
       '@aws-sdk/middleware-host-header': 3.535.0
       '@aws-sdk/middleware-logger': 3.535.0
       '@aws-sdk/middleware-recursion-detection': 3.535.0
-      '@aws-sdk/middleware-user-agent': 3.535.0
+      '@aws-sdk/middleware-user-agent': 3.540.0
       '@aws-sdk/region-config-resolver': 3.535.0
       '@aws-sdk/types': 3.535.0
-      '@aws-sdk/util-endpoints': 3.535.0
+      '@aws-sdk/util-endpoints': 3.540.0
       '@aws-sdk/util-user-agent-browser': 3.535.0
       '@aws-sdk/util-user-agent-node': 3.535.0
       '@aws-sdk/xml-builder': 3.535.0
       '@smithy/config-resolver': 2.2.0
-      '@smithy/core': 1.4.0
+      '@smithy/core': 1.4.2
       '@smithy/fetch-http-handler': 2.5.0
       '@smithy/hash-node': 2.2.0
       '@smithy/invalid-dependency': 2.2.0
       '@smithy/middleware-content-length': 2.2.0
-      '@smithy/middleware-endpoint': 2.5.0
-      '@smithy/middleware-retry': 2.2.0
+      '@smithy/middleware-endpoint': 2.5.1
+      '@smithy/middleware-retry': 2.3.1
       '@smithy/middleware-serde': 2.3.0
       '@smithy/middleware-stack': 2.2.0
       '@smithy/node-config-provider': 2.3.0
       '@smithy/node-http-handler': 2.5.0
       '@smithy/protocol-http': 3.3.0
-      '@smithy/smithy-client': 2.5.0
+      '@smithy/smithy-client': 2.5.1
       '@smithy/types': 2.12.0
       '@smithy/url-parser': 2.2.0
       '@smithy/util-base64': 2.3.0
       '@smithy/util-body-length-browser': 2.2.0
       '@smithy/util-body-length-node': 2.3.0
-      '@smithy/util-defaults-mode-browser': 2.2.0
-      '@smithy/util-defaults-mode-node': 2.3.0
+      '@smithy/util-defaults-mode-browser': 2.2.1
+      '@smithy/util-defaults-mode-node': 2.3.1
       '@smithy/util-endpoints': 1.2.0
       '@smithy/util-middleware': 2.2.0
       '@smithy/util-retry': 2.2.0
@@ -4823,35 +4810,35 @@ snapshots:
       '@smithy/hash-node': 2.2.0
       '@smithy/invalid-dependency': 2.2.0
       '@smithy/middleware-content-length': 2.2.0
-      '@smithy/middleware-endpoint': 2.5.0
-      '@smithy/middleware-retry': 2.2.0
+      '@smithy/middleware-endpoint': 2.5.1
+      '@smithy/middleware-retry': 2.3.1
       '@smithy/middleware-serde': 2.3.0
       '@smithy/middleware-stack': 2.2.0
       '@smithy/node-config-provider': 2.3.0
       '@smithy/node-http-handler': 2.5.0
       '@smithy/protocol-http': 3.3.0
-      '@smithy/smithy-client': 2.5.0
+      '@smithy/smithy-client': 2.5.1
       '@smithy/types': 2.12.0
       '@smithy/url-parser': 2.2.0
       '@smithy/util-base64': 2.3.0
       '@smithy/util-body-length-browser': 2.2.0
       '@smithy/util-body-length-node': 2.3.0
-      '@smithy/util-defaults-mode-browser': 2.2.0
-      '@smithy/util-defaults-mode-node': 2.3.0
+      '@smithy/util-defaults-mode-browser': 2.2.1
+      '@smithy/util-defaults-mode-node': 2.3.1
       '@smithy/util-retry': 2.2.0
       '@smithy/util-utf8': 2.3.0
       tslib: 2.6.2
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/client-s3@3.535.0':
+  '@aws-sdk/client-s3@3.554.0':
     dependencies:
       '@aws-crypto/sha1-browser': 3.0.0
       '@aws-crypto/sha256-browser': 3.0.0
       '@aws-crypto/sha256-js': 3.0.0
-      '@aws-sdk/client-sts': 3.535.0(@aws-sdk/credential-provider-node@3.535.0)
-      '@aws-sdk/core': 3.535.0
-      '@aws-sdk/credential-provider-node': 3.535.0
+      '@aws-sdk/client-sts': 3.554.0(@aws-sdk/credential-provider-node@3.554.0)
+      '@aws-sdk/core': 3.554.0
+      '@aws-sdk/credential-provider-node': 3.554.0
       '@aws-sdk/middleware-bucket-endpoint': 3.535.0
       '@aws-sdk/middleware-expect-continue': 3.535.0
       '@aws-sdk/middleware-flexible-checksums': 3.535.0
@@ -4859,19 +4846,19 @@ snapshots:
       '@aws-sdk/middleware-location-constraint': 3.535.0
       '@aws-sdk/middleware-logger': 3.535.0
       '@aws-sdk/middleware-recursion-detection': 3.535.0
-      '@aws-sdk/middleware-sdk-s3': 3.535.0
-      '@aws-sdk/middleware-signing': 3.535.0
-      '@aws-sdk/middleware-ssec': 3.535.0
-      '@aws-sdk/middleware-user-agent': 3.535.0
+      '@aws-sdk/middleware-sdk-s3': 3.552.0
+      '@aws-sdk/middleware-signing': 3.552.0
+      '@aws-sdk/middleware-ssec': 3.537.0
+      '@aws-sdk/middleware-user-agent': 3.540.0
       '@aws-sdk/region-config-resolver': 3.535.0
-      '@aws-sdk/signature-v4-multi-region': 3.535.0
+      '@aws-sdk/signature-v4-multi-region': 3.552.0
       '@aws-sdk/types': 3.535.0
-      '@aws-sdk/util-endpoints': 3.535.0
+      '@aws-sdk/util-endpoints': 3.540.0
       '@aws-sdk/util-user-agent-browser': 3.535.0
       '@aws-sdk/util-user-agent-node': 3.535.0
       '@aws-sdk/xml-builder': 3.535.0
       '@smithy/config-resolver': 2.2.0
-      '@smithy/core': 1.4.0
+      '@smithy/core': 1.4.2
       '@smithy/eventstream-serde-browser': 2.2.0
       '@smithy/eventstream-serde-config-resolver': 2.2.0
       '@smithy/eventstream-serde-node': 2.2.0
@@ -4882,21 +4869,21 @@ snapshots:
       '@smithy/invalid-dependency': 2.2.0
       '@smithy/md5-js': 2.2.0
       '@smithy/middleware-content-length': 2.2.0
-      '@smithy/middleware-endpoint': 2.5.0
-      '@smithy/middleware-retry': 2.2.0
+      '@smithy/middleware-endpoint': 2.5.1
+      '@smithy/middleware-retry': 2.3.1
       '@smithy/middleware-serde': 2.3.0
       '@smithy/middleware-stack': 2.2.0
       '@smithy/node-config-provider': 2.3.0
       '@smithy/node-http-handler': 2.5.0
       '@smithy/protocol-http': 3.3.0
-      '@smithy/smithy-client': 2.5.0
+      '@smithy/smithy-client': 2.5.1
       '@smithy/types': 2.12.0
       '@smithy/url-parser': 2.2.0
       '@smithy/util-base64': 2.3.0
       '@smithy/util-body-length-browser': 2.2.0
       '@smithy/util-body-length-node': 2.3.0
-      '@smithy/util-defaults-mode-browser': 2.2.0
-      '@smithy/util-defaults-mode-node': 2.3.0
+      '@smithy/util-defaults-mode-browser': 2.2.1
+      '@smithy/util-defaults-mode-node': 2.3.1
       '@smithy/util-endpoints': 1.2.0
       '@smithy/util-retry': 2.2.0
       '@smithy/util-stream': 2.2.0
@@ -4906,43 +4893,43 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/client-sso-oidc@3.535.0(@aws-sdk/credential-provider-node@3.535.0)':
+  '@aws-sdk/client-sso-oidc@3.554.0(@aws-sdk/credential-provider-node@3.554.0)':
     dependencies:
       '@aws-crypto/sha256-browser': 3.0.0
       '@aws-crypto/sha256-js': 3.0.0
-      '@aws-sdk/client-sts': 3.535.0(@aws-sdk/credential-provider-node@3.535.0)
-      '@aws-sdk/core': 3.535.0
-      '@aws-sdk/credential-provider-node': 3.535.0
+      '@aws-sdk/client-sts': 3.554.0(@aws-sdk/credential-provider-node@3.554.0)
+      '@aws-sdk/core': 3.554.0
+      '@aws-sdk/credential-provider-node': 3.554.0
       '@aws-sdk/middleware-host-header': 3.535.0
       '@aws-sdk/middleware-logger': 3.535.0
       '@aws-sdk/middleware-recursion-detection': 3.535.0
-      '@aws-sdk/middleware-user-agent': 3.535.0
+      '@aws-sdk/middleware-user-agent': 3.540.0
       '@aws-sdk/region-config-resolver': 3.535.0
       '@aws-sdk/types': 3.535.0
-      '@aws-sdk/util-endpoints': 3.535.0
+      '@aws-sdk/util-endpoints': 3.540.0
       '@aws-sdk/util-user-agent-browser': 3.535.0
       '@aws-sdk/util-user-agent-node': 3.535.0
       '@smithy/config-resolver': 2.2.0
-      '@smithy/core': 1.4.0
+      '@smithy/core': 1.4.2
       '@smithy/fetch-http-handler': 2.5.0
       '@smithy/hash-node': 2.2.0
       '@smithy/invalid-dependency': 2.2.0
       '@smithy/middleware-content-length': 2.2.0
-      '@smithy/middleware-endpoint': 2.5.0
-      '@smithy/middleware-retry': 2.2.0
+      '@smithy/middleware-endpoint': 2.5.1
+      '@smithy/middleware-retry': 2.3.1
       '@smithy/middleware-serde': 2.3.0
       '@smithy/middleware-stack': 2.2.0
       '@smithy/node-config-provider': 2.3.0
       '@smithy/node-http-handler': 2.5.0
       '@smithy/protocol-http': 3.3.0
-      '@smithy/smithy-client': 2.5.0
+      '@smithy/smithy-client': 2.5.1
       '@smithy/types': 2.12.0
       '@smithy/url-parser': 2.2.0
       '@smithy/util-base64': 2.3.0
       '@smithy/util-body-length-browser': 2.2.0
       '@smithy/util-body-length-node': 2.3.0
-      '@smithy/util-defaults-mode-browser': 2.2.0
-      '@smithy/util-defaults-mode-node': 2.3.0
+      '@smithy/util-defaults-mode-browser': 2.2.1
+      '@smithy/util-defaults-mode-node': 2.3.1
       '@smithy/util-endpoints': 1.2.0
       '@smithy/util-middleware': 2.2.0
       '@smithy/util-retry': 2.2.0
@@ -4951,41 +4938,41 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/client-sso@3.535.0':
+  '@aws-sdk/client-sso@3.554.0':
     dependencies:
       '@aws-crypto/sha256-browser': 3.0.0
       '@aws-crypto/sha256-js': 3.0.0
-      '@aws-sdk/core': 3.535.0
+      '@aws-sdk/core': 3.554.0
       '@aws-sdk/middleware-host-header': 3.535.0
       '@aws-sdk/middleware-logger': 3.535.0
       '@aws-sdk/middleware-recursion-detection': 3.535.0
-      '@aws-sdk/middleware-user-agent': 3.535.0
+      '@aws-sdk/middleware-user-agent': 3.540.0
       '@aws-sdk/region-config-resolver': 3.535.0
       '@aws-sdk/types': 3.535.0
-      '@aws-sdk/util-endpoints': 3.535.0
+      '@aws-sdk/util-endpoints': 3.540.0
       '@aws-sdk/util-user-agent-browser': 3.535.0
       '@aws-sdk/util-user-agent-node': 3.535.0
       '@smithy/config-resolver': 2.2.0
-      '@smithy/core': 1.4.0
+      '@smithy/core': 1.4.2
       '@smithy/fetch-http-handler': 2.5.0
       '@smithy/hash-node': 2.2.0
       '@smithy/invalid-dependency': 2.2.0
       '@smithy/middleware-content-length': 2.2.0
-      '@smithy/middleware-endpoint': 2.5.0
-      '@smithy/middleware-retry': 2.2.0
+      '@smithy/middleware-endpoint': 2.5.1
+      '@smithy/middleware-retry': 2.3.1
       '@smithy/middleware-serde': 2.3.0
       '@smithy/middleware-stack': 2.2.0
       '@smithy/node-config-provider': 2.3.0
       '@smithy/node-http-handler': 2.5.0
       '@smithy/protocol-http': 3.3.0
-      '@smithy/smithy-client': 2.5.0
+      '@smithy/smithy-client': 2.5.1
       '@smithy/types': 2.12.0
       '@smithy/url-parser': 2.2.0
       '@smithy/util-base64': 2.3.0
       '@smithy/util-body-length-browser': 2.2.0
       '@smithy/util-body-length-node': 2.3.0
-      '@smithy/util-defaults-mode-browser': 2.2.0
-      '@smithy/util-defaults-mode-node': 2.3.0
+      '@smithy/util-defaults-mode-browser': 2.2.1
+      '@smithy/util-defaults-mode-node': 2.3.1
       '@smithy/util-endpoints': 1.2.0
       '@smithy/util-middleware': 2.2.0
       '@smithy/util-retry': 2.2.0
@@ -4994,42 +4981,42 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/client-sts@3.535.0(@aws-sdk/credential-provider-node@3.535.0)':
+  '@aws-sdk/client-sts@3.554.0(@aws-sdk/credential-provider-node@3.554.0)':
     dependencies:
       '@aws-crypto/sha256-browser': 3.0.0
       '@aws-crypto/sha256-js': 3.0.0
-      '@aws-sdk/core': 3.535.0
-      '@aws-sdk/credential-provider-node': 3.535.0
+      '@aws-sdk/core': 3.554.0
+      '@aws-sdk/credential-provider-node': 3.554.0
       '@aws-sdk/middleware-host-header': 3.535.0
       '@aws-sdk/middleware-logger': 3.535.0
       '@aws-sdk/middleware-recursion-detection': 3.535.0
-      '@aws-sdk/middleware-user-agent': 3.535.0
+      '@aws-sdk/middleware-user-agent': 3.540.0
       '@aws-sdk/region-config-resolver': 3.535.0
       '@aws-sdk/types': 3.535.0
-      '@aws-sdk/util-endpoints': 3.535.0
+      '@aws-sdk/util-endpoints': 3.540.0
       '@aws-sdk/util-user-agent-browser': 3.535.0
       '@aws-sdk/util-user-agent-node': 3.535.0
       '@smithy/config-resolver': 2.2.0
-      '@smithy/core': 1.4.0
+      '@smithy/core': 1.4.2
       '@smithy/fetch-http-handler': 2.5.0
       '@smithy/hash-node': 2.2.0
       '@smithy/invalid-dependency': 2.2.0
       '@smithy/middleware-content-length': 2.2.0
-      '@smithy/middleware-endpoint': 2.5.0
-      '@smithy/middleware-retry': 2.2.0
+      '@smithy/middleware-endpoint': 2.5.1
+      '@smithy/middleware-retry': 2.3.1
       '@smithy/middleware-serde': 2.3.0
       '@smithy/middleware-stack': 2.2.0
       '@smithy/node-config-provider': 2.3.0
       '@smithy/node-http-handler': 2.5.0
       '@smithy/protocol-http': 3.3.0
-      '@smithy/smithy-client': 2.5.0
+      '@smithy/smithy-client': 2.5.1
       '@smithy/types': 2.12.0
       '@smithy/url-parser': 2.2.0
       '@smithy/util-base64': 2.3.0
       '@smithy/util-body-length-browser': 2.2.0
       '@smithy/util-body-length-node': 2.3.0
-      '@smithy/util-defaults-mode-browser': 2.2.0
-      '@smithy/util-defaults-mode-node': 2.3.0
+      '@smithy/util-defaults-mode-browser': 2.2.1
+      '@smithy/util-defaults-mode-node': 2.3.1
       '@smithy/util-endpoints': 1.2.0
       '@smithy/util-middleware': 2.2.0
       '@smithy/util-retry': 2.2.0
@@ -5038,12 +5025,12 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/core@3.535.0':
+  '@aws-sdk/core@3.554.0':
     dependencies:
-      '@smithy/core': 1.4.0
+      '@smithy/core': 1.4.2
       '@smithy/protocol-http': 3.3.0
-      '@smithy/signature-v4': 2.2.0
-      '@smithy/smithy-client': 2.5.0
+      '@smithy/signature-v4': 2.3.0
+      '@smithy/smithy-client': 2.5.1
       '@smithy/types': 2.12.0
       fast-xml-parser: 4.2.5
       tslib: 2.6.2
@@ -5055,25 +5042,25 @@ snapshots:
       '@smithy/types': 2.12.0
       tslib: 2.6.2
 
-  '@aws-sdk/credential-provider-http@3.535.0':
+  '@aws-sdk/credential-provider-http@3.552.0':
     dependencies:
       '@aws-sdk/types': 3.535.0
       '@smithy/fetch-http-handler': 2.5.0
       '@smithy/node-http-handler': 2.5.0
       '@smithy/property-provider': 2.2.0
       '@smithy/protocol-http': 3.3.0
-      '@smithy/smithy-client': 2.5.0
+      '@smithy/smithy-client': 2.5.1
       '@smithy/types': 2.12.0
       '@smithy/util-stream': 2.2.0
       tslib: 2.6.2
 
-  '@aws-sdk/credential-provider-ini@3.535.0(@aws-sdk/credential-provider-node@3.535.0)':
+  '@aws-sdk/credential-provider-ini@3.554.0(@aws-sdk/credential-provider-node@3.554.0)':
     dependencies:
-      '@aws-sdk/client-sts': 3.535.0(@aws-sdk/credential-provider-node@3.535.0)
+      '@aws-sdk/client-sts': 3.554.0(@aws-sdk/credential-provider-node@3.554.0)
       '@aws-sdk/credential-provider-env': 3.535.0
       '@aws-sdk/credential-provider-process': 3.535.0
-      '@aws-sdk/credential-provider-sso': 3.535.0(@aws-sdk/credential-provider-node@3.535.0)
-      '@aws-sdk/credential-provider-web-identity': 3.535.0(@aws-sdk/credential-provider-node@3.535.0)
+      '@aws-sdk/credential-provider-sso': 3.554.0(@aws-sdk/credential-provider-node@3.554.0)
+      '@aws-sdk/credential-provider-web-identity': 3.554.0(@aws-sdk/credential-provider-node@3.554.0)
       '@aws-sdk/types': 3.535.0
       '@smithy/credential-provider-imds': 2.3.0
       '@smithy/property-provider': 2.2.0
@@ -5084,14 +5071,14 @@ snapshots:
       - '@aws-sdk/credential-provider-node'
       - aws-crt
 
-  '@aws-sdk/credential-provider-node@3.535.0':
+  '@aws-sdk/credential-provider-node@3.554.0':
     dependencies:
       '@aws-sdk/credential-provider-env': 3.535.0
-      '@aws-sdk/credential-provider-http': 3.535.0
-      '@aws-sdk/credential-provider-ini': 3.535.0(@aws-sdk/credential-provider-node@3.535.0)
+      '@aws-sdk/credential-provider-http': 3.552.0
+      '@aws-sdk/credential-provider-ini': 3.554.0(@aws-sdk/credential-provider-node@3.554.0)
       '@aws-sdk/credential-provider-process': 3.535.0
-      '@aws-sdk/credential-provider-sso': 3.535.0(@aws-sdk/credential-provider-node@3.535.0)
-      '@aws-sdk/credential-provider-web-identity': 3.535.0(@aws-sdk/credential-provider-node@3.535.0)
+      '@aws-sdk/credential-provider-sso': 3.554.0(@aws-sdk/credential-provider-node@3.554.0)
+      '@aws-sdk/credential-provider-web-identity': 3.554.0(@aws-sdk/credential-provider-node@3.554.0)
       '@aws-sdk/types': 3.535.0
       '@smithy/credential-provider-imds': 2.3.0
       '@smithy/property-provider': 2.2.0
@@ -5109,10 +5096,10 @@ snapshots:
       '@smithy/types': 2.12.0
       tslib: 2.6.2
 
-  '@aws-sdk/credential-provider-sso@3.535.0(@aws-sdk/credential-provider-node@3.535.0)':
+  '@aws-sdk/credential-provider-sso@3.554.0(@aws-sdk/credential-provider-node@3.554.0)':
     dependencies:
-      '@aws-sdk/client-sso': 3.535.0
-      '@aws-sdk/token-providers': 3.535.0(@aws-sdk/credential-provider-node@3.535.0)
+      '@aws-sdk/client-sso': 3.554.0
+      '@aws-sdk/token-providers': 3.554.0(@aws-sdk/credential-provider-node@3.554.0)
       '@aws-sdk/types': 3.535.0
       '@smithy/property-provider': 2.2.0
       '@smithy/shared-ini-file-loader': 2.4.0
@@ -5122,9 +5109,9 @@ snapshots:
       - '@aws-sdk/credential-provider-node'
       - aws-crt
 
-  '@aws-sdk/credential-provider-web-identity@3.535.0(@aws-sdk/credential-provider-node@3.535.0)':
+  '@aws-sdk/credential-provider-web-identity@3.554.0(@aws-sdk/credential-provider-node@3.554.0)':
     dependencies:
-      '@aws-sdk/client-sts': 3.535.0(@aws-sdk/credential-provider-node@3.535.0)
+      '@aws-sdk/client-sts': 3.554.0(@aws-sdk/credential-provider-node@3.554.0)
       '@aws-sdk/types': 3.535.0
       '@smithy/property-provider': 2.2.0
       '@smithy/types': 2.12.0
@@ -5207,29 +5194,29 @@ snapshots:
       '@smithy/types': 2.12.0
       tslib: 2.6.2
 
-  '@aws-sdk/middleware-sdk-s3@3.535.0':
+  '@aws-sdk/middleware-sdk-s3@3.552.0':
     dependencies:
       '@aws-sdk/types': 3.535.0
       '@aws-sdk/util-arn-parser': 3.535.0
       '@smithy/node-config-provider': 2.3.0
       '@smithy/protocol-http': 3.3.0
-      '@smithy/signature-v4': 2.2.0
-      '@smithy/smithy-client': 2.5.0
+      '@smithy/signature-v4': 2.3.0
+      '@smithy/smithy-client': 2.5.1
       '@smithy/types': 2.12.0
       '@smithy/util-config-provider': 2.3.0
       tslib: 2.6.2
 
-  '@aws-sdk/middleware-signing@3.535.0':
+  '@aws-sdk/middleware-signing@3.552.0':
     dependencies:
       '@aws-sdk/types': 3.535.0
       '@smithy/property-provider': 2.2.0
       '@smithy/protocol-http': 3.3.0
-      '@smithy/signature-v4': 2.2.0
+      '@smithy/signature-v4': 2.3.0
       '@smithy/types': 2.12.0
       '@smithy/util-middleware': 2.2.0
       tslib: 2.6.2
 
-  '@aws-sdk/middleware-ssec@3.535.0':
+  '@aws-sdk/middleware-ssec@3.537.0':
     dependencies:
       '@aws-sdk/types': 3.535.0
       '@smithy/types': 2.12.0
@@ -5255,10 +5242,10 @@ snapshots:
       '@smithy/types': 2.12.0
       tslib: 2.6.2
 
-  '@aws-sdk/middleware-user-agent@3.535.0':
+  '@aws-sdk/middleware-user-agent@3.540.0':
     dependencies:
       '@aws-sdk/types': 3.535.0
-      '@aws-sdk/util-endpoints': 3.535.0
+      '@aws-sdk/util-endpoints': 3.540.0
       '@smithy/protocol-http': 3.3.0
       '@smithy/types': 2.12.0
       tslib: 2.6.2
@@ -5280,12 +5267,12 @@ snapshots:
       '@smithy/util-middleware': 2.2.0
       tslib: 2.6.2
 
-  '@aws-sdk/signature-v4-multi-region@3.535.0':
+  '@aws-sdk/signature-v4-multi-region@3.552.0':
     dependencies:
-      '@aws-sdk/middleware-sdk-s3': 3.535.0
+      '@aws-sdk/middleware-sdk-s3': 3.552.0
       '@aws-sdk/types': 3.535.0
       '@smithy/protocol-http': 3.3.0
-      '@smithy/signature-v4': 2.2.0
+      '@smithy/signature-v4': 2.3.0
       '@smithy/types': 2.12.0
       tslib: 2.6.2
 
@@ -5306,8 +5293,8 @@ snapshots:
       '@smithy/hash-node': 2.2.0
       '@smithy/invalid-dependency': 2.2.0
       '@smithy/middleware-content-length': 2.2.0
-      '@smithy/middleware-endpoint': 2.5.0
-      '@smithy/middleware-retry': 2.2.0
+      '@smithy/middleware-endpoint': 2.5.1
+      '@smithy/middleware-retry': 2.3.1
       '@smithy/middleware-serde': 2.3.0
       '@smithy/middleware-stack': 2.2.0
       '@smithy/node-config-provider': 2.3.0
@@ -5315,23 +5302,23 @@ snapshots:
       '@smithy/property-provider': 2.2.0
       '@smithy/protocol-http': 3.3.0
       '@smithy/shared-ini-file-loader': 2.4.0
-      '@smithy/smithy-client': 2.5.0
+      '@smithy/smithy-client': 2.5.1
       '@smithy/types': 2.12.0
       '@smithy/url-parser': 2.2.0
       '@smithy/util-base64': 2.3.0
       '@smithy/util-body-length-browser': 2.2.0
       '@smithy/util-body-length-node': 2.3.0
-      '@smithy/util-defaults-mode-browser': 2.2.0
-      '@smithy/util-defaults-mode-node': 2.3.0
+      '@smithy/util-defaults-mode-browser': 2.2.1
+      '@smithy/util-defaults-mode-node': 2.3.1
       '@smithy/util-retry': 2.2.0
       '@smithy/util-utf8': 2.3.0
       tslib: 2.6.2
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/token-providers@3.535.0(@aws-sdk/credential-provider-node@3.535.0)':
+  '@aws-sdk/token-providers@3.554.0(@aws-sdk/credential-provider-node@3.554.0)':
     dependencies:
-      '@aws-sdk/client-sso-oidc': 3.535.0(@aws-sdk/credential-provider-node@3.535.0)
+      '@aws-sdk/client-sso-oidc': 3.554.0(@aws-sdk/credential-provider-node@3.554.0)
       '@aws-sdk/types': 3.535.0
       '@smithy/property-provider': 2.2.0
       '@smithy/shared-ini-file-loader': 2.4.0
@@ -5360,7 +5347,7 @@ snapshots:
       '@aws-sdk/types': 3.413.0
       tslib: 2.6.2
 
-  '@aws-sdk/util-endpoints@3.535.0':
+  '@aws-sdk/util-endpoints@3.540.0':
     dependencies:
       '@aws-sdk/types': 3.535.0
       '@smithy/types': 2.12.0
@@ -6128,13 +6115,13 @@ snapshots:
       '@smithy/util-middleware': 2.2.0
       tslib: 2.6.2
 
-  '@smithy/core@1.4.0':
+  '@smithy/core@1.4.2':
     dependencies:
-      '@smithy/middleware-endpoint': 2.5.0
-      '@smithy/middleware-retry': 2.2.0
+      '@smithy/middleware-endpoint': 2.5.1
+      '@smithy/middleware-retry': 2.3.1
       '@smithy/middleware-serde': 2.3.0
       '@smithy/protocol-http': 3.3.0
-      '@smithy/smithy-client': 2.5.0
+      '@smithy/smithy-client': 2.5.1
       '@smithy/types': 2.12.0
       '@smithy/util-middleware': 2.2.0
       tslib: 2.6.2
@@ -6226,7 +6213,7 @@ snapshots:
       '@smithy/types': 2.12.0
       tslib: 2.6.2
 
-  '@smithy/middleware-endpoint@2.5.0':
+  '@smithy/middleware-endpoint@2.5.1':
     dependencies:
       '@smithy/middleware-serde': 2.3.0
       '@smithy/node-config-provider': 2.3.0
@@ -6236,17 +6223,17 @@ snapshots:
       '@smithy/util-middleware': 2.2.0
       tslib: 2.6.2
 
-  '@smithy/middleware-retry@2.2.0':
+  '@smithy/middleware-retry@2.3.1':
     dependencies:
       '@smithy/node-config-provider': 2.3.0
       '@smithy/protocol-http': 3.3.0
       '@smithy/service-error-classification': 2.1.5
-      '@smithy/smithy-client': 2.5.0
+      '@smithy/smithy-client': 2.5.1
       '@smithy/types': 2.12.0
       '@smithy/util-middleware': 2.2.0
       '@smithy/util-retry': 2.2.0
       tslib: 2.6.2
-      uuid: 8.3.2
+      uuid: 9.0.1
 
   '@smithy/middleware-serde@2.3.0':
     dependencies:
@@ -6303,9 +6290,8 @@ snapshots:
       '@smithy/types': 2.12.0
       tslib: 2.6.2
 
-  '@smithy/signature-v4@2.2.0':
+  '@smithy/signature-v4@2.3.0':
     dependencies:
-      '@smithy/eventstream-codec': 2.2.0
       '@smithy/is-array-buffer': 2.2.0
       '@smithy/types': 2.12.0
       '@smithy/util-hex-encoding': 2.2.0
@@ -6314,9 +6300,9 @@ snapshots:
       '@smithy/util-utf8': 2.3.0
       tslib: 2.6.2
 
-  '@smithy/smithy-client@2.5.0':
+  '@smithy/smithy-client@2.5.1':
     dependencies:
-      '@smithy/middleware-endpoint': 2.5.0
+      '@smithy/middleware-endpoint': 2.5.1
       '@smithy/middleware-stack': 2.2.0
       '@smithy/protocol-http': 3.3.0
       '@smithy/types': 2.12.0
@@ -6356,21 +6342,21 @@ snapshots:
     dependencies:
       tslib: 2.6.2
 
-  '@smithy/util-defaults-mode-browser@2.2.0':
+  '@smithy/util-defaults-mode-browser@2.2.1':
     dependencies:
       '@smithy/property-provider': 2.2.0
-      '@smithy/smithy-client': 2.5.0
+      '@smithy/smithy-client': 2.5.1
       '@smithy/types': 2.12.0
       bowser: 2.11.0
       tslib: 2.6.2
 
-  '@smithy/util-defaults-mode-node@2.3.0':
+  '@smithy/util-defaults-mode-node@2.3.1':
     dependencies:
       '@smithy/config-resolver': 2.2.0
       '@smithy/credential-provider-imds': 2.3.0
       '@smithy/node-config-provider': 2.3.0
       '@smithy/property-provider': 2.2.0
-      '@smithy/smithy-client': 2.5.0
+      '@smithy/smithy-client': 2.5.1
       '@smithy/types': 2.12.0
       tslib: 2.6.2
 
@@ -6440,7 +6426,7 @@ snapshots:
   '@tufjs/models@1.0.4':
     dependencies:
       '@tufjs/canonical-json': 1.0.0
-      minimatch: 9.0.3
+      minimatch: 9.0.4
 
   '@types/babel__core@7.20.5':
     dependencies:
@@ -8579,6 +8565,10 @@ snapshots:
     dependencies:
       brace-expansion: 2.0.1
 
+  minimatch@9.0.4:
+    dependencies:
+      brace-expansion: 2.0.1
+
   minimist@1.2.8: {}
 
   minipass-collect@1.0.2:
@@ -9699,6 +9689,8 @@ snapshots:
   util-deprecate@1.0.2: {}
 
   uuid@8.3.2: {}
+
+  uuid@9.0.1: {}
 
   v8-compile-cache-lib@3.0.1: {}
 
