@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@amazon-codecatalyst/blueprint-util.projen-blueprint": "0.3.92",
-    "@amazon-codecatalyst/blueprints": "0.3.92",
+    "@amazon-codecatalyst/blueprints": "0.3.98",
     "@aws/pdk": "0.23.29",
     "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^6",
