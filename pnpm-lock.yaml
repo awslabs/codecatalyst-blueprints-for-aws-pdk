@@ -30,8 +30,8 @@ importers:
         specifier: 0.3.104
         version: 0.3.104(projen@0.79.27(constructs@10.3.0))
       '@aws/pdk':
-        specifier: 0.23.32
-        version: 0.23.32(@aws-cdk/aws-cognito-identitypool-alpha@2.133.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.79.27(constructs@10.3.0))
+        specifier: 0.23.33
+        version: 0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.133.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.79.27(constructs@10.3.0))
       '@types/node':
         specifier: ^18
         version: 18.19.24
@@ -96,8 +96,8 @@ importers:
         specifier: 0.3.104
         version: 0.3.104(projen@0.81.0(constructs@10.3.0))
       '@aws/pdk':
-        specifier: 0.23.32
-        version: 0.23.32(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
+        specifier: 0.23.33
+        version: 0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
       projen:
         specifier: 0.81.0
         version: 0.81.0(constructs@10.3.0)
@@ -151,8 +151,8 @@ importers:
         specifier: 0.3.104
         version: 0.3.104(projen@0.81.0(constructs@10.3.0))
       '@aws/pdk':
-        specifier: 0.23.32
-        version: 0.23.32(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
+        specifier: 0.23.33
+        version: 0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
       projen:
         specifier: 0.81.0
         version: 0.81.0(constructs@10.3.0)
@@ -206,8 +206,8 @@ importers:
         specifier: 0.3.104
         version: 0.3.104(projen@0.81.0(constructs@10.3.0))
       '@aws/pdk':
-        specifier: 0.23.32
-        version: 0.23.32(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
+        specifier: 0.23.33
+        version: 0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
       projen:
         specifier: 0.81.0
         version: 0.81.0(constructs@10.3.0)
@@ -261,8 +261,8 @@ importers:
         specifier: 0.3.104
         version: 0.3.104(projen@0.81.0(constructs@10.3.0))
       '@aws/pdk':
-        specifier: 0.23.32
-        version: 0.23.32(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
+        specifier: 0.23.33
+        version: 0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
       projen:
         specifier: 0.81.0
         version: 0.81.0(constructs@10.3.0)
@@ -380,8 +380,8 @@ importers:
         specifier: 0.3.104
         version: 0.3.104(projen@0.81.0(constructs@10.3.0))
       '@aws/pdk':
-        specifier: 0.23.32
-        version: 0.23.32(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
+        specifier: 0.23.33
+        version: 0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
       projen:
         specifier: 0.81.0
         version: 0.81.0(constructs@10.3.0)
@@ -429,8 +429,8 @@ importers:
         specifier: 0.3.104
         version: 0.3.104(projen@0.81.0(constructs@10.3.0))
       '@aws/pdk':
-        specifier: 0.23.32
-        version: 0.23.32(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
+        specifier: 0.23.33
+        version: 0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))
       glob:
         specifier: 10.3.12
         version: 10.3.12
@@ -803,8 +803,8 @@ packages:
     peerDependencies:
       projen: ^0.71.112
 
-  '@aws/pdk@0.23.32':
-    resolution: {integrity: sha512-QqLQfHEtdsixGantLVKmb72Iw3F9Yy+2qrLA6Qp/AzBeuyBkicEL1mVs68x/QQqeXpK7PGGyKA/dT7YtdlJzzg==}
+  '@aws/pdk@0.23.33':
+    resolution: {integrity: sha512-/o7bEbES1t7Y8skDBGBxafOlQ/izRxT5IGJfpi3tT9BRgJTIGJRd1ze0WS/BhCsUd/J6/aTsFW6MfDG9XFlWqA==}
     hasBin: true
     peerDependencies:
       '@aws-cdk/aws-cognito-identitypool-alpha': ^2.104.0-alpha.0
@@ -5422,7 +5422,7 @@ snapshots:
       jsonschema: 1.4.1
       projen: 0.81.0(constructs@10.3.0)
 
-  '@aws/pdk@0.23.32(@aws-cdk/aws-cognito-identitypool-alpha@2.133.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.79.27(constructs@10.3.0))':
+  '@aws/pdk@0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.133.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.79.27(constructs@10.3.0))':
     dependencies:
       '@aws-cdk/aws-cognito-identitypool-alpha': 2.133.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0)
       aws-cdk-lib: 2.137.0(constructs@10.3.0)
@@ -5430,7 +5430,7 @@ snapshots:
       constructs: 10.3.0
       projen: 0.79.27(constructs@10.3.0)
 
-  '@aws/pdk@0.23.32(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))':
+  '@aws/pdk@0.23.33(@aws-cdk/aws-cognito-identitypool-alpha@2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(aws-cdk-lib@2.137.0(constructs@10.3.0))(cdk-nag@2.28.91(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0))(constructs@10.3.0)(projen@0.81.0(constructs@10.3.0))':
     dependencies:
       '@aws-cdk/aws-cognito-identitypool-alpha': 2.137.0-alpha.0(aws-cdk-lib@2.137.0(constructs@10.3.0))(constructs@10.3.0)
       aws-cdk-lib: 2.137.0(constructs@10.3.0)

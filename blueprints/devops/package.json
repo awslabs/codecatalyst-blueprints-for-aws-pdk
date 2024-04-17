@@ -48,7 +48,7 @@
     "@amazon-codecatalyst/blueprint-util.cli": "0.3.104",
     "@amazon-codecatalyst/blueprints": "0.3.104",
     "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth": "0.0.0",
-    "@aws/pdk": "0.23.32",
+    "@aws/pdk": "0.23.33",
     "projen": "0.81.0"
   },
   "keywords": [
