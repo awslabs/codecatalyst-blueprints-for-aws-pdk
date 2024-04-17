@@ -328,7 +328,7 @@ export class PDKSynth extends Component {
       case NodePackageManager.NPM:
         return 'npm config set ignore-scripts true && npx -y npm@9.6.7 install --legacy-peer-deps --package-lock-only';
       case NodePackageManager.PNPM:
-        return 'npx -y pnpm i --lockfile-only --ignore-scripts';
+        return 'npx -y pnpm config set link-workspace-packages true && npx -y pnpm i --lockfile-only --ignore-scripts';
       case NodePackageManager.BUN:
         return 'npx -y bun install --ignore-scripts && rm -rf node_modules **/node_modules';
       default:
