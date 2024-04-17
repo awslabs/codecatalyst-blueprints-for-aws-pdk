@@ -85,13 +85,13 @@ export function addBuildAction(
         };
       }),
     },
-    Caching: {
-      FileCaching: {
-        buildNxcache: {
-          Path: "node_modules/.cache/nx",
-        },
-      },
-    },
+    // Caching: {
+    //   FileCaching: {
+    //     buildNxcache: {
+    //       Path: "node_modules/.cache/nx",
+    //     },
+    //   },
+    // },
   });
 }
 
@@ -164,13 +164,13 @@ export function addLicenseCheckerAction(
         return { Run: step };
       }),
     },
-    Caching: {
-      FileCaching: {
-        licenseCheckerNxcache: {
-          Path: "node_modules/.cache/nx",
-        },
-      },
-    },
+    // Caching: {
+    //   FileCaching: {
+    //     licenseCheckerNxcache: {
+    //       Path: "node_modules/.cache/nx",
+    //     },
+    //   },
+    // },
   });
 }
 
