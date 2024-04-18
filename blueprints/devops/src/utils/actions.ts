@@ -154,12 +154,11 @@ export function addLicenseCheckerAction(
     Configuration: {
       ...PDK_IMAGE,
       Steps: [
-        "ln -s /root/.pyenv/shims/pip3 /usr/local/bin/pip2",
         "CWD=`pwd` PROJECT_DIRS=`find . -type f \\( -name pnpm-lock.yaml -o -name pyproject.toml -o -name pom.xml \\) -exec bash -c 'echo $(dirname $0)' {} \\; | sort | uniq`",
-        "find . -name pyproject.toml -exec bash -c 'cd $(dirname $0) && poetry export --without-hashes --with dev -f requirements.txt | grep -v \"file:\" > requirements.txt' {} \\;",
+        "find . -name pyproject.toml -exec bash -c 'cd $(dirname $0) && poetry export --without-hashes --with dev -f requirements.txt | grep -v \"file:\" > requirements.txt && pip3 install -r requirements.txt' {} \\;",
         "npx projen install:ci",
         "npx projen build",
-        "for DIR in $PROJECT_DIRS;\ndo\n  cd $CWD/$DIR\n  license_finder --decisions_file $CWD/approved-licenses.yaml -p\ndone",
+        "for DIR in $PROJECT_DIRS;\ndo\n  cd $CWD/$DIR\n  pwd;\n  license_finder --decisions_file $CWD/approved-licenses.yaml\ndone",
       ].map((step) => {
         return { Run: step };
       }),
