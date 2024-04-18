@@ -1,4 +1,4 @@
-# CodeCatalyst Blueprints for AWS-PDK 
+# CodeCatalyst Blueprints for AWS-PDK
 
 This repository contains PDK based CodeCatalyst Blueprints.
 
