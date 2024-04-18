@@ -154,7 +154,7 @@ export function addLicenseCheckerAction(
     Configuration: {
       ...PDK_IMAGE,
       Steps: [
-        "pip3.11 install --upgrade pip && ln -s /usr/bin/pip3.11 /usr/bin/pip2",
+        "ln -s /root/.pyenv/shims/pip3 /usr/local/bin/pip2",
         "CWD=`pwd` PROJECT_DIRS=`find . -type f \\( -name pnpm-lock.yaml -o -name pyproject.toml -o -name pom.xml \\) -exec bash -c 'echo $(dirname $0)' {} \\; | sort | uniq`",
         "find . -name pyproject.toml -exec bash -c 'cd $(dirname $0) && poetry export --without-hashes --with dev -f requirements.txt | grep -v \"file:\" > requirements.txt' {} \\;",
         "npx projen install:ci",
