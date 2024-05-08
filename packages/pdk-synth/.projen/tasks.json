@@ -122,7 +122,7 @@
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @types/glob @types/jest @types/mustache @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit ts-jest typescript @amazon-codecatalyst/blueprints @aws/pdk glob mustache projen"
+          "exec": "pnpm update @types/glob @types/jest @types/mustache @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit projen ts-jest typescript @amazon-codecatalyst/blueprints @aws/pdk glob mustache"
         },
         {
           "exec": "npx projen"
