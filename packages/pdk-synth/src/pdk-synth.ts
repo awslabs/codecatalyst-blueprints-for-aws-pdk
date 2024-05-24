@@ -326,7 +326,8 @@ export class PDKSynth extends Component {
       case NodePackageManager.YARN_BERRY:
         return 'YARN_IGNORE_NODE=1 YARN_ENABLE_SCRIPTS=false npx -y yarn install --mode update-lockfile';
       case NodePackageManager.NPM:
-        return 'npm config set ignore-scripts true && npx -y npm@9.6.7 install --legacy-peer-deps --package-lock-only';
+        // Need to install twice due to https://github.com/npm/cli/issues/6787
+        return 'npm config set ignore-scripts true && npx -y npm@9.6.7 install --package-lock-only && npx -y npm@9.6.7 install --package-lock-only';
       case NodePackageManager.PNPM:
         return 'npx -y pnpm config set link-workspace-packages true && npx -y pnpm@8 i --lockfile-only --ignore-scripts';
       case NodePackageManager.BUN:
