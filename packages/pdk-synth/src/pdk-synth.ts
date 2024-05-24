@@ -27,7 +27,7 @@ import {
 import * as Mustache from 'mustache';
 
 import { Component, Project, SampleReadme } from 'projen';
-import { NodePackageManager, YarnNodeLinker } from 'projen/lib/javascript';
+import { NodePackageManager, NpmConfig, YarnNodeLinker } from 'projen/lib/javascript';
 import { projenrcMap } from './projen-template';
 
 const INFRA_OUTDIR = 'packages/infra/main';
@@ -286,6 +286,11 @@ export class PDKSynth extends Component {
       projenrcTs: true,
     });
 
+    if (this.getPackageManager() === NodePackageManager.NPM) {
+      const config: NpmConfig = monorepo.components.find((c) => c instanceof NpmConfig) as NpmConfig | undefined ?? new NpmConfig(monorepo);
+      config.addConfig('legacy-peer-deps', 'true');
+    }
+
     const apis = this.createTypeSafeApiProjects(monorepo);
     const websites = this.createCloudscapeReactTsWebsiteProjects(monorepo, apis);
     this.createInfrastructureProject(monorepo, { websites, apis });
@@ -327,7 +332,7 @@ export class PDKSynth extends Component {
         return 'YARN_IGNORE_NODE=1 YARN_ENABLE_SCRIPTS=false npx -y yarn install --mode update-lockfile';
       case NodePackageManager.NPM:
         // Need to install twice due to https://github.com/npm/cli/issues/6787
-        return 'npm config set ignore-scripts true && npx -y npm@9.6.7 install --package-lock-only && npx -y npm@9.6.7 install --package-lock-only';
+        return 'npm config set ignore-scripts true && npx -y npm@9.6.7 install --package-lock-only --legacy-peer-deps && npx -y npm@9.6.7 install --package-lock-only --legacy-peer-deps';
       case NodePackageManager.PNPM:
         return 'npx -y pnpm config set link-workspace-packages true && npx -y pnpm@8 i --lockfile-only --ignore-scripts';
       case NodePackageManager.BUN:
