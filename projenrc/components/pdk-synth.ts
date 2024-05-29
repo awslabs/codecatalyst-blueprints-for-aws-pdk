@@ -3,7 +3,7 @@ SPDX-License-Identifier: Apache-2.0 */
 import { MonorepoTsProject } from "@aws/pdk/monorepo";
 import { NodePackageManager } from "projen/lib/javascript";
 import { TypeScriptProject } from "projen/lib/typescript";
-import { PACKAGE_PREFIX } from "../abstract/pdk-blueprint";
+import { PACKAGE_PREFIX } from "../abstract/pdk-blueprint-base";
 
 export class PDKSynth extends TypeScriptProject {
   constructor(parent: MonorepoTsProject) {

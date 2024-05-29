@@ -1,7 +1,7 @@
 /*! Copyright [Amazon.com](http://amazon.com/), Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: Apache-2.0 */
 import { MonorepoTsProject } from "@aws/pdk/monorepo";
-import { PDKBlueprint } from "../abstract/pdk-blueprint";
+import { PDKBlueprintBase } from "../abstract/pdk-blueprint-base";
 
 const DEVOPS_PACKAGE =
   "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-devops";
@@ -14,7 +14,7 @@ const WEBSITE_PACKAGE =
 const INFRA_PACKAGE =
   "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra";
 
-export class TestPDKBlueprints extends PDKBlueprint {
+export class TestPDKBlueprints extends PDKBlueprintBase {
   constructor(parent: MonorepoTsProject) {
     super(parent, {
       packageName: "test-pdk-blueprints",

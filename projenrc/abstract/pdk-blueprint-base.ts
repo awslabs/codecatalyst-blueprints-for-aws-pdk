@@ -34,7 +34,7 @@ export interface PDKBlueprintProps extends Partial<ProjenBlueprintOptions> {
 /**
  * Base class all PDK Blueprints should extend from.
  */
-export abstract class PDKBlueprint extends ProjenBlueprint {
+export abstract class PDKBlueprintBase extends ProjenBlueprint {
   constructor(parent: MonorepoTsProject, props: PDKBlueprintProps) {
     super({
       ...props,

@@ -1,0 +1,57 @@
+{
+  "monorepoConfig": {
+    "primaryLanguage": "TypeScript",
+    "parameters": [
+        {
+            "key": "PackageManager",
+            "value": "PNPM",
+            "displayType": "dropdown",
+            "possibleValues": [
+                "PNPM",
+                "YARN",
+                "NPM",
+                "BUN"
+            ],
+            "displayName": "Package Manager",
+            "description": "Select Package Manager"
+        }],
+    "sourceRepositoryName": "monorepo"
+  },
+  "componentConfig": {
+    "typeSafeApis": [],
+    "cloudscapeReactTsWebsites": []
+  },
+  "infra": {
+    "language": "TypeScript",
+    "stackName": "infra-beta-",
+    "infraParameters": []
+  },
+  "beta": {
+    "bootstrapCDK": true,
+    "environment": {
+        "name": "Beta",
+        "environmentType": "DEVELOPMENT"
+    },
+    "region": "us-west-2"
+  },
+  "apiConfig": {
+    "parameters": [
+        {
+            "key": "NoApis",
+            "value": "No APIs configured",
+            "displayType": "label",
+            "displayName": "No APIs configured"
+        }
+    ]
+  },
+  "websiteConfig": {
+    "parameters": [
+        {
+            "key": "NoWebsite",
+            "value": "No Websites configured",
+            "displayType": "label",
+            "displayName": "No Websites configured"
+        }
+    ]
+  }
+}

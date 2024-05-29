@@ -4,14 +4,14 @@ import { MonorepoTsProject } from "@aws/pdk/monorepo";
 import { PDKBlueprintBase } from "../abstract/pdk-blueprint-base";
 import { PDKSynth } from "../components/pdk-synth";
 
-export class InfraBlueprint extends PDKBlueprintBase {
+export class PDKBlueprint extends PDKBlueprintBase {
   constructor(parent: MonorepoTsProject, synth: PDKSynth) {
     super(parent, {
-      packageName: "infra",
-      displayName: "PDK - Infrastructure",
+      packageName: "pdk",
+      displayName: "Project Devlopment Kit (PDK)",
       description:
-        "This blueprint creates a CDK infrastructure package using constructs found in the AWS Project Development Kit (AWS PDK).",
-      keywords: ["pdk", "devops", "cdk"],
+        "This blueprint sets up and application using composable constructs found within the AWS Project Development Kit (AWS PDK).",
+      keywords: ["pdk"],
     });
 
     this.addDeps("@aws/pdk", synth.package.packageName);

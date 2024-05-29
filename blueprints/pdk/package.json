@@ -1,6 +1,6 @@
 {
-  "name": "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-devops",
-  "description": "This blueprint creates DevOps workflows compatible with constructs found in the AWS Project Development Kit (AWS PDK).",
+  "name": "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-pdk",
+  "description": "This blueprint sets up and application using composable constructs found within the AWS Project Development Kit (AWS PDK).",
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",
@@ -52,16 +52,14 @@
     "projen": "0.81.16"
   },
   "keywords": [
-    "devops",
-    "pdk",
-    "release"
+    "pdk"
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "version": "0.0.154",
+  "version": "0.0.13",
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
-  "displayName": "PDK - DevOps",
+  "displayName": "Project Devlopment Kit (PDK)",
   "files": [
     "static-assets",
     "lib"

@@ -1,10 +1,10 @@
 /*! Copyright [Amazon.com](http://amazon.com/), Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: Apache-2.0 */
 import { MonorepoTsProject } from "@aws/pdk/monorepo";
-import { PDKBlueprint } from "../abstract/pdk-blueprint";
+import { PDKBlueprintBase } from "../abstract/pdk-blueprint-base";
 import { PDKSynth } from "../components/pdk-synth";
 
-export class CloudscapeReactWebsiteBlueprint extends PDKBlueprint {
+export class CloudscapeReactWebsiteBlueprint extends PDKBlueprintBase {
   constructor(parent: MonorepoTsProject, synth: PDKSynth) {
     super(parent, {
       packageName: "cloudscape-react-website",
