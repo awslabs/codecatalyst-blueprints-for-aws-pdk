@@ -249,3 +249,25 @@ export function addCdkDeployAction(
 
   return actionName;
 }
+
+export function addManualApprovalAction(
+  workflow: WorkflowDefinition,
+  environment: EnvironmentDefinition<{
+    accountConnection: AccountConnection<{ deployRole: Role<["CDK Deploy"]> }>;
+  }>,
+  region: string,
+  approvalsRequired: number,
+  dependsOn: string[],
+  environmentId: string | undefined
+): string {
+  const actionName = `ManualApproval-${environment.name}-${region}`;
+  addGenericAction(workflow, actionName, {
+    Identifier: getDefaultActionIdentifier("aws/approval@v1", environmentId),
+    DependsOn: dependsOn,
+    Configuration: {
+      ApprovalsRequired: approvalsRequired,
+    },
+  });
+
+  return actionName;
+}

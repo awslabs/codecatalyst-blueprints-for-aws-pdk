@@ -20,6 +20,7 @@ import {
   addCdkBootstrapAction,
   addCdkDeployAction,
   addLicenseCheckerAction,
+  addManualApprovalAction,
   addTrivyAction,
 } from "./utils/actions";
 
@@ -29,6 +30,8 @@ export interface DeploymentStage {
   readonly region: string;
 
   readonly bootstrapCDK: boolean;
+
+  readonly requiredApprovals?: number;
 
   readonly stackName: string;
 
@@ -114,6 +117,19 @@ export class Workflow extends Component {
 
     let lastDeployAction: string;
     this.options.deploymentStages?.forEach((stage) => {
+      if (stage.requiredApprovals && stage.requiredApprovals > 0) {
+        lastDeployAction = addManualApprovalAction(
+          releaseWorkflow,
+          stage.environment,
+          stage.region,
+          stage.requiredApprovals,
+          lastDeployAction
+            ? [lastDeployAction]
+            : ["Build", "Trivy", "LicenseChecker"],
+          this.blueprint.context.environmentId
+        );
+      }
+
       const bootstrap = stage.bootstrapCDK
         ? addCdkBootstrapAction(
             releaseWorkflow,

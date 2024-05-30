@@ -353,7 +353,8 @@ export class PDKSynth extends Component {
           name: 'infra',
           cloudscapeReactTsWebsites: props.websites?.filter(w => (this.options.infra?.cloudscapeReactTsWebsites || [])
             .find(v => v.toLowerCase() === w.name.toLowerCase())),
-          typeSafeApis: props.apis?.filter(w => (this.options.infra?.typeSafeApis || []).find(v => v.toLowerCase() === w.name.toLowerCase())),
+          typeSafeApis: props.apis?.filter(w => (this.options.infra?.typeSafeApis || [])
+            .find(v => v.toLowerCase() === w.model.apiName?.toLowerCase())),
           stackName: this.options.infra?.stackName,
         });
         break;
@@ -364,7 +365,8 @@ export class PDKSynth extends Component {
           name: 'infra',
           cloudscapeReactTsWebsites: props.websites?.filter(w => (this.options.infra?.cloudscapeReactTsWebsites || [])
             .find(v => v.toLowerCase() === w.name.toLowerCase())),
-          typeSafeApis: props.apis?.filter(w => (this.options.infra?.typeSafeApis || []).find(v => v.toLowerCase() === w.name.toLowerCase())),
+          typeSafeApis: props.apis?.filter(w => (this.options.infra?.typeSafeApis || [])
+            .find(v => v.toLowerCase() === w.model.apiName?.toLowerCase())),
           stackName: this.options.infra?.stackName,
         });
         break;
@@ -375,7 +377,8 @@ export class PDKSynth extends Component {
           name: 'infra',
           cloudscapeReactTsWebsites: props.websites?.filter(w => (this.options.infra?.cloudscapeReactTsWebsites || [])
             .find(v => v.toLowerCase() === w.name.toLowerCase())),
-          typeSafeApis: props.apis?.filter(w => (this.options.infra?.typeSafeApis || []).find(v => v.toLowerCase() === w.name.toLowerCase())),
+          typeSafeApis: props.apis?.filter(w => (this.options.infra?.typeSafeApis || [])
+            .find(v => v.toLowerCase() === w.model.apiName?.toLowerCase())),
           stackName: this.options.infra?.stackName,
         });
         break;

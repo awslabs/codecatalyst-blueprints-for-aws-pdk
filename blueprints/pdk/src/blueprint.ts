@@ -116,12 +116,6 @@ export interface Options extends ParentOptions {
    */
   beta: {
     /**
-     * Select to bootstrap CDK in the AWS environment.
-     * @displayName Bootstrap CDK
-     */
-    bootstrapCDK: boolean;
-
-    /**
      * @displayName Configuration
      */
     environment: EnvironmentDefinition<{
@@ -143,6 +137,20 @@ export interface Options extends ParentOptions {
      * @displayName Region
      */
     region: Region<["*"]>;
+
+    /**
+     * Add number of required approvals for this stage.
+     * @displayName Required Approvals
+     * @validationRegex /^([0-2])$/
+     * @validationMessage Enter a number between 0 and 2 (inclusive).
+     */
+    requiredApprovals?: number;
+
+    /**
+     * Select to bootstrap CDK in the AWS environment.
+     * @displayName Bootstrap CDK
+     */
+    bootstrapCDK: boolean;
   };
 }
 
@@ -413,6 +421,7 @@ export class Blueprint extends ParentBlueprint {
       sourceRepository: this.sourceRepository,
       deploymentStages: [
         {
+          requiredApprovals: Number(this.options.beta.requiredApprovals),
           bootstrapCDK: this.options.beta.bootstrapCDK,
           region: this.options.beta.region.toString(),
           environment: this.options.beta.environment,
@@ -498,7 +507,7 @@ export class Blueprint extends ParentBlueprint {
     new Issue(this, "MissingLockFile", {
       title: "Missing Lock File",
       content:
-        'The generated project does not have lockfiles automatically generated. To resolve this, either create a new dev environment or clone this project locally and run the following from the root directory of this project:\n\n`npx projen install`\n`git add -A`\n`git commit -m "fix: add lockfile"`\n`git push`\n\nThis will trigger your CI pipeline to execute which should result in a successful deployment which will resolve this ticket.',
+        'The generated project does not have lockfiles automatically generated. To resolve this, either create a new dev environment or clone this project locally and run the following from the root directory of this project:\n\n```\nnpx projen install\ngit add -A\ngit commit -m "fix: add lockfile"\ngit push\n```\n\nThis will trigger your CI pipeline to execute which should result in a successful deployment after whichyou can resolve this ticket.',
       priority: "HIGH",
       labels: ["CI", "Build"],
     });
