@@ -135,7 +135,11 @@ export class Workflow extends Component {
         {
           environmentName: `${stage.environment.name}-${stage.region}`,
         },
-        bootstrap ? [bootstrap] : lastDeployAction ? [lastDeployAction] : [],
+        bootstrap
+          ? [bootstrap]
+          : lastDeployAction
+          ? [lastDeployAction]
+          : ["Build", "Trivy", "LicenseChecker"],
         this.blueprint.context.environmentId
       );
     });

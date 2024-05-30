@@ -17,9 +17,27 @@
         }],
     "sourceRepositoryName": "monorepo"
   },
-  "componentConfig": {
+  "apiConfig": {
     "typeSafeApis": [],
-    "cloudscapeReactTsWebsites": []
+    "parameters": [
+        {
+            "key": "NoApis",
+            "value": " ",
+            "displayType": "label",
+            "displayName": " "
+        }
+    ]
+  },
+  "websiteConfig": {
+    "cloudscapeReactTsWebsites": [],
+    "parameters": [
+        {
+            "key": "NoWebsite",
+            "value": " ",
+            "displayType": "label",
+            "displayName": " "
+        }
+    ]
   },
   "infra": {
     "language": "TypeScript",
@@ -33,25 +51,5 @@
         "environmentType": "DEVELOPMENT"
     },
     "region": "us-west-2"
-  },
-  "apiConfig": {
-    "parameters": [
-        {
-            "key": "NoApis",
-            "value": "No APIs configured",
-            "displayType": "label",
-            "displayName": "No APIs configured"
-        }
-    ]
-  },
-  "websiteConfig": {
-    "parameters": [
-        {
-            "key": "NoWebsite",
-            "value": "No Websites configured",
-            "displayType": "label",
-            "displayName": "No Websites configured"
-        }
-    ]
   }
 }

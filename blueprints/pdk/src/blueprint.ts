@@ -10,6 +10,7 @@ import {
   Role,
   Selector,
   SourceFile,
+  Issue,
   SourceRepository,
   Workspace,
   KVSchema,
@@ -29,6 +30,9 @@ import { Workflow } from "./workflow";
  * 3. All required members of 'Options' must be defined in 'defaults.json' to synth your blueprint locally. They will become the defaults for the wizard.
  */
 export interface Options extends ParentOptions {
+  /**
+   * @displayName Monorepo
+   */
   monorepoConfig: {
     /**
      * Select the language you want to primarily develop with.
@@ -41,6 +45,7 @@ export interface Options extends ParentOptions {
 
     /**
      * Enter a name for a new repository or search for an existing repository.
+     *
      * @displayName Source Repository
      * @validationRegex /(?!.*\.git$)^[a-zA-Z0-9_.-]{3,100}$/
      * @validationMessage Must contain only alphanumeric characters, periods (.), underscores (_), dashes (-) and be between 3 and 100 characters in length. Cannot end in .git or contain spaces
@@ -48,28 +53,42 @@ export interface Options extends ParentOptions {
     sourceRepositoryName: Selector<SourceRepository | string>;
   };
 
-  componentConfig: {
+  /**
+   * @displayName Type Safe APIs
+   */
+  apiConfig: {
     /**
-     * Enter a name for your API.
+     * Add a new Type Safe API to your project by clicking the button below.
      *
-     * @displayName API name
+     * @displayName Type Safe APIs
+     * @placeholder Enter a name for your new API
      * @validationRegex /^[A-Z]\w{0,99}$/
      * @validationMessage API Names must conform to PascalCase and can only contain alphanumerical characters (with the exception of underscores).
      */
     typeSafeApis: string[];
 
-    /**
-     * Enter a name for your website.
-     *
-     * @displayName Website name
-     * @validationRegex /^.{0,100}$/
-     * @validationMessage Website names can be any string not exceeding 100 chars.
-     */
-    cloudscapeReactTsWebsites: string[];
+    parameters: OptionsSchemaDefinition<"apiConfig.parameters", KVSchema>;
   };
 
   /**
-   * @displayName Infrastructure
+   * @displayName Cloudscape React Websites
+   */
+  websiteConfig: {
+    /**
+     * Add a new Website to your project by clicking the button below.
+     *
+     * @displayName Cloudscape React Websites
+     * @validationRegex /^.{0,100}$/
+     * @placeholder Enter a name for your new Website
+     * @validationMessage Website names can be any string not exceeding 100 chars.
+     */
+    cloudscapeReactTsWebsites: string[];
+
+    parameters: OptionsSchemaDefinition<"websiteConfig.parameters", KVSchema>;
+  };
+
+  /**
+   * @displayName CDK Infrastructure
    */
   infra: {
     /**
@@ -125,20 +144,6 @@ export interface Options extends ParentOptions {
      */
     region: Region<["*"]>;
   };
-
-  /**
-   * @displayName Type Safe API Configuration
-   */
-  apiConfig: {
-    parameters: OptionsSchemaDefinition<"apiConfig.parameters", KVSchema>;
-  };
-
-  /**
-   * @displayName Cloudscape React Website Configuration
-   */
-  websiteConfig: {
-    parameters: OptionsSchemaDefinition<"websiteConfig.parameters", KVSchema>;
-  };
 }
 
 /**
@@ -164,86 +169,93 @@ export class Blueprint extends ParentBlueprint {
         }))
     );
 
-    new OptionsSchema(this, "infra.infraParameters", [
-      {
-        key: "TypeSafeApis",
-        value: [],
-        displayType: "dropdown",
-        multiselect: true,
-        possibleValues: options_.componentConfig.typeSafeApis,
-        displayName: "Type Safe APIs",
-        description: "List of Type Safe APIs",
-      },
-      {
-        key: "CloudscapeReactTSWebsites",
-        value: [],
-        displayType: "dropdown",
-        multiselect: true,
-        possibleValues: options_.componentConfig.cloudscapeReactTsWebsites,
-        displayName: "Cloudscape React Websites",
-        description: "List of Cloudscape React Websites",
-      },
-    ]);
-
     new OptionsSchema(
       this,
       "apiConfig.parameters",
-      options_.componentConfig.typeSafeApis.length > 0
-        ? options_.componentConfig.typeSafeApis
-            .map((tsApi, idx) => [
-              {
-                key: `API${idx}`,
-                value: tsApi,
-                displayType: "label",
-                displayName: tsApi,
-              },
-              {
-                key: `API${idx}_modelLanguage`,
-                value: "Smithy",
-                displayType: "dropdown",
-                possibleValues: ["Smithy", "OpenAPI"],
-                displayName: "Model Language",
-                description: "Select Model Language",
-              },
-              {
-                key: `API${idx}_namespace`,
-                value: "com.aws",
-                displayType: "string",
-                displayName: "Namespace",
-                description: "Select Namespace",
-                validationRegex: "/^[a-z]+(?:\\.[a-z]+)+$/",
-                validationMessage:
-                  "Namespaces must be lowercase alphabetical characters with a period '.' seperator i.e: com.aws",
-              },
-              {
-                key: `API${idx}_cdkLanguage`,
-                value: "TypeScript",
-                displayType: "dropdown",
-                possibleValues: ["TypeScript", "Java", "Python"],
-                displayName: "CDK Language",
-                description: "Enter CDK Language",
-              },
-              {
-                key: `API${idx}_handlerLanguages`,
-                value: ["TypeScript"],
-                displayType: "dropdown",
-                multiselect: true,
-                possibleValues: ["TypeScript", "Java", "Python"],
-                displayName: "Handler Language(s)",
-                description:
-                  "Select the language(s) you want to implement handlers for API operations in.",
-              },
-              {
-                key: `API${idx}_documentationFormats`,
-                value: ["HTML_REDOC"],
-                displayType: "dropdown",
-                multiselect: true,
-                possibleValues: ["HTML_REDOC", "HTML2", "MARKDOWN", "PLANTUML"],
-                displayName: "Documentation Format(s)",
-                description:
-                  "Select formats you prefer for generating API documentation.",
-              },
-            ])
+      options_.apiConfig.typeSafeApis.length > 0
+        ? options_.apiConfig.typeSafeApis
+            .map((tsApi, idx) => {
+              const apiInputs = options_.apiConfig
+                .parameters as DynamicKVInput[];
+              const startIdx = apiInputs.findIndex(
+                (v) => v.displayType === "label" && v.value === tsApi
+              );
+              const endIdx = apiInputs.findIndex(
+                (v, idx2) => v.displayType === "label" && idx2 > startIdx
+              );
+              const chunk: DynamicKVInput[] = apiInputs.slice(
+                startIdx + 1,
+                endIdx > 0 ? endIdx : undefined
+              );
+              return [
+                {
+                  key: `API${idx}`,
+                  value: tsApi,
+                  displayType: "label",
+                  displayName: tsApi,
+                },
+                {
+                  key: `API${idx}_modelLanguage`,
+                  value:
+                    (chunk.find((v) => v.key.endsWith("_modelLanguage"))
+                      ?.value as any) ?? "Smithy",
+                  displayType: "dropdown",
+                  possibleValues: ["Smithy", "OpenAPI"],
+                  displayName: "Model Language",
+                  description: "Select Model Language",
+                },
+                {
+                  key: `API${idx}_namespace`,
+                  value:
+                    (chunk.find((v) => v.key.endsWith("_namespace"))
+                      ?.value as any) ?? "com.aws",
+                  displayType: "string",
+                  displayName: "Namespace",
+                  description: "Select Namespace",
+                  validationRegex: "/^[a-z]+(?:\\.[a-z]+)+$/",
+                  validationMessage:
+                    "Namespaces must be lowercase alphabetical characters with a period '.' seperator i.e: com.aws",
+                },
+                // {
+                //   key: `API${idx}_cdkLanguage`,
+                //   value:
+                //     (chunk.find((v) => v.key.endsWith("_cdkLanguage"))
+                //       ?.value as any) ?? "TypeScript",
+                //   displayType: "dropdown",
+                //   possibleValues: ["TypeScript", "Java", "Python"],
+                //   displayName: "CDK Language",
+                //   description: "Enter CDK Language",
+                // },
+                {
+                  key: `API${idx}_handlerLanguages`,
+                  value: (chunk.find((v) => v.key.endsWith("_handlerLanguages"))
+                    ?.value as any) ?? ["TypeScript"],
+                  displayType: "dropdown",
+                  multiselect: true,
+                  possibleValues: ["TypeScript", "Java", "Python"],
+                  displayName: "Handler Language(s)",
+                  description:
+                    "Select the language(s) you want to implement handlers for API operations in.",
+                },
+                {
+                  key: `API${idx}_documentationFormats`,
+                  value: (chunk.find((v) =>
+                    v.key.endsWith("_documentationFormats")
+                  )?.value as any) ?? ["HTML_REDOC"],
+                  displayType: "dropdown",
+                  multiselect: true,
+                  possibleValues: [
+                    "HTML_REDOC",
+                    "HTML2",
+                    "MARKDOWN",
+                    "PLANTUML",
+                  ],
+                  displayName: "Documentation Format(s)",
+                  description:
+                    "Select formats you prefer for generating API documentation.",
+                },
+              ];
+            })
             .flat()
         : defaults.apiConfig.parameters
     );
@@ -251,28 +263,82 @@ export class Blueprint extends ParentBlueprint {
     new OptionsSchema(
       this,
       "websiteConfig.parameters",
-      options_.componentConfig.cloudscapeReactTsWebsites.length > 0
-        ? options_.componentConfig.cloudscapeReactTsWebsites
-            .map((website, idx) => [
-              {
-                key: `Website${idx}`,
-                value: website,
-                displayType: "label",
-                displayName: website,
-              },
-              {
-                key: `Website${idx}_typeSafeApis`,
-                value: [],
-                displayType: "dropdown",
-                multiselect: true,
-                possibleValues: options_.componentConfig.typeSafeApis,
-                displayName: "Type Safe APIs",
-                description: "List of Type Safe APIs",
-              },
-            ])
+      options_.websiteConfig.cloudscapeReactTsWebsites.length > 0
+        ? options_.websiteConfig.cloudscapeReactTsWebsites
+            .map((website, idx) => {
+              const websiteInputs = options_.websiteConfig
+                .parameters as DynamicKVInput[];
+              const startIdx = websiteInputs.findIndex(
+                (v) => v.displayType === "label" && v.value === website
+              );
+              const endIdx = websiteInputs.findIndex(
+                (v, idx2) => v.displayType === "label" && idx2 > startIdx
+              );
+              const chunk: DynamicKVInput[] = websiteInputs.slice(
+                startIdx + 1,
+                endIdx > 0 ? endIdx : undefined
+              );
+              return [
+                {
+                  key: `Website${idx}`,
+                  value: website,
+                  displayType: "label",
+                  displayName: website,
+                },
+                {
+                  key: `Website${idx}_typeSafeApis`,
+                  value: (
+                    (chunk.find((v) => v.key.endsWith("_typeSafeApis"))
+                      ?.value as string[]) ?? []
+                  ).filter((v) =>
+                    options_.apiConfig.typeSafeApis.find((v2) => v2 === v)
+                  ),
+                  displayType: "dropdown",
+                  multiselect: true,
+                  possibleValues: options_.apiConfig.typeSafeApis,
+                  displayName: "Type Safe APIs",
+                  description: "List of Type Safe APIs",
+                },
+              ];
+            })
             .flat()
         : defaults.websiteConfig.parameters
     );
+
+    new OptionsSchema(this, "infra.infraParameters", [
+      {
+        key: "TypeSafeApis",
+        value: (
+          ((options_.infra.infraParameters as DynamicKVInput[]).find(
+            (v) => v.key === "TypeSafeApis"
+          )?.value as string[]) ?? []
+        ).filter((v) => options_.apiConfig.typeSafeApis.find((v2) => v2 === v)),
+        displayType: "dropdown",
+        multiselect: true,
+        // hidden: generateAll,
+        possibleValues: options_.apiConfig.typeSafeApis,
+        displayName: "Type Safe APIs",
+        description: "List of Type Safe APIs",
+      },
+      {
+        key: "CloudscapeReactTSWebsites",
+        value: (
+          ((options_.infra.infraParameters as DynamicKVInput[]).find(
+            (v) => v.key === "CloudscapeReactTSWebsites"
+          )?.value as string[]) ?? []
+        ).filter((v) =>
+          options_.websiteConfig.cloudscapeReactTsWebsites.find(
+            (v2) => v2 === v
+          )
+        ),
+        displayType: "dropdown",
+        multiselect: true,
+        // hidden: generateAll,
+        possibleValues: options_.websiteConfig.cloudscapeReactTsWebsites,
+        displayName: "Cloudscape React Websites",
+        description: "List of Cloudscape React Websites",
+      },
+    ]);
 
     /**
      * This is a typecheck to ensure that the defaults passed in are of the correct type.
@@ -363,7 +429,7 @@ export class Blueprint extends ParentBlueprint {
           this.options.monorepoConfig.parameters as DynamicKVInput[]
         ).find((i) => i.key === "PackageManager")?.value as any,
       },
-      api: options_.componentConfig.typeSafeApis.map((tsApi) => {
+      api: options_.apiConfig.typeSafeApis.map((tsApi) => {
         const apiInputs = options_.apiConfig.parameters as DynamicKVInput[];
         const startIdx = apiInputs.findIndex(
           (v) => v.displayType === "label" && v.value === tsApi
@@ -383,9 +449,7 @@ export class Blueprint extends ParentBlueprint {
           namespace:
             (chunk.find((v) => v.key.endsWith("_namespace"))?.value as any) ??
             "com.aws",
-          cdkLanguage:
-            (chunk.find((v) => v.key.endsWith("_cdkLanguage"))?.value as any) ??
-            "TypeScript",
+          cdkLanguage: options_.infra.language,
           documentationFormats: (chunk.find((v) =>
             v.key.endsWith("_documentationFormats")
           )?.value as any) ?? ["HTML_REDOC"],
@@ -394,7 +458,7 @@ export class Blueprint extends ParentBlueprint {
           )?.value as any) ?? ["TypeScript"],
         };
       }),
-      website: options_.componentConfig.cloudscapeReactTsWebsites.map(
+      website: options_.websiteConfig.cloudscapeReactTsWebsites.map(
         (website) => {
           const websiteInputs = options_.websiteConfig
             .parameters as DynamicKVInput[];
@@ -408,16 +472,7 @@ export class Blueprint extends ParentBlueprint {
             startIdx + 1,
             endIdx > 0 ? endIdx : undefined
           );
-          console.log(
-            JSON.stringify(websiteInputs),
-            JSON.stringify(chunk),
-            startIdx,
-            endIdx,
-            JSON.stringify(
-              (chunk.find((v) => v.key.endsWith("_typeSafeApis"))
-                ?.value as any) ?? []
-            )
-          );
+
           return {
             websiteName: website,
             typeSafeApis:
@@ -438,6 +493,14 @@ export class Blueprint extends ParentBlueprint {
             (v) => v.key === "CloudscapeReactTSWebsites"
           )?.value as any) ?? [],
       },
+    });
+
+    new Issue(this, "MissingLockFile", {
+      title: "Missing Lock File",
+      content:
+        'The generated project does not have lockfiles automatically generated. To resolve this, either create a new dev environment or clone this project locally and run the following from the root directory of this project:\n\n`npx projen install`\n`git add -A`\n`git commit -m "fix: add lockfile"`\n`git push`\n\nThis will trigger your CI pipeline to execute which should result in a successful deployment which will resolve this ticket.',
+      priority: "HIGH",
+      labels: ["CI", "Build"],
     });
   }
 }
