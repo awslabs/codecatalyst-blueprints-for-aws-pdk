@@ -14,10 +14,13 @@ import {
   Workspace,
   KVSchema,
   OptionsSchemaDefinition,
+  DynamicKVInput,
+  Environment,
 } from "@amazon-codecatalyst/blueprints";
-import { Initializer } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
+import { PDKSynth } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
 import defaults from "./defaults.json";
 import { assets } from "./static-assets";
+import { Workflow } from "./workflow";
 
 /**
  * This is the 'Options' interface. The 'Options' interface is interpreted by the wizard to dynamically generate a selection UI.
@@ -147,22 +150,24 @@ export class Blueprint extends ParentBlueprint {
   private readonly sourceRepository: SourceRepository;
   private readonly options: Options;
 
-  constructor(options_: Options, initializer?: Initializer) {
+  constructor(options_: Options) {
     super(options_);
 
     new OptionsSchema(
       this,
       "monorepoConfig.parameters",
-      defaults.monorepoConfig.parameters.map((e) => ({
-        ...e,
-        hidden: options_.monorepoConfig.primaryLanguage !== "TypeScript",
-      }))
+      defaults.monorepoConfig.parameters
+        .filter((e) => e.key === "PackageManager")
+        .map((e) => ({
+          ...e,
+          hidden: options_.monorepoConfig.primaryLanguage !== "TypeScript",
+        }))
     );
 
     new OptionsSchema(this, "infra.infraParameters", [
       {
         key: "TypeSafeApis",
-        value: "",
+        value: [],
         displayType: "dropdown",
         multiselect: true,
         possibleValues: options_.componentConfig.typeSafeApis,
@@ -170,8 +175,8 @@ export class Blueprint extends ParentBlueprint {
         description: "List of Type Safe APIs",
       },
       {
-        key: "CloudscapeReactTSWebsite",
-        value: "",
+        key: "CloudscapeReactTSWebsites",
+        value: [],
         displayType: "dropdown",
         multiselect: true,
         possibleValues: options_.componentConfig.cloudscapeReactTsWebsites,
@@ -257,7 +262,7 @@ export class Blueprint extends ParentBlueprint {
               },
               {
                 key: `Website${idx}_typeSafeApis`,
-                value: "",
+                value: [],
                 displayType: "dropdown",
                 multiselect: true,
                 possibleValues: options_.componentConfig.typeSafeApis,
@@ -269,7 +274,6 @@ export class Blueprint extends ParentBlueprint {
         : defaults.websiteConfig.parameters
     );
 
-    initializer && initializer(this);
     /**
      * This is a typecheck to ensure that the defaults passed in are of the correct type.
      * There are some cases where the typecheck will fail, but the defaults will still be valid, such when using enums.
@@ -336,8 +340,104 @@ export class Blueprint extends ParentBlueprint {
         new SourceFile(this.sourceRepository, filePath, content)
     );
 
-    // new PDKSynth(this, this.sourceRepository, "monorepo", {
-    //   ...this.options,
-    // });
+    // Create environments
+    new Environment(this, this.options.beta.environment);
+
+    new Workflow(this, {
+      sourceRepository: this.sourceRepository,
+      deploymentStages: [
+        {
+          bootstrapCDK: this.options.beta.bootstrapCDK,
+          region: this.options.beta.region.toString(),
+          environment: this.options.beta.environment,
+          stackName: this.options.infra.stackName,
+          cloudAssemblyRootPath: "packages/infra/main/cdk.out",
+        },
+      ],
+    });
+
+    new PDKSynth(this, this.sourceRepository, "monorepo", {
+      monorepo: {
+        primaryLanguage: this.options.monorepoConfig.primaryLanguage,
+        packageManager: (
+          this.options.monorepoConfig.parameters as DynamicKVInput[]
+        ).find((i) => i.key === "PackageManager")?.value as any,
+      },
+      api: options_.componentConfig.typeSafeApis.map((tsApi) => {
+        const apiInputs = options_.apiConfig.parameters as DynamicKVInput[];
+        const startIdx = apiInputs.findIndex(
+          (v) => v.displayType === "label" && v.value === tsApi
+        );
+        const endIdx = apiInputs.findIndex(
+          (v, idx) => v.displayType === "label" && idx > startIdx
+        );
+        const chunk: DynamicKVInput[] = apiInputs.slice(
+          startIdx + 1,
+          endIdx > 0 ? endIdx : undefined
+        );
+        return {
+          apiName: tsApi,
+          modelLanguage:
+            (chunk.find((v) => v.key.endsWith("_modelLanguage"))
+              ?.value as any) ?? "Smithy",
+          namespace:
+            (chunk.find((v) => v.key.endsWith("_namespace"))?.value as any) ??
+            "com.aws",
+          cdkLanguage:
+            (chunk.find((v) => v.key.endsWith("_cdkLanguage"))?.value as any) ??
+            "TypeScript",
+          documentationFormats: (chunk.find((v) =>
+            v.key.endsWith("_documentationFormats")
+          )?.value as any) ?? ["HTML_REDOC"],
+          handlerLanguages: (chunk.find((v) =>
+            v.key.endsWith("_handlerLanguages")
+          )?.value as any) ?? ["TypeScript"],
+        };
+      }),
+      website: options_.componentConfig.cloudscapeReactTsWebsites.map(
+        (website) => {
+          const websiteInputs = options_.websiteConfig
+            .parameters as DynamicKVInput[];
+          const startIdx = websiteInputs.findIndex(
+            (v) => v.displayType === "label" && v.value === website
+          );
+          const endIdx = websiteInputs.findIndex(
+            (v, idx) => v.displayType === "label" && idx > startIdx
+          );
+          const chunk: DynamicKVInput[] = websiteInputs.slice(
+            startIdx + 1,
+            endIdx > 0 ? endIdx : undefined
+          );
+          console.log(
+            JSON.stringify(websiteInputs),
+            JSON.stringify(chunk),
+            startIdx,
+            endIdx,
+            JSON.stringify(
+              (chunk.find((v) => v.key.endsWith("_typeSafeApis"))
+                ?.value as any) ?? []
+            )
+          );
+          return {
+            websiteName: website,
+            typeSafeApis:
+              (chunk.find((v) => v.key.endsWith("_typeSafeApis"))
+                ?.value as any) ?? [],
+          };
+        }
+      ),
+      infra: {
+        stackName: this.options.infra.stackName,
+        language: this.options.infra.language,
+        typeSafeApis:
+          ((this.options.infra.infraParameters as DynamicKVInput[]).find(
+            (v) => v.key === "TypeSafeApis"
+          )?.value as any) ?? [],
+        cloudscapeReactTsWebsites:
+          ((this.options.infra.infraParameters as DynamicKVInput[]).find(
+            (v) => v.key === "CloudscapeReactTSWebsites"
+          )?.value as any) ?? [],
+      },
+    });
   }
 }

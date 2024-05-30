@@ -2,8 +2,7 @@ import { execSync } from 'child_process';
 import {
   Blueprint,
   MergeStrategies,
-  Options as BlueprintOptions,
-  SourceFile, SourceRepository, BlueprintSynthesisError, BlueprintSynthesisErrorTypes, MultiSelect, BlueprintInstantiation,
+  SourceFile, SourceRepository, BlueprintSynthesisError, BlueprintSynthesisErrorTypes,
 } from '@amazon-codecatalyst/blueprints';
 import { CloudscapeReactTsWebsiteProject } from '@aws/pdk/cloudscape-react-ts-website';
 import {
@@ -33,37 +32,18 @@ import { projenrcMap } from './projen-template';
 const INFRA_OUTDIR = 'packages/infra/main';
 const YARN_VERSION = '4.1.0';
 
-const PACKAGE_PREFIX = '@amazon-codecatalyst/centre-of-prototyping-excellence.';
-
-const DEVOPS_PACKAGE = 'pdk-devops';
-const DEVOPS_PACKAGE_PRIVATE = `${PACKAGE_PREFIX}${DEVOPS_PACKAGE}`;
-
-const MONOREPO_PACKAGE = 'pdk-monorepo';
-const MONOREPO_PACKAGE_PRIVATE = `${PACKAGE_PREFIX}${MONOREPO_PACKAGE}`;
-
-const TYPESAFE_API_PACKAGE = 'pdk-type-safe-api';
-const TYPESAFE_API_PACKAGE_PRIVATE = `${PACKAGE_PREFIX}${TYPESAFE_API_PACKAGE}`;
-
-const WEBSITE_PACKAGE = 'pdk-cloudscape-react-website';
-const WEBSITE_PACKAGE_PRIVATE = `${PACKAGE_PREFIX}${WEBSITE_PACKAGE}`;
-
-const INFRA_PACKAGE = 'pdk-infra';
-const INFRA_PACKAGE_PRIVATE = `${PACKAGE_PREFIX}${INFRA_PACKAGE}`;
-
 export type DocumentationFormats = 'HTML_REDOC' | 'HTML2' | 'MARKDOWN' | 'PLANTUML';
 export type LanguageOptions = 'TypeScript' | 'Java' | 'Python';
 
 interface MonorepoOptions {
   readonly primaryLanguage: 'TypeScript' | 'Java' | 'Python';
-  readonly code: {
-    readonly packageManager: 'BUN' | 'PNPM' | 'YARN_BERRY' | 'NPM';
-  };
+  readonly packageManager?: 'BUN' | 'PNPM' | 'YARN_BERRY' | 'NPM';
 }
 
 interface ApiOptions {
   cdkLanguage: LanguageOptions;
-  handlerLanguages: MultiSelect<LanguageOptions>;
-  documentationFormats: MultiSelect<DocumentationFormats>;
+  handlerLanguages: LanguageOptions[];
+  documentationFormats: DocumentationFormats[];
   modelLanguage: 'Smithy' | 'OpenAPI';
   namespace: string;
   apiName: string;
@@ -71,14 +51,14 @@ interface ApiOptions {
 
 interface WebsiteOptions {
   websiteName: string;
-  typeSafeApis: MultiSelect<BlueprintInstantiation>;
+  typeSafeApis: string[];
 }
 
 interface InfraOptions {
   language: 'TypeScript' | 'Java' | 'Python';
   stackName: string;
-  typeSafeApis: MultiSelect<BlueprintInstantiation>;
-  cloudscapeReactTsWebsites: MultiSelect<BlueprintInstantiation>;
+  typeSafeApis: string[];
+  cloudscapeReactTsWebsites: string[];
 }
 
 export interface Options {
@@ -91,35 +71,15 @@ export interface Options {
   website?: WebsiteOptions[];
 }
 
-export type Initializer = (blueprint: Blueprint) => void;
-
-export function validateMonorepoExists(bp: Blueprint) {
-  !findBlueprintInstantiations(bp, MONOREPO_PACKAGE, MONOREPO_PACKAGE_PRIVATE).find(s => s)
-      && bp.throwSynthesisError(new BlueprintSynthesisError({
-        message: 'Cannot apply blueprint without first adding a PDK - Monorepo',
-        type: BlueprintSynthesisErrorTypes.ValidationError,
-      }));
-}
-
-export function findBlueprintInstantiations(bp: Blueprint, ...packageNames: string[]): BlueprintInstantiation[] {
-  return bp.context.project.blueprint.instantiations.filter(p => packageNames.includes(p.packageName));
-}
-
-export interface PDKSynthOptions extends BlueprintOptions {
-  readonly initializer?: (blueprint: Blueprint) => void;
-}
-
 export class PDKSynth extends Component {
   private readonly sourceRepository: SourceRepository;
   private readonly options: Options;
-  private readonly blueprintOptions: BlueprintOptions;
 
-  constructor(project: Blueprint, sourceRepository: SourceRepository, projectName: string, blueprintOptions: BlueprintOptions) {
+  constructor(project: Blueprint, sourceRepository: SourceRepository, projectName: string, options: Options) {
     super(project);
 
     this.sourceRepository = sourceRepository;
-    this.blueprintOptions = blueprintOptions;
-    this.options = this.getOptions();
+    this.options = options;
 
     // Copy language specific projenrc
     const projenRcFile = projenrcMap[this.options.monorepo.primaryLanguage.toLowerCase()];
@@ -135,7 +95,7 @@ export class PDKSynth extends Component {
             nodeLinker: javascript.YarnNodeLinker.PNPM,
           },
         }`,
-        packageManager: this.options.monorepo.code.packageManager,
+        packageManager: this.options.monorepo.packageManager,
         typeSafeApis: this.options.api?.map(api => ({
           isSmithy: this.getModelLanguage(api) === ModelLanguage.SMITHY,
           apiNamespace: api.namespace,
@@ -157,8 +117,7 @@ export class PDKSynth extends Component {
           websiteName: csWebsite.websiteName,
           websiteNameLowercase: this.sanitizeName(csWebsite.websiteName),
           typeSafeApiNames: csWebsite.typeSafeApis
-            .map(bpi => (bpi as BlueprintInstantiation).options)
-            .map(options => this.sanitizeName(options.apiName))
+            .map(api => this.sanitizeName(api))
             .join(', '),
         })),
       }),
@@ -173,67 +132,6 @@ export class PDKSynth extends Component {
       identifier: `${projectName}-onlyAdd`,
       strategy: MergeStrategies.onlyAdd,
     }]);
-  }
-
-  private getBlueprintInstantiationById(id: string) {
-    return (this.project as Blueprint).context.project.blueprint.instantiations.find(bpi => bpi.id === id);
-  }
-
-  private getOptions(): Options {
-    let monorepo;
-    let infra;
-    let api: any[] = [];
-    let website: any[] = [];
-    const blueprint = this.project as Blueprint;
-
-    switch (blueprint.context.package.name) {
-      case MONOREPO_PACKAGE:
-      case MONOREPO_PACKAGE_PRIVATE:
-        monorepo = this.blueprintOptions;
-        break;
-      case INFRA_PACKAGE:
-      case INFRA_PACKAGE_PRIVATE:
-        infra = this.blueprintOptions;
-        break;
-      case TYPESAFE_API_PACKAGE:
-      case TYPESAFE_API_PACKAGE_PRIVATE:
-        api = [this.blueprintOptions];
-        break;
-      case WEBSITE_PACKAGE:
-      case WEBSITE_PACKAGE_PRIVATE:
-        website = [this.blueprintOptions];
-        break;
-      default:
-        break;
-    }
-
-    const options = {
-      monorepo: monorepo ?? this.findBlueprintInstantiations(MONOREPO_PACKAGE, MONOREPO_PACKAGE_PRIVATE).find(s => s)?.options,
-      infra: infra ?? this.findBlueprintInstantiations(INFRA_PACKAGE, INFRA_PACKAGE_PRIVATE).find(s => s)?.options,
-      api: [...this.findBlueprintInstantiations(TYPESAFE_API_PACKAGE, TYPESAFE_API_PACKAGE_PRIVATE)
-        .filter(bpi => bpi.id !== blueprint.context.project.blueprint.instantiationId)
-        .map(bpi => bpi.options), ...api]
-        .sort((a, b) => (a as ApiOptions).apiName.localeCompare((b as ApiOptions).apiName)),
-      website: [...this.findBlueprintInstantiations(WEBSITE_PACKAGE, WEBSITE_PACKAGE_PRIVATE)
-        .filter(bpi => bpi.id !== blueprint.context.project.blueprint.instantiationId)
-        .map(bpi => bpi.options), ...website]
-        .sort((a, b) => (a as WebsiteOptions).websiteName.localeCompare((b as WebsiteOptions).websiteName)),
-    };
-
-    options.website?.forEach(w => {
-      const websiteOptions = w as WebsiteOptions;
-      if (typeof websiteOptions.typeSafeApis?.[0] === 'string') {
-        websiteOptions.typeSafeApis = websiteOptions.typeSafeApis
-          .map(id => this.getBlueprintInstantiationById(id as string)!)
-          .sort((a, b) => (a.options as ApiOptions).apiName.localeCompare((b.options as ApiOptions).apiName));
-      }
-      return websiteOptions;
-    });
-    return options;
-  }
-
-  private findBlueprintInstantiations(...packageNames: string[]): BlueprintInstantiation[] {
-    return findBlueprintInstantiations((this.project as Blueprint), ...packageNames);
   }
 
   synthesize(): void {
@@ -252,10 +150,12 @@ export class PDKSynth extends Component {
     }
 
     // Generate lockfile only if a DEVOPS blueprint exists to improve initial performance
-    this.hasDevOpsBlueprint() && execSync(this.renderLockfileCommand()!, {
-      cwd: this.sourceRepository.path,
-      stdio: [0, 1, 1],
-    });
+    // TODO: Uncomment
+    this.renderLockfileCommand();
+    // execSync(this.renderLockfileCommand()!, {
+    //   cwd: this.sourceRepository.path,
+    //   stdio: [0, 1, 1],
+    // });
 
     super.synthesize();
   }
@@ -305,12 +205,6 @@ export class PDKSynth extends Component {
     }
 
     this.synthWithoutPostInstall(monorepo);
-  }
-
-  private hasDevOpsBlueprint() {
-    const packageName = (this.project as Blueprint).context.package.name;
-    return this.findBlueprintInstantiations(DEVOPS_PACKAGE, DEVOPS_PACKAGE_PRIVATE).length > 0
-      || (packageName ? [DEVOPS_PACKAGE, DEVOPS_PACKAGE_PRIVATE].includes(packageName) : false);
   }
 
   private renderLockfileCommand(): string {
@@ -418,7 +312,7 @@ export class PDKSynth extends Component {
   }
 
   private getPackageManager(): NodePackageManager {
-    switch (this.options.monorepo.code.packageManager) {
+    switch (this.options.monorepo.packageManager) {
       case 'BUN':
         return NodePackageManager.BUN;
       case 'YARN_BERRY':
@@ -534,7 +428,7 @@ export class PDKSynth extends Component {
           name: websiteName,
           applicationName: options.websiteName,
           typeSafeApis: apis?.filter(api => options.typeSafeApis
-            .find((api2) => ((api2 as BlueprintInstantiation).options as ApiOptions).apiName === api.model.apiName)),
+            .find((api2) => api2 === api.model.apiName)),
         });
       });
   }
