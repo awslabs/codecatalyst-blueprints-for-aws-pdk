@@ -19,25 +19,11 @@
   },
   "apiConfig": {
     "typeSafeApis": [],
-    "parameters": [
-        {
-            "key": "NoApis",
-            "displayType": "label",
-            "displayName": " ",
-            "value": " "
-        }
-    ]
+    "parameters": []
   },
   "websiteConfig": {
     "cloudscapeReactTsWebsites": [],
-    "parameters": [
-        {
-            "key": "NoWebsite",
-            "displayType": "label",
-            "displayName": " ",
-            "value": " "
-        }
-    ]
+    "parameters": []
   },
   "infra": {
     "language": "TypeScript",
@@ -46,13 +32,6 @@
   },
   "devOps": {
     "stages": [],
-    "parameters": [
-        {
-            "key": "NoStages",
-            "displayType": "label",
-            "displayName": " ",
-            "value": " "
-        }
-    ]
+    "parameters": []
   }
 }

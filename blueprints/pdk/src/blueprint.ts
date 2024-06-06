@@ -37,8 +37,6 @@ export interface Options extends ParentOptions {
      */
     primaryLanguage: "TypeScript" | "Java" | "Python";
 
-    parameters: OptionsSchemaDefinition<"monorepoConfig.parameters", KVSchema>;
-
     /**
      * Enter a name for a new repository or search for an existing repository.
      *
@@ -47,6 +45,8 @@ export interface Options extends ParentOptions {
      * @validationMessage Must contain only alphanumeric characters, periods (.), underscores (_), dashes (-) and be between 3 and 100 characters in length. Cannot end in .git or contain spaces
      */
     sourceRepositoryName: Selector<SourceRepository | string>;
+
+    parameters: OptionsSchemaDefinition<"monorepoConfig.parameters", KVSchema>;
   };
 
   /**
@@ -107,48 +107,6 @@ export interface Options extends ParentOptions {
     parameters: OptionsSchemaDefinition<"infra.parameters", KVSchema>;
   };
 
-  //   /**
-  //    * @displayName Beta
-  //    */
-  //   beta: {
-  //     /**
-  //      * @displayName Configuration
-  //      */
-  //     environment: EnvironmentDefinition<{
-  //       /**
-  //        * An AWS account connection is required by the project workflow to deploy to AWS.
-  //        * @displayName AWS account connection
-  //        */
-  //       accountConnection: AccountConnection<{
-  //         /**
-  //          * IAM role for deploying your application.
-  //          * @displayName The role to use for deploying your application
-  //          */
-  //         deployRole: Role<["CDK Deploy"]>;
-  //       }>;
-  //     }>;
-
-  //     /**
-  //      * Select the Region where you want to deploy the application.
-  //      * @displayName Region
-  //      */
-  //     region: Region<["*"]>;
-
-  //     /**
-  //      * Add number of required approvals for this stage.
-  //      * @displayName Required Approvals
-  //      * @validationRegex /^([0-2])$/
-  //      * @validationMessage Enter a number between 0 and 2 (inclusive).
-  //      */
-  //     requiredApprovals?: string;
-
-  //     /**
-  //      * Select to bootstrap CDK in the AWS environment.
-  //      * @displayName Bootstrap CDK
-  //      */
-  //     bootstrapCDK: boolean;
-  //   };
-
   /**
    * @displayName DevOps
    */
@@ -202,25 +160,12 @@ export class Blueprint extends ParentBlueprint {
       cloudAssemblyRootPath: "packages/infra/main/cdk.out",
     }));
 
-    console.log(
-      JSON.stringify(
-        defaults.monorepoConfig.parameters
-          .filter((e) => e.key === "PackageManager")
-          .map((e) => ({
-            ...e,
-            hidden: options_.monorepoConfig.primaryLanguage !== "TypeScript",
-          }))
-      )
-    );
     new OptionsSchema(
       this,
       "monorepoConfig.parameters",
-      defaults.monorepoConfig.parameters
-        .filter((e) => e.key === "PackageManager")
-        .map((e) => ({
-          ...e,
-          hidden: options_.monorepoConfig.primaryLanguage !== "TypeScript",
-        }))
+      options_.monorepoConfig.primaryLanguage === "TypeScript"
+        ? options_.monorepoConfig.parameters
+        : []
     );
 
     new OptionsSchema(
@@ -301,7 +246,7 @@ export class Blueprint extends ParentBlueprint {
               ];
             })
             .flat()
-        : defaults.apiConfig.parameters
+        : []
     );
 
     new OptionsSchema(
@@ -346,7 +291,7 @@ export class Blueprint extends ParentBlueprint {
               ];
             })
             .flat()
-        : defaults.websiteConfig.parameters
+        : []
     );
 
     new OptionsSchema(this, "infra.parameters", [
@@ -469,7 +414,7 @@ export class Blueprint extends ParentBlueprint {
               ];
             })
             .flat()
-        : defaults.devOps.parameters
+        : []
     );
 
     /**
