@@ -46,7 +46,7 @@
   },
   "beta": {
     "bootstrapCDK": true,
-    "requiredApprovals": 0,
+    "requiredApprovals": "0",
     "environment": {
         "name": "Beta",
         "environmentType": "DEVELOPMENT"

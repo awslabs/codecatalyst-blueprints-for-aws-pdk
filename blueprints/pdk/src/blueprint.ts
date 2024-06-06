@@ -144,7 +144,7 @@ export interface Options extends ParentOptions {
      * @validationRegex /^([0-2])$/
      * @validationMessage Enter a number between 0 and 2 (inclusive).
      */
-    requiredApprovals?: number;
+    requiredApprovals?: string;
 
     /**
      * Select to bootstrap CDK in the AWS environment.
@@ -421,7 +421,7 @@ export class Blueprint extends ParentBlueprint {
       sourceRepository: this.sourceRepository,
       deploymentStages: [
         {
-          requiredApprovals: Number(this.options.beta.requiredApprovals),
+          requiredApprovals: Number(this.options.beta.requiredApprovals ?? 0),
           bootstrapCDK: this.options.beta.bootstrapCDK,
           region: this.options.beta.region.toString(),
           environment: this.options.beta.environment,
