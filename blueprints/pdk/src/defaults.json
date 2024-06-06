@@ -22,9 +22,9 @@
     "parameters": [
         {
             "key": "NoApis",
-            "value": " ",
             "displayType": "label",
-            "displayName": " "
+            "displayName": " ",
+            "value": " "
         }
     ]
   },
@@ -33,24 +33,26 @@
     "parameters": [
         {
             "key": "NoWebsite",
-            "value": " ",
             "displayType": "label",
-            "displayName": " "
+            "displayName": " ",
+            "value": " "
         }
     ]
   },
   "infra": {
     "language": "TypeScript",
-    "stackName": "infra-beta-",
-    "infraParameters": []
+    "stackName": "infra-",
+    "parameters": []
   },
-  "beta": {
-    "bootstrapCDK": true,
-    "requiredApprovals": "0",
-    "environment": {
-        "name": "Beta",
-        "environmentType": "DEVELOPMENT"
-    },
-    "region": "us-west-2"
+  "devOps": {
+    "stages": [],
+    "parameters": [
+        {
+            "key": "NoStages",
+            "displayType": "label",
+            "displayName": " ",
+            "value": " "
+        }
+    ]
   }
 }

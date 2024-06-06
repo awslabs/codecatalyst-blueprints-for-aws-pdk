@@ -125,7 +125,7 @@
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint prettier projen ts-node typescript @amazon-codecatalyst/blueprint-util.cli @amazon-codecatalyst/blueprints @amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth @aws/pdk"
+          "exec": "pnpm update @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint prettier ts-node typescript @amazon-codecatalyst/blueprint-util.cli @amazon-codecatalyst/blueprints @amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth @aws/pdk projen"
         },
         {
           "exec": "npx projen"

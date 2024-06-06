@@ -1,13 +1,9 @@
 /*! Copyright [Amazon.com](http://amazon.com/), Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: Apache-2.0 */
 import {
-  AccountConnection,
   OptionsSchema,
-  EnvironmentDefinition,
   Blueprint as ParentBlueprint,
   Options as ParentOptions,
-  Region,
-  Role,
   Selector,
   SourceFile,
   Issue,
@@ -21,7 +17,7 @@ import {
 import { PDKSynth } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
 import defaults from "./defaults.json";
 import { assets } from "./static-assets";
-import { Workflow } from "./workflow";
+import { DeploymentStage, Workflow } from "./workflow";
 
 /**
  * This is the 'Options' interface. The 'Options' interface is interpreted by the wizard to dynamically generate a selection UI.
@@ -108,49 +104,61 @@ export interface Options extends ParentOptions {
      */
     stackName: string;
 
-    infraParameters: OptionsSchemaDefinition<"infra.infraParameters", KVSchema>;
+    parameters: OptionsSchemaDefinition<"infra.parameters", KVSchema>;
   };
 
+  //   /**
+  //    * @displayName Beta
+  //    */
+  //   beta: {
+  //     /**
+  //      * @displayName Configuration
+  //      */
+  //     environment: EnvironmentDefinition<{
+  //       /**
+  //        * An AWS account connection is required by the project workflow to deploy to AWS.
+  //        * @displayName AWS account connection
+  //        */
+  //       accountConnection: AccountConnection<{
+  //         /**
+  //          * IAM role for deploying your application.
+  //          * @displayName The role to use for deploying your application
+  //          */
+  //         deployRole: Role<["CDK Deploy"]>;
+  //       }>;
+  //     }>;
+
+  //     /**
+  //      * Select the Region where you want to deploy the application.
+  //      * @displayName Region
+  //      */
+  //     region: Region<["*"]>;
+
+  //     /**
+  //      * Add number of required approvals for this stage.
+  //      * @displayName Required Approvals
+  //      * @validationRegex /^([0-2])$/
+  //      * @validationMessage Enter a number between 0 and 2 (inclusive).
+  //      */
+  //     requiredApprovals?: string;
+
+  //     /**
+  //      * Select to bootstrap CDK in the AWS environment.
+  //      * @displayName Bootstrap CDK
+  //      */
+  //     bootstrapCDK: boolean;
+  //   };
+
   /**
-   * @displayName Beta
+   * @displayName DevOps
    */
-  beta: {
+  devOps: {
     /**
-     * @displayName Configuration
+     * Add stages to your workflow.
      */
-    environment: EnvironmentDefinition<{
-      /**
-       * An AWS account connection is required by the project workflow to deploy to AWS.
-       * @displayName AWS account connection
-       */
-      accountConnection: AccountConnection<{
-        /**
-         * IAM role for deploying your application.
-         * @displayName The role to use for deploying your application
-         */
-        deployRole: Role<["CDK Deploy"]>;
-      }>;
-    }>;
+    stages: string[];
 
-    /**
-     * Select the Region where you want to deploy the application.
-     * @displayName Region
-     */
-    region: Region<["*"]>;
-
-    /**
-     * Add number of required approvals for this stage.
-     * @displayName Required Approvals
-     * @validationRegex /^([0-2])$/
-     * @validationMessage Enter a number between 0 and 2 (inclusive).
-     */
-    requiredApprovals?: string;
-
-    /**
-     * Select to bootstrap CDK in the AWS environment.
-     * @displayName Bootstrap CDK
-     */
-    bootstrapCDK: boolean;
+    parameters: OptionsSchemaDefinition<"devOps.parameters", KVSchema>;
   };
 }
 
@@ -166,6 +174,44 @@ export class Blueprint extends ParentBlueprint {
   constructor(options_: Options) {
     super(options_);
 
+    const deploymentStages: DeploymentStage[] = Object.entries(
+      options_.devOps.parameters.reduce(
+        (p: DynamicKVInput, c: DynamicKVInput) => ({
+          ...p,
+          [c.key.split("_")[0]]: {
+            ...p[c.key.split("_")[0]],
+            [c.key.split("_")[1]]: c.value,
+          },
+        }),
+        {}
+      )
+    ).map(([stage, values]: any) => ({
+      requiredApprovals: Number(values.RequiredApprovals ?? 0),
+      bootstrapCDK: values.BootstrapCDK,
+      region: values.Region,
+      environment: {
+        name: stage,
+        environmentType:
+          values.Environment?.value?.environmentType ?? "DEVELOPMENT",
+        accountConnection: {
+          name: stage,
+          id: stage,
+        },
+      },
+      stackName: options_.infra.stackName,
+      cloudAssemblyRootPath: "packages/infra/main/cdk.out",
+    }));
+
+    console.log(
+      JSON.stringify(
+        defaults.monorepoConfig.parameters
+          .filter((e) => e.key === "PackageManager")
+          .map((e) => ({
+            ...e,
+            hidden: options_.monorepoConfig.primaryLanguage !== "TypeScript",
+          }))
+      )
+    );
     new OptionsSchema(
       this,
       "monorepoConfig.parameters",
@@ -224,16 +270,6 @@ export class Blueprint extends ParentBlueprint {
                   validationMessage:
                     "Namespaces must be lowercase alphabetical characters with a period '.' seperator i.e: com.aws",
                 },
-                // {
-                //   key: `API${idx}_cdkLanguage`,
-                //   value:
-                //     (chunk.find((v) => v.key.endsWith("_cdkLanguage"))
-                //       ?.value as any) ?? "TypeScript",
-                //   displayType: "dropdown",
-                //   possibleValues: ["TypeScript", "Java", "Python"],
-                //   displayName: "CDK Language",
-                //   description: "Enter CDK Language",
-                // },
                 {
                   key: `API${idx}_handlerLanguages`,
                   value: (chunk.find((v) => v.key.endsWith("_handlerLanguages"))
@@ -313,11 +349,11 @@ export class Blueprint extends ParentBlueprint {
         : defaults.websiteConfig.parameters
     );
 
-    new OptionsSchema(this, "infra.infraParameters", [
+    new OptionsSchema(this, "infra.parameters", [
       {
         key: "TypeSafeApis",
         value: (
-          ((options_.infra.infraParameters as DynamicKVInput[]).find(
+          ((options_.infra.parameters as DynamicKVInput[]).find(
             (v) => v.key === "TypeSafeApis"
           )?.value as string[]) ?? []
         ).filter((v) => options_.apiConfig.typeSafeApis.find((v2) => v2 === v)),
@@ -331,7 +367,7 @@ export class Blueprint extends ParentBlueprint {
       {
         key: "CloudscapeReactTSWebsites",
         value: (
-          ((options_.infra.infraParameters as DynamicKVInput[]).find(
+          ((options_.infra.parameters as DynamicKVInput[]).find(
             (v) => v.key === "CloudscapeReactTSWebsites"
           )?.value as string[]) ?? []
         ).filter((v) =>
@@ -347,6 +383,94 @@ export class Blueprint extends ParentBlueprint {
         description: "List of Cloudscape React Websites",
       },
     ]);
+
+    new OptionsSchema(
+      this,
+      "devOps.parameters",
+      options_.devOps.stages.length > 0
+        ? options_.devOps.stages
+            .map((stage) => {
+              const devOpsInputs = options_.devOps
+                .parameters as DynamicKVInput[];
+              const startIdx = devOpsInputs.findIndex(
+                (v) =>
+                  v.displayType === "environment" && v.displayName === stage
+              );
+              const endIdx = devOpsInputs.findIndex(
+                (v, idx2) => v.displayType === "environment" && idx2 > startIdx
+              );
+              const chunk: DynamicKVInput[] = devOpsInputs.slice(
+                startIdx,
+                endIdx > 0 ? endIdx : undefined
+              );
+
+              return [
+                {
+                  key: `${stage}_Environment`,
+                  displayType: "environment",
+                  displayName: stage,
+                  value:
+                    (chunk.find((v) => v.key.endsWith("_Environment"))
+                      ?.value as any) ?? undefined,
+                  environmentOptions: {
+                    showEnvironmentType: true,
+                    accountConnections: [
+                      {
+                        name: stage,
+                        description: "AWS account to deploy into.",
+                        roles: [
+                          {
+                            name: stage,
+                            displayName:
+                              "The role to use for deploying your application",
+                            description:
+                              "IAM role for deploying your application.",
+                            capabilities: ["CDK Deploy"],
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                },
+                {
+                  key: `${stage}_Region`,
+                  displayType: "region",
+                  displayName: "Region",
+                  description:
+                    "Select the Region where you want to deploy the application.",
+                  value:
+                    (chunk.find((v) => v.key.endsWith("_Region"))
+                      ?.value as any) ?? "us-west-2",
+                  possibleValues: ["*"],
+                },
+                {
+                  key: `${stage}_RequiredApprovals`,
+                  displayType: "string",
+                  displayName: "Required Approvals",
+                  description:
+                    "Add number of required approvals for this stage.",
+                  value:
+                    (chunk.find((v) => v.key.endsWith("_RequiredApprovals"))
+                      ?.value as any) ?? "0",
+                  validationRegex: "/^([0-2])$/",
+                  validationMessage:
+                    "Enter a number between 0 and 2 (inclusive).",
+                },
+                {
+                  key: `${stage}_BootstrapCDK`,
+                  displayType: "checkbox",
+                  displayName: "Bootstrap CDK",
+                  description:
+                    "Select to bootstrap CDK in the AWS environment.",
+                  value:
+                    (chunk.find((v) => v.key.endsWith("_BootstrapCDK"))
+                      ?.value as any) ?? false,
+                },
+              ];
+            })
+            .flat()
+        : defaults.devOps.parameters
+    );
 
     /**
      * This is a typecheck to ensure that the defaults passed in are of the correct type.
@@ -364,7 +488,7 @@ export class Blueprint extends ParentBlueprint {
       infra: {
         language: defaults.infra.language as Options["infra"]["language"],
         stackName: defaults.infra.stackName,
-        infraParameters: defaults.infra.infraParameters,
+        parameters: defaults.infra.parameters,
       },
     };
     this.options = Object.assign(typeCheck, options_);
@@ -415,20 +539,17 @@ export class Blueprint extends ParentBlueprint {
     );
 
     // Create environments
-    new Environment(this, this.options.beta.environment);
+    deploymentStages.forEach(
+      (stage) =>
+        new Environment(this, {
+          name: stage.environment.name,
+          environmentType: stage.environment.environmentType ?? "DEVELOPMENT",
+        })
+    );
 
     new Workflow(this, {
       sourceRepository: this.sourceRepository,
-      deploymentStages: [
-        {
-          requiredApprovals: Number(this.options.beta.requiredApprovals ?? 0),
-          bootstrapCDK: this.options.beta.bootstrapCDK,
-          region: this.options.beta.region.toString(),
-          environment: this.options.beta.environment,
-          stackName: this.options.infra.stackName,
-          cloudAssemblyRootPath: "packages/infra/main/cdk.out",
-        },
-      ],
+      deploymentStages,
     });
 
     new PDKSynth(this, this.sourceRepository, "monorepo", {
@@ -494,11 +615,11 @@ export class Blueprint extends ParentBlueprint {
         stackName: this.options.infra.stackName,
         language: this.options.infra.language,
         typeSafeApis:
-          ((this.options.infra.infraParameters as DynamicKVInput[]).find(
+          ((this.options.infra.parameters as DynamicKVInput[]).find(
             (v) => v.key === "TypeSafeApis"
           )?.value as any) ?? [],
         cloudscapeReactTsWebsites:
-          ((this.options.infra.infraParameters as DynamicKVInput[]).find(
+          ((this.options.infra.parameters as DynamicKVInput[]).find(
             (v) => v.key === "CloudscapeReactTSWebsites"
           )?.value as any) ?? [],
       },

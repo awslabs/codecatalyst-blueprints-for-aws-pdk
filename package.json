@@ -23,8 +23,8 @@
     "synth-workspace": "pnpm exec projen"
   },
   "devDependencies": {
-    "@amazon-codecatalyst/blueprint-util.projen-blueprint": "0.3.127",
-    "@amazon-codecatalyst/blueprints": "0.3.127",
+    "@amazon-codecatalyst/blueprint-util.projen-blueprint": "0.3.132",
+    "@amazon-codecatalyst/blueprints": "0.3.132",
     "@aws/pdk": "0.23.40",
     "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^6",
@@ -49,8 +49,8 @@
   },
   "dependencies": {
     "@aws-cdk/aws-cognito-identitypool-alpha": "latest",
-    "aws-cdk-lib": "2.143.0",
-    "cdk-nag": "2.28.125"
+    "aws-cdk-lib": "2.144.0",
+    "cdk-nag": "2.28.135"
   },
   "pnpm": {
     "overrides": {
@@ -65,6 +65,9 @@
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "types": "lib/index.d.ts",
   "private": true,
