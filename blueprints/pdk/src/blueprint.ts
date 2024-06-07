@@ -156,11 +156,11 @@ export class Blueprint extends ParentBlueprint {
       region: values.Region,
       environment: {
         name: stage,
-        environmentType:
-          values.Environment?.value?.environmentType ?? "DEVELOPMENT",
+        environmentType: values.Environment?.environmentType ?? "DEVELOPMENT",
         accountConnection: {
           name: stage,
           id: stage,
+          deployRole: values.Environment?.[stage]?.deployRole,
         },
       },
       stackName: options_.infra.stackName,
@@ -372,7 +372,7 @@ export class Blueprint extends ParentBlueprint {
                         description: "AWS account to deploy into.",
                         roles: [
                           {
-                            name: stage,
+                            name: "deployRole",
                             displayName:
                               "The role to use for deploying your application",
                             description:
