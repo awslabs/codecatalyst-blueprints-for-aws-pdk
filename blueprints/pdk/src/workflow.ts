@@ -56,6 +56,8 @@ export interface DeploymentStage {
 export interface WorkflowOptions {
   readonly sourceRepository: SourceRepository;
 
+  readonly runMode: RunModeDefiniton;
+
   readonly defaultBranch?: string;
 
   readonly deploymentStages?: DeploymentStage[];
@@ -90,6 +92,7 @@ export class Workflow extends Component {
     const prWorkflow: WorkflowDefinition = {
       ...makeEmptyWorkflow(),
       Name: "pr",
+      RunMode: RunModeDefiniton.PARALLEL,
     };
 
     addGenericPullRequestTrigger(
@@ -109,7 +112,7 @@ export class Workflow extends Component {
     const releaseWorkflow: WorkflowDefinition = {
       ...makeEmptyWorkflow(),
       Name: "release",
-      RunMode: RunModeDefiniton.SUPERSEDED,
+      RunMode: this.options.runMode,
     };
 
     addGenericBranchTrigger(releaseWorkflow, [this.options.defaultBranch!]);

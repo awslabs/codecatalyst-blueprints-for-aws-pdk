@@ -13,6 +13,7 @@ import {
   OptionsSchemaDefinition,
   DynamicKVInput,
   Environment,
+  RunModeDefiniton,
 } from "@amazon-codecatalyst/blueprints";
 import { PDKSynth } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
 import defaults from "./defaults.json";
@@ -111,6 +112,12 @@ export interface Options extends ParentOptions {
    * @displayName DevOps
    */
   devOps: {
+    /**
+     * Queued: Workflow runs are queued. Superseded: Later workflow runs overtake earlier ones, and the earlier ones are canceled. Parallel: Workflow runs occur in parallel.
+     *
+     * @displayName Run mode
+     */
+    runMode: "Superseded" | "Queued" | "Parallel";
     /**
      * Add stages to your workflow.
      */
@@ -435,6 +442,10 @@ export class Blueprint extends ParentBlueprint {
         stackName: defaults.infra.stackName,
         parameters: defaults.infra.parameters,
       },
+      devOps: {
+        ...defaults.devOps,
+        runMode: defaults.devOps.runMode as Options["devOps"]["runMode"],
+      },
     };
     this.options = Object.assign(typeCheck, options_);
 
@@ -494,6 +505,7 @@ export class Blueprint extends ParentBlueprint {
 
     new Workflow(this, {
       sourceRepository: this.sourceRepository,
+      runMode: options_.devOps.runMode.toUpperCase() as RunModeDefiniton,
       deploymentStages,
     });
 
