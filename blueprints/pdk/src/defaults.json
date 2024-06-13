@@ -33,6 +33,18 @@
   "devOps": {
     "runMode": "Superseded",
     "stages": [],
-    "parameters": []
+    "parameters": [],
+    "computeParameters": [
+        {
+            "key": "ComputeType",
+            "value": "EC2",
+            "displayType": "dropdown",
+            "possibleValues": [
+                "EC2",
+                "Lambda"
+            ],
+            "displayName": "Compute type",
+            "description": "Compute types offer different options to balance workflow startup speed with the flexibility of a workflow configuration."
+        }]
   }
 }

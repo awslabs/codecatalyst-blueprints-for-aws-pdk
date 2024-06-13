@@ -14,11 +14,29 @@ import {
   DynamicKVInput,
   Environment,
   RunModeDefiniton,
+  ComputeFleet,
+  ComputeType,
 } from "@amazon-codecatalyst/blueprints";
 import { PDKSynth } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
 import defaults from "./defaults.json";
 import { assets } from "./static-assets";
 import { DeploymentStage, Workflow } from "./workflow";
+
+const EC2_COMPUTE: string[] = [
+  ComputeFleet.LINUX_X86_64_LARGE,
+  ComputeFleet.LINUX_X86_64_XLARGE,
+  ComputeFleet.LINUX_X86_64_2XLARGE,
+  ComputeFleet.LINUX_ARM64_LARGE,
+  ComputeFleet.LINUX_ARM64_XLARGE,
+  ComputeFleet.LINUX_ARM64_2XLARGE,
+];
+
+const LAMBDA_COMPUTE: string[] = [
+  ComputeFleet.LINUX_X86_64_LARGE,
+  ComputeFleet.LINUX_X86_64_XLARGE,
+  ComputeFleet.LINUX_ARM64_LARGE,
+  ComputeFleet.LINUX_ARM64_XLARGE,
+];
 
 /**
  * This is the 'Options' interface. The 'Options' interface is interpreted by the wizard to dynamically generate a selection UI.
@@ -118,6 +136,12 @@ export interface Options extends ParentOptions {
      * @displayName Run mode
      */
     runMode: "Superseded" | "Queued" | "Parallel";
+
+    computeParameters: OptionsSchemaDefinition<
+      "devOps.computeParameters",
+      KVSchema
+    >;
+
     /**
      * Add stages to your workflow.
      */
@@ -329,10 +353,36 @@ export class Blueprint extends ParentBlueprint {
         ),
         displayType: "dropdown",
         multiselect: true,
-        // hidden: generateAll,
         possibleValues: options_.websiteConfig.cloudscapeReactTsWebsites,
         displayName: "Cloudscape React Websites",
         description: "List of Cloudscape React Websites",
+      },
+    ]);
+
+    const computeType = (
+      options_.devOps.computeParameters as DynamicKVInput[]
+    ).find((v) => v.key === "ComputeType")!;
+    const computeFleet = (
+      options_.devOps.computeParameters as DynamicKVInput[]
+    ).find((v) => v.key === "ComputeFleet")?.value as string;
+    const resolvedComputeFleet =
+      computeType.value === ComputeType.LAMBDA
+        ? LAMBDA_COMPUTE.includes(computeFleet)
+          ? computeFleet
+          : ComputeFleet.LINUX_X86_64_LARGE
+        : computeFleet ?? ComputeFleet.LINUX_X86_64_LARGE;
+    new OptionsSchema(this, "devOps.computeParameters", [
+      computeType,
+      {
+        key: "ComputeFleet",
+        value: resolvedComputeFleet,
+        displayType: "dropdown",
+        possibleValues:
+          computeType.value === ComputeType.LAMBDA
+            ? LAMBDA_COMPUTE
+            : EC2_COMPUTE,
+        displayName: "Compute fleet",
+        description: "Machines that are used to run workflows actions.",
       },
     ]);
 
@@ -506,6 +556,10 @@ export class Blueprint extends ParentBlueprint {
     new Workflow(this, {
       sourceRepository: this.sourceRepository,
       runMode: options_.devOps.runMode.toUpperCase() as RunModeDefiniton,
+      compute: {
+        Type: computeType?.value ?? (ComputeType.EC2 as ComputeType),
+        Fleet: resolvedComputeFleet as ComputeFleet,
+      },
       deploymentStages,
     });
 

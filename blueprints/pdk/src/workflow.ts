@@ -13,6 +13,7 @@ import {
   EnvironmentDefinition,
   AccountConnection,
   Role,
+  ComputeDefintion,
 } from "@amazon-codecatalyst/blueprints";
 import { Component } from "projen";
 import {
@@ -58,6 +59,8 @@ export interface WorkflowOptions {
 
   readonly runMode: RunModeDefiniton;
 
+  readonly compute: ComputeDefintion;
+
   readonly defaultBranch?: string;
 
   readonly deploymentStages?: DeploymentStage[];
@@ -93,6 +96,7 @@ export class Workflow extends Component {
       ...makeEmptyWorkflow(),
       Name: "pr",
       RunMode: RunModeDefiniton.PARALLEL,
+      Compute: this.options.compute,
     };
 
     addGenericPullRequestTrigger(
@@ -113,6 +117,7 @@ export class Workflow extends Component {
       ...makeEmptyWorkflow(),
       Name: "release",
       RunMode: this.options.runMode,
+      Compute: this.options.compute,
     };
 
     addGenericBranchTrigger(releaseWorkflow, [this.options.defaultBranch!]);
