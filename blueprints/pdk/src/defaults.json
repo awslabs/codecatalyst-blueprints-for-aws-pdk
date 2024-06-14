@@ -45,7 +45,8 @@
               "description":
                 "Select from one of the supported SPDX licenses or choose a custom license."
         }],
-    "sourceRepositoryName": "monorepo"
+    "sourceRepositoryName": "monorepo",
+    "projen": false
   },
   "apiConfig": {
     "typeSafeApis": [],

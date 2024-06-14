@@ -39,6 +39,7 @@ export type LanguageOptions = 'TypeScript' | 'Java' | 'Python';
 interface MonorepoOptions {
   readonly primaryLanguage: 'TypeScript' | 'Java' | 'Python';
   readonly packageManager?: 'BUN' | 'PNPM' | 'YARN_BERRY' | 'NPM';
+  readonly projen: boolean;
   readonly licenseOptions?: LicenseOptions;
 }
 
@@ -78,6 +79,9 @@ export class PDKSynth extends Component {
   private readonly options: Options;
 
   constructor(project: Blueprint, sourceRepository: SourceRepository, projectName: string, options: Options) {
+    if (options.monorepo.projen === false) {
+      process.env.PROJEN_EJECTING = '1';
+    }
     super(project);
 
     this.sourceRepository = sourceRepository;

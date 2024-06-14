@@ -66,6 +66,13 @@ export interface Options extends ParentOptions {
     sourceRepositoryName: Selector<SourceRepository | string>;
 
     parameters: OptionsSchemaDefinition<"monorepoConfig.parameters", KVSchema>;
+
+    /**
+     * Select whether you want to use Projen to manage your projects.
+     *
+     * @displayName Projen
+     */
+    projen: boolean;
   };
 
   /**
@@ -624,6 +631,7 @@ export class Blueprint extends ParentBlueprint {
     new PDKSynth(this, this.sourceRepository, "monorepo", {
       monorepo: {
         primaryLanguage: this.options.monorepoConfig.primaryLanguage,
+        projen: this.options.monorepoConfig.projen,
         packageManager: (
           this.options.monorepoConfig.parameters as DynamicKVInput[]
         ).find((i) => i.key === "PackageManager")?.value as any,
