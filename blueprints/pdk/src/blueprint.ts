@@ -191,13 +191,57 @@ export class Blueprint extends ParentBlueprint {
       cloudAssemblyRootPath: "packages/infra/main/cdk.out",
     }));
 
-    new OptionsSchema(
-      this,
-      "monorepoConfig.parameters",
-      options_.monorepoConfig.primaryLanguage === "TypeScript"
-        ? options_.monorepoConfig.parameters
-        : []
-    );
+    const licenseType = (
+      options_.monorepoConfig.parameters as DynamicKVInput[]
+    ).find((i) => i.key === "LicenseType")?.value;
+    new OptionsSchema(this, "monorepoConfig.parameters", [
+      ...(options_.monorepoConfig.primaryLanguage === "TypeScript"
+        ? [
+            options_.monorepoConfig.parameters.find(
+              (v) => v.key === "PackageManager"
+            ),
+          ]
+        : []),
+      ...(options_.monorepoConfig.primaryLanguage !== "Java"
+        ? [
+            {
+              ...defaults.monorepoConfig.parameters.find(
+                (v) => v.key === "LicenseType"
+              ),
+              value: licenseType ?? "Apache-2.0",
+            },
+            ...(licenseType === "Custom"
+              ? [
+                  {
+                    key: "LicenseText",
+                    value: (
+                      options_.monorepoConfig.parameters as DynamicKVInput[]
+                    ).find((v) => v.key === "LicenseText")?.value,
+                    displayType: "textarea",
+                    displayName: "License text",
+                    description:
+                      "Enter the text you would like to appear in your generated LICENSE files",
+                  },
+                ]
+              : ["MIT", "MIT-0"].includes(licenseType)
+              ? [
+                  {
+                    key: "CopyrightOwner",
+                    value: (
+                      options_.monorepoConfig.parameters as DynamicKVInput[]
+                    ).find((v) => v.key === "CopyrightOwner")?.value,
+                    displayType: "string",
+                    displayName: "Copyright owner",
+                    description: "Enter the name for the copyright owner",
+                    validationRegex: "/^[a-zA-Z][a-zA-Z0-9_\\-\\.]{2,62}$/",
+                    validationMessage:
+                      "Namespaces must be greater than 3 characters and less than 100 characters, containing alphabetical characters and spaces only.",
+                  },
+                ]
+              : []),
+          ]
+        : []),
+    ]);
 
     new OptionsSchema(
       this,
@@ -563,12 +607,34 @@ export class Blueprint extends ParentBlueprint {
       deploymentStages,
     });
 
+    const spdx = licenseType !== "Custom" ? licenseType : undefined;
+    const copyrightOwner = ["MIT", "MIT-0"].includes(licenseType)
+      ? (this.options.monorepoConfig.parameters as DynamicKVInput[]).find(
+          (i) => i.key === "CopyrightOwner"
+        )?.value ?? " "
+      : (this.options.monorepoConfig.parameters as DynamicKVInput[]).find(
+          (i) => i.key === "CopyrightOwner"
+        )?.value;
+    const licenseText =
+      licenseType === "Custom"
+        ? (this.options.monorepoConfig.parameters as DynamicKVInput[]).find(
+            (i) => i.key === "LicenseText"
+          )?.value ?? " "
+        : undefined;
     new PDKSynth(this, this.sourceRepository, "monorepo", {
       monorepo: {
         primaryLanguage: this.options.monorepoConfig.primaryLanguage,
         packageManager: (
           this.options.monorepoConfig.parameters as DynamicKVInput[]
         ).find((i) => i.key === "PackageManager")?.value as any,
+        licenseOptions:
+          spdx || copyrightOwner || licenseText
+            ? {
+                spdx,
+                copyrightOwner,
+                licenseText,
+              }
+            : undefined,
       },
       api: options_.apiConfig.typeSafeApis.map((tsApi) => {
         const apiInputs = options_.apiConfig.parameters as DynamicKVInput[];

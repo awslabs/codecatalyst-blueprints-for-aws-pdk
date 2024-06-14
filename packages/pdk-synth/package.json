@@ -30,8 +30,8 @@
     "typescript": "5.4.5"
   },
   "dependencies": {
-    "@amazon-codecatalyst/blueprints": "0.3.137",
-    "@aws/pdk": "0.23.40",
+    "@amazon-codecatalyst/blueprints": "0.3.139",
+    "@aws/pdk": "0.23.41",
     "glob": "10.4.1",
     "mustache": "4.2.0",
     "projen": "0.82.6"

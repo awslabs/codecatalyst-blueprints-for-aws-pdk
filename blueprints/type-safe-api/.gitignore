@@ -4,7 +4,6 @@
 !/.projen/deps.json
 !/.projen/files.json
 !/package.json
-!/LICENSE
 logs
 *.log
 npm-debug.log*
@@ -40,3 +39,4 @@ jspm_packages/
 !/.eslintrc.json
 synth
 !/project.json
+!/LICENSE

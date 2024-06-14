@@ -43,10 +43,10 @@
     "typescript": "5.4.5"
   },
   "dependencies": {
-    "@amazon-codecatalyst/blueprint-util.cli": "0.3.137",
-    "@amazon-codecatalyst/blueprints": "0.3.137",
+    "@amazon-codecatalyst/blueprint-util.cli": "0.3.139",
+    "@amazon-codecatalyst/blueprints": "0.3.139",
     "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth": "0.0.0",
-    "@aws/pdk": "0.23.40",
+    "@aws/pdk": "0.23.41",
     "projen": "0.82.6"
   },
   "keywords": [
@@ -54,7 +54,7 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "version": "0.0.98",
+  "version": "0.0.114",
   "types": "lib/index.d.ts",
   "publishingSpace": "Centre-of-Prototyping-Excellence",
   "displayName": "Project Devlopment Kit (PDK)",

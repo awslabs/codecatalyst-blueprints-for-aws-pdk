@@ -11,6 +11,7 @@ import {
   InfrastructureTsProject,
 } from '@aws/pdk/infrastructure';
 import {
+  LicenseOptions,
   MonorepoJavaProject,
   MonorepoPythonProject,
   MonorepoTsProject,
@@ -38,6 +39,7 @@ export type LanguageOptions = 'TypeScript' | 'Java' | 'Python';
 interface MonorepoOptions {
   readonly primaryLanguage: 'TypeScript' | 'Java' | 'Python';
   readonly packageManager?: 'BUN' | 'PNPM' | 'YARN_BERRY' | 'NPM';
+  readonly licenseOptions?: LicenseOptions;
 }
 
 interface ApiOptions {
@@ -183,6 +185,7 @@ export class PDKSynth extends Component {
           nodeLinker: YarnNodeLinker.PNPM,
         },
       },
+      licenseOptions: this.options.monorepo.licenseOptions,
       projenrcTs: true,
     });
 
@@ -244,6 +247,7 @@ export class PDKSynth extends Component {
     const monorepo = new MonorepoJavaProject({
       outdir: this.sourceRepository.path,
       name: 'monorepo',
+      disableDefaultLicenses: this.options.monorepo.licenseOptions?.disableDefaultLicenses,
     });
 
     const apis = this.createTypeSafeApiProjects(monorepo);
@@ -258,6 +262,7 @@ export class PDKSynth extends Component {
       outdir: this.sourceRepository.path,
       name: 'monorepo',
       moduleName: 'monorepo',
+      licenseOptions: this.options.monorepo.licenseOptions,
     });
 
     const apis = this.createTypeSafeApiProjects(monorepo);
