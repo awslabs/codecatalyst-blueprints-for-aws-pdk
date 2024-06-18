@@ -60,6 +60,7 @@ interface WebsiteOptions {
 interface InfraOptions {
   language: 'TypeScript' | 'Java' | 'Python';
   stackName: string;
+  allowSelfRegistration: boolean;
   typeSafeApis: string[];
   cloudscapeReactTsWebsites: string[];
 }
@@ -360,6 +361,7 @@ export class PDKSynth extends Component {
           parent,
           outdir: INFRA_OUTDIR,
           name: 'infra',
+          allowSignup: this.options.infra.allowSelfRegistration,
           cloudscapeReactTsWebsites: props.websites?.filter(w => (this.options.infra?.cloudscapeReactTsWebsites || [])
             .find(v => v.toLowerCase() === w.name.toLowerCase())),
           typeSafeApis: props.apis?.filter(w => (this.options.infra?.typeSafeApis || [])
@@ -372,6 +374,7 @@ export class PDKSynth extends Component {
           parent,
           outdir: INFRA_OUTDIR,
           name: 'infra',
+          allowSignup: this.options.infra.allowSelfRegistration,
           cloudscapeReactTsWebsites: props.websites?.filter(w => (this.options.infra?.cloudscapeReactTsWebsites || [])
             .find(v => v.toLowerCase() === w.name.toLowerCase())),
           typeSafeApis: props.apis?.filter(w => (this.options.infra?.typeSafeApis || [])
@@ -384,6 +387,7 @@ export class PDKSynth extends Component {
           parent,
           outdir: INFRA_OUTDIR,
           name: 'infra',
+          allowSignup: this.options.infra.allowSelfRegistration,
           cloudscapeReactTsWebsites: props.websites?.filter(w => (this.options.infra?.cloudscapeReactTsWebsites || [])
             .find(v => v.toLowerCase() === w.name.toLowerCase())),
           typeSafeApis: props.apis?.filter(w => (this.options.infra?.typeSafeApis || [])
@@ -441,6 +445,7 @@ export class PDKSynth extends Component {
           parent,
           outdir: `packages/websites/${websiteName}`,
           name: websiteName,
+          allowSignup: this.options.infra?.allowSelfRegistration,
           applicationName: options.websiteName,
           typeSafeApis: apis?.filter(api => options.typeSafeApis
             .find((api2) => api2 === api.model.apiName)),

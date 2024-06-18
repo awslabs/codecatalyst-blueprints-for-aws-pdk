@@ -130,6 +130,13 @@ export interface Options extends ParentOptions {
      */
     stackName: string;
 
+    /**
+     * Allow Cognito self-registration.
+     *
+     * @displayName Cognito self-registration
+     */
+    allowSelfRegistration: boolean;
+
     parameters: OptionsSchemaDefinition<"infra.parameters", KVSchema>;
   };
 
@@ -539,9 +546,8 @@ export class Blueprint extends ParentBlueprint {
           .primaryLanguage as Options["monorepoConfig"]["primaryLanguage"],
       },
       infra: {
+        ...defaults.infra,
         language: defaults.infra.language as Options["infra"]["language"],
-        stackName: defaults.infra.stackName,
-        parameters: defaults.infra.parameters,
       },
       devOps: {
         ...defaults.devOps,
@@ -699,6 +705,7 @@ export class Blueprint extends ParentBlueprint {
       infra: {
         stackName: this.options.infra.stackName,
         language: this.options.infra.language,
+        allowSelfRegistration: this.options.infra.allowSelfRegistration,
         typeSafeApis:
           ((this.options.infra.parameters as DynamicKVInput[]).find(
             (v) => v.key === "TypeSafeApis"
