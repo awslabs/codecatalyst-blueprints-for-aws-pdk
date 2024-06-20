@@ -57,6 +57,7 @@ public class projenrc {
                 .typeSafeApis(Arrays.asList({{{typeSafeApiNames}}}))
                 .name("{{{websiteNameLowercase}}}")
                 .applicationName("{{{websiteName}}}")
+                .allowSignup({{{allowSignup}}})
                 .build());
 
 {{/cloudscapeReactTsWebsites}}
@@ -68,6 +69,7 @@ public class projenrc {
                 .name("infra")
                 .typeSafeApis(Arrays.asList({{{typeSafeApiNames}}}))
                 .cloudscapeReactTsWebsites(Arrays.asList({{{cloudscapeReactTsWebsiteNames}}}))
+                .allowSignup({{{allowSignup}}})
                 .build());
 
 {{/hasInfra}}
@@ -137,6 +139,7 @@ const {{{websiteNameLowercase}}} = new CloudscapeReactTsWebsiteProject({
     name: "{{{websiteNameLowercase}}}",
     applicationName: "{{{websiteName}}}",
     typeSafeApis: [{{{typeSafeApiNames}}}],
+    allowSignup: {{{allowSignup}}},
 });
 
 {{/cloudscapeReactTsWebsites}}
@@ -146,7 +149,8 @@ new InfrastructureTsProject({
     outdir: "packages/infra/main",
     name: "infra",
     cloudscapeReactTsWebsites: [{{{cloudscapeReactTsWebsiteNames}}}],
-    typeSafeApis: [{{{typeSafeApiNames}}}]
+    typeSafeApis: [{{{typeSafeApiNames}}}],
+    allowSignup: {{{allowSignup}}},
 });
 
 {{/hasInfra}}
@@ -204,6 +208,7 @@ monorepo = MonorepoPythonProject(
     type_safe_apis=[{{{typeSafeApiNames}}}],
     name="{{{websiteNameLowercase}}}",
     application_name="{{{websiteName}}}",
+    allow_signup={{#allowSignup}}True{{/allowSignup}}{{^allowSignup}}False{{/allowSignup}}
 )
 
 {{/cloudscapeReactTsWebsites}}
@@ -213,7 +218,8 @@ InfrastructurePyProject(
     outdir="packages/infra/main",
     name="infra",
     cloudscape_react_ts_websites=[{{{cloudscapeReactTsWebsiteNames}}}],
-    type_safe_apis=[{{{typeSafeApiNames}}}]
+    type_safe_apis=[{{{typeSafeApiNames}}}],
+    allow_signup={{#allowSignup}}True{{/allowSignup}}{{^allowSignup}}False{{/allowSignup}}
 )
 
 {{/hasInfra}}

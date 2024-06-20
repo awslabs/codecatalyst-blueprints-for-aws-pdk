@@ -103,6 +103,7 @@ export class PDKSynth extends Component {
           },
         }`,
         packageManager: this.options.monorepo.packageManager,
+        allowSignup: this.options.infra?.allowSelfRegistration ?? false,
         typeSafeApis: this.options.api?.map(api => ({
           isSmithy: this.getModelLanguage(api) === ModelLanguage.SMITHY,
           apiNamespace: api.namespace,
