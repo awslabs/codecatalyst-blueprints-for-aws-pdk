@@ -19,7 +19,7 @@ import {
 } from "@amazon-codecatalyst/blueprints";
 import { PDKSynth } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
 import defaults from "./defaults.json";
-import { assets } from "./static-assets";
+import { assets, ASL } from "./static-assets";
 import { DeploymentStage, Workflow } from "./workflow";
 
 const EC2_COMPUTE: string[] = [
@@ -224,20 +224,7 @@ export class Blueprint extends ParentBlueprint {
               ),
               value: licenseType ?? "Apache-2.0",
             },
-            ...(licenseType === "Custom"
-              ? [
-                  {
-                    key: "LicenseText",
-                    value: (
-                      options_.monorepoConfig.parameters as DynamicKVInput[]
-                    ).find((v) => v.key === "LicenseText")?.value,
-                    displayType: "textarea",
-                    displayName: "License text",
-                    description:
-                      "Enter the text you would like to appear in your generated LICENSE files",
-                  },
-                ]
-              : ["MIT", "MIT-0"].includes(licenseType)
+            ...(["MIT", "MIT-0"].includes(licenseType)
               ? [
                   {
                     key: "CopyrightOwner",
@@ -620,7 +607,7 @@ export class Blueprint extends ParentBlueprint {
       deploymentStages,
     });
 
-    const spdx = licenseType !== "Custom" ? licenseType : undefined;
+    const spdx = licenseType !== "ASL-1.0" ? licenseType : undefined;
     const copyrightOwner = ["MIT", "MIT-0"].includes(licenseType)
       ? (this.options.monorepoConfig.parameters as DynamicKVInput[]).find(
           (i) => i.key === "CopyrightOwner"
@@ -628,12 +615,7 @@ export class Blueprint extends ParentBlueprint {
       : (this.options.monorepoConfig.parameters as DynamicKVInput[]).find(
           (i) => i.key === "CopyrightOwner"
         )?.value;
-    const licenseText =
-      licenseType === "Custom"
-        ? (this.options.monorepoConfig.parameters as DynamicKVInput[]).find(
-            (i) => i.key === "LicenseText"
-          )?.value ?? " "
-        : undefined;
+    const licenseText = licenseType === "ASL-1.0" ? ASL : undefined;
     new PDKSynth(this, this.sourceRepository, "monorepo", {
       monorepo: {
         primaryLanguage: this.options.monorepoConfig.primaryLanguage,

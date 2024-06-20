@@ -20,7 +20,7 @@
             "value": "Apache-2.0",
             "displayType": "dropdown",
             "possibleValues": [
-                "Custom",
+                "ASL-1.0",
                 "AGPL-3.0-or-later",
                 "Apache-2.0",
                 "Artistic-1.0",
@@ -43,7 +43,7 @@
               ],
               "displayName": "License Type",
               "description":
-                "Select from one of the supported SPDX licenses or choose a custom license."
+                "Select from one of the supported licenses"
         }],
     "sourceRepositoryName": "monorepo",
     "projen": false
