@@ -96,7 +96,10 @@ const monorepo = new MonorepoTsProject({
     name: "monorepo",
     packageManager: javascript.NodePackageManager.{{{packageManager}}},{{#isYarnBerry}}
     yarnBerryOptions: {{{yarnBerryOptions}}},{{/isYarnBerry}}
-    projenrcTs: true,
+    projenrcTs: true,{{#licenseOptions}}
+    licenseOptions: {
+      {{{keyCamel}}}: \`{{{value}}}\`,
+    },{{/licenseOptions}}
 });
 
 {{#typeSafeApis}}
@@ -158,14 +161,20 @@ monorepo.synth();`,
   },
   python: {
     path: '.projenrc.py',
-    content: `from aws_pdk.monorepo import MonorepoPythonProject
+    content: `from aws_pdk.monorepo import MonorepoPythonProject{{#hasLicenseOptions}}, LicenseOptions{{/hasLicenseOptions}}
 {{#cloudscapeReactTsWebsites.0}}from aws_pdk.cloudscape_react_ts_website import CloudscapeReactTsWebsiteProject
 {{/cloudscapeReactTsWebsites.0}}{{#hasInfra}}from aws_pdk.infrastructure import InfrastructurePyProject{{/hasInfra}}{{#typeSafeApis.0}}
 from aws_pdk.type_safe_api import *{{/typeSafeApis.0}}
 
 monorepo = MonorepoPythonProject(
     module_name="monorepo",
-    name="monorepo",
+    name="monorepo",{{#hasLicenseOptions}}
+    license_options=LicenseOptions(
+      {{#licenseOptions}}
+        {{{keySnake}}}="""{{{value}}}"""{{^isLast}},{{/isLast}}
+      {{/licenseOptions}}
+    )
+    {{/hasLicenseOptions}}
 )
 
 {{#typeSafeApis}}

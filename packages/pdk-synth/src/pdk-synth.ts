@@ -75,6 +75,8 @@ export interface Options {
   website?: WebsiteOptions[];
 }
 
+const camelToSnakeCase = (str: string) => str.replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`).replace(/^_/, '');
+
 export class PDKSynth extends Component {
   private readonly sourceRepository: SourceRepository;
   private readonly options: Options;
@@ -104,6 +106,14 @@ export class PDKSynth extends Component {
         }`,
         packageManager: this.options.monorepo.packageManager,
         allowSignup: this.options.infra?.allowSelfRegistration ?? false,
+        hasLicenseOptions: this.options.monorepo.licenseOptions ?? false,
+        licenseOptions: this.options.monorepo.licenseOptions ? Object.entries(this.options.monorepo.licenseOptions)
+          .filter(([, v]) => !!v).map(([k, v], i, j) => ({
+            keyCamel: k,
+            keySnake: camelToSnakeCase(k),
+            value: v,
+            isLast: i === j.length - 1,
+          })) : undefined,
         typeSafeApis: this.options.api?.map(api => ({
           isSmithy: this.getModelLanguage(api) === ModelLanguage.SMITHY,
           apiNamespace: api.namespace,
