@@ -18,9 +18,10 @@ import {
   ComputeType,
 } from "@amazon-codecatalyst/blueprints";
 import { PDKSynth } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
+import { DeploymentStage } from "@aws/pdk/infrastructure";
 import defaults from "./defaults.json";
 import { assets, ASL } from "./static-assets";
-import { DeploymentStage, Workflow } from "./workflow";
+import { DeploymentStage as _DeploymentStage, Workflow } from "./workflow";
 
 const EC2_COMPUTE: string[] = [
   ComputeFleet.LINUX_X86_64_LARGE,
@@ -177,7 +178,7 @@ export class Blueprint extends ParentBlueprint {
   constructor(options_: Options) {
     super(options_);
 
-    const deploymentStages: DeploymentStage[] = Object.entries(
+    const deploymentStages: _DeploymentStage[] = Object.entries(
       options_.devOps.parameters.reduce(
         (p: DynamicKVInput, c: DynamicKVInput) => ({
           ...p,
@@ -616,6 +617,18 @@ export class Blueprint extends ParentBlueprint {
           (i) => i.key === "CopyrightOwner"
         )?.value;
     const licenseText = licenseType === "ASL-1.0" ? ASL : undefined;
+    const stages: DeploymentStage[] = this.options.devOps.stages
+      .filter((s) => this.getDeploymentAccount(s))
+      .map((stage) => {
+        const account = this.getDeploymentAccount(stage);
+        return {
+          stageName: stage,
+          region: (this.options.devOps.parameters as DynamicKVInput[]).find(
+            (i) => i.key === `${stage}_Region`
+          )?.value,
+          account: Number(account),
+        };
+      });
     new PDKSynth(this, this.sourceRepository, "monorepo", {
       monorepo: {
         primaryLanguage: this.options.monorepoConfig.primaryLanguage,
@@ -697,6 +710,7 @@ export class Blueprint extends ParentBlueprint {
             (v) => v.key === "CloudscapeReactTSWebsites"
           )?.value as any) ?? [],
       },
+      stages,
     });
 
     new Issue(this, "MissingLockFile", {
@@ -706,5 +720,13 @@ export class Blueprint extends ParentBlueprint {
       priority: "HIGH",
       labels: ["CI", "Build"],
     });
+  }
+
+  private getDeploymentAccount(stage: string): string | undefined {
+    const env = (this.options.devOps.parameters as DynamicKVInput[]).find(
+      (i) => i.key === `${stage}_Environment`
+    )?.value as Environment;
+
+    return env?.[stage]?.id;
   }
 }

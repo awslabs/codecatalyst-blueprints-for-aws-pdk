@@ -5,10 +5,13 @@ export const projenrcMap: {[lang: string]: {path: string; content: string}} = {
 import software.aws.pdk.monorepo.MonorepoJavaOptions;
 {{#cloudscapeReactTsWebsites.0}}import software.aws.pdk.cloudscape_react_ts_website.CloudscapeReactTsWebsiteProject;
 import software.aws.pdk.cloudscape_react_ts_website.CloudscapeReactTsWebsiteProjectOptions;
-{{/cloudscapeReactTsWebsites.0}}{{#hasInfra}}import software.aws.pdk.infrastructure.InfrastructureJavaProject;
-import software.aws.pdk.infrastructure.InfrastructureJavaProjectOptions;{{/hasInfra}}{{#typeSafeApis.0}}
+{{/cloudscapeReactTsWebsites.0}}{{#hasInfra}}import software.aws.pdk.infrastructure.InfrastructureJavaProject;{{#hasStages}}
+import software.aws.pdk.infrastructure.DeploymentStage;{{/hasStages}}
+import software.aws.pdk.infrastructure.InfrastructureJavaProjectOptions;{{/hasInfra}}
+{{#typeSafeApis.0}}
 import software.aws.pdk.type_safe_api.*;
-{{/typeSafeApis.0}}import java.util.Arrays;
+{{/typeSafeApis.0}}
+import java.util.Arrays;
 
 public class projenrc {
     public static void main(String[] args) {
@@ -69,8 +72,19 @@ public class projenrc {
                 .name("infra")
                 .typeSafeApis(Arrays.asList({{{typeSafeApiNames}}}))
                 .cloudscapeReactTsWebsites(Arrays.asList({{{cloudscapeReactTsWebsiteNames}}}))
-                .allowSignup({{{allowSignup}}})
-                .build());
+                .allowSignup({{{allowSignup}}}){{#hasStages}}
+                .stages(Arrays.asList(
+                {{#stages}}
+                    DeploymentStage.builder()
+                        .stageName("{{{stageName}}}")
+                        .account({{{account}}})
+                        .region("{{{region}}}")
+                        .build(){{^isLast}},
+                    {{/isLast}}
+                {{/stages}}
+                
+                ))
+                {{/hasStages}}.build());
 
 {{/hasInfra}}
         monorepo.synth();
@@ -153,7 +167,14 @@ new InfrastructureTsProject({
     name: "infra",
     cloudscapeReactTsWebsites: [{{{cloudscapeReactTsWebsiteNames}}}],
     typeSafeApis: [{{{typeSafeApiNames}}}],
-    allowSignup: {{{allowSignup}}},
+    allowSignup: {{{allowSignup}}},{{#hasStages}}
+    stages: [
+      {{#stages}}{
+        stageName: "{{{stageName}}}",
+        account: {{{account}}},
+        region: "{{{region}}}",
+      },{{^isLast}} {{/isLast}}{{/stages}}
+    ],{{/hasStages}}
 });
 
 {{/hasInfra}}
@@ -163,7 +184,7 @@ monorepo.synth();`,
     path: '.projenrc.py',
     content: `from aws_pdk.monorepo import MonorepoPythonProject{{#hasLicenseOptions}}, LicenseOptions{{/hasLicenseOptions}}
 {{#cloudscapeReactTsWebsites.0}}from aws_pdk.cloudscape_react_ts_website import CloudscapeReactTsWebsiteProject
-{{/cloudscapeReactTsWebsites.0}}{{#hasInfra}}from aws_pdk.infrastructure import InfrastructurePyProject{{/hasInfra}}{{#typeSafeApis.0}}
+{{/cloudscapeReactTsWebsites.0}}{{#hasInfra}}from aws_pdk.infrastructure import {{#hasStages}}DeploymentStage, {{/hasStages}}InfrastructurePyProject{{/hasInfra}}{{#typeSafeApis.0}}
 from aws_pdk.type_safe_api import *{{/typeSafeApis.0}}
 
 monorepo = MonorepoPythonProject(
@@ -228,7 +249,14 @@ InfrastructurePyProject(
     name="infra",
     cloudscape_react_ts_websites=[{{{cloudscapeReactTsWebsiteNames}}}],
     type_safe_apis=[{{{typeSafeApiNames}}}],
-    allow_signup={{#allowSignup}}True{{/allowSignup}}{{^allowSignup}}False{{/allowSignup}}
+    allow_signup={{#allowSignup}}True{{/allowSignup}}{{^allowSignup}}False{{/allowSignup}}{{#hasStages}},
+    stages=[
+      {{#stages}}DeploymentStage(
+        stage_name="{{{stageName}}}",
+        account={{{account}}},
+        region="{{{region}}}"
+      ){{^isLast}}, {{/isLast}}{{/stages}}
+    ]{{/hasStages}}
 )
 
 {{/hasInfra}}

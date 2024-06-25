@@ -6,6 +6,7 @@ import {
 } from '@amazon-codecatalyst/blueprints';
 import { CloudscapeReactTsWebsiteProject } from '@aws/pdk/cloudscape-react-ts-website';
 import {
+  DeploymentStage,
   InfrastructureJavaProject,
   InfrastructurePyProject,
   InfrastructureTsProject,
@@ -73,6 +74,8 @@ export interface Options {
   infra?: InfraOptions;
 
   website?: WebsiteOptions[];
+
+  stages?: DeploymentStage[];
 }
 
 const camelToSnakeCase = (str: string) => str.replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`).replace(/^_/, '');
@@ -105,6 +108,8 @@ export class PDKSynth extends Component {
           },
         }`,
         packageManager: this.options.monorepo.packageManager,
+        hasStages: (this.options.stages || []).length > 0,
+        stages: this.options.stages?.map((s, i) => ({...s, isLast: i === this.options.stages!.length - 1})) || [],
         allowSignup: this.options.infra?.allowSelfRegistration ?? false,
         hasLicenseOptions: this.options.monorepo.licenseOptions ?? false,
         licenseOptions: this.options.monorepo.licenseOptions ? Object.entries(this.options.monorepo.licenseOptions)
@@ -373,6 +378,7 @@ export class PDKSynth extends Component {
           outdir: INFRA_OUTDIR,
           name: 'infra',
           allowSignup: this.options.infra.allowSelfRegistration,
+          stages: this.options.stages,
           cloudscapeReactTsWebsites: props.websites?.filter(w => (this.options.infra?.cloudscapeReactTsWebsites || [])
             .find(v => v.toLowerCase() === w.name.toLowerCase())),
           typeSafeApis: props.apis?.filter(w => (this.options.infra?.typeSafeApis || [])
@@ -386,6 +392,7 @@ export class PDKSynth extends Component {
           outdir: INFRA_OUTDIR,
           name: 'infra',
           allowSignup: this.options.infra.allowSelfRegistration,
+          stages: this.options.stages,
           cloudscapeReactTsWebsites: props.websites?.filter(w => (this.options.infra?.cloudscapeReactTsWebsites || [])
             .find(v => v.toLowerCase() === w.name.toLowerCase())),
           typeSafeApis: props.apis?.filter(w => (this.options.infra?.typeSafeApis || [])
@@ -399,6 +406,7 @@ export class PDKSynth extends Component {
           outdir: INFRA_OUTDIR,
           name: 'infra',
           allowSignup: this.options.infra.allowSelfRegistration,
+          stages: this.options.stages,
           cloudscapeReactTsWebsites: props.websites?.filter(w => (this.options.infra?.cloudscapeReactTsWebsites || [])
             .find(v => v.toLowerCase() === w.name.toLowerCase())),
           typeSafeApis: props.apis?.filter(w => (this.options.infra?.typeSafeApis || [])
