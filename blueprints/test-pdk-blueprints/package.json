@@ -47,11 +47,11 @@
   "dependencies": {
     "@amazon-codecatalyst/blueprint-util.cli": "0.3.105",
     "@amazon-codecatalyst/blueprints": "0.3.105",
-    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website": "^0.0.127",
-    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-devops": "^0.0.148",
-    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra": "^0.0.121",
-    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo": "^0.0.125",
-    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api": "^0.0.121",
+    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website": "*",
+    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-devops": "*",
+    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra": "*",
+    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-monorepo": "*",
+    "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-type-safe-api": "*",
     "projen": "0.81.0"
   },
   "main": "lib/index.js",

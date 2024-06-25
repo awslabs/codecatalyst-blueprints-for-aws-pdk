@@ -257,5 +257,9 @@ export const assets: { [filepath: string]: string } = {
   - - :approve
     - "aenum"
   - - :approve
-    - "wrapt"`,
+    - "wrapt"
+  - - :approve
+    - "package-json-from-dist"
+  - - :approve
+    - "BlueOak"`,
 };
