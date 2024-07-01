@@ -21,6 +21,7 @@ import {
   addCdkBootstrapAction,
   addCdkDeployAction,
   addLicenseCheckerAction,
+  addGenerateRequiredFilesAction,
   addManualApprovalAction,
   addTrivyAction,
 } from "./utils/actions";
@@ -61,6 +62,8 @@ export interface WorkflowOptions {
 
   readonly compute: ComputeDefintion;
 
+  readonly projen: boolean;
+
   readonly defaultBranch?: string;
 
   readonly deploymentStages?: DeploymentStage[];
@@ -77,14 +80,20 @@ export class Workflow extends Component {
 
     this.createPRWorkflow();
     this.createReleaseWorkflow();
+    this.createGenerateRequiredFilesWorkflow();
   }
 
   private addCommonWorkflowSteps(workflowDefinition: WorkflowDefinition) {
-    addBuildAction(workflowDefinition, this.blueprint.context.environmentId);
+    addBuildAction(
+      workflowDefinition,
+      this.blueprint.context.environmentId,
+      this.options.projen
+    );
     addTrivyAction(workflowDefinition, this.blueprint.context.environmentId);
     addLicenseCheckerAction(
       workflowDefinition,
-      this.blueprint.context.environmentId
+      this.blueprint.context.environmentId,
+      this.options.projen
     );
   }
 
@@ -172,6 +181,31 @@ export class Workflow extends Component {
       this.blueprint,
       this.options.sourceRepository,
       releaseWorkflow
+    );
+  }
+
+  /**
+   * Create a workflow that generates required files as a one-time workflow.
+   */
+  private createGenerateRequiredFilesWorkflow() {
+    const lockfileWorkflow: WorkflowDefinition = {
+      ...makeEmptyWorkflow(),
+      Name: "generate-required-files",
+      RunMode: this.options.runMode,
+      Compute: this.options.compute,
+    };
+
+    addGenericBranchTrigger(lockfileWorkflow, [this.options.defaultBranch!]);
+    addGenerateRequiredFilesAction(
+      lockfileWorkflow,
+      this.blueprint.context.environmentId,
+      this.options.projen
+    );
+
+    new _Workflow(
+      this.blueprint,
+      this.options.sourceRepository,
+      lockfileWorkflow
     );
   }
 }

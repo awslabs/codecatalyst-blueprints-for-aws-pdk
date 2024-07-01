@@ -1,4 +1,5 @@
 import { execSync } from 'child_process';
+import { readFileSync, writeFileSync } from 'fs';
 import {
   Blueprint,
   MergeStrategies,
@@ -25,6 +26,7 @@ import {
   SmithyModelOptions,
   TypeSafeApiProject,
 } from '@aws/pdk/type-safe-api';
+import { globSync } from 'glob';
 import * as Mustache from 'mustache';
 
 import { Component, Project, SampleReadme } from 'projen';
@@ -109,7 +111,7 @@ export class PDKSynth extends Component {
         }`,
         packageManager: this.options.monorepo.packageManager,
         hasStages: (this.options.stages || []).length > 0,
-        stages: this.options.stages?.map((s, i) => ({...s, isLast: i === this.options.stages!.length - 1})) || [],
+        stages: this.options.stages?.map((s, i) => ({ ...s, isLast: i === this.options.stages!.length - 1 })) || [],
         allowSignup: this.options.infra?.allowSelfRegistration ?? false,
         hasLicenseOptions: this.options.monorepo.licenseOptions ?? false,
         licenseOptions: this.options.monorepo.licenseOptions ? Object.entries(this.options.monorepo.licenseOptions)
@@ -193,6 +195,18 @@ export class PDKSynth extends Component {
     this.deleteDefaultMonorepoReadme(project);
     project.synth();
     process.env.PROJEN_DISABLE_POST = 'false';
+
+    this.patchProjenRunTask(project);
+  }
+
+  // TODO: remove once resolved: https://github.com/projen/projen/issues/3679
+  private patchProjenRunTask(project: Project) {
+    const files = globSync(`${project.outdir}/**/scripts/run-task`);
+    files.forEach((f) => {
+      const contents = readFileSync(f, 'utf-8');
+      const result = contents.replace('var packageVersion = require("../package.json").version;', '');
+      writeFileSync(f, result, 'utf-8');
+    });
   }
 
   private synthTypescriptBlueprint() {
@@ -391,6 +405,8 @@ export class PDKSynth extends Component {
           parent,
           outdir: INFRA_OUTDIR,
           name: 'infra',
+          artifactId: 'infra',
+          groupId: 'infra',
           allowSignup: this.options.infra.allowSelfRegistration,
           stages: this.options.stages,
           cloudscapeReactTsWebsites: props.websites?.filter(w => (this.options.infra?.cloudscapeReactTsWebsites || [])

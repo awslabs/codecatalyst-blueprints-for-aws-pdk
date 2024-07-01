@@ -265,7 +265,11 @@ Refer to https://aws.github.io/aws-pdk/developer_guides/monorepo/index.html
 - - :approve
   - "aenum"
 - - :approve
-  - "wrapt"`,
+  - "wrapt"
+- - :approve
+  - "package-json-from-dist"
+- - :approve
+  - "BlueOak"`,
 };
 
 export const ASL = `Amazon Software License 1.0

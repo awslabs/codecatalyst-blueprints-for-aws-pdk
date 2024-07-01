@@ -58,7 +58,7 @@
   },
   "infra": {
     "language": "TypeScript",
-    "stackName": "infra-",
+    "stackName": "infra",
     "allowSelfRegistration": true,
     "parameters": []
   },

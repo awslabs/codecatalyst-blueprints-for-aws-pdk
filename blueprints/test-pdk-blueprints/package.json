@@ -43,8 +43,8 @@
     "typescript": "5.5.2"
   },
   "dependencies": {
-    "@amazon-codecatalyst/blueprint-util.cli": "0.3.142",
-    "@amazon-codecatalyst/blueprints": "0.3.142",
+    "@amazon-codecatalyst/blueprint-util.cli": "0.3.144",
+    "@amazon-codecatalyst/blueprints": "0.3.144",
     "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-cloudscape-react-website": "*",
     "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-devops": "*",
     "@amazon-codecatalyst/centre-of-prototyping-excellence.pdk-infra": "*",

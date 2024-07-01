@@ -43,10 +43,10 @@
     "typescript": "5.5.2"
   },
   "dependencies": {
-    "@amazon-codecatalyst/blueprint-util.cli": "0.3.142",
-    "@amazon-codecatalyst/blueprints": "0.3.142",
+    "@amazon-codecatalyst/blueprint-util.cli": "0.3.144",
+    "@amazon-codecatalyst/blueprints": "0.3.144",
     "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth": "0.0.0",
-    "@aws/pdk": "0.23.43",
+    "@aws/pdk": "0.23.44",
     "projen": "0.82.8"
   },
   "keywords": [

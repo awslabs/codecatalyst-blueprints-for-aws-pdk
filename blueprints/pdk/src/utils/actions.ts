@@ -42,9 +42,49 @@ export function addGenericAction(
   return wfDefnition;
 }
 
+export function addGenerateRequiredFilesAction(
+  workflowDefinition: WorkflowDefinition,
+  environmentId: string | undefined,
+  projen: boolean
+) {
+  addGenericAction(workflowDefinition, "GenerateRequiredFiles", {
+    Identifier: getDefaultActionIdentifier("aws/build@v1", environmentId),
+    Inputs: {
+      Sources: ["WorkflowSource"],
+    },
+    Configuration: {
+      ...PDK_IMAGE,
+      Steps: [
+        projen ? "npx projen install" : "scripts/run-task install",
+        // projen ? "npx projen build" : "scripts/run-task build",
+        "rm .codecatalyst/workflows/generate-required-files.yaml",
+        'echo "Getting credentials..."',
+        "MI=`curl $AWS_CONTAINER_TOKEN_ENDPOINT`",
+        `ACCESS_KEY_ID=$(echo "$MI" | jq -r '.AccessKeyId')`,
+        `SECRET_ACCESS_KEY=$(echo "$MI" | jq -r '.SecretAccessKey')`,
+        "ORIGINAL_REMOTE=`git config --get remote.origin.url`",
+        'SOURCE_REPO_URL=`sed -e "s^//^//$ACCESS_KEY_ID:$SECRET_ACCESS_KEY@^" <<< $ORIGINAL_REMOTE`',
+        'echo "Configuring git..."',
+        "git remote set-url origin $SOURCE_REPO_URL",
+        'git config --global user.email "robot@codecatalyst.com"',
+        'git config --global user.name "Robot"',
+        "git checkout main",
+        "git add -A",
+        'git commit -m "fix: commit generated files"',
+        "git push",
+      ].map((step) => {
+        return {
+          Run: step,
+        };
+      }),
+    },
+  });
+}
+
 export function addBuildAction(
   workflowDefinition: WorkflowDefinition,
-  environmentId: string | undefined
+  environmentId: string | undefined,
+  projen: boolean
 ) {
   addGenericAction(workflowDefinition, "Build", {
     Identifier: getDefaultActionIdentifier("aws/build@v1", environmentId),
@@ -56,10 +96,6 @@ export function addBuildAction(
         {
           Name: "Built",
           Files: ["**/*"],
-        },
-        {
-          Name: "Diagram",
-          Files: ["packages/infra/main/cdk.out/cdkgraph/diagram.*"],
         },
       ],
       AutoDiscoverReports: {
@@ -79,7 +115,10 @@ export function addBuildAction(
     },
     Configuration: {
       ...PDK_IMAGE,
-      Steps: ["npx projen install:ci", "npx projen build"].map((step) => {
+      Steps: [
+        projen ? "npx projen install:ci" : "scripts/run-task install:ci",
+        projen ? "npx projen build" : "scripts/run-task build",
+      ].map((step) => {
         return {
           Run: step,
         };
@@ -141,7 +180,8 @@ export function addTrivyAction(
 
 export function addLicenseCheckerAction(
   wfDefinition: WorkflowDefinition,
-  environmentId: string | undefined
+  environmentId: string | undefined,
+  projen: boolean
 ) {
   addGenericAction(wfDefinition, "LicenseChecker", {
     Identifier: getDefaultActionIdentifier(
@@ -156,8 +196,8 @@ export function addLicenseCheckerAction(
       Steps: [
         "CWD=`pwd` PROJECT_DIRS=`find . -type f \\( -name pnpm-lock.yaml -o -name pyproject.toml -o -name pom.xml \\) -exec bash -c 'echo $(dirname $0)' {} \\; | sort | uniq`",
         "find . -name pyproject.toml -exec bash -c 'cd $(dirname $0) && poetry export --without-hashes --with dev -f requirements.txt | grep -v \"file:\" > requirements.txt && pip3 install -r requirements.txt' {} \\;",
-        "npx projen install:ci",
-        "npx projen build",
+        projen ? "npx projen install:ci" : "scripts/run-task install:ci",
+        projen ? "npx projen build" : "scripts/run-task build",
         "for DIR in $PROJECT_DIRS;\ndo\n  cd $CWD/$DIR\n  pwd;\n  license_finder --decisions_file $CWD/approved-licenses.yaml\ndone",
       ].map((step) => {
         return { Run: step };

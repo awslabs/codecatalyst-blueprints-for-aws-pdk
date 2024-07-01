@@ -6,7 +6,6 @@ import {
   Options as ParentOptions,
   Selector,
   SourceFile,
-  Issue,
   SourceRepository,
   Workspace,
   KVSchema,
@@ -127,7 +126,6 @@ export interface Options extends ParentOptions {
      * @displayName Stack name
      * @validationRegex /^[a-zA-Z][a-zA-Z0-9-]{0,99}$/
      * @validationMessage Stack names must start with a letter, then contain alphanumeric characters and dashes(-) up to a total length of 128 characters
-     * @defaultEntropy 5
      */
     stackName: string;
 
@@ -606,6 +604,7 @@ export class Blueprint extends ParentBlueprint {
         Fleet: resolvedComputeFleet as ComputeFleet,
       },
       deploymentStages,
+      projen: this.options.monorepoConfig.projen ?? false,
     });
 
     const spdx = licenseType !== "ASL-1.0" ? licenseType : undefined;
@@ -711,14 +710,6 @@ export class Blueprint extends ParentBlueprint {
           )?.value as any) ?? [],
       },
       stages,
-    });
-
-    new Issue(this, "MissingLockFile", {
-      title: "Missing Lock File",
-      content:
-        'The generated project does not have lockfiles automatically generated. To resolve this, either create a new dev environment or clone this project locally and run the following from the root directory of this project:\n\n```\nnpx projen install\ngit add -A\ngit commit -m "fix: add lockfile"\ngit push\n```\n\nThis will trigger your CI pipeline to execute which should result in a successful deployment after whichyou can resolve this ticket.',
-      priority: "HIGH",
-      labels: ["CI", "Build"],
     });
   }
 

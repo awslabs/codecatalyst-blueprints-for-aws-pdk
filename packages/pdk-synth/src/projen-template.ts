@@ -70,6 +70,8 @@ public class projenrc {
                 .parent(monorepo)
                 .outdir("packages/infra/main")
                 .name("infra")
+                .groupId("infra")
+                .artifactId("infra")
                 .typeSafeApis(Arrays.asList({{{typeSafeApiNames}}}))
                 .cloudscapeReactTsWebsites(Arrays.asList({{{cloudscapeReactTsWebsiteNames}}}))
                 .allowSignup({{{allowSignup}}}){{#hasStages}}
