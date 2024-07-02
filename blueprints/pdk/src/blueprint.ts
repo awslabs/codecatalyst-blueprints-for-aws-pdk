@@ -592,11 +592,7 @@ export class Blueprint extends ParentBlueprint {
 
     // Create environments
     deploymentStages.forEach(
-      (stage) =>
-        new Environment(this, {
-          name: stage.environment.name,
-          environmentType: stage.environment.environmentType ?? "DEVELOPMENT",
-        })
+      (stage) => new Environment(this, stage.environment)
     );
 
     new Workflow(this, {
