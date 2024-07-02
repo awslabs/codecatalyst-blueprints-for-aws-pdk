@@ -10,6 +10,8 @@ import {
   getDefaultActionIdentifier,
 } from "@amazon-codecatalyst/blueprints";
 
+const LOCKFILE_COMMIT_MESSAGE = "chore(lockfile): commit lock files";
+
 const PDK_IMAGE = {
   Container: {
     Registry: "ECR",
@@ -66,7 +68,8 @@ export function addReleaseOrchestratorActions(
           '  echo "Changes detected, proceeding to update files..."',
           "  should_release=false",
           "  chmod +x ./scripts/setup-git.sh && ./scripts/setup-git.sh",
-          '  git commit -m "fix: commit lock files"',
+          `  git log -1 --pretty=%B | grep -q "^${LOCKFILE_COMMIT_MESSAGE}$" && echo "cycle detected, exiting" && exit 1 || true`,
+          `  git commit -m "${LOCKFILE_COMMIT_MESSAGE}"`,
           "  latest_commit=$(git ls-remote origin -h ${WorkflowSource.BranchName} | cut -f1)",
           '  if [ "$latest_commit" = "${WorkflowSource.CommitId}" ]; then',
           '    echo "At tip, pushing changes."',
@@ -209,7 +212,7 @@ export function addLicenseCheckerAction(
       environmentId
     ),
     Inputs: {
-      Artifacts: ["Built"],
+      Sources: ["WorkflowSource"],
     },
     DependsOn: ["Build"],
     Configuration: {
@@ -218,6 +221,8 @@ export function addLicenseCheckerAction(
         "CWD=`pwd` PROJECT_DIRS=`find . -type f \\( -name pnpm-lock.yaml -o -name pyproject.toml -o -name pom.xml \\) -exec bash -c 'echo $(dirname $0)' {} \\; | sort | uniq`",
         "find . -name pyproject.toml -exec bash -c 'cd $(dirname $0) && poetry export --without-hashes --with dev -f requirements.txt | grep -v \"file:\" > requirements.txt && pip3 install -r requirements.txt' {} \\;",
         projen ? "npx projen install:ci" : "scripts/run-task install:ci",
+        projen ? "npx projen build" : "scripts/run-task build",
+        'export RUBYOPT="-KU -E utf-8:utf-8"',
         "for DIR in $PROJECT_DIRS;\ndo\n  cd $CWD/$DIR\n  pwd;\n  license_finder --decisions_file $CWD/approved-licenses.yaml\ndone",
       ].map((step) => {
         return { Run: step };

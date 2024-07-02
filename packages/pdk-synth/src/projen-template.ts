@@ -79,7 +79,7 @@ public class projenrc {
                 {{#stages}}
                     DeploymentStage.builder()
                         .stageName("{{{stageName}}}")
-                        .account({{{account}}})
+                        .account({{{account}}}L)
                         .region("{{{region}}}")
                         .build(){{^isLast}},
                     {{/isLast}}
