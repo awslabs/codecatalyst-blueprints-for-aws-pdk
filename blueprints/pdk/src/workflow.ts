@@ -21,7 +21,7 @@ import {
   addCdkBootstrapAction,
   addCdkDeployAction,
   addLicenseCheckerAction,
-  addGenerateRequiredFilesAction,
+  addReleaseOrchestratorActions,
   addManualApprovalAction,
   addTrivyAction,
 } from "./utils/actions";
@@ -80,7 +80,7 @@ export class Workflow extends Component {
 
     this.createPRWorkflow();
     this.createReleaseWorkflow();
-    this.createGenerateRequiredFilesWorkflow();
+    this.createReleaseOrchestratorWorkflow();
   }
 
   private addCommonWorkflowSteps(workflowDefinition: WorkflowDefinition) {
@@ -119,7 +119,7 @@ export class Workflow extends Component {
   }
 
   /**
-   * Create a workflow that runs when code gets pushed to the default branch of the repo.
+   * Create a workflow that builds and deploys the codebase.
    */
   private createReleaseWorkflow() {
     const releaseWorkflow: WorkflowDefinition = {
@@ -129,7 +129,6 @@ export class Workflow extends Component {
       Compute: this.options.compute,
     };
 
-    addGenericBranchTrigger(releaseWorkflow, [this.options.defaultBranch!]);
     this.addCommonWorkflowSteps(releaseWorkflow);
 
     let lastDeployAction: string;
@@ -185,19 +184,21 @@ export class Workflow extends Component {
   }
 
   /**
-   * Create a workflow that generates required files as a one-time workflow.
+   * Create a workflow that generates and required files and orchestrates the release of the codebase.
    */
-  private createGenerateRequiredFilesWorkflow() {
-    const lockfileWorkflow: WorkflowDefinition = {
+  private createReleaseOrchestratorWorkflow() {
+    const releaseOrchestratorWorkflow: WorkflowDefinition = {
       ...makeEmptyWorkflow(),
-      Name: "generate-required-files",
+      Name: "release-orchestrator",
       RunMode: this.options.runMode,
       Compute: this.options.compute,
     };
 
-    addGenericBranchTrigger(lockfileWorkflow, [this.options.defaultBranch!]);
-    addGenerateRequiredFilesAction(
-      lockfileWorkflow,
+    addGenericBranchTrigger(releaseOrchestratorWorkflow, [
+      this.options.defaultBranch!,
+    ]);
+    addReleaseOrchestratorActions(
+      releaseOrchestratorWorkflow,
       this.blueprint.context.environmentId,
       this.options.projen
     );
@@ -205,7 +206,7 @@ export class Workflow extends Component {
     new _Workflow(
       this.blueprint,
       this.options.sourceRepository,
-      lockfileWorkflow
+      releaseOrchestratorWorkflow
     );
   }
 }

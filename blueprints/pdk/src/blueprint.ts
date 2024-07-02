@@ -15,6 +15,8 @@ import {
   RunModeDefiniton,
   ComputeFleet,
   ComputeType,
+  AccountConnection,
+  Role,
 } from "@amazon-codecatalyst/blueprints";
 import { PDKSynth } from "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth";
 import { DeploymentStage } from "@aws/pdk/infrastructure";
@@ -195,12 +197,12 @@ export class Blueprint extends ParentBlueprint {
         name: stage,
         environmentType: values.Environment?.environmentType ?? "DEVELOPMENT",
         accountConnection: {
-          name: stage,
-          id: stage,
+          name: values.Environment?.[stage]?.name,
+          id: values.Environment?.[stage]?.id,
           deployRole: values.Environment?.[stage]?.deployRole,
         },
       },
-      stackName: options_.infra.stackName,
+      stackName: `${options_.infra.stackName}-${stage}`,
       cloudAssemblyRootPath: "packages/infra/main/cdk.out",
     }));
 
@@ -463,6 +465,7 @@ export class Blueprint extends ParentBlueprint {
                     accountConnections: [
                       {
                         name: stage,
+                        displayName: "Account connection",
                         description: "AWS account to deploy into.",
                         roles: [
                           {
@@ -617,15 +620,17 @@ export class Blueprint extends ParentBlueprint {
         )?.value;
     const licenseText = licenseType === "ASL-1.0" ? ASL : undefined;
     const stages: DeploymentStage[] = this.options.devOps.stages
-      .filter((s) => this.getDeploymentAccount(s))
+      .filter(
+        (s) => this.getDeploymentAccount(s) && this.getAccountConnectionName(s)
+      )
       .map((stage) => {
-        const account = this.getDeploymentAccount(stage);
         return {
           stageName: stage,
           region: (this.options.devOps.parameters as DynamicKVInput[]).find(
             (i) => i.key === `${stage}_Region`
           )?.value,
-          account: Number(account),
+          account: Number(this.getDeploymentAccount(stage)),
+          name: this.getAccountConnectionName(stage)!,
         };
       });
     new PDKSynth(this, this.sourceRepository, "monorepo", {
@@ -713,11 +718,21 @@ export class Blueprint extends ParentBlueprint {
     });
   }
 
-  private getDeploymentAccount(stage: string): string | undefined {
+  private getAccountConnection(
+    stage: string
+  ): AccountConnection<{ deployRole: Role<["CDK Deploy"]> }> | undefined {
     const env = (this.options.devOps.parameters as DynamicKVInput[]).find(
       (i) => i.key === `${stage}_Environment`
-    )?.value as Environment;
+    )?.value;
 
-    return env?.[stage]?.id;
+    return env?.[stage];
+  }
+
+  private getDeploymentAccount(stage: string): string | undefined {
+    return this.getAccountConnection(stage)?.id;
+  }
+
+  private getAccountConnectionName(stage: string): string | undefined {
+    return this.getAccountConnection(stage)?.name;
   }
 }

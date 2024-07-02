@@ -42,41 +42,60 @@ export function addGenericAction(
   return wfDefnition;
 }
 
-export function addGenerateRequiredFilesAction(
+export function addReleaseOrchestratorActions(
   workflowDefinition: WorkflowDefinition,
   environmentId: string | undefined,
   projen: boolean
 ) {
-  addGenericAction(workflowDefinition, "GenerateRequiredFiles", {
+  addGenericAction(workflowDefinition, "UpdateLockFiles", {
     Identifier: getDefaultActionIdentifier("aws/build@v1", environmentId),
     Inputs: {
       Sources: ["WorkflowSource"],
+    },
+    Outputs: {
+      Variables: ["should_release"],
     },
     Configuration: {
       ...PDK_IMAGE,
       Steps: [
         projen ? "npx projen install" : "scripts/run-task install",
-        // projen ? "npx projen build" : "scripts/run-task build",
-        "rm .codecatalyst/workflows/generate-required-files.yaml",
-        'echo "Getting credentials..."',
-        "MI=`curl $AWS_CONTAINER_TOKEN_ENDPOINT`",
-        `ACCESS_KEY_ID=$(echo "$MI" | jq -r '.AccessKeyId')`,
-        `SECRET_ACCESS_KEY=$(echo "$MI" | jq -r '.SecretAccessKey')`,
-        "ORIGINAL_REMOTE=`git config --get remote.origin.url`",
-        'SOURCE_REPO_URL=`sed -e "s^//^//$ACCESS_KEY_ID:$SECRET_ACCESS_KEY@^" <<< $ORIGINAL_REMOTE`',
-        'echo "Configuring git..."',
-        "git remote set-url origin $SOURCE_REPO_URL",
-        'git config --global user.email "robot@codecatalyst.com"',
-        'git config --global user.name "Robot"',
-        "git checkout main",
-        "git add -A",
-        'git commit -m "fix: commit generated files"',
-        "git push",
+        "git add .",
+        "git diff --staged --exit-code > /dev/null || self_mutation=true",
+        [
+          'if [ "$self_mutation" = true ]; then',
+          '  echo "Changes detected, proceeding to update files..."',
+          "  should_release=false",
+          "  chmod +x ./scripts/setup-git.sh && ./scripts/setup-git.sh",
+          '  git commit -m "fix: commit lock files"',
+          "  latest_commit=$(git ls-remote origin -h ${WorkflowSource.BranchName} | cut -f1)",
+          '  if [ "$latest_commit" = "${WorkflowSource.CommitId}" ]; then',
+          '    echo "At tip, pushing changes."',
+          "    git push",
+          "  else",
+          '    echo "New commit detected, aborting release..."',
+          "  fi",
+          "else",
+          '  echo "No changes detected, proceeding to release..."',
+          "  should_release=true",
+          "fi",
+        ].join("\n"),
       ].map((step) => {
         return {
           Run: step,
         };
       }),
+    },
+  });
+
+  addGenericAction(workflowDefinition, "TriggerRelease", {
+    Identifier: getDefaultActionIdentifier(
+      "codecatalyst-labs/invoke-workflow-action@v1.0.35",
+      environmentId
+    ),
+    DependsOn: ["UpdateLockFiles"],
+    Configuration: {
+      WorkflowName: "release",
+      ConditionalVariable: "${UpdateLockFiles.should_release}",
     },
   });
 }
@@ -146,6 +165,7 @@ export function addTrivyAction(
     Inputs: {
       Sources: ["WorkflowSource"],
     },
+    DependsOn: ["Build"],
     Configuration: {
       Steps: [
         {
@@ -189,15 +209,15 @@ export function addLicenseCheckerAction(
       environmentId
     ),
     Inputs: {
-      Sources: ["WorkflowSource"],
+      Artifacts: ["Built"],
     },
+    DependsOn: ["Build"],
     Configuration: {
       ...PDK_IMAGE,
       Steps: [
         "CWD=`pwd` PROJECT_DIRS=`find . -type f \\( -name pnpm-lock.yaml -o -name pyproject.toml -o -name pom.xml \\) -exec bash -c 'echo $(dirname $0)' {} \\; | sort | uniq`",
         "find . -name pyproject.toml -exec bash -c 'cd $(dirname $0) && poetry export --without-hashes --with dev -f requirements.txt | grep -v \"file:\" > requirements.txt && pip3 install -r requirements.txt' {} \\;",
         projen ? "npx projen install:ci" : "scripts/run-task install:ci",
-        projen ? "npx projen build" : "scripts/run-task build",
         "for DIR in $PROJECT_DIRS;\ndo\n  cd $CWD/$DIR\n  pwd;\n  license_finder --decisions_file $CWD/approved-licenses.yaml\ndone",
       ].map((step) => {
         return { Run: step };

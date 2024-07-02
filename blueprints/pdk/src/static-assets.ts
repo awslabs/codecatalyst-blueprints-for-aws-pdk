@@ -270,6 +270,18 @@ Refer to https://aws.github.io/aws-pdk/developer_guides/monorepo/index.html
   - "package-json-from-dist"
 - - :approve
   - "BlueOak"`,
+  "scripts/setup-git.sh": `#!/bin/bash
+echo "Getting credentials..."
+MI=\`curl $AWS_CONTAINER_TOKEN_ENDPOINT\`
+ACCESS_KEY_ID=$(echo "$MI" | jq -r '.AccessKeyId')
+SECRET_ACCESS_KEY=$(echo "$MI" | jq -r '.SecretAccessKey')
+ORIGINAL_REMOTE=\`git config --get remote.origin.url\`
+SOURCE_REPO_URL=\`sed -e "s^//^//$ACCESS_KEY_ID:$SECRET_ACCESS_KEY@^" <<< $ORIGINAL_REMOTE\`
+echo "Configuring git..."
+git remote set-url origin $SOURCE_REPO_URL
+git config --global user.email "no-reply+release-orchestrator@codecatalyst.com"
+git config --global user.name "ReleaseOrchestrator"
+git checkout main`,
 };
 
 export const ASL = `Amazon Software License 1.0
