@@ -40,6 +40,40 @@ const LAMBDA_COMPUTE: string[] = [
   ComputeFleet.LINUX_ARM64_XLARGE,
 ];
 
+const extractKeyValues = (parameters: DynamicKVInput[]) =>
+  parameters.map((o) => ({ key: o.key, value: o.value }));
+
+/**
+ * TODO: remove once this is resolved: https://github.com/projen/projen/issues/3679
+ *
+ * @param options_ options
+ * @returns options with only key value pairs
+ */
+const minimize = (options_: Options): Options => ({
+  ...options_,
+  monorepoConfig: {
+    ...options_.monorepoConfig,
+    parameters: extractKeyValues(options_.monorepoConfig.parameters),
+  },
+  apiConfig: {
+    ...options_.apiConfig,
+    parameters: extractKeyValues(options_.apiConfig.parameters),
+  },
+  websiteConfig: {
+    ...options_.websiteConfig,
+    parameters: extractKeyValues(options_.websiteConfig.parameters),
+  },
+  infra: {
+    ...options_.infra,
+    parameters: extractKeyValues(options_.infra.parameters),
+  },
+  devOps: {
+    ...options_.devOps,
+    parameters: extractKeyValues(options_.devOps.parameters),
+    computeParameters: extractKeyValues(options_.devOps.computeParameters),
+  },
+});
+
 /**
  * This is the 'Options' interface. The 'Options' interface is interpreted by the wizard to dynamically generate a selection UI.
  * 1. It MUST be called 'Options' in order to be interpreted by the wizard
@@ -177,6 +211,10 @@ export class Blueprint extends ParentBlueprint {
 
   constructor(options_: Options) {
     super(options_);
+
+    this.setInstantiation({
+      options: minimize(options_),
+    });
 
     const deploymentStages: _DeploymentStage[] = Object.entries(
       options_.devOps.parameters.reduce(
