@@ -1,5 +1,6 @@
 import { execSync } from 'child_process';
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, readdirSync, rmSync, rmdirSync, statSync, writeFileSync } from 'fs';
+import path from 'path';
 import {
   Blueprint,
   MergeStrategies,
@@ -81,6 +82,30 @@ export interface Options {
 }
 
 const camelToSnakeCase = (str: string) => str.replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`).replace(/^_/, '');
+
+const cleanEmptyFoldersRecursively = (folder: string) => {
+  var isDir = statSync(folder).isDirectory();
+  if (!isDir) {
+    return;
+  }
+  var files = readdirSync(folder);
+  if (files.length > 0) {
+    files.forEach(function(file) {
+      var fullPath = path.join(folder, file);
+      cleanEmptyFoldersRecursively(fullPath);
+    });
+
+    // re-evaluate files; after deleting subfolder
+    // we may have parent folder empty now
+    files = readdirSync(folder);
+  }
+
+  if (files.length == 0) {
+    console.log('removing: ', folder);
+    rmdirSync(folder);
+    return;
+  }
+};
 
 export class PDKSynth extends Component {
   private readonly sourceRepository: SourceRepository;
@@ -197,6 +222,7 @@ export class PDKSynth extends Component {
     process.env.PROJEN_DISABLE_POST = 'false';
 
     this.patchProjenRunTask(project);
+    this.deleteProjenFile(project);
   }
 
   // TODO: remove once resolved: https://github.com/projen/projen/issues/3679
@@ -207,6 +233,13 @@ export class PDKSynth extends Component {
       const result = contents.replace('var packageVersion = require("../package.json").version;', '');
       writeFileSync(f, result, 'utf-8');
     });
+  }
+
+  private deleteProjenFile(project: Project) {
+    if (!this.options.monorepo.projen) {
+      ['.projenrc.ts.bak', '.projenrc.py.bak', 'src/test/java/projenrc.java'].forEach(f => rmSync(`${project.outdir}/${f}`, { force: true }));
+      this.options.monorepo.primaryLanguage === 'Java' && cleanEmptyFoldersRecursively(`${project.outdir}/src`);
+    }
   }
 
   private synthTypescriptBlueprint() {
