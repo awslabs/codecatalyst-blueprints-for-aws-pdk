@@ -34,7 +34,9 @@ import { Component, Project, SampleReadme } from 'projen';
 import { NodePackageManager, NpmConfig, YarnNodeLinker } from 'projen/lib/javascript';
 import { projenrcMap } from './projen-template';
 
-const INFRA_OUTDIR = 'packages/infra/main';
+const MONOREPO_PROJECT = 'monorepo';
+const INFRA_PROJECT = 'infra';
+const INFRA_OUTDIR = `packages/${INFRA_PROJECT}/main`;
 const YARN_VERSION = '4.1.0';
 
 export type DocumentationFormats = 'HTML_REDOC' | 'HTML2' | 'MARKDOWN' | 'PLANTUML';
@@ -120,6 +122,8 @@ export class PDKSynth extends Component {
     this.sourceRepository = sourceRepository;
     this.options = options;
 
+    this.validate();
+
     // Copy language specific projenrc
     const projenRcFile = projenrcMap[this.options.monorepo.primaryLanguage.toLowerCase()];
     new SourceFile(
@@ -184,6 +188,23 @@ export class PDKSynth extends Component {
     }]);
   }
 
+  validate(): void {
+    const projectNames = [
+      MONOREPO_PROJECT,
+      INFRA_PROJECT,
+      ...(this.options.website || []).map(w => w.websiteName),
+      ...(this.options.api || []).map(a => a.apiName),
+    ];
+    const duplicates = new Set(projectNames.filter((item, index) => projectNames.some((elem, idx) => elem === item && idx !== index)));
+
+    if (duplicates.size > 0) {
+      (this.project as Blueprint).throwSynthesisError({
+        name: BlueprintSynthesisErrorTypes.ValidationError,
+        message: `Project names cannot be duplicated ${JSON.stringify(Array.from(duplicates), undefined, 2)}`,
+      });
+    }
+  }
+
   synthesize(): void {
     switch (this.options.monorepo.primaryLanguage) {
       case 'TypeScript':
@@ -245,7 +266,7 @@ export class PDKSynth extends Component {
   private synthTypescriptBlueprint() {
     const monorepo = new MonorepoTsProject({
       outdir: this.sourceRepository.path,
-      name: 'monorepo',
+      name: MONOREPO_PROJECT,
       packageManager: this.getPackageManager(),
       yarnBerryOptions: {
         yarnRcOptions: {
@@ -314,7 +335,7 @@ export class PDKSynth extends Component {
   private synthJavaBlueprint() {
     const monorepo = new MonorepoJavaProject({
       outdir: this.sourceRepository.path,
-      name: 'monorepo',
+      name: MONOREPO_PROJECT,
       disableDefaultLicenses: this.options.monorepo.licenseOptions?.disableDefaultLicenses,
     });
 
@@ -328,8 +349,8 @@ export class PDKSynth extends Component {
   private synthPythonBlueprint() {
     const monorepo = new MonorepoPythonProject({
       outdir: this.sourceRepository.path,
-      name: 'monorepo',
-      moduleName: 'monorepo',
+      name: MONOREPO_PROJECT,
+      moduleName: MONOREPO_PROJECT,
       licenseOptions: this.options.monorepo.licenseOptions,
     });
 
@@ -423,7 +444,7 @@ export class PDKSynth extends Component {
         new InfrastructureTsProject({
           parent,
           outdir: INFRA_OUTDIR,
-          name: 'infra',
+          name: INFRA_PROJECT,
           allowSignup: this.options.infra.allowSelfRegistration,
           stages: this.options.stages,
           cloudscapeReactTsWebsites: props.websites?.filter(w => (this.options.infra?.cloudscapeReactTsWebsites || [])
@@ -437,9 +458,9 @@ export class PDKSynth extends Component {
         new InfrastructureJavaProject({
           parent,
           outdir: INFRA_OUTDIR,
-          name: 'infra',
-          artifactId: 'infra',
-          groupId: 'infra',
+          name: INFRA_PROJECT,
+          artifactId: INFRA_PROJECT,
+          groupId: INFRA_PROJECT,
           allowSignup: this.options.infra.allowSelfRegistration,
           stages: this.options.stages,
           cloudscapeReactTsWebsites: props.websites?.filter(w => (this.options.infra?.cloudscapeReactTsWebsites || [])
@@ -453,7 +474,7 @@ export class PDKSynth extends Component {
         new InfrastructurePyProject({
           parent,
           outdir: INFRA_OUTDIR,
-          name: 'infra',
+          name: INFRA_PROJECT,
           allowSignup: this.options.infra.allowSelfRegistration,
           stages: this.options.stages,
           cloudscapeReactTsWebsites: props.websites?.filter(w => (this.options.infra?.cloudscapeReactTsWebsites || [])

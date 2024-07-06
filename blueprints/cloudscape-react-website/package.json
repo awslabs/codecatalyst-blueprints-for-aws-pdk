@@ -43,11 +43,11 @@
     "typescript": "5.5.3"
   },
   "dependencies": {
-    "@amazon-codecatalyst/blueprint-util.cli": "0.3.144",
-    "@amazon-codecatalyst/blueprints": "0.3.144",
+    "@amazon-codecatalyst/blueprint-util.cli": "0.3.146",
+    "@amazon-codecatalyst/blueprints": "0.3.146",
     "@amazon-codecatalyst/Centre-of-Prototyping-Excellence.pdk-synth": "0.0.0",
-    "@aws/pdk": "0.23.45",
-    "projen": "0.82.8"
+    "@aws/pdk": "0.23.46",
+    "projen": "0.84.0"
   },
   "keywords": [
     "cloudscape",

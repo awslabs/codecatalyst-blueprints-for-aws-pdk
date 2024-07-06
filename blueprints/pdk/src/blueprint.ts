@@ -120,8 +120,8 @@ export interface Options extends ParentOptions {
      *
      * @displayName Type Safe APIs
      * @placeholder Enter a name for your new API
-     * @validationRegex /^[A-Z]\w{0,99}$/
-     * @validationMessage API Names must conform to PascalCase and can only contain alphanumerical characters (with the exception of underscores).
+     * @validationRegex /^\b([A-Z]\w{0,99})\b(?<!Abstract|And|Any|As|Assert|Asserts|Async|Await|Boolean|Break|Byte|Case|Catch|Char|Class|Const|Constructor|Continue|Debugger|Declare|Def|Default|Del|Delete|Do|Double|Elif|Else|Enum|Except|Export|Extends|False|Final|Finally|Float|For|From|Function|Get|Global|Goto|If|Implements|Import|In|Infer|Instanceof|Int|Interface|Is|Keyof|Lambda|Long|Module|Namespace|Native|Never|New|None|Nonlocal|Not|Null|Number|Or|Package|Pass|Private|Protected|Public|Raise|Readonly|Require|Return|Set|Short|Static|Strictfp|String|Super|Switch|Symbol|Synchronized|This|Throw|Throws|Transient|True|Try|Type|Typeof|Undefined|Unique|Unknown|Var|Void|Volatile|While|With|Yield)$/
+     * @validationMessage API Names must conform to PascalCase and can only contain alphanumerical characters which are not reserved words (with the exception of underscores).
      */
     typeSafeApis: string[];
 
@@ -136,9 +136,9 @@ export interface Options extends ParentOptions {
      * Add a new Website to your project by clicking the button below.
      *
      * @displayName Cloudscape React Websites
-     * @validationRegex /^.{0,100}$/
+     * @validationRegex /^\b([A-Z]\w{0,99})\b(?<!Abstract|And|Any|As|Assert|Asserts|Async|Await|Boolean|Break|Byte|Case|Catch|Char|Class|Const|Constructor|Continue|Debugger|Declare|Def|Default|Del|Delete|Do|Double|Elif|Else|Enum|Except|Export|Extends|False|Final|Finally|Float|For|From|Function|Get|Global|Goto|If|Implements|Import|In|Infer|Instanceof|Int|Interface|Is|Keyof|Lambda|Long|Module|Namespace|Native|Never|New|None|Nonlocal|Not|Null|Number|Or|Package|Pass|Private|Protected|Public|Raise|Readonly|Require|Return|Set|Short|Static|Strictfp|String|Super|Switch|Symbol|Synchronized|This|Throw|Throws|Transient|True|Try|Type|Typeof|Undefined|Unique|Unknown|Var|Void|Volatile|While|With|Yield)$/
      * @placeholder Enter a name for your new Website
-     * @validationMessage Website names can be any string not exceeding 100 chars.
+     * @validationMessage Website names must conform to PascalCase and can only contain alphanumerical characters which are not reserved words (with the exception of underscores).
      */
     cloudscapeReactTsWebsites: string[];
 
@@ -192,7 +192,12 @@ export interface Options extends ParentOptions {
     >;
 
     /**
-     * Add stages to your workflow.
+     * Add deployment stages to your workflow.
+     *
+     * @displayName Stages
+     * @validationRegex /^\b([A-Z]\w{2,99})$/
+     * @placeholder Enter a name for your Stage
+     * @validationMessage Stage names must conform to PascalCase and be between 3 and 100 characters.
      */
     stages: string[];
 
