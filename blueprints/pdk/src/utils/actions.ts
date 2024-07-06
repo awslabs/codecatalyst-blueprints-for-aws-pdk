@@ -10,7 +10,7 @@ import {
   getDefaultActionIdentifier,
 } from "@amazon-codecatalyst/blueprints";
 
-const LOCKFILE_COMMIT_MESSAGE = "chore(lockfile): commit lock files";
+const COMMIT_MESSAGE = "chore: commit generated files";
 
 const PDK_IMAGE = {
   Container: {
@@ -44,65 +44,6 @@ export function addGenericAction(
   return wfDefnition;
 }
 
-export function addReleaseOrchestratorActions(
-  workflowDefinition: WorkflowDefinition,
-  environmentId: string | undefined,
-  projen: boolean
-) {
-  addGenericAction(workflowDefinition, "UpdateLockFiles", {
-    Identifier: getDefaultActionIdentifier("aws/build@v1", environmentId),
-    Inputs: {
-      Sources: ["WorkflowSource"],
-    },
-    Outputs: {
-      Variables: ["should_release"],
-    },
-    Configuration: {
-      ...PDK_IMAGE,
-      Steps: [
-        projen ? "npx projen install" : "scripts/run-task install",
-        "git add .",
-        "git diff --staged --exit-code > /dev/null || self_mutation=true",
-        [
-          'if [ "$self_mutation" = true ]; then',
-          '  echo "Changes detected, proceeding to update files..."',
-          "  should_release=false",
-          "  chmod +x ./scripts/setup-git.sh && ./scripts/setup-git.sh",
-          `  git log -1 --pretty=%B | grep -q "^${LOCKFILE_COMMIT_MESSAGE}$" && echo "cycle detected, exiting" && exit 1 || true`,
-          `  git commit -m "${LOCKFILE_COMMIT_MESSAGE}"`,
-          "  latest_commit=$(git ls-remote origin -h ${WorkflowSource.BranchName} | cut -f1)",
-          '  if [ "$latest_commit" = "${WorkflowSource.CommitId}" ]; then',
-          '    echo "At tip, pushing changes."',
-          "    git push",
-          "  else",
-          '    echo "New commit detected, aborting release..."',
-          "  fi",
-          "else",
-          '  echo "No changes detected, proceeding to release..."',
-          "  should_release=true",
-          "fi",
-        ].join("\n"),
-      ].map((step) => {
-        return {
-          Run: step,
-        };
-      }),
-    },
-  });
-
-  addGenericAction(workflowDefinition, "TriggerRelease", {
-    Identifier: getDefaultActionIdentifier(
-      "codecatalyst-labs/invoke-workflow-action@v1.0.35",
-      environmentId
-    ),
-    DependsOn: ["UpdateLockFiles"],
-    Configuration: {
-      WorkflowName: "release",
-      ConditionalVariable: "${UpdateLockFiles.should_release}",
-    },
-  });
-}
-
 export function addBuildAction(
   workflowDefinition: WorkflowDefinition,
   environmentId: string | undefined,
@@ -112,6 +53,10 @@ export function addBuildAction(
     Identifier: getDefaultActionIdentifier("aws/build@v1", environmentId),
     Inputs: {
       Sources: ["WorkflowSource"],
+      Variables: {
+        Name: "CI",
+        Value: "true",
+      },
     },
     Outputs: {
       Artifacts: [
@@ -139,8 +84,31 @@ export function addBuildAction(
     Configuration: {
       ...PDK_IMAGE,
       Steps: [
-        projen ? "npx projen install:ci" : "scripts/run-task install:ci",
-        projen ? "npx projen build" : "scripts/run-task build",
+        "self_mutation=false",
+        projen
+          ? "npx projen install:ci || npx projen install"
+          : "scripts/run-task install:ci || scripts/run-task install",
+        "git add . && git diff --staged --exit-code > /dev/null || self_mutation=true && unset CI",
+        `${projen ? "npx projen" : "scripts/run-task"} build`,
+        [
+          'if [ "$self_mutation" = true ]; then',
+          '  echo "Changes detected, proceeding to commit back files..."',
+          `  ${projen ? "npx projen" : "scripts/run-task"} build`,
+          "  git add .",
+          "  chmod +x ./scripts/setup-git.sh && ./scripts/setup-git.sh",
+          `  git log -1 --pretty=%B | grep -q "^${COMMIT_MESSAGE}$" && echo "cycle detected, exiting" && exit 1 || true`,
+          `  git commit -m "${COMMIT_MESSAGE}"`,
+          "  latest_commit=$(git ls-remote origin -h ${WorkflowSource.BranchName} | cut -f1)",
+          '  if [ "$latest_commit" = "${WorkflowSource.CommitId}" ]; then',
+          '    echo "At tip, pushing changes."',
+          "    git push",
+          '    echo "Aborting workflow as new run started..."',
+          "  else",
+          '    echo "New commit detected, aborting release..."',
+          "  fi",
+          "  exit 1",
+          "fi",
+        ].join("\n"),
       ].map((step) => {
         return {
           Run: step,
@@ -167,7 +135,11 @@ export function addTrivyAction(
       environmentId
     ),
     Inputs: {
-      Sources: ["WorkflowSource"],
+      Artifacts: ["Built"],
+      Variables: {
+        Name: "CI",
+        Value: "true",
+      },
     },
     DependsOn: ["Build"],
     Configuration: {
@@ -181,6 +153,7 @@ export function addTrivyAction(
             format: "sarif",
             output: "trivy_report.sarif",
             scanners: "vuln,config,secret",
+            "skip-dirs": ".nx,node_modules/.nx",
           },
         },
       ],
@@ -214,6 +187,10 @@ export function addLicenseCheckerAction(
     ),
     Inputs: {
       Sources: ["WorkflowSource"],
+      Variables: {
+        Name: "CI",
+        Value: "true",
+      },
     },
     DependsOn: ["Build"],
     Configuration: {
