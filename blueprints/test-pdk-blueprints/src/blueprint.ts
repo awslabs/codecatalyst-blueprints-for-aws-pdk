@@ -33,6 +33,15 @@ export interface Options extends ParentOptions {
       deployRole: Role<["CDK Deploy"]>;
     }>;
   }>;
+
+  /**
+   * The name of the AWS CloudFormation stack to deploy.
+   * @displayName Stack name
+   * @validationRegex /^[a-zA-Z][a-zA-Z0-9-]{0,99}$/
+   * @validationMessage Stack names must start with a letter, then contain alphanumeric characters and dashes(-) up to a total length of 100 characters
+   * @defaultEntropy 5
+   */
+  stackName?: string;
 }
 export class Blueprint extends ParentBlueprint {
   private readonly options: Options;
@@ -66,7 +75,10 @@ export class Blueprint extends ParentBlueprint {
         monorepoBlueprint,
         typeSafeApiBlueprint,
         cloudscapeWebsiteBlueprint
-      )
+      ),
+      {
+        stackName: this.options.stackName,
+      }
     );
     infraBlueprint.synth();
 
@@ -80,6 +92,7 @@ export class Blueprint extends ParentBlueprint {
       ),
       {
         deploymentTarget: this.options.environment,
+        stackName: this.options.stackName,
       }
     );
     devOpsBlueprint.synth();

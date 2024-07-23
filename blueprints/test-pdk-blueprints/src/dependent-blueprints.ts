@@ -121,11 +121,15 @@ export class TestCloudscapeWebsiteBlueprint extends CloudscapeWebsiteBlueprint {
 }
 
 export class TestInfraBlueprint extends InfraBlueprint {
-  constructor(bp: Blueprint, instantiations: BlueprintInstantiation[]) {
+  constructor(
+    bp: Blueprint,
+    instantiations: BlueprintInstantiation[],
+    infraOptions?: Partial<InfraOptions>
+  ) {
     process.env.PACKAGE_NAME = INFRA_PACKAGE;
     process.env.EXISTING_BUNDLE_ABS = bp.outdir;
 
-    const options: InfraOptions = {
+    let options: InfraOptions = {
       outdir: bp.outdir,
       ...InfraDefaults,
       language: InfraDefaults.language as InfraOptions["language"],
@@ -137,6 +141,10 @@ export class TestInfraBlueprint extends InfraBlueprint {
         .filter((bpi) => bpi.packageName === WEBSITE_PACKAGE)
         .map((bpi) => bpi.id),
     };
+
+    if (infraOptions) {
+      options = { ...options, ...infraOptions };
+    }
 
     super(options, (_bp: Blueprint) => {
       _bp.context.project.blueprint.instantiations = instantiations;
@@ -151,6 +159,7 @@ export class TestDevOpsBlueprint extends DevOpsBlueprint {
     instantiations: BlueprintInstantiation[],
     deploymentOptions: {
       deploymentTarget: DevOpsOptions["beta"]["environment"];
+      stackName?: string;
     }
   ) {
     process.env.PACKAGE_NAME = DEVOPS_PACKAGE;
@@ -161,7 +170,7 @@ export class TestDevOpsBlueprint extends DevOpsBlueprint {
       ...DevOpsDefaults,
       beta: {
         ...DevOpsDefaults.beta,
-        stackName: "infra-canary",
+        stackName: deploymentOptions.stackName ?? "infra-canary",
         environment: deploymentOptions.deploymentTarget,
       },
     };
