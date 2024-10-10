@@ -111,7 +111,7 @@ export function addTrivyAction(
       Steps: [
         {
           name: "Trivy Vulnerability Scanner",
-          uses: "aquasecurity/trivy-action@master",
+          uses: "aquasecurity/trivy-action@0.24.0",
           with: {
             "scan-type": "fs",
             "ignore-unfixed": true,
